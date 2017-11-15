@@ -7,4 +7,4 @@ title: Blog
   This page will contain all index of the post
 </p>
 
-##This part is the index of all blog
+### This part is the index of all blog
