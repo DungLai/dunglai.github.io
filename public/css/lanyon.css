@@ -570,3 +570,6 @@ a.pagination-item:hover {
   left: 30px;
   top: 30px;
 }
+.blog-index a {
+  color:red;
+}
