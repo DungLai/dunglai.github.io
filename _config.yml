@@ -6,7 +6,7 @@ permalink:           pretty
 # Setup
 title:               Dung Lai
 tagline:             'blog'
-description:         'A personal website of <a href="site.About" target="_blank">Dung Lai</a>, containing technical blog on technology.'
+description:         'A personal website of <a href="About" target="_blank">Dung Lai</a>, containing technical blog on technology.'
 url:                 http://lanyon.getpoole.com
 baseurl:             ''
 paginate:            5
