@@ -6,7 +6,7 @@
   <body>
 
     {% include sidebar.html %}
-    {% include blog_index.html %}
+    
 
     <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
          content to avoid any CSS collisions with our real content. -->
@@ -19,6 +19,8 @@
           </h3>
         </div>
       </div>
+    
+      {% include blog_index.html %}
 
       <div class="container content">
         {{ content }}
