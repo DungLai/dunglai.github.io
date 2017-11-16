@@ -565,8 +565,7 @@ a.pagination-item:hover {
 
 /*Blog-index*/
 .blog-index {
-  position: relative;
-  float: left;
+  position: absolute;
   left: 60px;
   top: 60px;
 }
