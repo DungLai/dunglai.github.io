@@ -562,13 +562,9 @@ a.pagination-item:hover {
   box-shadow: -.25rem 0 .5rem rgba(0,0,0,.1);
 }
 
+
 /*Blog-index*/
 .blog-index {
   position: absolute;
   left: 60px;
-}
-
-/*Decrease font size of the whole website*/
-* {
-  font-size: 90%;
 }
