@@ -565,11 +565,7 @@ a.pagination-item:hover {
 
 /*Blog-index*/
 .blog-index {
-  color: red;
   position: relative;
   left: 30px;
   top: 30px;
-}
-.blog-index a {
-  color:red;
 }
