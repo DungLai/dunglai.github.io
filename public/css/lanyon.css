@@ -139,7 +139,6 @@ h1, h2, h3, h4, h5, h6 {
  *
  * Source: http://css-tricks.com/off-canvas-menu-with-css-target/#comment-207504
  */
-
 /* Style and "hide" the sidebar */
 .sidebar {
   position: fixed;
@@ -150,7 +149,7 @@ h1, h2, h3, h4, h5, h6 {
   visibility: hidden;
   overflow-y: auto;
   font-family: "PT Sans", Helvetica, Arial, sans-serif;
-  font-size: .9rem/*.875rem*/; /* 15px */
+  font-size: 1.5rem/*.875rem*/; /* 15px */
   color: rgba(255,255,255,.6);
   background-color: #202020;
   -webkit-transition: all .3s ease-in-out;
@@ -172,7 +171,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .sidebar-item p:last-child {
   margin-bottom: 0;
-}
+}++++++++++++++++++++
 
 /* Sidebar nav */
 .sidebar-nav {
