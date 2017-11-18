@@ -63,7 +63,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .wrap {
   position: relative;
-  width: 100%; /*change from 100*/
+  width: 100%; 
 }
 
 
@@ -74,24 +74,16 @@ h1, h2, h3, h4, h5, h6 {
  */
 
 .container {
-  max-width:  28rem; /*28*/
+  max-width:  28rem; 
 }
 @media (min-width: 38em) {
   .container {
     max-width: 40rem;
   }
-  /*added*/
-  .wrap {
-    width: 100%;
-  }
 }
 @media (min-width: 56em) {
   .container {
     max-width: 48rem; /*change from 38*/
-  }
-  /*added*/
-  .wrap {
-    width: 100%;
   }
 }
 
@@ -127,15 +119,10 @@ h1, h2, h3, h4, h5, h6 {
   .masthead-title {
     text-align: center;
   }
-  .masthead-title small {
+/*  .masthead-title small {
     display: none;
-  }
+  }*/
 
-}
-@media (max-width: 70em) {
-  .blog-index {
-    display: none;
-  }
 }
 /*
  * Sidebar
@@ -578,5 +565,37 @@ a.pagination-item:hover {
 /*Blog-index*/
 .blog-index {
   position: absolute;
-  left: 60px;
-}*/
+  margin-left:  4rem;
+  margin-right: 4rem;
+}
+
+/*reponsive blog index*/
+
+@media (max-width: 78em) {
+  .blog-index {
+    padding-left:  0rem;
+    padding-right: 0rem;    
+    position: relative;
+    max-width: 48rem; 
+    margin-left:  auto;
+    margin-right: auto;
+  }
+}
+
+.blog-index {
+  max-width:  28rem; 
+}
+@media (min-width: 38em) {
+  .blog-index {
+    padding-left:  0rem;
+    padding-right: 0rem;  
+    max-width: 40rem;
+  }
+}
+@media (min-width: 56em) {
+  .blog-index {
+    padding-left:  0rem;
+    padding-right: 0rem;  
+    max-width: 48rem; /*change from 38*/
+  }
+}
