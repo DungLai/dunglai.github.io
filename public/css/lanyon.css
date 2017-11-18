@@ -1,4 +1,4 @@
-/*
+/*/*
  *  ___
  * /\_ \
  * \//\ \      __      ___   __  __    ___     ___
@@ -63,7 +63,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .wrap {
   position: relative;
-  width: 100%;
+  width: 100%; /*change from 100*/
 }
 
 
@@ -74,16 +74,24 @@ h1, h2, h3, h4, h5, h6 {
  */
 
 .container {
-  max-width: 28rem;
+  max-width:  28rem; /*28*/
 }
 @media (min-width: 38em) {
   .container {
-    max-width: 32rem;
+    max-width: 40rem;
+  }
+  /*added*/
+  .wrap {
+    width: 100%;
   }
 }
 @media (min-width: 56em) {
   .container {
-    max-width: 38rem;
+    max-width: 48rem; /*change from 38*/
+  }
+  /*added*/
+  .wrap {
+    width: 100%;
   }
 }
 
@@ -122,9 +130,13 @@ h1, h2, h3, h4, h5, h6 {
   .masthead-title small {
     display: none;
   }
+
 }
-
-
+@media (max-width: 70em) {
+  .blog-index {
+    display: none;
+  }
+}
 /*
  * Sidebar
  *
@@ -261,7 +273,7 @@ a.sidebar-nav-item:focus {
   }
 }
 
-/* Slide effect
+ Slide effect
  *
  * Handle the sliding effects of the sidebar and content in one spot, seperate
  * from the default styles.
@@ -272,7 +284,7 @@ a.sidebar-nav-item:focus {
  * `position: absolute;` when transformed.
  *
  * Read more about it at http://meyerweb.com/eric/thoughts/2011/09/12/.
- */
+ 
 
 .wrap,
 .sidebar,
@@ -567,4 +579,4 @@ a.pagination-item:hover {
 .blog-index {
   position: absolute;
   left: 60px;
-}
+}*/
