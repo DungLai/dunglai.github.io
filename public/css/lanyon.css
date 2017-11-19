@@ -564,27 +564,26 @@ a.pagination-item:hover {
 
 /*Blog-index*/
 .blog-index {
+  width: 100%;
+  max-width:  28rem; 
   position: absolute;
   margin-left:  4rem;
   margin-right: 4rem;
 }
 
-/*reponsive blog index*/
+/*reponsive blog index*/ 
 
 @media (max-width: 78em) {
   .blog-index {
     padding-left:  1rem;
     padding-right: 1rem;    
     position: relative;
-    max-width: 48rem; 
+    max-width: 28rem; 
     margin-left:  auto;
     margin-right: auto;
   }
 }
 
-.blog-index {
-  max-width:  28rem; 
-}
 @media (min-width: 38em) {
   .blog-index {
     padding-left:  1rem;
@@ -596,6 +595,6 @@ a.pagination-item:hover {
   .blog-index {
     padding-left:  1rem;
     padding-right: 1rem;  
-    max-width: 48rem; /*change from 38*/
+    max-width: 48rem; 
   }
 }
