@@ -6,7 +6,7 @@ permalink:           pretty
 # Setup
 title:               Dung Lai
 tagline:             'blog'
-description:         'A personal website of <a href="about" target="_blank">Dung Lai</a>, containing technical blog on technology.'
+description:         'A personal website of <a href="https://dunglai.github.io/about" target="">Dung Lai</a>, containing technical blog on technology.'
 url:                 dunglai.github.io
 baseurl:             'https://dunglai.github.io'
 paginate:            5
