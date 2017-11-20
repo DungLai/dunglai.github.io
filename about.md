@@ -7,4 +7,4 @@ title: About
   Thank you for reaching me out.
 </p>
 
-I'm currently an Computer Science undergrad student at [Swinburne University of Technology](https://en.wikipedia.org/wiki/Swinburne_University_of_Technology) in Melbourne. 
+I'm currently a Computer Science undergrad student at [Swinburne University of Technology](https://en.wikipedia.org/wiki/Swinburne_University_of_Technology) in Melbourne. 
