@@ -2,13 +2,15 @@
 #
 # Use of `relative_permalinks` ensures post links from the index work properly.
 permalink:           pretty
-
+highlighter:         rouge
 # Setup
 title:               Dung Lai
 tagline:             'blog'
 description:         'A personal website of <a href="https://dunglai.github.io/about" target="">Dung Lai</a>, containing technical blog on technology.'
-url:                 dunglai.github.io
-baseurl:             'https://dunglai.github.io'
+# url:                 
+# baseurl:             'https://dunglai.github.io'
+url:                 http://lanyon.getpoole.com
+baseurl:             ''
 paginate:            5
 
 # About/contact
