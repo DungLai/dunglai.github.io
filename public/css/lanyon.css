@@ -578,6 +578,7 @@ a.pagination-item:hover {
   position: absolute;
   margin-left:  4rem;
   margin-right: 4rem;
+  padding-bottom: 5px;
 }
 
 .blog-index a {
