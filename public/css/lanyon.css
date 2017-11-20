@@ -308,7 +308,7 @@ a.sidebar-nav-item:focus {
 
 .page,
 .post {
-  margin-bottom: 4em;
+  margin-bottom: 1em;
 }
 
 /* Blog post or page title */
@@ -578,7 +578,7 @@ a.pagination-item:hover {
   position: absolute;
   margin-left:  4rem;
   margin-right: 4rem;
-  padding-bottom: 5px;
+  padding-bottom: 2rem;
 }
 
 .blog-index a {
@@ -622,6 +622,7 @@ a.pagination-item:hover {
 }
 
 .post-img {
+  clear:left;
   float:left; 
   display: block;
   width: 13rem; 
