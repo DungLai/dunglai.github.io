@@ -7,8 +7,8 @@ permalink:           pretty
 title:               Dung Lai
 tagline:             'blog'
 description:         'A personal website of <a href="about" target="_blank">Dung Lai</a>, containing technical blog on technology.'
-url:                 
-baseurl:             'dunglai.github.io'
+url:                 dunglai.github.io
+baseurl:             ''
 paginate:            5
 
 # About/contact
