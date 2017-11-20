@@ -8,7 +8,7 @@ title:               Dung Lai
 tagline:             'blog'
 description:         'A personal website of <a href="about" target="_blank">Dung Lai</a>, containing technical blog on technology.'
 url:                 dunglai.github.io
-baseurl:             ''
+baseurl:             'dunglai.github.io'
 paginate:            5
 
 # About/contact
