@@ -38,7 +38,7 @@
         document.addEventListener('click', function(e) {
           var target = e.target;
 
-          if(!checkbox.checked ||
+          if (!checkbox.checked ||
              sidebar.contains(target) ||
              (target === checkbox || target === toggle)) return;
 
