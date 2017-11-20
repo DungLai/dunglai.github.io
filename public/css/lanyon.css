@@ -312,12 +312,17 @@ a.sidebar-nav-item:focus {
 }
 
 /* Blog post or page title */
-.page-title,
 .post-title,
 .post-title a {
   font-size: 130%;
   color:#000099;
 }
+
+.page-title {
+  font-size: 130%;
+  color: #000000;
+}
+
 .page-title,
 .post-title {
   margin-top: 0;
@@ -576,7 +581,7 @@ a.pagination-item:hover {
 }
 
 .blog-index a {
-  color :#0000cc;
+  color :#000099;
 }
 
 /*reponsive blog index*/ 
