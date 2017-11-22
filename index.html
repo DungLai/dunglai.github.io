@@ -3,23 +3,26 @@ layout: default
 title: Blog
 ---
 <div class="posts">
+  <hr>
+  <br>
   {% for post in paginator.posts %}
   <div class="post">
     <div class="post-img">
       <a href="{{ site.baseurl }}{{ post.url }}">
-      <img src="../public/post_img/post_img_testing.png" alt="post_test_img" src="{{ site.baseurl }}{{ post.url }}">
+      <img src={{post.img}} alt="post_test_img" src="{{ site.baseurl }}{{ post.url }}">
       </a>    
     </div>
     <h2 class="post-title">
       <a href="{{ site.baseurl }}{{ post.url }}">
         {{ post.title }}
       </a>
+    <span class="post-date" style="float:right;">{{ post.date | date_to_string }}</span>
     </h2>
 
-    <span class="post-date">{{ post.date | date_to_string }}</span>
-    {{ post.desc }}
-    <div style="clear:left;">
+    <div class="post-desc">
+      {{ post.desc }}
     </div>
+    <div style="clear:left;"> </div>
     <hr>
   </div>
   {% endfor %}

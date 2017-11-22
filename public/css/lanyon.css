@@ -41,15 +41,18 @@ body {
 }
 
 html {
-  font-family: "PT Serif", Georgia, "Times New Roman", serif;
+  /*font-family: "PT Serif", Georgia, "Times New Roman", serif;*/
+  font-family: "Times New Roman", Times, serif;
   font-size: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  /*font-family: "PT Sans", Helvetica, Arial, sans-serif;*/
+  font-family: "Times New Roman", Times, serif;
   font-weight: 400;
   color: #313131;
-  letter-spacing: -.025rem;
+  font-weight: bold;` 
+  /*letter-spacing: -.025rem;*/
 }
 
 
@@ -147,8 +150,8 @@ h1, h2, h3, h4, h5, h6 {
   width: 14rem;
   visibility: hidden;
   overflow-y: auto;
-  font-family: "PT Sans", Helvetica, Arial, sans-serif;
-  font-size: .875rem/*.875rem*/; /* 15px */
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1rem/*.875rem*/; /* 15px */
   color: rgba(255,255,255,.6);
   background-color: #202020;
   -webkit-transition: all .3s ease-in-out;
@@ -308,13 +311,17 @@ a.sidebar-nav-item:focus {
 
 .page,
 .post {
-  margin-bottom: 1em;
+  margin-bottom: 1rem;
 }
 
 /* Blog post or page title */
 .post-title,
 .post-title a {
-  font-size: 130%;
+  margin-bottom: 0;
+  /*font-family: 'Roboto Condensed', sans-serif;*/
+  font-family: "Times New Roman", Times, serif;
+  font-size: 120%;
+  font-weight: bolder;
   color:#000099;
 }
 
@@ -330,13 +337,14 @@ a.sidebar-nav-item:focus {
 
 /* Meta data line below post title */
 .post-date {
+  float:right;
+  display: block;;
   margin-top:0.74em;
-  /*float: right;*/
   /*vertical-align: bottom;*/
-  margin-top: -.5rem;
-  margin-bottom: 0.8rem;
+  margin-top: /*-.5*/0rem;
+  margin-bottom: 0rem;
   color: #9a9a9a;
-  font-size: 100%;
+  font-size: 70%;
 }
 
 /* Related posts */
@@ -376,7 +384,7 @@ a.sidebar-nav-item:focus {
   overflow: hidden; /* clearfix */
   margin-left: -1rem;
   margin-right: -1rem;
-  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  font-family: "Times New Roman", Times, serif;
   color: #ccc;
   text-align: center;
 }
@@ -631,5 +639,37 @@ a.pagination-item:hover {
   padding-left: 0.3rem;
   padding-right: 2rem;
   padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.tag {
+    font-family: "Times New Roman", Times, serif;
+    text-align: left;
+    background: rgba(1,75,129,0.9);
+    color: #fff;
+    border-radius: 0px 0px 0px 0px;
+    display: inline-block;
+    height: 20px;
+    font-size: 12px;
+    line-height: 20px;
+    padding: 0 5px 0 5px;
+    position: relative;
+    margin: 0 5px 5px 0;
+    text-decoration: none;
+    -webkit-transition: color 0.2s;
+}
+
+.post-desc {
   padding-bottom: 1rem;
+}
+
+.thecap {
+    color: #555;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 0.2rem;
+}
+
+.imgcap {
+  text-align: center;
 }
