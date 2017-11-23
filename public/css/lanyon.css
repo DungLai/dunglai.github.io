@@ -673,14 +673,3 @@ a.pagination-item:hover {
 .imgcap {
   text-align: center;
 }
-
-@media (min-width: 38em) {
-  .video {
-    height: : 10%;
-  }
-}
-@media (min-width: 56em) {
-  .video {
-    height: : 10%;
-  }
-}
