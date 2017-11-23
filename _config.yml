@@ -3,7 +3,7 @@
 # Use of `relative_permalinks` ensures post links from the index work properly.
 permalink:           pretty
 markdown:            kramdown
-highlighter:         rougue #change highlighter at https://benhur07b.github.io/2017/03/25/add-syntax-highlighting-to-your-jekyll-site-with-rouge.html
+highlighter:         rouge #change highlighter at https://benhur07b.github.io/2017/03/25/add-syntax-highlighting-to-your-jekyll-site-with-rouge.html
 # Setup
 title:               Dung Lai
 tagline:             'blog'
