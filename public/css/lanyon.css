@@ -673,3 +673,9 @@ a.pagination-item:hover {
 .imgcap {
   text-align: center;
 }
+
+#wrapper {
+  background: #ccc;
+  overflow: hidden;
+  transition: height 200ms;
+}
