@@ -76,3 +76,8 @@
 .highlight .ss {
   color: #a6e22e;
 }
+
+pre {
+tab-size: 2;
+-moz-tab-size: 2;
+}
