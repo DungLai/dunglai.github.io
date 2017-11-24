@@ -9,9 +9,12 @@ img  : ../public/post_img/MusicPlayer/title.png
 
 <!-- /MarkdownTOC -->
 Music player application with GUI, able to add track, change song, select album, see album and song description
+
 Compiler: [Free Pascal Compiler](https://www.freepascal.org/)
+
 Graphical API: [swinGame API](http://www.swingame.com/)
-(Download Full code](https://github.com/DungLai/Music-Player)
+
+[Download Full code](https://github.com/DungLai/Music-Player)
 
 <embed class="video" width="1600" height="400" style="width: 100%" src="/public/post_img/MusicPlayer/demo.mp4" scale="aspect" controller="true">
 <div class="thecap">Demo video</div>
