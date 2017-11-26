@@ -4,7 +4,7 @@ title :	Music Player with GUI
 desc : <div class="tag">Pascal</div></br> Music player application with GUI, able to add track, change song, select album, see album and song description. 
 img  : ../public/post_img/MusicPlayer/title.png
 ---
-<div class="tag">Pascal</div></br>
+<div class="tag">Pascal</div>
 **Content:**
 <!-- MarkdownTOC depth=3 -->
 
