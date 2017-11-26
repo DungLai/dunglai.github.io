@@ -4,6 +4,7 @@ title : Planetary Rover Game
 desc : <div class="tag">C#</div><div class="tag">Winform</div><div class="tag">.NET</div><div class="tag">OOP</div></br>In developing the AI for a planetary rover, we are looking to create a small simulation for the rover to test various device options. The simulation will include an environment that contains a number of specimens and a number of rovers within a 20 x 20 meter area.
 img : ../public/post_img/PlanetaryRover/title.png
 ---
+<div class="tag">C#</div><div class="tag">Winform</div><div class="tag">.NET</div><div class="tag">OOP</div></br>
 **Content:**
 <!-- MarkdownTOC depth=3 -->
 
@@ -11,7 +12,7 @@ img : ../public/post_img/PlanetaryRover/title.png
 - [Game Description](#game-description)
 - [Demo video](#demo-video)
 - [Object Oriented Design](#object-oriented-design)
-	- [UML diagram](#uml-diagram)
+    - [UML diagram](#uml-diagram)
 - [Source code](#source-code)
 
 <!-- /MarkdownTOC -->

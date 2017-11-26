@@ -6,6 +6,11 @@ comments: true
 <div class="post">
   <h1 style="font-size: 130%;" class="post-title">{{ page.title }}</h1>
   <span class="post-date" style="float:none;">{{ page.date | date_to_string }}</span>
+  {% for post in paginator.posts %}
+    <div class="post-desc">
+      {{ post.desc }}
+    </div>
+{% endfor %}
   {{ content }}
 </div>
         <!-- Start of StatCounter Code for Default Guide -->
