@@ -10,34 +10,34 @@ img  : ../public/post_img/FlappyBirdAI/title.png
 
 - [1. Introduction](#1-introduction)
 - [2. Genetic Algorithm Methodology](#2-genetic-algorithm-methodology)
-	- [Optmization Problem](#optmization-problem)
-	- [Terminology](#terminology)
-		- [Population, chromosome and genome](#population-chromosome-and-genome)
-		- [Selection, mutation and crossover](#selection-mutation-and-crossover)
+	- [2.1. Optmization Problem](#21-optmization-problem)
+	- [2.2. Terminology](#22-terminology)
+		- [2.2.1. Population, chromosome and genome](#221-population-chromosome-and-genome)
+		- [2.2.2. Selection, mutation and crossover](#222-selection-mutation-and-crossover)
 - [3. Genetic Operators](#3-genetic-operators)
-	- [Encoding and Decoding](#encoding-and-decoding)
-	- [Selection](#selection)
-	- [Mutation](#mutation)
-	- [Crossover](#crossover)
+	- [3.1. Encoding and Decoding](#31-encoding-and-decoding)
+	- [3.2. Selection](#32-selection)
+	- [3.3. Mutation](#33-mutation)
+	- [3.4. Crossover](#34-crossover)
 - [4. Implementation](#4-implementation)
-	- [Implementation Overview](#implementation-overview)
-	- [Flowchart](#flowchart)
-	- [Pseudo Algorithm](#pseudo-algorithm)
+	- [4.1. Implementation Overview](#41-implementation-overview)
+	- [4.2. Flowchart](#42-flowchart)
+	- [4.3. Pseudo Algorithm](#43-pseudo-algorithm)
 - [5. Application in building AI for Flappy Bird Game](#5-application-in-building-ai-for-flappy-bird-game)
-	- [Gameplay overview](#gameplay-overview)
-	- [Training model](#training-model)
-		- [Neural Network Overiew](#neural-network-overiew)
-		- [Neural Network for Flappy Bird AI](#neural-network-for-flappy-bird-ai)
-	- [Input of training model](#input-of-training-model)
-	- [Implementation of GA](#implementation-of-ga)
-		- [Encode](#encode)
-		- [Applying genetic operator](#applying-genetic-operator)
-		- [Fitness function](#fitness-function)
+	- [5.1. Gameplay overview](#51-gameplay-overview)
+	- [5.2. Training model](#52-training-model)
+		- [5.2.1. Neural Network Overiew](#521-neural-network-overiew)
+		- [5.2.2. Neural Network for Flappy Bird AI](#522-neural-network-for-flappy-bird-ai)
+	- [5.3. Input of training model](#53-input-of-training-model)
+	- [5.4. Implementation of GA](#54-implementation-of-ga)
+		- [5.4.1. Encode](#541-encode)
+		- [5.4.2. Applying genetic operator](#542-applying-genetic-operator)
+		- [5.4.3. Fitness function](#543-fitness-function)
 - [6. Experiment Statistical Result](#6-experiment-statistical-result)
 - [7. Further Research](#7-further-research)
 - [8. Discussion](#8-discussion)
 - [9. Reference](#9-reference)
-- [Source Code and Report](#source-code-and-report)
+- [10. Source Code and Report](#10-source-code-and-report)
 
 <!-- /MarkdownTOC -->
 *Objective*
@@ -68,16 +68,16 @@ In the next part, a brief introduction to GA will be demonstrated as well as its
 </div>
 <a name="2-genetic-algorithm-methodology"></a>
 ## 2. Genetic Algorithm Methodology
-<a name="optmization-problem"></a>
-### Optmization Problem
+<a name="21-optmization-problem"></a>
+### 2.1. Optmization Problem
 Most problem in real life don't have formula and technique to calculate the exact result because of the vast generic complexity. GA works on a population of possible solutions and evolve them using method inspired by Darwin's theory in biology. The rest of the report will discuss the different between GA and other method and also perform some experiment to estimate the effectiveness of GA.
 
 Each problem using GA requires a **fitness function** which measures the quality of the solution toward an optimization problem.
-<a name="terminology"></a>
-### Terminology
+<a name="22-terminology"></a>
+### 2.2. Terminology
 In GA, a **population** of candidate solutions (also called phenotypes) is evolved toward better solutions of an optimization problem. Each candidate solution is represented by a **chromosome** which is a set of **genes** which can be alter **mutate** and **crossover**. A new set of chromosome, also known as **generation** is formed using **selection**.
-<a name="population-chromosome-and-genome"></a>
-#### Population, chromosome and genome
+<a name="221-population-chromosome-and-genome"></a>
+#### 2.2.1. Population, chromosome and genome
 **Population**: The number of individuals present with same length of chromosome. In other words, they are a set of possible solution to a optimization problem.
 
 **Genome**: A part of a chromosome. The value of each gene has an effect on the quality of solution.
@@ -87,8 +87,8 @@ In GA, a **population** of candidate solutions (also called phenotypes) is evolv
 <img style="display: inline-block; width: 55%;" src ="/public/post_img/FlappyBirdAI/gene_definition.PNG" width = "500" align = "center">
 <div class="thecap">Fig. 2: Population, Chromosomes and Genes</div>
 </div>
-<a name="selection-mutation-and-crossover"></a>
-#### Selection, mutation and crossover
+<a name="222-selection-mutation-and-crossover"></a>
+#### 2.2.2. Selection, mutation and crossover
 **Selection**: Next generation's population will keep some of the best solution in the previous generation so that best traits is retained.
 
 **Mutation**: Alter genome in chromosome.
@@ -96,14 +96,14 @@ In GA, a **population** of candidate solutions (also called phenotypes) is evolv
 **Crossover**: Mixing two individual to produce a new pair of offspring that have the trait of both 
 <a name="3-genetic-operators"></a>
 ## 3. Genetic Operators
-<a name="encoding-and-decoding"></a>
-### Encoding and Decoding
+<a name="31-encoding-and-decoding"></a>
+### 3.1. Encoding and Decoding
 Encoding technique depends heavily on the problem. Generally, encoding is the order of every genes that have an effects on the solution. Decoding is translate chromosome to solution of optimization problem. Encoding is a method to clean data before putting it in genetic operators.
 <div class="imgcap">
 <img style="display: inline-block; width: 55%;" src ="/public/post_img/FlappyBirdAI/def_table.PNG" width = "500" align = "center">
 </div>
-<a name="selection"></a>
-### Selection
+<a name="32-selection"></a>
+### 3.2. Selection
 Selection process is mainly responsible for assuring survival of the best-fit
 individuals. Best solution will be retained in the next generation.
 
@@ -124,8 +124,8 @@ $$f_i$$: Fitness value of individual with index $$i$$
 
 **Best fitness selection method**
 In this selection method, best individuals with highest fitness is being selected. This method is a trade off between diversity of population and average fitness of population where diversity decreases and average fitness increases in comparison with Roulette wheel selection method.
-<a name="mutation"></a>
-### Mutation
+<a name="33-mutation"></a>
+### 3.3. Mutation
 Mutation is used to maintain genetic diversity from one generation of a population of
 chromosomes to the next. It is analogous to biological mutation. 
 
@@ -136,8 +136,8 @@ from becoming too similar to each other, thus slowing or even stopping evolution
 <img style="display: inline-block; width: 40%;" src ="/public/post_img/FlappyBirdAI/mutation.PNG" width = "500" align = "center">
 <div class="thecap">Example of mutation on binary encoding and value encoding</div>
 </div>
-<a name="crossover"></a>
-### Crossover
+<a name="34-crossover"></a>
+### 3.4. Crossover
 The crossover splits up the parent individuals and recombines them. Crossover point can be chosen randomly to increase diversity of new population.
 <div class="imgcap">
 <img style="display: inline-block; width: 40%;" src ="/public/post_img/FlappyBirdAI/mutation.PNG" width = "500" align = "center">
@@ -148,16 +148,16 @@ Multi-point crossovers are simply crossovers with more than one position where c
 ## 4. Implementation
 <a name="implementation-overview"></a>
 The algorithm can be done by continuously create new set of possible solution using GA to evolve every generation overtime until an acceptable solution is found.
-<a name="implementation-overview"></a>
-### Implementation Overview
-<a name="flowchart"></a>
-### Flowchart
+<a name="41-implementation-overview"></a>
+### 4.1. Implementation Overview
+<a name="42-flowchart"></a>
+### 4.2. Flowchart
 <div class="imgcap">
 <img style="display: inline-block; width: 55%;" src ="/public/post_img/FlappyBirdAI/flowchart.PNG" width = "500" align = "center">
 <div class="thecap">Fig. 5: GA Flowchart</div>
 </div>
-<a name="pseudo-algorithm"></a>
-### Pseudo Algorithm
+<a name="43-pseudo-algorithm"></a>
+### 4.3. Pseudo Algorithm
 ```
 START 
 
@@ -175,14 +175,14 @@ END
 ```
 <a name="5-application-in-building-ai-for-flappy-bird-game"></a>
 ## 5. Application in building AI for Flappy Bird Game
-<a name="gameplay-overview"></a>
-### Gameplay overview
+<a name="51-gameplay-overview"></a>
+### 5.1. Gameplay overview
 Flappy Bird is a mobile game developed by a Vietnamese developer Dong Nguyen. The objective was to direct a flying bird, named "Faby", who moves continuously to the right, between sets of Mario-like pipes. If the player touches the pipes, they lose. Faby briefly flaps upward each time that the player taps the screen; if the screen is not tapped, Faby falls because of gravity; each pair of pipes that he navigates between earns the player a single point.
-<a name="training-model"></a>
-### Training model
+<a name="52-training-model"></a>
+### 5.2. Training model
 In this section, multilayer perceptron model will be discussed and an implementation on Flappy Bird game will also be provided.
-<a name="neural-network-overiew"></a>
-#### Neural Network Overiew
+<a name="521-neural-network-overiew"></a>
+#### 5.2.1. Neural Network Overiew
 1. **Layer**: They are a set of neuron (a circle that contain a number). Beside input layers and output layers, one Multilayer Perceptron can have one or more hidden layer.
 <div class="imgcap">
 <img style="display: inline-block; width: 40%;" src ="/public/post_img/FlappyBirdAI/nnmodel.PNG" width = "500" align = "center">
@@ -204,8 +204,8 @@ In this section, multilayer perceptron model will be discussed and an implementa
 <div class="thecap">Fig. 9: Different activation functions</div>
 </div>
 
-<a name="neural-network-for-flappy-bird-ai"></a>
-#### Neural Network for Flappy Bird AI
+<a name="522-neural-network-for-flappy-bird-ai"></a>
+#### 5.2.2. Neural Network for Flappy Bird AI
 In this experiment, a simple multilayer perceptron model [$$^5$$](#ref5) is chosen. The network includes one hidden layer with 6 nodes, one output layer and one input layer. One bias node is added in input layer and hidden layer. These bias nodes ensure constant variable can have an effect on the solution. Hidden layer and output layer use sigmoid function as activator.
 
 Output of neural network is a number in range 0 and 1. ```Threshold``` is set to $$0.5$$. If $$output>0.5$$ then the bird will flap. 
@@ -213,8 +213,8 @@ Output of neural network is a number in range 0 and 1. ```Threshold``` is set to
 <img style="display: inline-block; width: 55%;" src ="/public/post_img/FlappyBirdAI/neural.PNG" width = "500" align = "center">
 <div class="thecap">Fig. 10: Neural Network Architecture</div>
 </div>
-<a name="input-of-training-model"></a>
-### Input of training model
+<a name="53-input-of-training-model"></a>
+### 5.3. Input of training model
 In neural network, every input should be related to the solution. There are 5 inputs as described in figure 6.
 <div class="imgcap">
 <img style="display: inline-block; width: 55%;" src ="/public/post_img/FlappyBirdAI/fig11.PNG" width = "500" align = "center">
@@ -229,13 +229,13 @@ In neural network, every input should be related to the solution. There are 5 in
 **Input 4**: Height of bird
 
 **Input 5**: Width of tube
-<a name="implementation-of-ga"></a>
-### Implementation of GA
-<a name="encode"></a>
-#### Encode
+<a name="54-implementation-of-ga"></a>
+### 5.4. Implementation of GA
+<a name="541-encode"></a>
+#### 5.4.1. Encode
 There are 49 weights in neural network in figure 6. All of these weights are added into an float array of size 49. This array will carry all the information of the whole network. As a result, each array is considered as an chromosome with value encoding method as described in previous section on encoding. Each weight is now a gene in a chromosome.
-<a name="applying-genetic-operator"></a>
-#### Applying genetic operator
+<a name="542-applying-genetic-operator"></a>
+#### 5.4.2. Applying genetic operator
 Selection, mutation and crossover is used in this experiment.
 
 Selection: Best fitness selection method 
@@ -246,8 +246,8 @@ Crossover: Exchange two weight by a fixed possibility
 <div class="imgcap">
 <img style="display: inline-block; width: 40%;" src ="/public/post_img/FlappyBirdAI/para_table.PNG" width = "500" align = "center">
 </div>
-<a name="fitness-function"></a>
-#### Fitness function
+<a name="543-fitness-function"></a>
+#### 5.4.3. Fitness function
 In this experiment, fitness function is simply the survival time of a bird, the unit is the number of frames being refreshed after the bird dies.
 <a name="6-experiment-statistical-result"></a>
 ## 6. Experiment Statistical Result
@@ -308,8 +308,8 @@ Nature: 78–87. ISBN 3-540-58484-6
 
 5. Andrew, Ng. , 'Machine learning', Standford University Online, lecture notes week 4, [online]: https://www.coursera.org/learn/machine-learning
 
-<a name="source-code-and-report"></a>
-## Source Code and Report
+<a name="10-source-code-and-report"></a>
+## 10. Source Code and Report
 The way I implement the AI is:
 
 First, build a normal Flappy Bird game, use space to trigeer Flap() method of the bird.

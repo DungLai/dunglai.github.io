@@ -12,9 +12,9 @@ img : ../public/post_img/ImageCompression/title.gif
 - [2. Main functions](#2-main-functions)
 - [3. Demo Video](#3-demo-video)
 - [4. Algorithm Recap](#4-algorithm-recap)
-	- [K-means on 3-dimensional space](#k-means-on-3-dimensional-space)
-	- [Represent data in array format](#represent-data-in-array-format)
-- [**5. Source Code and PDF report**](#5-source-code-and-pdf-report)
+	- [4.1. K-means on 3-dimensional space](#41-k-means-on-3-dimensional-space)
+	- [4.2. Represent data in array format](#42-represent-data-in-array-format)
+- [5. Source Code and PDF report](#5-source-code-and-pdf-report)
 
 <!-- /MarkdownTOC -->
 <a name="1-introduction"></a>
@@ -39,15 +39,15 @@ Let's see a quick demo of the program, the main function of the program is:
 <div class="thecap">Demo video</div>
 <a name="4-algorithm-recap"></a>
 ## 4. Algorithm Recap
-<a name="k-means-on-3-dimensional-space"></a>
-### K-means on 3-dimensional space
+<a name="41-k-means-on-3-dimensional-space"></a>
+### 4.1. K-means on 3-dimensional space
 Let me briefly explain the algorithm that I use in this program.
 
 According to the previous blog [K-Means Clustering with Visualization tool](https://dunglai.github.io/2017/06/01/k-means/). K-means algorithm is able to put data into group/ or cluster. In the visualization tool, each data is a point on a plane, each point has 2 properties, namely x-axis location and y-axis location. In this image compression application, each data point is one pixel of the image, each data point (pixel) has 3 properties, namely, Red color, Green color and Blue color density (RGB color). Each red, green and blue density will have a value ranging from 0-255. 
 
 When data is points on plane, all data points are put in a 2-dimensional space. In the case of image compression application, each data is a point on a 3-dimensional space, our goal here is to cluster all these points. For example, if we have a 100x100 resolution image, we have 10000 pixels in total, they will be 10000 points on a 3-dimensional space.
-<a name="represent-data-in-array-format"></a>
-### Represent data in array format
+<a name="42-represent-data-in-array-format"></a>
+### 4.2. Represent data in array format
 The way I choose to represent a pixel in array format is below:
 ```pascal
 img[x][y][RGB]
@@ -61,7 +61,7 @@ img: the image we store, Img will be a 3-dimensional array.
 *Example:* 
 img[1][2][0]: The Red channel value of pixel in the location 1 (x-axis) and 2 (y-axis).
 <a name="5-source-code-and-pdf-report"></a>
-## **5. Source Code and PDF report**
+## 5. Source Code and PDF report
 [Download PDF Report](/public/post_img/Kmeans/Report.pdf)
 Continue Reading... Please download source code!
 

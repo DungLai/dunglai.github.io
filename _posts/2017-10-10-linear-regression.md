@@ -5,4 +5,8 @@ desc : <div class="tag">Linear Algebra</div><div class="tag">Projection</div><di
 img  : ../public/post_img/LinearRegression/title.gif
 ---
 <div class="tag">Linear Algebra</div><div class="tag">Projection</div><div class="tag">Least Square</div><div class="tag">Supervised Learning</div>
-Comming soon!
+**Content:**
+Comming soon !
+<!-- MarkdownTOC depth=3 -->
+
+<!-- /MarkdownTOC -->
