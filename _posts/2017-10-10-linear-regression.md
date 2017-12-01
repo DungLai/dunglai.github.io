@@ -8,21 +8,21 @@ img  : ../public/post_img/LinearRegression/title.gif
 **Content:**
 <!-- MarkdownTOC depth=3 -->
 
-- [Introduction](#introduction)
-- [Least Square Approximation and Cost Function](#least-square-approximation-and-cost-function)
-- [Solving Optimization Problem](#solving-optimization-problem)
-	- [By Geometry](#by-geometry)
-	- [By Algebra](#by-algebra)
-	- [By Calculus](#by-calculus)
-- [Discussion](#discussion)
-	- [Fitting a parabola](#fitting-a-parabola)
-- [Coding with Python](#coding-with-python)
-- [Further topics to study](#further-topics-to-study)
-- [Reference](#reference)
+- [1. Introduction](#1-introduction)
+- [2. Least Square Approximation and Cost Function](#2-least-square-approximation-and-cost-function)
+- [3. Solving Optimization Problem](#3-solving-optimization-problem)
+	- [3.1. By Geometry](#31-by-geometry)
+	- [3.2. By Algebra](#32-by-algebra)
+	- [3.3. By Calculus](#33-by-calculus)
+- [4. Discussion](#4-discussion)
+	- [4.1. Fitting a parabola](#41-fitting-a-parabola)
+- [5. Coding with Python](#5-coding-with-python)
+- [6. Further topics to study](#6-further-topics-to-study)
+- [7. Reference](#7-reference)
 
 <!-- /MarkdownTOC -->
-<a name="introduction"></a>
-## Introduction
+<a name="1-introduction"></a>
+## 1. Introduction
 Suppose we have a dataset containing information of $$m$$ houses which were sold in a specific area, the data contains area in meter square $$(a_1)$$, number of windows $$(a_2)$$, number of rooms $$(a_3)$$, and lastly, price $$(b)$$. We understand that $$\textbf{a}=[a_1,a_2,a_3]$$ has an influence on the price of the house. Our gold is to predict the price of house providing that we have information about area, number of windows, number of rooms. This prediction is valuable because we can use predicted price to estimate the price of house we want to sell so that it will not be too high or too low regardless of the prices of all houses in the location or we can also use predicted price to determine whether the house that someone is selling is too expensive in comparision with the prices of other houses.
 
 Linear Regression is a model to solve prediction problem. $$b$$ will be expressed as a linear function of $$a_1, a_2, a_3$$:
@@ -30,8 +30,8 @@ Linear Regression is a model to solve prediction problem. $$b$$ will be expresse
 \mathbf{b}=f(\textbf{a})=x_0+x_1a_1+x_2a_2+x_3a_3
 \end{equation}
 The problem is we cannot always find a linear relationship that fit all the data in the dataset. Our goal is to solve the linear regression problem: Find the coefficients $$\textbf{x}=[x_0, x_1, x_2, x_3]$$ so that $$b\approx f(\textbf{a})$$ for as much data as possible.
-<a name="least-square-approximation-and-cost-function"></a>
-## Least Square Approximation and Cost Function
+<a name="2-least-square-approximation-and-cost-function"></a>
+## 2. Least Square Approximation and Cost Function
 Let $$\textbf{b}=[b_1, b_2,...,b_m]$$ be the vector containing the value of $$m$$ trainning data in dataset that we want to predict, in our example, they are $$m$$ house prices.
 
 Let $$A=[1, \mathbf{a_1} , \mathbf{a_2}, \mathbf{a_3},..., \mathbf{a_n}]$$ be the matrix containing all feature data, $$\mathbf{a_1}, \mathbf{a_2},..., \mathbf{a_n}$$ are column vectors containing all data of $$n$$ features. In our example, $$n=3$$, $$\mathbf{a_1}$$ is column vector containing area in square meter of $$m$$ houses, $$\mathbf{a_2}$$ is column vector containing number of windows of $$m$$ houses.
@@ -74,8 +74,8 @@ L(\mathbf{x}) = \sum_{i=1}^{m}(\mathbf{w_i}\mathbf{x}-\mathbf{b_i})^2
 \end{equation} 
 
 $$\mathbf{w_i}$$ is row vector i of matrix $$A$$. In our example, each $$\mathbf{w_i}$$ is a row vector containing information of a house.
-<a name="solving-optimization-problem"></a>
-## Solving Optimization Problem
+<a name="3-solving-optimization-problem"></a>
+## 3. Solving Optimization Problem
 The optimal $$\hat{\mathbf{x}}$$ when $$A\mathbf{x}=\mathbf{b}$$ has no solution is the solution of $$A^TA\hat{\mathbf{x}}=A^Tb$$. The following part will be the proof of that statement.
 
 Before we move on the proof, let's reduce the dimension of data so that it's possible to visualize. The new problem we will solve is: Find the closest line to the points: $$(0,6),(1,0),(2,0)$$ or predict $$y-coordinate$$ by $$x-coordinate$$.
@@ -114,8 +114,8 @@ $$
 	<div class="thecap">Image taken from <a href="http://math.mit.edu/~gs/linearalgebra/">Introduction to Linear Algebra book</a> <br></div>
 </div>
 
-<a name="by-geometry"></a>
-### By Geometry
+<a name="31-by-geometry"></a>
+### 3.1. By Geometry
 We are looking for a linear combination of basis of matrix $$A$$, this linear combination produce a vector in the column space of $$A$$ in order to minimize the length of vector $$\mathbf{e}$$, $$||e||^2=||A\mathbf{x}-\mathbf{b}||^2_2$$ as in equation \eqref{eq:3}. This vector $$\mathbf{e}$$ is a vector from $$\mathbf{b}$$ (I'm refering a vector as a point) to a point in column space of $$A$$ . The smallest distance is $$\textbf{e}$$ as in figure 4.6b above: $$\mathbf{e}=\mathbf{b}-\mathbf{p}$$ with $$\mathbf{p}$$ be the **projection** of vector $$\textbf{b}$$ onto column space $$C(A)$$. 
 
 To recap, we have proved that loss function $$L(\mathbf{x})$$ is minimized when $$A\mathbf{x}$$ create a projection of $$\textbf{b}$$ onto column space. 
@@ -130,8 +130,8 @@ The solution $$\hat{\mathbf{x}}$$ is:
 \end{equation}
 
 Proof: update soon.
-<a name="by-algebra"></a>
-### By Algebra
+<a name="32-by-algebra"></a>
+### 3.2. By Algebra
 Every vector $$\mathbf{b}$$ outside of column space of A can be splited into two parts. The part in column space $$\mathbf{p}$$ and the perpendicular part $$\mathbf{e}$$ in the nullspace of $$A^T$$ (left null space of $$A$$). The reason is that column space of A (all vectors which are linear combination of column vector of matrix $$A$$) is perpendicular to left null space of $$A$$ (all vectors $$\mathbf{x}$$ that $$A^T\mathbf{x}=0$$). The two subspace mentioned above fill out the whole space of $$A$$.
 
 Refer to figure 4.6b, apply the law for right triangle, it stills true if the triangle lied in high dimensional space: 
@@ -148,8 +148,8 @@ Since $$\mathbf{e}$$ is a fixed vector, $$||\mathbf{e}||^2$$ is a constant.  Lea
 \hat{\mathbf{x}}=A^{-1}\mathbf{p}=A^{-1}A(A^TA)^{-1}A^T\mathbf{b}=(A^TA)^{-1}A^T\mathbf{b}
 \end{equation}
 
-<a name="by-calculus"></a>
-### By Calculus
+<a name="33-by-calculus"></a>
+### 3.3. By Calculus
 Rewrite the term we are trying to minimized:
 \begin{equation}
 E = ||A\mathbf{x}-\mathbf{b}||^2 = (C+D.0-6)^2+(C+D.1)^2+(C+D.2)^2 
@@ -208,20 +208,20 @@ In order to minimize $$L(\mathbf{x})$$, the derivative in every direction is set
 **Note**: the matrix $$(A^TA)^{-1}A^T$$ is also call [pseudo-inverse matrix](https://en.wikipedia.org/wiki/Moore%E2%80%93Penrose_inverse) of $$A$$. The notation is $$A^\dagger$$ (A dagger), $$A^\dagger=(A^TA)^{-1}A^T$$.
 
 Conclusion, if $$A$$ is not invertiable, the solution $$\hat{\mathbf{x}}=A^\dagger\mathbf{b}$$.
-<a name="discussion"></a>
-## Discussion
+<a name="4-discussion"></a>
+## 4. Discussion
 In the case of more than one feature, $$n>1$$, column space of $$A$$ become more complex (more dimension). In our example, there are 3 data points $$(m=3)$$, $$m$$ is the dimension of the vector space that column space $$C(A)$$ and $$\mathbf{b}$$ lied in, more data means it's less likely for $$\mathbf{b}$$ to be lied on $$C(A)$$. In this case, the solution is the projection of $$\mathbf{b}$$ into $$C(A)$$. Projection of a vector onto a high dimensional subspace is a vector.
 
-<a name="fitting-a-parabola"></a>
-### Fitting a parabola
+<a name="41-fitting-a-parabola"></a>
+### 4.1. Fitting a parabola
 Instead of looking for coefficients $$\hat{\mathbf{x}}=[C,D]$$ of the line $$b=C+Dt$$, we will look for $$\hat{\mathbf{x}}=[C,D,E]$$ to fit the parabola $$b=C+Dx+Ex^2$$. It means the column space have one more vector: $$A=
 \begin{bmatrix}
 1 & x_1 & x_1^2 \\
 \vdots & \vdots & \vdots \\
 1 & x_m & x_m^2
 \end{bmatrix}$$
-<a name="coding-with-python"></a>
-## Coding with Python
+<a name="5-coding-with-python"></a>
+## 5. Coding with Python
 Fit a straight line:
 ```python
 import numpy as np
@@ -300,12 +300,12 @@ plt.show()
 	<div class="thecap">Code output</div>
 </div>
 This parabole seems to be underfitting. We need to make the regression equation more complex by adding features (add more dimension to $$C(A)$$).
-<a name="further-topics-to-study"></a>
-## Further topics to study
+<a name="6-further-topics-to-study"></a>
+## 6. Further topics to study
 1. Evaluation approach such as cross-validation (Determine which solution is the best)
 2. Regularization, data value could be in different scale and causing inconsistent.
 
-<a name="reference"></a>
-## Reference
+<a name="7-reference"></a>
+## 7. Reference
 1. [Introduction to Linear Algebra](http://math.mit.edu/~gs/linearalgebra/) book by Prof. Gilbert Strang.
 2. Andrew, Ng. , 'Machine learning', Standford University Online, lecture notes week 2, [online]: https://www.coursera.org/learn/machine-learning
