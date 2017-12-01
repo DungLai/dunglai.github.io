@@ -129,7 +129,7 @@ The solution $$\hat{\mathbf{x}}$$ is:
 \hat{\mathbf{x}} = (A^TA)^{-1}A^T\mathbf{b}
 \end{equation}
 
-Proof: update soon.
+Proof: $$\mathbf{b}-A\mathbf{\hat{x}}$$ is the error vector that is perpendicular to column space $$C(A)$$. It means $$\mathbf{b}-A\mathbf{\hat{x}}$$ is perpendicular to every vectors lied on $$C(A)$$. Therefore, their dot product equal to 0: $$\mathbf{a_i}^T(\mathbf{b}-A\mathbf{\hat{x}})=0$$ for $$i$$ in range $$(1,m)$$. This leads to $$A^T(\mathbf{b}-A\mathbf{\hat{x}})=0$$.
 <a name="32-by-algebra"></a>
 ### 3.2. By Algebra
 Every vector $$\mathbf{b}$$ outside of column space of A can be splited into two parts. The part in column space $$\mathbf{p}$$ and the perpendicular part $$\mathbf{e}$$ in the nullspace of $$A^T$$ (left null space of $$A$$). The reason is that column space of A (all vectors which are linear combination of column vector of matrix $$A$$) is perpendicular to left null space of $$A$$ (all vectors $$\mathbf{x}$$ that $$A^T\mathbf{x}=0$$). The two subspace mentioned above fill out the whole space of $$A$$.
