@@ -303,7 +303,8 @@ This parabole seems to be underfitting. We need to make the regression equation 
 <a name="6-further-topics-to-study"></a>
 ## 6. Further topics to study
 1. Evaluation approach such as cross-validation (Determine which solution is the best)
-2. Regularization, data value could be in different scale and causing inconsistent.
+2. Normalization, data value could be in different scale and causing inconsistent.
+3. Regularization to avoid overfitting.
 
 <a name="7-reference"></a>
 ## 7. Reference
