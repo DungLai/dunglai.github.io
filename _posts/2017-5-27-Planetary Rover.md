@@ -19,11 +19,11 @@ img : ../public/post_img/PlanetaryRover/title.png
 
 <a name="introduction"></a>
 ## Introduction
-This is the game I created as part of my Object Oriented Programming Unit at School. It makes use of 4 OOP principles, namely abstraction, encapsulation, inheritance and polymorphism (ad-hoc, subtyping and parametric).
-<a name="game-description"></a>
-## Game Description
 In developing the AI for a planetary rover, we are looking to create a small simulation for the rover to test various device options. The simulation will include an environment that contains a number of specimens and a number of rovers within a 20 x 20 meter area.
 
+This game makes use of 4 OOP principles, namely abstraction, encapsulation, inheritance and polymorphism (ad-hoc, subtyping and parametric).
+<a name="game-description"></a>
+## Game Description
 Each rover is powered by one or more batteries, with each battery able to hold a given amount of charge represented in power units (which can never be less than 0). The batteries are used to power other devices attached to the rover.
 
 Attached to each Rover are a number of devices. There are four different kinds of device: Motor, Radar, Solar Panel, and Drill. Each device has a name, for example the "Tien Corp: M5" motor, or the "Jai Force 27" Solor Panel.
