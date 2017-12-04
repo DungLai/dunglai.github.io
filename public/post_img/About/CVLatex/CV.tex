@@ -1,0 +1,232 @@
+% !TEX TS-program = xelatex
+% !TEX encoding = UTF-8 Unicode
+% -*- coding: UTF-8; -*-
+% vim: set fenc=utf-8
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% CV.tex
+%% <https://github.com/zachscrivena/simple-resume-cv>
+%% This is free and unencumbered software released into the
+%% public domain; see <http://unlicense.org> for details.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% See "README.md" for instructions on compiling this document.
+
+\documentclass[letterpaper,MMMyyyy,nonstopmode]{simpleresumecv}
+% Class options:
+% a4paper, letterpaper, nonstopmode, draftmode
+% MMMyyyy, ddMMMyyyy, MMMMyyyy, ddMMMMyyyy, yyyyMMdd, yyyyMM, yyyy
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% PREAMBLE.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% CV Info (to be customized).
+\newcommand{\CVAuthor}{Dung Lai}
+\newcommand{\CVTitle}{Dung Lai's CV}
+\newcommand{\CVNote}{CV compiled on {3rd December 2017}}
+\newcommand{\CVWebpage}{dunglai.github.io}
+
+% PDF settings and properties.
+\hypersetup{
+pdftitle={\CVTitle},
+pdfauthor={\CVAuthor},
+pdfsubject={\CVWebpage},
+pdfcreator={XeLaTeX},
+pdfproducer={},
+pdfkeywords={},
+unicode=true,
+bookmarks=true,
+bookmarksopen=true,
+pdfstartview=FitH,
+pdfpagelayout=OneColumn,
+pdfpagemode=UseOutlines,
+hidelinks,
+breaklinks}
+
+% Shorthand.
+\newcommand{\Code}[1]{\mbox{\textbf{#1}}}
+\newcommand{\CodeCommand}[1]{\mbox{\textbf{\textbackslash{#1}}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% ACTUAL DOCUMENT.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%%%%%%%%%%%%%%%
+% TITLE BLOCK %
+%%%%%%%%%%%%%%%
+
+\Title{\CVAuthor}
+
+\begin{SubTitle}
+%\href{https://goo.gl/maps/XWPgmkfaCZR2}
+{3/530 Tooronga Rd, Hawthorn East, VIC 3122, Melbourne, Australia}
+\par
+\href{mailto:tuandunglai@gmail.com}
+{tuandunglai@gmail.com}
+\,\SubBulletSymbol\,
+(+61) 413 727 184
+\,
+%\\
+%\href{\CVWebpage}
+%{\url{\CVWebpage}}
+\end{SubTitle}
+
+\begin{Body}
+
+%%%%%%%%%%%%%%%
+%% EDUCATION %%
+%%%%%%%%%%%%%%%
+
+\Section
+{Education}
+{Education}
+{PDF:Education}
+
+\Entry
+%\href{http://www.swinburne.edu.au/}
+{\textbf{Swinburne University of Technology}},
+Hawthorn, Melbourne, Australia
+
+\Gap
+\BulletItem
+Bachelor of Computer Science
+%\href{http://www.example.com/my-department}
+%{Geophysical Engineering}
+\hfill
+\DatestampYMD{2017}{02}{27} --
+\DatestampYMD{2020}{06}{30}
+
+\SubBulletItem GPA: 3.8/4.0 
+\href{https://dunglai.github.io/public/post-assets/About/AcademicTranscript.pdf}{(\color{blue}Transcript)}
+
+\SubBulletItem Leader of Swinburne team in competitive programming contest ACM/ICPC 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%% RESEARCH EXPERIENCE %%
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%%     Project         %%
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\Section
+{Projects}
+{Projects}
+{PDF:Projects}
+
+\BulletItem
+\textbf{Machine Learning Blog (Web)} \href{https://dunglai.github.io}{(\color{blue}Link})
+\hfill
+\DatestampYMD{2017}{02}{27} --
+now
+\SubBulletItem Contains in-depth technical blogs on various machine learning algorithms from mathematical perspective, their applications with report and source code
+\SubBulletItem Uses HTML5, CSS, Jekyll Markdown, Github and other technologies integration
+\Gap\Gap\Gap
+\BulletItem
+\textbf{AI for Flappy-Bird Game (Python)} \href{https://dunglai.github.io/public/post-assets/FlappyBirdAI/report.pdf}{(\color{blue}Report}) \href{https://github.com/DungLai/AI-FlappyBird}{(\color{blue}Code})
+\hfill
+\DatestampYMD{2017}{08}{20} --
+\DatestampYMD{2017}{09}{20}
+\SubBulletItem Develops a bot that can learn to Flappy-Bird Game over time
+\SubBulletItem Uses Python, PyGame, Neural Network Model, Genetic Algorithm
+\Gap\Gap\Gap
+\BulletItem
+\textbf{Planetary Rover Game (C\#, Winform)} \href{https://dunglai.github.io/2017/05/27/Planetary-Rover/}{(\color{blue}Link})
+\hfill
+\DatestampYMD{2017}{06}{20} --
+\DatestampYMD{2017}{08}{20}
+\SubBulletItem Develops a desktop game that allows player to control 2 rovers and play around with different devices in a 20x20 simulated area
+\SubBulletItem Uses C\#, Winform, make uses of object-oriented principles, design patterns
+\Gap\Gap\Gap
+\BulletItem
+\textbf{K-Means Visualization, Image Compression tool (Pascal)} \href{https://dunglai.github.io/public/post-assets/Kmeans/Report.pdf}{(\color{blue}Report}) \href{https://github.com/DungLai/Image-Compression-Segmentation}{(\color{blue}Code})
+\hfill
+\DatestampYMD{2017}{04}{20} --
+\DatestampYMD{2017}{06}{20}
+\SubBulletItem Help students understand K-Means Algorithm faster by letting them visualize the process with their customized input followed by an application to reduce image file size and segment colors.
+\SubBulletItem Contains 1300 lines of Pascal Code
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% AWARDS & SCHOLARSHIPS %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\Section
+{Awards \&\newline
+Scholarships}
+{Awards \& Scholarships}
+{PDF:AwardsAndScholarships}
+
+\BulletItem
+\textbf{Swinburne international excellence scholarship – 4 year undergraduate}
+\hfill
+\DatestampY{2016}
+\SubBulletItem Provider: Swinburne University of Technology, Melbourne, Australia
+\SubBulletItem Value: \$24,000 (AUD)
+
+\Gap\Gap\Gap
+\BulletItem
+\textbf{National key program of mathematics development scholarship in period 2010-2020}
+\hfill
+\DatestampY{2014}
+\SubBulletItem Provider: Minister of Education and Training (MOET) of Vietnam \href{}{(\color{blue}Certificate)}
+\SubBulletItem Value: \$1,000 (AUD) and special mathematics training.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Employment            %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\Section 
+{Employment}
+{Employment}
+{PDF:Employment}
+
+\BulletItem
+\textbf{Software Developer (Full-time summer intern)}
+\hfill
+\DatestampYMD{2017}{12}{12} --
+\DatestampYMD{2018}{03}{12}
+\SubBulletItem Swinburne University of Technology, Melbourne, Australia
+\SubBulletItem Project title: An immersive journey preparation tool for people with vision impairment
+\SubBulletItem I will be developing an auditory-based simulator to simulate the sensory experience of a specific location in Melbourne's CBD as a navigation training aid for the visually impaired for the City of Melbourne Project to improve accessibility
+\SubBulletItem Project investigator: \href{http://www.swinburne.edu.au/health-arts-design/staff/profile/index.php?id=dmeyer}{\color{blue}Dr. Denny Meyer}. Advisor: \href{https://www.swinburne.edu.au/science-engineering-technology/staff/profile/index.php?id=cdmccarthy}{\color{blue}Dr. Chris McCarthy}
+\SubBulletItem Technology: Unity, C\#, Android, FMOD, Autodesk 3ds max
+
+\BulletItem
+\textbf{Barista (Part-time)}
+\hfill
+\DatestampYMD{2017}{02}{27} --
+now
+\SubBulletItem Excelled within service-oriented positions (concurrent with college studies), delivering premium customer service and attracting repeat customers
+
+\Section 
+{Programming Languages}
+{Programming Languages}
+{PDF:Languages}
+\BulletItem Flexible switching and learning different languages depends on the problem
+\BulletItem \textbf{Familiar}: Python, C\#, C, Matlab, SQL, JavaScript, HTML/CSS, PHP
+
+\Section 
+{Links}
+{Programming Languages}
+{PDF:Languages}
+
+\BulletItem \textbf{Github}: \href{https://github.com/DungLai}{\color{blue}github.com/DungLai}
+\BulletItem \textbf{Linkedin}: \href{https://www.linkedin.com/in/tuandunglai/}{\color{blue}linkedin.com/in/tuandunglai}
+\BulletItem \textbf{Website}: \href{https://dunglai.github.io/}{\color{blue}dunglai.github.io}
+\end{Body}
+
+
+%%%%%%%%%%%
+% CV NOTE %
+%%%%%%%%%%%
+
+\BigGap
+\UseNoteFont%
+\null\hfill%
+[\textit{\CVNote}]
+
+\end{document}
