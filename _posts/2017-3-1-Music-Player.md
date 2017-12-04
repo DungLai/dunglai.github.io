@@ -2,7 +2,7 @@
 layout : post
 title :	Music Player with GUI
 desc : <div class="tag">Pascal</div></br> Music player application with GUI, able to add track, change song, select album, see album and song description. 
-img  : ../public/post_img/MusicPlayer/title.png
+img  : ../public/post-assets/MusicPlayer/title.png
 ---
 <div class="tag">Pascal</div>
 **Content:**
@@ -17,7 +17,7 @@ Graphical API: [swinGame API](http://www.swingame.com/)
 
 [Download Full code](https://github.com/DungLai/Music-Player)
 
-<embed class="video" width="1600" height="400" style="width: 100%" src="/public/post_img/MusicPlayer/demo.mp4" scale="aspect" controller="true">
+<embed class="video" width="1600" height="400" style="width: 100%" src="/public/post-assets/MusicPlayer/demo.mp4" scale="aspect" controller="true">
 <div class="thecap">Demo video</div>
 ```pascal
 program GameMain;

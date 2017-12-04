@@ -2,7 +2,7 @@
 layout : post
 title :	Linear Regression
 desc : <div class="tag">Linear Algebra</div><div class="tag">Projection</div><div class="tag">Least Square</div><div class="tag">Supervised Learning</div></br>Predict data based on other feature, fitting a straight line or hyperplane in high dimensional data by 3 different approaches, namely geometry (projection), algebra (null space and collum space) and calculus (derivative and chain rule).
-img  : ../public/post_img/LinearRegression/plot2.png
+img  : ../public/post-assets/LinearRegression/plot2.png
 ---
 <div class="tag">Linear Algebra</div><div class="tag">Projection</div><div class="tag">Least Square</div><div class="tag">Supervised Learning</div>
 **Content:**
@@ -38,7 +38,7 @@ Let $$A=[1, \mathbf{a_1} , \mathbf{a_2}, \mathbf{a_3},..., \mathbf{a_n}]$$ be th
 
 Let's take a quick look at this example again:
 <div class="imgcap">
-<img style="display: inline-block; width: 45%; float:left" src ="/public/post_img/LinearRegression/example.png" width = "500" align = "center">
+<img style="display: inline-block; width: 45%; float:left" src ="/public/post-assets/LinearRegression/example.png" width = "500" align = "center">
 </div>
 <br>
 $$A=[1, \mathbf{a_1} , \mathbf{a_2}, \mathbf{a_3}] = \begin{bmatrix}
@@ -110,7 +110,7 @@ $$
 \end{bmatrix}
 $$
 <div class="imgcap">
-	<img style="display: inline-block; width: 80%;" src ="/public/post_img/LinearRegression/fig1.png" width = "500" align = "center">
+	<img style="display: inline-block; width: 80%;" src ="/public/post-assets/LinearRegression/fig1.png" width = "500" align = "center">
 	<div class="thecap">Image taken from <a href="http://math.mit.edu/~gs/linearalgebra/">Introduction to Linear Algebra book</a> <br></div>
 </div>
 
@@ -256,7 +256,7 @@ plt.ylabel('y coordinates ')
 plt.show()
 ```
 <div class="imgcap">
-	<img style="display: inline-block; width: 60%;" src ="/public/post_img/LinearRegression/plot1.png" width = "500" align = "center">
+	<img style="display: inline-block; width: 60%;" src ="/public/post-assets/LinearRegression/plot1.png" width = "500" align = "center">
 	<div class="thecap">Code output</div>
 </div>
 Fitting a prabole:
@@ -296,7 +296,7 @@ plt.ylabel('y coordinates ')
 plt.show()
 ```
 <div class="imgcap">
-	<img style="display: inline-block; width: 60%;" src ="/public/post_img/LinearRegression/plot2.png" width = "500" align = "center">
+	<img style="display: inline-block; width: 60%;" src ="/public/post-assets/LinearRegression/plot2.png" width = "500" align = "center">
 	<div class="thecap">Code output</div>
 </div>
 This parabole seems to be underfitting. We need to make the regression equation more complex by adding features (add more dimension to $$C(A)$$).

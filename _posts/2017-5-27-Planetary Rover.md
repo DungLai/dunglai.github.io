@@ -2,7 +2,7 @@
 layout : post
 title : Planetary Rover Game
 desc : <div class="tag">C#</div><div class="tag">Winform</div><div class="tag">.NET</div><div class="tag">OOP</div></br>In developing the AI for a planetary rover, we are looking to create a small simulation for the rover to test various device options. The simulation will include an environment that contains a number of specimens and a number of rovers within a 20 x 20 meter area.
-img : ../public/post_img/PlanetaryRover/title.png
+img : ../public/post-asset/PlanetaryRover/title.png
 ---
 <div class="tag">C#</div><div class="tag">Winform</div><div class="tag">.NET</div><div class="tag">OOP</div>
 **Content:**
@@ -50,7 +50,7 @@ Requirements:
 
 <a name="demo-video"></a>
 ## Demo video
-<embed class="video" width="1600" height="400" style="width: 100%" src="/public/post_img/PlanetaryRover/demo.mp4" scale="aspect" controller="true">
+<embed class="video" width="1600" height="400" style="width: 100%" src="/public/post-asset/PlanetaryRover/demo.mp4" scale="aspect" controller="true">
 <div class="thecap">Demo video</div>
 <a name="object-oriented-design"></a>
 ## Object Oriented Design
@@ -58,7 +58,7 @@ Requirements:
 ### UML diagram
 [Download UML diagram](https://github.com/DungLai/Planetary-Rover-Game/blob/master/ClassDiagram1.png)
 <div class="imgcap">
-<img style="display: inline-block; width: 100%;" src ="/public/post_img/PlanetaryRover/uml.png" width = "500" align = "center">
+<img style="display: inline-block; width: 100%;" src ="/public/post-asset/PlanetaryRover/uml.png" width = "500" align = "center">
 <div class="thecap">UML diagram<br></div>
 </div>
 

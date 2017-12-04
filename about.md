@@ -9,4 +9,4 @@ title: About
 
 I'm currently a Computer Science undergrad student at [Swinburne University of Technology](https://en.wikipedia.org/wiki/Swinburne_University_of_Technology) in Melbourne. 
 
-[**Download CV**](https://dunglai.github.io/public/post_img/About/CVLatex/CV.pdf)
+[**Download CV**](https://dunglai.github.io/public/post-assets/About/CVLatex/CV.pdf)

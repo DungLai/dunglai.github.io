@@ -2,7 +2,7 @@
 layout : post
 title : University MySQL Database
 desc : <div class="tag">MySQL</div>
-img  : ../public/post_img/UniversityMySQL/UML.png
+img  : ../public/post-assets/UniversityMySQL/UML.png
 ---
 <div class="tag">MySQL</div>
 **Content:**
@@ -55,7 +55,7 @@ Strong entity of database:
 Dealing with many to many relationship:
 For many to many relationship, there is a weak entity between them so that a many to many relationship becomes 2 one to many relationship. For example, in this project, Tutor_Class, Scholarship_Provider and Faculty_convener are weak entity, they are junction table. One tutor can teach more than one class and one class can have more than one tutor.
 <div class="imgcap">
-	<img style="display: inline-block; width: 55%;" src ="/public/post_img/UniversityMySQL/manytomany.png" width = "500" align = "center">
+	<img style="display: inline-block; width: 55%;" src ="/public/post-assets/UniversityMySQL/manytomany.png" width = "500" align = "center">
 	<div class="thecap">Tackle with many to many relationship by weak entity</div>
 </div>
 
@@ -70,7 +70,7 @@ Data type:
 <a name="3-illustration-of-the-design"></a>
 ## 3. Illustration of the design
 <div class="imgcap">
-	<img style="display: inline-block; width: 100%;" src ="/public/post_img/UniversityMySQL/UML.png" width = "500" align = "center">
+	<img style="display: inline-block; width: 100%;" src ="/public/post-assets/UniversityMySQL/UML.png" width = "500" align = "center">
 	<div class="thecap">UML diagram</div>
 </div>
 
@@ -432,7 +432,7 @@ FROM Student
 ORDERBY student_id ASC
 ```     
 <div class="imgcap">
-	<img style="display: inline-block; width: 55%;" src ="/public/post_img/UniversityMySQL/result1.png" width = "500" align = "center">
+	<img style="display: inline-block; width: 55%;" src ="/public/post-assets/UniversityMySQL/result1.png" width = "500" align = "center">
 	<div class="thecap">Result</div>
 </div>
   	Viewing imformation of student, first name and last name are concatenated. Order by Gender
@@ -442,7 +442,7 @@ FROM Student
 ORDER BY gender ASC;
 ```
 <div class="imgcap">
-	<img style="display: inline-block; width: 50%;" src ="/public/post_img/UniversityMySQL/result2.png" width = "500" align = "center">
+	<img style="display: inline-block; width: 50%;" src ="/public/post-assets/UniversityMySQL/result2.png" width = "500" align = "center">
 	<div class="thecap">Result</div>
 </div>
 **Note**: It’s also possible to view male student or female student only by adding a WHERE condition: WHERE gender = ‘male’
@@ -456,7 +456,7 @@ WHERE sc.scholarship_value > 100000
 ORDER BY st.student_id ASC; 
 ```
 <div class="imgcap">
-	<img style="display: inline-block; width: 45%;" src ="/public/post_img/UniversityMySQL/result3.png" width = "500" align = "center">
+	<img style="display: inline-block; width: 45%;" src ="/public/post-assets/UniversityMySQL/result3.png" width = "500" align = "center">
 	<div class="thecap">Result</div>
 </div>
 4.	Checking not exist data
@@ -472,7 +472,7 @@ WHERE NOT EXISTS
 );
 ```
 <div class="imgcap">
-	<img style="display: inline-block; width: 10%;" src ="/public/post_img/UniversityMySQL/result4.png" width = "500" align = "center">
+	<img style="display: inline-block; width: 10%;" src ="/public/post-assets/UniversityMySQL/result4.png" width = "500" align = "center">
 	<div class="thecap">Result</div>
 </div>
 5.	Union two select commands with COUNT, HAVING, GROUP BY
@@ -513,6 +513,6 @@ HAVING MIN(score)>=5;
 It’s possible to read this table as usual, for example: 
 ```SELECT * FROM Student_no_fail_unit;```
 <div class="imgcap">
-	<img style="display: inline-block; width: 50%;" src ="/public/post_img/UniversityMySQL/result5.png" width = "500" align = "center">
+	<img style="display: inline-block; width: 50%;" src ="/public/post-assets/UniversityMySQL/result5.png" width = "500" align = "center">
 	<div class="thecap">Result</div>
 </div>

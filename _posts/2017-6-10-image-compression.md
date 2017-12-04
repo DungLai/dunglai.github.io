@@ -2,7 +2,7 @@
 layout : post
 title : Image Compression Application
 desc : <div class="tag">Pascal</div><div class="tag">Machine Learning</div></br> This is application let you do k-means algorithm on image, the image after processing will have exactly K number of colors. The file size will be decreased dramatically.
-img : ../public/post_img/ImageCompression/title.gif
+img : ../public/post-assets/ImageCompression/title.gif
 ---
 <div class="tag">Pascal</div><div class="tag">Machine Learning</div>
 **Content:**
@@ -30,12 +30,12 @@ Let's see a quick demo of the program, the main function of the program is:
 
 **Output:** New image which contains K colors
 <div class="imgcap">
-<img style="display: inline-block; width: 100%;" src ="/public/post_img/ImageCompression/demo.png" width = "500" align = "center">
+<img style="display: inline-block; width: 100%;" src ="/public/post-assets/ImageCompression/demo.png" width = "500" align = "center">
 <div class="thecap">Left image (1000KB) - Righ image (10KB)<br></div>
 </div>
 <a name="3-demo-video"></a>
 ## 3. Demo Video
-<embed class="video" width="1600" height="400" style="width: 100%" src="/public/post_img/ImageCompression/demo.mp4" scale="aspect" controller="true">
+<embed class="video" width="1600" height="400" style="width: 100%" src="/public/post-assets/ImageCompression/demo.mp4" scale="aspect" controller="true">
 <div class="thecap">Demo video</div>
 <a name="4-algorithm-recap"></a>
 ## 4. Algorithm Recap
@@ -62,7 +62,7 @@ img: the image we store, Img will be a 3-dimensional array.
 img[1][2][0]: The Red channel value of pixel in the location 1 (x-axis) and 2 (y-axis).
 <a name="5-source-code-and-pdf-report"></a>
 ## 5. Source Code and PDF report
-[Download PDF Report](/public/post_img/Kmeans/Report.pdf)
+[Download PDF Report](/public/post-assets/Kmeans/Report.pdf)
 Continue Reading... Please download source code!
 
 <button onclick="myFunction()"><strong>Download Source Code</strong></button>

@@ -2,7 +2,7 @@
 layout : post
 title : AI for FlappyBird Game
 desc : <div class="tag">Python</div><div class="tag">Neural Network</div><div class="tag">Genetic Algorithm</div><div class="tag">Machine Learning</div></br> Using Neural Network model and Genetic algorithm to build AI for Flappy Bird Game.
-img  : ../public/post_img/FlappyBirdAI/title.png
+img  : ../public/post-assets/FlappyBirdAI/title.png
 ---
 <div class="tag">Python</div><div class="tag">Neural Network</div><div class="tag">Genetic Algorithm</div><div class="tag">Machine Learning</div>
 **Content:**
@@ -48,7 +48,7 @@ img  : ../public/post_img/FlappyBirdAI/title.png
 **Source Code** in Python for the implementation of AI for Flappy Bird game will be provided, the external package I use in my implementation is only [Numpy](http://www.numpy.org/) to make use of matrix form.
 
 After reading this blog, you will be able to build AI for a lot of simple games, not just FlappyBird. [MarI/O](https://www.youtube.com/watch?v=qv6UVOQ0F44) is a great example of unbeatable AI for game achieved by Neural Network model and Evolutionary Algorithm [(Neat)](http://nn.cs.utexas.edu/downloads/papers/stanley.ec02.pdf). 
-<embed class="video" width="1550" height="400" style="width: 100%" src="/public/post_img/FlappyBirdAI/demo.mp4" scale="aspect" controller="true">
+<embed class="video" width="1550" height="400" style="width: 100%" src="/public/post-assets/FlappyBirdAI/demo.mp4" scale="aspect" controller="true">
 <div class="thecap">Demo video</div>
 *Abstract*
 
@@ -63,7 +63,7 @@ GA is an artificial intelligence metaheuristic search technique that is derived 
 
 In the next part, a brief introduction to GA will be demonstrated as well as its application in training a neural network that can play Flappy Bird game.
 <div class="imgcap">
-<img style="display: inline-block; width: 55%;" src ="/public/post_img/FlappyBirdAI/fig1.PNG" width = "500" align = "center">
+<img style="display: inline-block; width: 55%;" src ="/public/post-assets/FlappyBirdAI/fig1.PNG" width = "500" align = "center">
 <div class="thecap">Fig. 1: Experiment result</div>
 </div>
 <a name="2-genetic-algorithm-methodology"></a>
@@ -84,7 +84,7 @@ In GA, a **population** of candidate solutions (also called phenotypes) is evolv
 
 **Chromosome**: A set of genomes. Chromosome is the solution in form of genes.
 <div class="imgcap">
-<img style="display: inline-block; width: 55%;" src ="/public/post_img/FlappyBirdAI/gene_definition.PNG" width = "500" align = "center">
+<img style="display: inline-block; width: 55%;" src ="/public/post-assets/FlappyBirdAI/gene_definition.PNG" width = "500" align = "center">
 <div class="thecap">Fig. 2: Population, Chromosomes and Genes</div>
 </div>
 <a name="222-selection-mutation-and-crossover"></a>
@@ -100,7 +100,7 @@ In GA, a **population** of candidate solutions (also called phenotypes) is evolv
 ### 3.1. Encoding and Decoding
 Encoding technique depends heavily on the problem. Generally, encoding is the order of every genes that have an effects on the solution. Decoding is translate chromosome to solution of optimization problem. Encoding is a method to clean data before putting it in genetic operators.
 <div class="imgcap">
-<img style="display: inline-block; width: 55%;" src ="/public/post_img/FlappyBirdAI/def_table.PNG" width = "500" align = "center">
+<img style="display: inline-block; width: 55%;" src ="/public/post-assets/FlappyBirdAI/def_table.PNG" width = "500" align = "center">
 </div>
 <a name="32-selection"></a>
 ### 3.2. Selection
@@ -133,14 +133,14 @@ The purpose of mutation in GA is preserving and introducing diversity. Mutation 
 allow the algorithm to escape local minima by preventing the population of chromosomes
 from becoming too similar to each other, thus slowing or even stopping evolution. Mutation can be done with a formula or randomly.
 <div class="imgcap">
-<img style="display: inline-block; width: 40%;" src ="/public/post_img/FlappyBirdAI/mutation.PNG" width = "500" align = "center">
+<img style="display: inline-block; width: 40%;" src ="/public/post-assets/FlappyBirdAI/mutation.PNG" width = "500" align = "center">
 <div class="thecap">Example of mutation on binary encoding and value encoding</div>
 </div>
 <a name="34-crossover"></a>
 ### 3.4. Crossover
 The crossover splits up the parent individuals and recombines them. Crossover point can be chosen randomly to increase diversity of new population.
 <div class="imgcap">
-<img style="display: inline-block; width: 40%;" src ="/public/post_img/FlappyBirdAI/mutation.PNG" width = "500" align = "center">
+<img style="display: inline-block; width: 40%;" src ="/public/post-assets/FlappyBirdAI/mutation.PNG" width = "500" align = "center">
 <div class="thecap">Fig. 4: Genetic Code of the parents and offspring before and after the crossover</div>
 </div>
 Multi-point crossovers are simply crossovers with more than one position where crossover will occur.
@@ -153,7 +153,7 @@ The algorithm can be done by continuously create new set of possible solution us
 <a name="42-flowchart"></a>
 ### 4.2. Flowchart
 <div class="imgcap">
-<img style="display: inline-block; width: 55%;" src ="/public/post_img/FlappyBirdAI/flowchart.PNG" width = "500" align = "center">
+<img style="display: inline-block; width: 55%;" src ="/public/post-assets/FlappyBirdAI/flowchart.PNG" width = "500" align = "center">
 <div class="thecap">Fig. 5: GA Flowchart</div>
 </div>
 <a name="43-pseudo-algorithm"></a>
@@ -185,22 +185,22 @@ In this section, multilayer perceptron model will be discussed and an implementa
 #### 5.2.1. Neural Network Overiew
 1. **Layer**: They are a set of neuron (a circle that contain a number). Beside input layers and output layers, one Multilayer Perceptron can have one or more hidden layer.
 <div class="imgcap">
-<img style="display: inline-block; width: 40%;" src ="/public/post_img/FlappyBirdAI/nnmodel.PNG" width = "500" align = "center">
+<img style="display: inline-block; width: 40%;" src ="/public/post-assets/FlappyBirdAI/nnmodel.PNG" width = "500" align = "center">
 <div class="thecap">Fig. 6: Example of multilayer perceptron network with 2 hidden layers</div>
 </div>
 2. **Unit**: One node (the circle in Fig $$6$$) is called one unit. Input of each unit is symbolised as $$z$$ and output of each unit is symbolised as $$a$$ ($$a$$ stands for activation, input unit  in next layer)
 3. **Weights** and **Biases**: In fig $$7$$, the number that in the line which connects 2 nodes in 2 layer is called Weights, they determine how much affect a node could have on the next input unit in the next layer, biases is the node $$x_0$$ in fig 7, the value is normally constant at 1. They add the flexibility to the network.
 <div class="imgcap">
-<img style="display: inline-block; width: 40%;" src ="/public/post_img/FlappyBirdAI/feedforward.PNG" width = "500" align = "center">
+<img style="display: inline-block; width: 40%;" src ="/public/post-assets/FlappyBirdAI/feedforward.PNG" width = "500" align = "center">
 <div class="thecap">Fig. 7: Feed Forward Process with Sigmoid activator</div>
 </div>
 4. **Activator**, **activation function**: When talking about activator, they mean the function that apply on a nodes to produce the output unit. The purpose of activation function is to squeeze the value after multiplying nodes value and weights to produce a number within a defined range.
 <div class="imgcap">
-<img style="display: inline-block; width: 30%;" src ="/public/post_img/FlappyBirdAI/sigmoid.PNG" width = "500" align = "center">
+<img style="display: inline-block; width: 30%;" src ="/public/post-assets/FlappyBirdAI/sigmoid.PNG" width = "500" align = "center">
 <div class="thecap">Fig. 8: Sigmoid function squeeze number to value of 0 when s goes to -infinity and 1 when x goes to infinity</div>
 </div>
 <div class="imgcap">
-<img style="display: inline-block; width: 30%;" src ="/public/post_img/FlappyBirdAI/activator.PNG" width = "500" align = "center">
+<img style="display: inline-block; width: 30%;" src ="/public/post-assets/FlappyBirdAI/activator.PNG" width = "500" align = "center">
 <div class="thecap">Fig. 9: Different activation functions</div>
 </div>
 
@@ -210,14 +210,14 @@ In this experiment, a simple multilayer perceptron model [$$^5$$](#ref5) is chos
 
 Output of neural network is a number in range 0 and 1. ```Threshold``` is set to $$0.5$$. If $$output>0.5$$ then the bird will flap. 
 <div class="imgcap">
-<img style="display: inline-block; width: 55%;" src ="/public/post_img/FlappyBirdAI/neural.PNG" width = "500" align = "center">
+<img style="display: inline-block; width: 55%;" src ="/public/post-assets/FlappyBirdAI/neural.PNG" width = "500" align = "center">
 <div class="thecap">Fig. 10: Neural Network Architecture</div>
 </div>
 <a name="53-input-of-training-model"></a>
 ### 5.3. Input of training model
 In neural network, every input should be related to the solution. There are 5 inputs as described in figure 6.
 <div class="imgcap">
-<img style="display: inline-block; width: 55%;" src ="/public/post_img/FlappyBirdAI/fig11.PNG" width = "500" align = "center">
+<img style="display: inline-block; width: 55%;" src ="/public/post-assets/FlappyBirdAI/fig11.PNG" width = "500" align = "center">
 <div class="thecap">Fig. 11: Experiment result</div>
 </div>
 **Input 1**: Horizontal distance between bird and Tube (Horizontal line in figure 7)
@@ -244,7 +244,7 @@ Mutation: Modify a weight by randomly assign a new number to it.
 
 Crossover: Exchange two weight by a fixed possibility 
 <div class="imgcap">
-<img style="display: inline-block; width: 40%;" src ="/public/post_img/FlappyBirdAI/para_table.PNG" width = "500" align = "center">
+<img style="display: inline-block; width: 40%;" src ="/public/post-assets/FlappyBirdAI/para_table.PNG" width = "500" align = "center">
 </div>
 <a name="543-fitness-function"></a>
 #### 5.4.3. Fitness function
@@ -252,14 +252,14 @@ In this experiment, fitness function is simply the survival time of a bird, the 
 <a name="6-experiment-statistical-result"></a>
 ## 6. Experiment Statistical Result
 <div class="imgcap">
-<img style="float:left; display: inline-block; width: 50%;" src ="/public/post_img/FlappyBirdAI/plot.PNG" width = "500" align = "center">
-<img id="fig1" style="float:left; display: inline-block; width: 50%;" src ="/public/post_img/FlappyBirdAI/plot2.PNG" width = "500" align = "center">
+<img style="float:left; display: inline-block; width: 50%;" src ="/public/post-assets/FlappyBirdAI/plot.PNG" width = "500" align = "center">
+<img id="fig1" style="float:left; display: inline-block; width: 50%;" src ="/public/post-assets/FlappyBirdAI/plot2.PNG" width = "500" align = "center">
 <div class="thecap">Fig. 12: Experiment 1 and 2<br></div>
 </div>
 <div style="clear:left;"></div>
 The two above graphs describe the correlation between number of generation and best fitness score to figure out if GA actually helps the population evolve over time or not. In both experiment, an impressive solution is found. However, the first experiment took 230 generations while the second experiment took over 1000 generations in order to find the best solution. A correlation coefficient (Pearson) is performed to test whether there is a correlation between number of generation and best fitness score.
 <div class="imgcap">
-<img style="display: inline-block; width: 40%;" src ="/public/post_img/FlappyBirdAI/ex_result.PNG" width = "500" align = "center">
+<img style="display: inline-block; width: 40%;" src ="/public/post-assets/FlappyBirdAI/ex_result.PNG" width = "500" align = "center">
 <div class="thecap">Statistical Result</div>
 </div>
 The code to produce the 2 statistical graphs
@@ -448,7 +448,7 @@ class ANN:
 ```
 Continue Reading... Please download source code!
 
-[Download PDF Report](/public/post_img/FlappyBirdAI/report.pdf)
+[Download PDF Report](/public/post-assets/FlappyBirdAI/report.pdf)
 
 <button onclick="myFunction()"><strong>Download Source Code</strong></button>
 <div id="myDIV" style="display: none;">
