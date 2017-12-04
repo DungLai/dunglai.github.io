@@ -13,6 +13,7 @@ img  : ../public/post-assets/UniversityMySQL/UML.png
 - [3. Illustration of the design](#3-illustration-of-the-design)
 - [4. Scripts for data storage](#4-scripts-for-data-storage)
 - [5. Main usage and Scripts for typical use cases](#5-main-usage-and-scripts-for-typical-use-cases)
+- [6. Scripts and Report](#6-scripts-and-report)
 
 <!-- /MarkdownTOC -->
 
@@ -516,3 +517,9 @@ It’s possible to read this table as usual, for example:
 	<img style="display: inline-block; width: 50%;" src ="/public/post-assets/UniversityMySQL/result5.png" width = "500" align = "center">
 	<div class="thecap">Result</div>
 </div>
+
+<a name="6-scripts-and-report"></a>
+## 6. Scripts and Report
+[Download SQL script](dunglai.github.io/public/post-assets/UniversityMySQL/script.sql)
+[Donwload PDF Report](dunglai.github.io/public/post-assets/UniversityMySQL/report.pdf)
+[Donwload Word Report](dunglai.github.io/public/post-assets/UniversityMySQL/designreport.docx)
