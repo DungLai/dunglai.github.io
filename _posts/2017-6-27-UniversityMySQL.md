@@ -2,7 +2,7 @@
 layout : post
 title : University MySQL Database
 desc : <div class="tag">MySQL</div>
-img  : ../public/post_img/UniversityMySQL/uml.png
+img  : ../public/post_img/UniversityMySQL/UML.png
 ---
 <div class="tag">MySQL</div>
 **Content:**
@@ -70,7 +70,7 @@ Data type:
 <a name="3-illustration-of-the-design"></a>
 ## 3. Illustration of the design
 <div class="imgcap">
-	<img style="display: inline-block; width: 100%;" src ="/public/post_img/UniversityMySQL/uml.png" width = "500" align = "center">
+	<img style="display: inline-block; width: 100%;" src ="/public/post_img/UniversityMySQL/UML.png" width = "500" align = "center">
 	<div class="thecap">UML diagram</div>
 </div>
 
