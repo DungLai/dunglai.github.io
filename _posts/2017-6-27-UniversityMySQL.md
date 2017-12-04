@@ -521,5 +521,7 @@ It’s possible to read this table as usual, for example:
 <a name="6-scripts-and-report"></a>
 ## 6. Scripts and Report
 [Download SQL script](dunglai.github.io/public/post-assets/UniversityMySQL/script.sql)
+
 [Donwload PDF Report](dunglai.github.io/public/post-assets/UniversityMySQL/report.pdf)
+
 [Donwload Word Report](dunglai.github.io/public/post-assets/UniversityMySQL/designreport.docx)
