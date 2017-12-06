@@ -14,7 +14,7 @@ description:         'A personal website of <a href="https://dunglai.github.io/a
 # baseurl:             'https://dunglai.github.io'
 url:                 http://lanyon.getpoole.com
 baseurl:             ''
-paginate:            10
+paginate:            5
 
 # About/contact
 author:

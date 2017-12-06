@@ -2,9 +2,12 @@
 layout: default
 title: Blog
 ---
+
 <div class="posts">
+{% include pagination.html %}
+<br>
   <hr>
-  <br>
+  <!-- <br> -->
   {% for post in paginator.posts %}
   <div class="post">
     <div class="post-img">

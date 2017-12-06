@@ -679,3 +679,26 @@ a.pagination-item:hover {
   overflow: hidden;
   transition: height 200ms;
 }
+
+/* pagination css by tiepvu*/
+.mypagination{
+  border: 1px solid #204081; 
+  padding: 5px 15px 5px 15px;
+}
+
+.mypaginationactive{
+  padding:5px 15px 5px 15px;
+  background-color: #204081;
+  /*background-color: red;*/
+  border: 1px solid #204081; 
+  color: #fff;
+}
+.myhiddenpagination{
+  padding: 5px 15px 5px 15px;
+  border: 1px solid #fff;
+  color: #fff;
+}
+
+.text-center {
+  text-align: center;
+}
