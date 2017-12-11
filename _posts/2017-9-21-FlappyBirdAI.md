@@ -1,7 +1,7 @@
 ---
 layout : post
 title : AI for FlappyBird Game
-desc : <div class="tag">Python</div><div class="tag">Neural Network</div><div class="tag">Genetic Algorithm</div><div class="tag">Machine Learning</div></br> Using Neural Network model and Genetic algorithm to build AI for Flappy Bird Game.
+desc : <div class="tag">Python</div><div class="tag">Neural Network</div><div class="tag">Genetic Algorithm</div><div class="tag">Machine Learning</div></br>Develope a bot which can learn how to play Flappy Bird Game over time using Neural Network model and Genetic algorithm.
 img  : ../public/post-assets/FlappyBirdAI/title.png
 ---
 <div class="tag">Python</div><div class="tag">Neural Network</div><div class="tag">Genetic Algorithm</div><div class="tag">Machine Learning</div>
