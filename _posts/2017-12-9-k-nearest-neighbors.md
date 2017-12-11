@@ -343,10 +343,11 @@ main()
 <a name="41-hyperparameter"></a>
 ### 4.1. Hyperparameter
 There are several hyperparameter that we can tweet to find the best solution:
+
 1.**K**: High $$K$$ resulted in more noise-tolerant, it means small $$K$$ will make the KNN very sensitive to noise/ outlier.
 <div class="imgcap">
 <img style="display: inline-block; width: 100%;" src ="/public/post-assets/KNearestNeighbors/compareK.PNG" width = "500" align = "center">
-<div class="thecap"><br>Small K means more sensitive to noise, resulted in overfiting</div>
+<div class="thecap"><br>Small K means more sensitive to noise, resulted in overfitting</div>
 </div>
 2.**Distance function**
 
