@@ -63,7 +63,7 @@ y[::5] += 1 * (0.5 - np.random.rand(8)) #get a random number every 5 steps
 # Fit regression model
 x0 = np.linspace(0,5,500) # x0 is used to visualize regression model
 y0 = [] # our goal is to fill out y0 based on x0
-k_neighbors = 3
+k_neighbors = 15
 
 
 # treat every data uniformly, calculate means of k nearest value to each element in x0
