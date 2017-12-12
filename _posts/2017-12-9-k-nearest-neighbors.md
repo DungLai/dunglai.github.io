@@ -101,14 +101,20 @@ Finally, our input $$\mathbf{x}$$ gets assigned to the class with the largest pr
 
 To recap, the label of test data is the most common label around it.
 
-In the algorithm above, we use 'uniform' weight, we treat every neighbor equally no matter how close it is to $$\mathbf{x}$$. However we can use 'distance' weight: The distance to $$\mathbf{x} will also be taken into account.
+In the algorithm above, we use 'uniform' weight, we treat every neighbor equally no matter how close it is to $$\mathbf{x}$$. However we can use 'distance' weight: The distance to $$\mathbf{x}$$ will also be taken into account.
  
 The following weight function could be use:
 \begin{equation} \tag{3}\label{eq:3}
 w_i = exp(\frac{-||\mathbf{x}-\mathbf{x^i}||^2_2}{\lambda ^2})
 \end{equation}
 
-That weight function will let data points which are closer $$\mathbf{x}$$ have more effects on the output $$y$$. 
+That weight function will let data points which are closer $$\mathbf{x}$$ have more effects on the output $$y$$. By adding different weights to neighbors of $$\mathbf{x}$$, the conditional probability in $$\eqref{eq:2}$$ becomes:
+
+\begin{equation} \tag{4}\label{eq:4}
+P(y=j|X=\mathbf{x}) = \frac{1}{K} w_i \sum_{i \in A}I(y^{(i)}=j)
+\end{equation}
+
+
 <a name="3-application-with-python"></a>
 ## 3. Application with python
 <a name="31-regression"></a>
