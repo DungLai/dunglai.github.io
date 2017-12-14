@@ -253,6 +253,24 @@ plt.xlabel('x coordinates ')
 plt.ylabel('y coordinates ')
 plt.show()
 ```
+Using Scikit learn library
+```python
+import numpy as np
+import matplotlib
+import matplotlib.pyplot as plt
+from sklearn import linear_model
+
+# create random data 
+A = np.array([[2,5,7,9,11,16,19,23,22,29,29,35,37,40,46]]).T
+b = np.array([[2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]]).T
+
+#Use Scikit Learn
+lr = linear_model.LinearRegression()
+lr.fit(A,b)
+print('Solution found by scikit learn: w =')
+print(lr.intercept_) #w0
+print(lr.coef_) #w1
+```
 <div class="imgcap">
 	<img style="display: inline-block; width: 60%;" src ="/public/post-assets/LinearRegression/plot1.png" width = "500" align = "center">
 	<div class="thecap">Code output</div>
