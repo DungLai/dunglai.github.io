@@ -450,7 +450,8 @@ Continue Reading... Please download source code!
 
 [Download PDF Report](/public/post-assets/FlappyBirdAI/report.pdf)
 
-<button onclick="myFunction()"><strong>Download Source Code</strong></button>
+Full source code: https://github.com/DungLai/AI-FlappyBird
+<<!-- button onclick="myFunction()"><strong>Download Source Code</strong></button>
 <div id="myDIV" style="display: none;">
 Put your Email address in the comment section below to receive full well-documented code of the whole program.
-</div>
+</div> -->
