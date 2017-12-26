@@ -62,13 +62,6 @@ img: the image we store, Img will be a 3-dimensional array.
 img[1][2][0]: The Red channel value of pixel in the location 1 (x-axis) and 2 (y-axis).
 <a name="5-source-code-and-pdf-report"></a>
 ## 5. Source Code and PDF report
-[Download PDF Report](/public/post-assets/Kmeans/Report.pdf)
-Continue Reading... Please download source code!
-
-<button onclick="myFunction()"><strong>Download Source Code</strong></button>
-<div id="myDIV" style="display: none;">
-Put your Email address in the comment section below to receive full well-documented code.
-</div>
 **Source Code:**
 ```pascal
 type	
@@ -418,3 +411,6 @@ begin
 	result := MatrixToBitmap(imgKMeans);
 end;
 ```
+[Download PDF Report](/public/post-assets/Kmeans/Report.pdf)
+
+Full Source Code: https://github.com/DungLai/Image-Compression-Segmentation
