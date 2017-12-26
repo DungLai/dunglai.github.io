@@ -35,8 +35,8 @@ Let's see a quick demo of the program, the main function of the program is:
 <div class="thecap">Left image (1000KB) - Righ image (10KB)<br></div>
 </div>
 <div class="imgcap">
-<img style="display: inline-block; width: 100%;" src ="https://github.com/DungLai/Image-Compression-Segmentation/blob/master/demo_compresison.gif" width = "500" align = "center">
-<div class="thecap">Left image (1000KB) - Righ image (10KB)<br></div>
+<img style="display: inline-block; width: 100%;" src ="/public/post-assets/ImageCompression/title.gif" width = "500" align = "center">
+<div class="thecap">Apply K-Means with different K<br></div>
 </div>
 <a name="3-demo-video"></a>
 ## 3. Demo Video
