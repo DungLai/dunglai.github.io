@@ -34,6 +34,10 @@ Let's see a quick demo of the program, the main function of the program is:
 <img style="display: inline-block; width: 100%;" src ="/public/post-assets/ImageCompression/demo.png" width = "500" align = "center">
 <div class="thecap">Left image (1000KB) - Righ image (10KB)<br></div>
 </div>
+<div class="imgcap">
+<img style="display: inline-block; width: 100%;" src ="https://github.com/DungLai/Image-Compression-Segmentation/blob/master/demo_compresison.gif" width = "500" align = "center">
+<div class="thecap">Left image (1000KB) - Righ image (10KB)<br></div>
+</div>
 <a name="3-demo-video"></a>
 ## 3. Demo Video
 <embed class="video" width="1600" height="400" style="width: 100%" src="/public/post-assets/ImageCompression/demo.mp4" scale="aspect" controller="true">
