@@ -5,6 +5,7 @@ desc : <div class="tag">Pascal</div><div class="tag">Machine Learning</div></br>
 img : ../public/post-assets/ImageCompression/title.gif
 ---
 <div class="tag">Pascal</div><div class="tag">Machine Learning</div>
+This blog post is an extension to [my previous post on K-means algorithm](https://dunglai.github.io/2017/06/01/k-means/). We will use K-means clustering method to find $$k$$ dominent colors of an image. Each pixel of an image is represented as a 3 dimensional vector (containing RGB value) where the previous blog post visualize k-means on 2D vector (points on 2D plane).
 **Content:**
 <!-- MarkdownTOC depth=3 -->
 
