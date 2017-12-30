@@ -303,7 +303,8 @@ x = A_dagger.dot(b)
 # start and end point of the straight line
 x0 = np.linspace(1,25,10000)
 y0 = x[0][0] + x[1][0]*x0 +x[2][0]*x0*x0
-# plot the straight line
+
+# plot the parabola
 plt.plot(x0, y0)
 plt.xlabel('x coordinates ')
 plt.ylabel('y coordinates ')
