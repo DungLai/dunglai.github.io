@@ -57,7 +57,7 @@ def gradient_descent(x_init, grad, alpha):
 A = np.array([[2,9,7,9,11,16,25,23,22,29,29,35,37,40,46]]).T
 b = np.array([[2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]]).T
 
-fig1 = plt.figure(1)
+fig1 = plt.figure('GD for Linear Regression')
 ax = plt.axes(xlim=(-10, 60), ylim=(-1, 20)) #restrict the figure showing only values in specified range
 plt.plot(A,b,'ro', label='_nolegend_') # plot data points
 line, = ax.plot([], [], color = 'blue') # plot function used in animation
@@ -109,10 +109,28 @@ Writer = animation.writers['ffmpeg']
 writer = Writer(fps=15, metadata=dict(artist='Me'), bitrate=1800)
 
 line_ani = animation.FuncAnimation(fig1, update, myGD[1]+1, interval=50, blit=True)
-line_ani.save('lines.mp4', writer='ffmpeg')
+# # Save mp4 file for animation
+# line_ani.save('lines.mp4', writer='ffmpeg')
 
-# https://stackoverflow.com/questions/11269575/how-to-hide-output-of-subprocess-in-python-2-7
-FNULL = open(os.devnull, 'w')
-subprocess.call(['ffmpeg', '-i', 'lines.mp4', 'lines.gif'], stdout=FNULL, stderr=subprocess.STDOUT) # Execute command line to convert .mp4 to .gif using ffmpeg and hide output of command line to terminal
+# # Convert mp4 to gif
+# # https://stackoverflow.com/questions/11269575/how-to-hide-output-of-subprocess-in-python-2-7
+# FNULL = open(os.devnull, 'w')
+# subprocess.call(['ffmpeg', '-i', 'lines.mp4', 'lines.gif'], stdout=FNULL, stderr=subprocess.STDOUT) # Execute command line to convert .mp4 to .gif using ffmpeg and hide output of command line to terminal
+plt.show()
+
+plt.figure('Iter and cost function')
+
+cost_list = []
+iter_list = []
+
+for i in range(itr):
+	iter_list.append(i+1)
+
+for i in range(itr):
+	cost_list.append(cost(myGD[0][i]))
+
+plt.plot(iter_list, cost_list)
+plt.xlabel('Iteration')
+plt.ylabel('Cost value')
 
 plt.show()
