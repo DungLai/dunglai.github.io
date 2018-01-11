@@ -3,7 +3,7 @@
 			// Print Description of location
 			document.getElementById('note').innerHTML = dictDesc[location];
 			// Show youtube video upon video link in dictYoutube
-			document.getElementById('youtubeVideo').innerHTML = '<iframe width="560" height="315" src="https://www.youtube.com/embed/' + 
+			document.getElementById('youtubeVideo').innerHTML = '<iframe width="700" height="400" src="https://www.youtube.com/embed/' + 
 																									dictYoutube[location] 
 																									+ '?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>'
 

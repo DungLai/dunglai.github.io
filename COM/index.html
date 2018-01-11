@@ -1,7 +1,8 @@
 <html>
 <head>
 	<script type="text/javascript" src="index.js"></script>
-	<link rel="stylesheet" href="index.css">
+	<link rel="stylesheet" media="all" href="index.css">
+	<link rel="stylesheet" media="(max-width: 500px)" href="index-mobile.css" />
   <title>Your Website Title</title> 
 </head>
 <body>
@@ -29,7 +30,14 @@
 		</div>
 	
 		<div id='youtubeVideo'></div>
-		<div id="description"></div>
+		<div id="description">
+			<div style="text-align: center;">
+				<strong>Wearing headphone for best experience</strong><br>
+				<em>Tilting your phone, dragging your mouse or watching in VR mode to change direction </em><br><br>
+				Current playing
+				<div id="note">EMPTY, Please choose one location on the map</div>
+			</div>
+		</div>
 
 	</div>
 </body>
