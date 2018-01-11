@@ -8,5 +8,16 @@ input {
 }
 
 .interface {
+	position: relative;
 	max-width: 100%;
+}
+
+#but1 {
+	top: 20%;
+}
+
+@media only screen and (max-width: 500px) {
+  #map {
+  	width: 100%;
+  }
 }
