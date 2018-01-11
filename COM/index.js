@@ -1,11 +1,10 @@
 
 		function myFunction(location){
 			// Print Description of location
-			document.getElementById('note').innerHTML = dictDesc[location];
+			// //document.getElementById('note').innerHTML = dictDesc[location];
 			// Show youtube video upon video link in dictYoutube
-			document.getElementById('youtubeVideo').innerHTML = '<iframe width="560" height="315" src="https://www.youtube.com/embed/' + 
-																									dictYoutube[location] 
-																									+ '?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>'
+			// //document.getElementById('youtubeVideo').innerHTML = dictDesc[location]
+			document.getElementById('youtubeVideo').innerHTML = dictDesc[location] + '<iframe width="560" height="315" src="https://www.youtube.com/embed/' + dictYoutube[location] + '?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>'
 
 		}
 
@@ -50,3 +49,10 @@
 			17: "hUf7nWDwUXY",
 		 	18: "SbomIdTWH8U"		
 		}
+
+// fit content to right-body div
+$(function() {
+    while( $('#right-body div').height() > $('#right-body').height() ) {
+        $('#right-body div').css('font-size', (parseInt($('#right-body div').css('font-size')) - 1) + "px" );
+    }
+});

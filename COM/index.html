@@ -1,44 +1,60 @@
 <html>
 <head>
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="index.js"></script>
 	<link rel="stylesheet" media="all" href="index.css">
-	<link rel="stylesheet" media="(max-width: 500px)" href="index-mobile.css" />
   <title>Your Website Title</title> 
 </head>
 <body>
 	<div id="title">An immersive journey preparation tool for people with vision impairment</div>
 	<div class="main-body">
-	  <div class='interface'>
-			<img id="map" style='position: absolute; width: 800px; height: 400px; z-index: -1' src="FSmap1.png" alt="Flinder Street Station Floor map">
-		  <input style="position: absolute; margin: 56 0 0 529.5" name='location' type="radio" value="18" onclick="myFunction(18)"> 
-		  <input style="position: absolute; margin: 91 0 0 537.1" name='location' type="radio" value="17" onclick="myFunction(17)"> 
-		  <input style="position: absolute; margin: 132.5 0 0 539.8px" name='location' type="radio" value="16" onclick="myFunction(16)"> 
-		  <input style="position: absolute; margin: 158 0 0 545 " name='location' type="radio" value="1" onclick="myFunction(1)"> 
-			<input style="position: absolute; margin: 216.2 0 0 514 " name='location' type="radio" value="7" onclick="myFunction(7)"> 
-			<input style="position: absolute; margin: 216.2 0 0 420 " name='location' type="radio" value="8" onclick="myFunction(8)">
-			<input style="position: absolute; margin: 216.2 0 0 310 " name='location' type="radio" value="11" onclick="myFunction(11)"> 
-			<input style="position: absolute; margin: 307 0 0 514 " name='location' type="radio" value="6" onclick="myFunction(6)"> 
-			<input style="position: absolute; margin: 307 0 0 420 " name='location' type="radio" value="9" onclick="myFunction(9)"> 
-			<input style="position: absolute; margin: 307 0 0 310 " name='location' type="radio" value="10" onclick="myFunction(10)"> 
-			<input style="position: absolute; margin: 362 0 0 514 " name='location' type="radio" value="14" onclick="myFunction(14)">  
-			<input style="position: absolute; margin: 362 0 0 420 " name='location' type="radio" value="13" onclick="myFunction(13)"> 
-			<input style="position: absolute; margin: 362 0 0 310 " name='location' type="radio" value="12" onclick="myFunction(12)"> 
-			<input style="position: absolute; margin: 362 0 0 184 " name='location' type="radio" value="15" onclick="myFunction(15)"> 
-			<input style="position: absolute; margin: 297 0 0 616 " name='location' type="radio" value="5" onclick="myFunction(5)"> 
-			<input style="position: absolute; margin: 302 0 0 675 " name='location' type="radio" value="3" onclick="myFunction(3)">
-			<input style="position: absolute; margin: 342 0 0 744 " name='location' type="radio" value="2" onclick="myFunction(2)"> 
-		</div>
-	
-		<div id='youtubeVideo'></div>
-		<div id="description">
-			<div style="text-align: center;">
-				<strong>Wearing headphone for best experience</strong><br>
-				<em>Tilting your phone, dragging your mouse or watching in VR mode to change direction </em><br><br>
-				Current playing
-				<div id="note">EMPTY, Please choose one location on the map</div>
+		<div class='left-body'>
+		  <div class='interface'>
+				<img id="map" src="FSmap1.png" alt="Flinder Street Station Floor map">
+			  <input style="position: absolute; margin: 56 0 0 529.5" name='location' type="radio" value="18" onclick="myFunction(18)"> 
+			  <input style="position: absolute; margin: 91 0 0 537.1" name='location' type="radio" value="17" onclick="myFunction(17)"> 
+			  <input style="position: absolute; margin: 132.5 0 0 539.8px" name='location' type="radio" value="16" onclick="myFunction(16)"> 
+			  <input style="position: absolute; margin: 158 0 0 545 " name='location' type="radio" value="1" onclick="myFunction(1)"> 
+				<input style="position: absolute; margin: 216.2 0 0 514 " name='location' type="radio" value="7" onclick="myFunction(7)"> 
+				<input style="position: absolute; margin: 216.2 0 0 420 " name='location' type="radio" value="8" onclick="myFunction(8)">
+				<input style="position: absolute; margin: 216.2 0 0 310 " name='location' type="radio" value="11" onclick="myFunction(11)"> 
+				<input style="position: absolute; margin: 307 0 0 514 " name='location' type="radio" value="6" onclick="myFunction(6)"> 
+				<input style="position: absolute; margin: 307 0 0 420 " name='location' type="radio" value="9" onclick="myFunction(9)"> 
+				<input style="position: absolute; margin: 307 0 0 310 " name='location' type="radio" value="10" onclick="myFunction(10)"> 
+				<input style="position: absolute; margin: 362 0 0 514 " name='location' type="radio" value="14" onclick="myFunction(14)">  
+				<input style="position: absolute; margin: 362 0 0 420 " name='location' type="radio" value="13" onclick="myFunction(13)"> 
+				<input style="position: absolute; margin: 362 0 0 310 " name='location' type="radio" value="12" onclick="myFunction(12)"> 
+				<input style="position: absolute; margin: 362 0 0 184 " name='location' type="radio" value="15" onclick="myFunction(15)"> 
+				<input style="position: absolute; margin: 297 0 0 616 " name='location' type="radio" value="5" onclick="myFunction(5)"> 
+				<input style="position: absolute; margin: 302 0 0 675 " name='location' type="radio" value="3" onclick="myFunction(3)">
+				<input style="position: absolute; margin: 342 0 0 744 " name='location' type="radio" value="2" onclick="myFunction(2)"> 
+			</div>
+
+			<div id='youtubeVideo'>Please choose one location</div>
+			<div id="description">
+				<div style="text-align: left;">
+					Use <strong>headphone</strong> for best experience<br><br>
+					<strong>Rotating by:</strong>
+					<li>Tilting your phone</li>
+					<li>Watch in VR mode</li>
+					<li>Drag your mouse</li>
+					<li>Slide your finger</li>
+					<!-- <strong>Currently playing:</strong> -->
+					<!-- <div id="note">EMPTY, Please choose one location on the map</div> -->
+				</div>
 			</div>
 		</div>
 
+		<div class="right-body">
+			<div style="text-align: center;"><strong>Introduction</strong></div>
+			anlike other multichannel surround formats, its transmission channels do not carry speaker signals. Instead, they contain a speaker-independent representation of a sound field called B-format, which is then decoded to the listener's speaker setup. This extra step allows the producer to think in terms of source directions rather than loudspeaker positions, and offers the listener a considerable degree of flexibility as to the layout and number of speakers used for playback.
+
+Ambisonics was developed in the UK in the 1970s under the auspices of the British National Research Development Corporation.
+
+Despite its solid technical foundation and many advantages, Ambisonics has not been a commercial success, and survived only in niche applications and among recording enthusiasts.
+
+With the easy availability of powerful digital signal processing (as opposed to the expensive and error-prone analog circuitry that had to be used during its early years) and the successful market introduction of home theatre surround sound systems since the 1990s, interest in Ambisonics among recording engineers, sound designer
+		</div>
 	</div>
 </body>
 </html> 
