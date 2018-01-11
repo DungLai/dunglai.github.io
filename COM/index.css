@@ -10,14 +10,26 @@ input {
 
 .interface {
 	position: relative;
+	padding-top: 6px;
 	padding-bottom: 6px;
 	width: 800px;
+	max-width: 800px;
 	height: 400px
 }
 
 #youtubeVideo {
+	padding-right: 10px;
+	padding-bottom: 6px;
 	position: relative;
 	float: left;
 }
 
+#description {
+	float:left;
+	max-width: 236px;
+}
 
+#title {
+	text-align: center;
+	font-size: 200%;
+}
