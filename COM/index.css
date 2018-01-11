@@ -3,21 +3,21 @@ input {
 	max-height: 100%
 }
 
-.body {
+.main-body {
 	margin-left: 80px;
+	margin-right: 80px;
 }
 
 .interface {
 	position: relative;
-	max-width: 100%;
+	padding-bottom: 6px;
+	width: 800px;
+	height: 400px
 }
 
-#but1 {
-	top: 20%;
+#youtubeVideo {
+	position: relative;
+	float: left;
 }
 
-@media only screen and (max-width: 500px) {
-  #map {
-  	width: 100%;
-  }
-}
+
