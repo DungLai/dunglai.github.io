@@ -76,7 +76,7 @@ input[type="radio"] {
 	z-index: -1
 }
 
-@media only screen and (max-width: 500px) {
+@media (max-width: 1281px) {
 	.right-body {
 		margin-left: 0;
 		margin-right: 0;
@@ -89,6 +89,6 @@ input[type="radio"] {
 
 	#youtubeVideo {
 		margin-left: 0;
-		margin-right: 0;
+		/*margin-right: 0;*/
 	}
 }
