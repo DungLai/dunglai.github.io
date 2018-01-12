@@ -54,7 +54,7 @@ input[type="radio"] {
   border-radius: 10000%;
   transition: .2s;
   cursor:pointer;
-  color: #363945;
+  color: #363945;	
   
 }
 
@@ -77,5 +77,18 @@ input[type="radio"] {
 }
 
 @media only screen and (max-width: 500px) {
+	.right-body {
+		margin-left: 0;
+		margin-right: 0;
+	}
 
+	.main-body {
+		margin-right: 0;
+		margin-left: 0;
+	}
+
+	#youtubeVideo {
+		margin-left: 0;
+		margin-right: 0;
+	}
 }
