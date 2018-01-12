@@ -78,6 +78,7 @@ input[type="radio"] {
 
 @media (max-width: 1281px) {
 	.right-body {
+		max-width: 100%;
 		margin-left: 0;
 		margin-right: 0;
 	}
@@ -90,5 +91,13 @@ input[type="radio"] {
 	#youtubeVideo {
 		margin-left: 0;
 		/*margin-right: 0;*/
+	}
+
+	.interface {
+		margin-left: 80px;
+	}
+
+	#description {
+		max-width: 100%;
 	}
 }
