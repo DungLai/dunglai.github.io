@@ -8,7 +8,7 @@
 
 .left-body {
 	float:left;	
-	margin-right: 10px;
+	margin-right: 25px;
 }
 
 .interface {
@@ -45,6 +45,7 @@
 #title {
 	text-align: center;
 	font-size: 200%;
+	margin-bottom: 6px;
 }
 
 input[type="radio"] {
@@ -60,11 +61,12 @@ input[type="radio"] {
 
 .right-body {
 	margin-top: 6px;
-	height: 100%;
+	/*height: 125%;*/
 	min-width: 250px;
 	max-width: 800px;
+	/*max-height: 1000px;*/
   /*border: 1px solid black;*/
-  background-color: gray;
+  /*background-color: green;*/
   overflow: hidden;
   font-size: 1em;
 }
@@ -74,6 +76,10 @@ input[type="radio"] {
 	width: 800px; 
 	height: 400px; 
 	z-index: -1
+}
+
+.web-plat, .mobile-plat {
+	max-width: 800px;
 }
 
 @media (max-width: 1281px) {
@@ -99,5 +105,11 @@ input[type="radio"] {
 
 	#description {
 		max-width: 350px;
+	}
+}
+
+@media (max-width: 1281px) {
+	.web-plat, .mobile-plat {
+		max-width: 100%;
 	}
 }

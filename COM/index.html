@@ -9,6 +9,15 @@
 	<div id="title">An immersive journey preparation tool for people with vision impairment</div>
 	<div class="main-body">
 		<div class='left-body'>
+		<div class='web-plat'>
+			I. Web platform
+			<br>
+			Ambisonic has been encoded in 360 video using <a href="https://facebook360.fb.com/spatial-workstation/">Facebook 360 Encoder</a> and deployed in Youtube as a 360 video. This will make the video compatible with VR mode. Users can use Google cardboard or Oculus Rift to navigate and change direction. 
+			<br><br>
+			The video can also be rotated by sliding the video or using controller on the top left of the video.
+			<br><br>
+			For mobile user, rotating mobile device will also move the direction of the camera.
+		</div>
 		  <div class='interface'>
 				<img id="map" src="FSmap1.png" alt="Flinder Street Station Floor map">
 			  <input style="position: absolute; margin: 56 0 0 529.5" name='location' type="radio" value="18" onclick="myFunction(18)"> 
@@ -39,7 +48,7 @@
 					<li>Watch in VR mode</li>
 					<li>Drag your mouse</li>
 					<li>Slide your finger</li>
-					<li>Use nativation controller on top left of the video</li>
+					<li>Use navigation controller on top left of the video</li>
 					<!-- <strong>Currently playing:</strong> -->
 					<!-- <div id="note">EMPTY, Please choose one location on the map</div> -->
 				</div>
@@ -47,15 +56,22 @@
 		</div>
 
 		<div class="right-body">
-			<div style="text-align: center;"><strong>Introduction</strong></div>
-			anlike other multichannel surround formats, its transmission channels do not carry speaker signals. Instead, they contain a speaker-independent representation of a sound field called B-format, which is then decoded to the listener's speaker setup. This extra step allows the producer to think in terms of source directions rather than loudspeaker positions, and offers the listener a considerable degree of flexibility as to the layout and number of speakers used for playback.
-
-Ambisonics was developed in the UK in the 1970s under the auspices of the British National Research Development Corporation.
-
-Despite its solid technical foundation and many advantages, Ambisonics has not been a commercial success, and survived only in niche applications and among recording enthusiasts.
-
-With the easy availability of powerful digital signal processing (as opposed to the expensive and error-prone analog circuitry that had to be used during its early years) and the successful market introduction of home theatre surround sound systems since the 1990s, interest in Ambisonics among recording engineers, sound designer
+			<div style="text-align: center;"><strong>The project</strong></div>
+			With almost one in five Australians experiencing some form of disability, a large proportion of the community face challenges to actively participate in city life.
+			<br><br>
+			This project (a participant for the <a href="http://www.melbourne.vic.gov.au/about-melbourne/melbourne-profile/smart-city/Pages/innovation-competition-city-accessibility.aspx">Open innovation competition on city accessibility</a> in 2018) is a proof of concept for a long-term technology-enabled solution to issues experienced by people with vision impaired.
+			<br><br>
+			The surround sound technology that we use in this project is called <strong>ambisonics</strong>, a full-sphere surround sound technique: in addition to the horizontal plane, it covers sound sources above and below the listener.
+			<br>
+			<img src="mic.png" width="200px">
+			<img src="pattern.gif" width="230px">
+			<br>
+			Sound are recorded by a tetrahedron microphone (left image) to get 4-channel monophonic A-format. This will then be converted into 4-channel B-format using mathematical formula.
 		</div>
+	<div style="clear:left;" class="mobile-plat">
+		II. Mobile Platform
 	</div>
+	</div>
+	
 </body>
 </html> 
