@@ -1,4 +1,6 @@
- 
+ html {
+ 	margin-bottom: 20px;
+ }
 
 .main-body {
 	margin-left: 80px;
@@ -33,6 +35,7 @@
 	height: 315px;
 	margin-right: 10px;
 	margin-bottom: 6px;
+	padding-bottom: 15px; /*margin between video and mobile platform*/
 	position: relative;
 	float: left;
 }
@@ -78,7 +81,7 @@ input[type="radio"] {
 	z-index: -1
 }
 
-.web-plat, .mobile-plat {
+.web-plat/*, .mobile-plat */{
 	max-width: 800px;
 }
 
@@ -112,4 +115,8 @@ input[type="radio"] {
 	.web-plat, .mobile-plat {
 		max-width: 100%;
 	}
+}
+
+.mobile-plat {
+	margin-right: 0;
 }
