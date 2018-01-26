@@ -1,44 +1,29 @@
-<!-- CSS Styles -->
-<style>
-  .speech {border: 1px solid #DDD; width: 300px; padding: 0; margin: 0}
-  .speech input {border: 0; width: 240px; display: inline-block; height: 30px;}
-  .speech img {float: right; width: 40px }
-</style>
+<!DOCTYPE html>
 <html>
-<!-- Search Form -->
-<form id="labnol" method="get" action="https://www.google.com/search">
-  <div class="speech">
-    <input type="text" name="q" id="transcript" placeholder="Speak" />
-    <img onclick="startDictation()" src="//i.imgur.com/cHidSVu.gif" />
-  </div>
-</form>
+<head>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
+  <title>TITLE</title>
+</head>
+<body>
+	<div id="text"></div>	
 
-<!-- HTML5 Speech Recognition API -->
-<script>
-  function startDictation() {
+	<script>
+	if (annyang) {
+	  // Let's define our first command. First the text we expect, and then the function it should call
+	  var commands = {
+	    'hello': function() {
+				document.getElementById('text').innerHTML = commands;
+	    }
+	  };
 
-    if (window.hasOwnProperty('webkitSpeechRecognition')) {
+	  // Add our commands to annyang
+	  annyang.addCommands(commands);
 
-      var recognition = new webkitSpeechRecognition();
+	  // Start listening. You can call this here, or attach this call to an event, button, etc.
+	  annyang.start();
+	}
+	</script>	
 
-      recognition.continuous = false;
-      recognition.interimResults = false;
 
-      recognition.lang = "en-US";
-      recognition.start();
-
-      recognition.onresult = function(e) {
-        document.getElementById('transcript').value
-                                 = e.results[0][0].transcript;
-        recognition.stop();
-        document.getElementById('labnol').submit();
-      };
-
-      recognition.onerror = function(e) {
-        recognition.stop();
-      }
-
-    }
-  }
-</script>
+</body>
 </html>
