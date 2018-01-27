@@ -12,6 +12,7 @@
 	<div class="main-body">
 		<div class='left-body'>
 		<div class='web-plat'>
+			<div id='test'>A</div>
 			<strong>I. Web platform </strong><br>
 			<br>
 			Ambisonic has been encoded in 360 video using <a href="https://facebook360.fb.com/spatial-workstation/">Facebook 360 Encoder</a> and deployed in Youtube as a 360 video. This will make the video compatible with VR mode. Users can use Google cardboard or Oculus Rift to navigate and change direction. 
@@ -109,4 +110,30 @@
 	</div>
 	</div>
 </body>
+
+
+<script>
+	if (annyang) {
+  // Let's define our first command. First the text we expect, and then the function it should call
+  var commands = {
+    // 'hello': helloCommand() ;
+    'a': aCommand() {
+    	document.getElementById('test').innerHTML += 'A';
+    }
+  };
+
+  // Add our commands to annyang
+  annyang.addCommands(commands);
+
+  // Start listening. You can call this here, or attach this call to an event, button, etc.
+  annyang.start();
+}
+
+
+function helloCommand() {
+	var helloCommand = new SpeechSynthesisUtterance('Hello');
+	window.speechSynthesis.speak(msg);
+}
+
+</script>
 </html> 

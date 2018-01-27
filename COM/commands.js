@@ -4,6 +4,9 @@ if (annyang) {
   // Let's define our first command. First the text we expect, and then the function it should call
   var commands = {
     'hello': helloCommand() 
+    'a': aCommand() {
+    	document.getElementById('test').innerHTML += 'A';
+    }
   };
 
   // Add our commands to annyang

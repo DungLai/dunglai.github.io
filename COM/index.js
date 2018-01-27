@@ -1,5 +1,5 @@
 
-		function myFunction(location){
+		function showLocation(location){
 			// Print Description of location
 			// //document.getElementById('note').innerHTML = dictDesc[location];
 			// Show youtube video upon video link in dictYoutube
