@@ -10,15 +10,14 @@
 	<script>
 		if (annyang) {
 	  // Let's define our first command. First the text we expect, and then the function it should call
-	  var a = {
-	    // 'hello': helloCommand() ;
-	    'a': function() {
-	    	document.getElementById('test').innerHTML += 'A';
+	  var commands = {
+	    'hello': function() {
+				document.getElementById('text').innerHTML += commands;
 	    }
 	  };
 
 	  // Add our commands to annyang
-	  annyang.addCommands(a);
+	  annyang.addCommands(commands);
 
 	  // Start listening. You can call this here, or attach this call to an event, button, etc.
 	  annyang.start();
