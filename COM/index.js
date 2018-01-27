@@ -61,7 +61,6 @@
 // speech recognition
 var hello = function() {
 	document.getElementById('test').innerHTML += "hello";
-
 	var helloTxt = new SpeechSynthesisUtterance('Hello World');
 	window.speechSynthesis.speak(helloTxt);
 }
