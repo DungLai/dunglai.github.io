@@ -2,6 +2,8 @@
 <head>
 	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="index.js"></script>
+	<script type="text/javascript" src="commands.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script> <!-- Speech Recognition Framework -->
 	<link rel="stylesheet" media="all" href="index.css">
   <title>Your Website Title</title> 
 </head>
@@ -22,23 +24,23 @@
 	  	<div style="text-align: center;"><strong>Flinder Street Station Map</strong></div>
 		  <div class='interface'>
 				<img id="map" src="assets/FSmap1.png" alt="Flinder Street Station Floor map">
-			  <input style="position: absolute; margin: 56 0 0 529.5" name='location' type="radio" value="18" onclick="myFunction(18)"> 
-			  <input style="position: absolute; margin: 91 0 0 537.1" name='location' type="radio" value="17" onclick="myFunction(17)"> 
-			  <input style="position: absolute; margin: 132.5 0 0 539.8px" name='location' type="radio" value="16" onclick="myFunction(16)"> 
-			  <input style="position: absolute; margin: 158 0 0 545 " name='location' type="radio" value="1" onclick="myFunction(1)"> 
-				<input style="position: absolute; margin: 216.2 0 0 514 " name='location' type="radio" value="7" onclick="myFunction(7)"> 
-				<input style="position: absolute; margin: 216.2 0 0 420 " name='location' type="radio" value="8" onclick="myFunction(8)">
-				<input style="position: absolute; margin: 216.2 0 0 310 " name='location' type="radio" value="11" onclick="myFunction(11)"> 
-				<input style="position: absolute; margin: 307 0 0 514 " name='location' type="radio" value="6" onclick="myFunction(6)"> 
-				<input style="position: absolute; margin: 307 0 0 420 " name='location' type="radio" value="9" onclick="myFunction(9)"> 
-				<input style="position: absolute; margin: 307 0 0 310 " name='location' type="radio" value="10" onclick="myFunction(10)"> 
-				<input style="position: absolute; margin: 362 0 0 514 " name='location' type="radio" value="14" onclick="myFunction(14)">  
-				<input style="position: absolute; margin: 362 0 0 420 " name='location' type="radio" value="13" onclick="myFunction(13)"> 
-				<input style="position: absolute; margin: 362 0 0 310 " name='location' type="radio" value="12" onclick="myFunction(12)"> 
-				<input style="position: absolute; margin: 362 0 0 184 " name='location' type="radio" value="15" onclick="myFunction(15)"> 
-				<input style="position: absolute; margin: 297 0 0 616 " name='location' type="radio" value="5" onclick="myFunction(5)"> 
-				<input style="position: absolute; margin: 302 0 0 675 " name='location' type="radio" value="3" onclick="myFunction(3)">
-				<input style="position: absolute; margin: 342 0 0 744 " name='location' type="radio" value="2" onclick="myFunction(2)"> 
+			  <input style="position: absolute; margin: 56 0 0 529.5" name='location' type="radio" value="18" onclick="showLocation(18)"> 
+			  <input style="position: absolute; margin: 91 0 0 537.1" name='location' type="radio" value="17" onclick="showLocation(17)"> 
+			  <input style="position: absolute; margin: 132.5 0 0 539.8px" name='location' type="radio" value="16" onclick="showLocation(16)"> 
+			  <input style="position: absolute; margin: 158 0 0 545 " name='location' type="radio" value="1" onclick="showLocation(1)"> 
+				<input style="position: absolute; margin: 216.2 0 0 514 " name='location' type="radio" value="7" onclick="showLocation(7)"> 
+				<input style="position: absolute; margin: 216.2 0 0 420 " name='location' type="radio" value="8" onclick="showLocation(8)">
+				<input style="position: absolute; margin: 216.2 0 0 310 " name='location' type="radio" value="11" onclick="showLocation(11)"> 
+				<input style="position: absolute; margin: 307 0 0 514 " name='location' type="radio" value="6" onclick="showLocation(6)"> 
+				<input style="position: absolute; margin: 307 0 0 420 " name='location' type="radio" value="9" onclick="showLocation(9)"> 
+				<input style="position: absolute; margin: 307 0 0 310 " name='location' type="radio" value="10" onclick="showLocation(10)"> 
+				<input style="position: absolute; margin: 362 0 0 514 " name='location' type="radio" value="14" onclick="showLocation(14)">  
+				<input style="position: absolute; margin: 362 0 0 420 " name='location' type="radio" value="13" onclick="showLocation(13)"> 
+				<input style="position: absolute; margin: 362 0 0 310 " name='location' type="radio" value="12" onclick="showLocation(12)"> 
+				<input style="position: absolute; margin: 362 0 0 184 " name='location' type="radio" value="15" onclick="showLocation(15)"> 
+				<input style="position: absolute; margin: 297 0 0 616 " name='location' type="radio" value="5" onclick="showLocation(5)"> 
+				<input style="position: absolute; margin: 302 0 0 675 " name='location' type="radio" value="3" onclick="showLocation(3)">
+				<input style="position: absolute; margin: 342 0 0 744 " name='location' type="radio" value="2" onclick="showLocation(2)"> 
 			</div>
 
 			<div id='youtubeVideo'>Please choose one location</div>
