@@ -50,19 +50,33 @@
 		 	18: "SbomIdTWH8U"		
 		}
 
-// fit content to right-body div
-$(function() {
-    while( $('#right-body div').height() > $('#right-body').height() ) {
-        $('#right-body div').css('font-size', (parseInt($('#right-body div').css('font-size')) - 1) + "px" );
-    }
-});
+// // fit content to right-body div
+// $(function() {
+//     while( $('#right-body div').height() > $('#right-body').height() ) {
+//         $('#right-body div').css('font-size', (parseInt($('#right-body div').css('font-size')) - 1) + "px" );
+//     }
+// });
+
+
+// speech recognition
+var hello = function() {
+	document.getElementById('test').innerHTML += "hello";
+}
+
+var a = function() {
+	document.getElementById('test').innerHTML += "a";
+}
+
+var b = function() {
+	document.getElementById('test').innerHTML += "b";
+}
 
 if (annyang) {
   // Let's define our first command. First the text we expect, and then the function it should call
   var commands = {
-    'hello': function() {
-			document.getElementById('test').innerHTML += "A";
-    }
+    'hello': hello,
+    'a' : a,
+    'b' : b
   };
 
   // Add our commands to annyang
