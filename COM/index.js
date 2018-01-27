@@ -61,14 +61,21 @@
 // speech recognition
 var hello = function() {
 	document.getElementById('test').innerHTML += "hello";
+
+	var helloTxt = new SpeechSynthesisUtterance('Hello World');
+	window.speechSynthesis.speak(helloTxt);
 }
 
 var a = function() {
 	document.getElementById('test').innerHTML += "a";
+	var aTxt = new SpeechSynthesisUtterance('You say A');
+	window.speechSynthesis.speak(aTxt);
 }
 
 var b = function() {
 	document.getElementById('test').innerHTML += "b";
+	var bTxt = new SpeechSynthesisUtterance('You say B');
+	window.speechSynthesis.speak(bTxt);
 }
 
 if (annyang) {

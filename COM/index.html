@@ -2,7 +2,6 @@
 <head>
 	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="index.js"></script>
-	<script type="text/javascript" src="commands.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script> <!-- Speech Recognition Framework -->
 	<link rel="stylesheet" media="all" href="index.css">
   <title>Your Website Title</title> 
@@ -110,38 +109,4 @@
 	</div>
 	</div>
 </body>
-
-
-<script>
-	if (annyang) {
-  // Let's define our first command. First the text we expect, and then the function it should call
-  var a = {
-    // 'hello': helloCommand() ;
-    'a': function() {
-    	document.getElementById('test').innerHTML += 'A';
-    }
-  };
-
-  var hello = {
-    'hello' : function() {
-  		var helloCommand = new SpeechSynthesisUtterance('Hello World');
-			window.speechSynthesis.speak(msg);
-    }
-	};
-
-  // Add our commands to annyang
-  annyang.addCommands(a);
-  annyang.addCommands(hello);
-
-  // Start listening. You can call this here, or attach this call to an event, button, etc.
-  annyang.start();
-}
-
-
-function helloCommand() {
-	var helloCommand = new SpeechSynthesisUtterance('Hello');
-	window.speechSynthesis.speak(msg);
-}
-
-</script>
 </html> 
