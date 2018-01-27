@@ -1,29 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
-  <title>TITLE</title>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script> <!-- Speech Recognition Framework -->
+	<title></title>
 </head>
 <body>
-	<div id="text"></div>	
+	<div id="test">Output: </div>
 
 	<script>
-	if (annyang) {
+		if (annyang) {
 	  // Let's define our first command. First the text we expect, and then the function it should call
-	  var commands = {
-	    'hello': function() {
-				document.getElementById('text').innerHTML = 'hello';
+	  var a = {
+	    // 'hello': helloCommand() ;
+	    'a': function() {
+	    	document.getElementById('test').innerHTML += 'A';
 	    }
 	  };
 
 	  // Add our commands to annyang
-	  annyang.addCommands(commands);
+	  annyang.addCommands(a);
 
 	  // Start listening. You can call this here, or attach this call to an event, button, etc.
 	  annyang.start();
 	}
-	</script>	
-
-
+	</script>
 </body>
 </html>
