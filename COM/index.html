@@ -119,6 +119,11 @@
     // 'hello': helloCommand() ;
     'a': function() {
     	document.getElementById('test').innerHTML += 'A';
+    };
+
+    'hello' : function() {
+  		var helloCommand = new SpeechSynthesisUtterance('Hello World');
+			window.speechSynthesis.speak(msg);
     }
   };
 
