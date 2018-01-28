@@ -18,6 +18,24 @@ var whatTimeIsThis = function() {
   window.speechSynthesis.speak(whatTimeIsThis);
 }
 
+var whereAmI = function() {
+  // document.getElementById('test').innerHTML += "b";
+  var whereAmI = new SpeechSynthesisUtterance('You say B');
+  window.speechSynthesis.speak(whereAmI);
+}
+
+var nextLocation = function() {
+  // document.getElementById('test').innerHTML += "b";
+  var nextLocation = new SpeechSynthesisUtterance('You say B');
+  window.speechSynthesis.speak(nextLocation);
+}
+
+var replay = function() {
+  // document.getElementById('test').innerHTML += "b";
+  var replay = new SpeechSynthesisUtterance('You say B');
+  window.speechSynthesis.speak(replay);
+}
+
 if (annyang) {
   // Let's define our first command. First the text we expect, and then the function it should call
   var commands = {
