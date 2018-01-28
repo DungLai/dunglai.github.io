@@ -51,7 +51,7 @@ if (annyang) {
   var commands = {
     'help': help, // list of commands
     'what is this': whatIsThis, // description of project
-    'when (was) (the) (video) recoreded' : whenRecoreded, // time when video was recorded
+    'when (was the video) recoreded' : whenRecoreded, // time when video was recorded
     'where am i' : whereAmI, // location information
     'next location' : nextLocation, // move to next location
     'replay' : replay // replay the video 
@@ -63,3 +63,6 @@ if (annyang) {
   // Start listening. You can call this here, or attach this call to an event, button, etc.
   annyang.start();
 }
+
+
+/// add transition voice : location 1 => location2 : you walking 3 meter into
