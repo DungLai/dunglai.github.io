@@ -26,10 +26,10 @@ var whereAmI = function() {
 var nextLocation = function() {
   var location = document.querySelector('input[name="location"]:checked').value;
   // skip empty video
+  location = (parseInt(location)+1).toString()
   if (location === "4") { 
     location = (parseInt(location)+1).toString()
   }
-  location = (parseInt(location)+1).toString()
   if (location === '18') {
     location = '1';
   }
