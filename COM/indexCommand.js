@@ -1,29 +1,32 @@
-//test
-// speech recognition
-var hello = function() {
-	// document.getElementById('test').innerHTML += "hello";
-	var helloTxt = new SpeechSynthesisUtterance('Hello World');
-	window.speechSynthesis.speak(helloTxt);
+////////////////////// speech recognition //////////////////////// 
+
+var help = function() {
+  // document.getElementById('test').innerHTML += "hello";
+  var help = new SpeechSynthesisUtterance('This is an auditory based simulation of Flinder Street Station. You can use the following voice commands: ');
+  window.speechSynthesis.speak(help);
 }
 
-var a = function() {
-	// document.getElementById('test').innerHTML += "a";
-	var aTxt = new SpeechSynthesisUtterance('You say A');
-	window.speechSynthesis.speak(aTxt);
+var whatIsThis = function() {
+  // document.getElementById('test').innerHTML += "a";
+  var whatIsThis = new SpeechSynthesisUtterance('This is a project to improve people with vision impaired navigation skills.');
+  window.speechSynthesis.speak(whatIsThis);
 }
 
-var b = function() {
-	// document.getElementById('test').innerHTML += "b";
-	var bTxt = new SpeechSynthesisUtterance('You say B');
-	window.speechSynthesis.speak(bTxt);
+var whatTimeIsThis = function() {
+  // document.getElementById('test').innerHTML += "b";
+  var whatTimeIsThis = new SpeechSynthesisUtterance('You say B');
+  window.speechSynthesis.speak(whatTimeIsThis);
 }
 
 if (annyang) {
   // Let's define our first command. First the text we expect, and then the function it should call
   var commands = {
-    'hello': hello,
-    'a' : a,
-    'b' : b
+    'help': help, // list of commands
+    'what is this': whatIsThis, // description of project
+    'what time is this' : whatTimeIsThis, // time when video was recorded
+    'where am i' : whereAmI, // location information
+    'next location' : nextLocation, // move to next location
+    'replay' : replay // replay the video 
   };
 
   // Add our commands to annyang
