@@ -36,6 +36,4 @@ var amISpeaking = window.speechSynthesisInstance.speaking;
 
 while (amISpeaking){
   document.getElementById('test').innerHTML = "SPEAKING!!!";
-} else {
-  document.getElementById('test').innerHTML = "NOT SPEAKING!!!";
 }
