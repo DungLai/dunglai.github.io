@@ -61,20 +61,20 @@ $(function() {
 
 var help = function() {
 	// document.getElementById('test').innerHTML += "hello";
-	var helloTxt = new SpeechSynthesisUtterance('Hello World');
-	window.speechSynthesis.speak(helloTxt);
+	var help = new SpeechSynthesisUtterance('This is an auditory based simulation of Flinder Street Station. You can use the following voice commands: ');
+	window.speechSynthesis.speak(help);
 }
 
-var a = function() {
-	document.getElementById('test').innerHTML += "a";
-	var aTxt = new SpeechSynthesisUtterance('You say A');
-	window.speechSynthesis.speak(aTxt);
+var whatIsThis = function() {
+	// document.getElementById('test').innerHTML += "a";
+	var whatIsThis = new SpeechSynthesisUtterance('This is a project to improve people with vision impaired navigation skills.');
+	window.speechSynthesis.speak(whatIsThis);
 }
 
-var b = function() {
-	document.getElementById('test').innerHTML += "b";
-	var bTxt = new SpeechSynthesisUtterance('You say B');
-	window.speechSynthesis.speak(bTxt);
+var whatTimeIsThis = function() {
+	// document.getElementById('test').innerHTML += "b";
+	var whatTimeIsThis = new SpeechSynthesisUtterance('You say B');
+	window.speechSynthesis.speak(whatTimeIsThis);
 }
 
 if (annyang) {
