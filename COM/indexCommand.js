@@ -8,13 +8,13 @@ var help = function() {
 }
 
 var whatIsThis = function() {
-  var whatIsThis = new SpeechSynthesisUtterance('This is a project to improve people with vision impaired navigation skills. You will be listening to ');
+  var whatIsThis = new SpeechSynthesisUtterance('This is a project to improve people with vision impaired navigation skills. You will be listenining to immersive spatial audio in different locations in Flinder Street Station.');
   window.speechSynthesis.speak(whatIsThis);
 }
 
 var whatTimeIsThis = function() {
   location = document.querySelector('input[name="location"]:checked').value;
-  var whatTimeIsThis = new SpeechSynthesisUtterance('You say B');
+  var whatTimeIsThis = new SpeechSynthesisUtterance('Video is recoreded at ' + dictTime[location]);
   window.speechSynthesis.speak(whatTimeIsThis);
 }
 
