@@ -13,22 +13,32 @@ var whatIsThis = function() {
 
 var whenRecoreded = function() {
   var location = document.querySelector('input[name="location"]:checked').value;
-  var whenRecoreded = new SpeechSynthesisUtterance('This ideo is recoreded at ' + dictTime[location]);
+  var whenRecoreded = new SpeechSynthesisUtterance('This video is recoreded at ' + dictTime[location]);
   window.speechSynthesis.speak(whenRecoreded);
 }
 
 var whereAmI = function() {
-  var whereAmI = new SpeechSynthesisUtterance('You say B');
+  var location = document.querySelector('input[name="location"]:checked').value;
+  var whereAmI = new SpeechSynthesisUtterance('You are at ' + dictDesc[location]);
   window.speechSynthesis.speak(whereAmI);
 }
 
 var nextLocation = function() {
-  var nextLocation = new SpeechSynthesisUtterance('You say B');
+  var location = document.querySelector('input[name="location"]:checked').value;
+  // skip empty video
+  if (location === 4) { 
+    location += 1
+  }
+  location += 1;
+  showVideo(location);
+  var nextLocation = new SpeechSynthesisUtterance('Playing next location, you are at: ' + dictDesc[location]);
   window.speechSynthesis.speak(nextLocation);
 }
 
 var replay = function() {
-  var replay = new SpeechSynthesisUtterance('You say B');
+  var location = document.querySelector('input[name="location"]:checked').value;
+  showVideo(location);
+  var replay = new SpeechSynthesisUtterance('Replaying the video, you are at ' + dictDesc[location]);
   window.speechSynthesis.speak(replay);
 }
 
