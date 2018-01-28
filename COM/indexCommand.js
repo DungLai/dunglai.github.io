@@ -30,7 +30,7 @@ var nextLocation = function() {
   if (location === "4") { 
     location = (parseInt(location)+1).toString()
   }
-  if (location === '18') {
+  if (location === '19') {
     location = '1';
   }
   document.getElementById(location).checked = true;
