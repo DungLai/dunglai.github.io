@@ -50,17 +50,17 @@
 		 	18: "SbomIdTWH8U"		
 		}
 
-// // fit content to right-body div
-// $(function() {
-//     while( $('#right-body div').height() > $('#right-body').height() ) {
-//         $('#right-body div').css('font-size', (parseInt($('#right-body div').css('font-size')) - 1) + "px" );
-//     }
-// });
+// fit content to right-body div
+$(function() {
+    while( $('#right-body div').height() > $('#right-body').height() ) {
+        $('#right-body div').css('font-size', (parseInt($('#right-body div').css('font-size')) - 1) + "px" );
+    }
+});
 
+//////////////////////// speech recognition //////////////////////// 
 
-// speech recognition
-var hello = function() {
-	document.getElementById('test').innerHTML += "hello";
+var help = function() {
+	// document.getElementById('test').innerHTML += "hello";
 	var helloTxt = new SpeechSynthesisUtterance('Hello World');
 	window.speechSynthesis.speak(helloTxt);
 }
@@ -80,9 +80,12 @@ var b = function() {
 if (annyang) {
   // Let's define our first command. First the text we expect, and then the function it should call
   var commands = {
-    'hello': hello,
-    'a' : a,
-    'b' : b
+    'help': help, // list of commands
+    'what is this': whatIsThis, // description of project
+    'what time is this' : whatTimeIsThis, // time when video was recorded
+    'where am i' : whereAmI, // location information
+  	'next location' : nextLocation, // move to next location
+  	'replay' : replay // replay the video 
   };
 
   // Add our commands to annyang
