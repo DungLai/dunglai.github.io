@@ -26,10 +26,13 @@ var whereAmI = function() {
 var nextLocation = function() {
   var location = document.querySelector('input[name="location"]:checked').value;
   // skip empty video
-  if (location === 4) { 
-    location += 1
+  if (location === "4") { 
+    location = (parseInt(location)+1).toString()
   }
-  location += 1;
+  location = (parseInt(location)+1).toString()
+  if (location === '18') {
+    location = '1';
+  }
   document.getElementById(location).checked = true;
   showVideo(location);
   var nextLocation = new SpeechSynthesisUtterance('Playing next location, you are at: ' + dictDesc[location]);
