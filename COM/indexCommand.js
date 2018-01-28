@@ -2,7 +2,7 @@
 
 var help = function() {
   // document.getElementById('test').innerHTML += "hello";
-  var help = new SpeechSynthesisUtterance('This is an auditory based simulation of Flinder Street Station. You can use the following voice commands: help... what is this... when was the video recoreded... where am i... next location ,,, replay');
+  var help = new SpeechSynthesisUtterance('This is an auditory based simulation of Flinder Street Station. You can use the following voice commands: help, what is this, when was the video recoreded, where am i, next location, replay');
   window.speechSynthesis.speak(help);
 }
 
@@ -30,6 +30,7 @@ var nextLocation = function() {
     location += 1
   }
   location += 1;
+  document.getElementById(location).checked = true;
   showVideo(location);
   var nextLocation = new SpeechSynthesisUtterance('Playing next location, you are at: ' + dictDesc[location]);
   window.speechSynthesis.speak(nextLocation);
