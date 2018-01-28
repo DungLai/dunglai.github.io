@@ -1,32 +1,47 @@
 
-		function showLocation(location){
-			// Print Description of location
-			// //document.getElementById('note').innerHTML = dictDesc[location];
-			// Show youtube video upon video link in dictYoutube
-			// //document.getElementById('youtubeVideo').innerHTML = dictDesc[location]
-			document.getElementById('youtubeVideo').innerHTML = dictDesc[location] + '<iframe width="560" height="315" src="https://www.youtube.com/embed/' + dictYoutube[location] + '?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>'
-
+		function showVideo(location){
+			document.getElementById('youtubeVideo').innerHTML = dictTime[location] + " " +dictDesc[location] + '<iframe width="560" height="315" src="https://www.youtube.com/embed/' + dictYoutube[location] + '?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>'
 		}
 
+		var dictTime = {
+			1:  "11:40am",
+			2:  "11:44am",
+			3:  "11:46am",
+			4:  "",
+			5:  "11:55am",
+			6:  "11:57am",
+			7:  "1:10pm",	
+			8:  "1:12pm",	
+			9:  "1:16pm",	
+			10: "1:17pm",	
+			11: "1:22pm",	
+			12: "1:24pm",	
+			13: "1:25pm",	
+			14: "1:26pm",	
+			15: "1:26pm",	
+			16: "1:34pm",	
+			17: "1:37pm",	
+			18: "1:39pm"
+		}
 		var dictDesc = {
-			1: "11:40am	Walk and record along predefined route from Platform 3, up escalators, through barriers and onto Flinders/Swanston steps.",
-			2: "11:44am	Start of Cnr Flinders and Swanston at steps",
-			3: "11:46am	Under main dome",
+			1: "Walk and record along predefined route from Platform 3, up escalators, through barriers and onto Flinders/Swanston steps.",
+			2: "Start of Cnr Flinders and Swanston at steps",
+			3: "Under main dome",
 			4: "",
-			5: "11:55am	Near barriers",
-			6: "11:57am	Approaching barriers",
-			7: "1:10pm	At top of Platform 3 escalators",
-			8: "1:12pm	At top of Platform 5 escalators",
-			9: "1:16pm	Outside Baguette",
-			10: "1:17pm	Outside NZ Natural ice-cream",
-			11: "1:22pm	At top of Platform 8 escalator",
-			12: "1:24pm	Outside barrier (facing Swanston St)",
-			13: "1:25pm	Outside Taxi Rank (opposite NZ ice-cream)",
-			14: "1:26pm	Near Busker (White Wedding Dress)",
-			15: "1:26pm	Outside Relay Hub Convenience Store",
-			16: "1:34pm	On Platform 3",
-			17: "1:37pm	Platform 3 near subway entrance (stone steps)",			
-			18: "1:39pm	In subway near platform 2/3 entrance"
+			5: "ear barriers",
+			6: "Approaching barriers",
+			7: "At top of Platform 3 escalators",
+			8: "At top of Platform 5 escalators",
+			9: "Outside Baguette",
+			10: "Outside NZ Natural ice-cream",
+			11: "At top of Platform 8 escalator",
+			12: "Outside barrier (facing Swanston St)",
+			13: "Outside Taxi Rank (opposite NZ ice-cream)",
+			14: "Near Busker (White Wedding Dress)",
+			15: "Outside Relay Hub Convenience Store",
+			16: "On Platform 3",
+			17: "Platform 3 near subway entrance (stone steps)",			
+			18: "In subway near platform 2/3 entrance"
 		}
 
 		var dictYoutube = {

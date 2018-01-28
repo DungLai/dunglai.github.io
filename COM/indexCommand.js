@@ -1,4 +1,5 @@
 ////////////////////// speech recognition //////////////////////// 
+var location = 0;
 
 var help = function() {
   // document.getElementById('test').innerHTML += "hello";
@@ -7,31 +8,27 @@ var help = function() {
 }
 
 var whatIsThis = function() {
-  // document.getElementById('test').innerHTML += "a";
-  var whatIsThis = new SpeechSynthesisUtterance('This is a project to improve people with vision impaired navigation skills.');
+  var whatIsThis = new SpeechSynthesisUtterance('This is a project to improve people with vision impaired navigation skills. You will be listening to ');
   window.speechSynthesis.speak(whatIsThis);
 }
 
 var whatTimeIsThis = function() {
-  // document.getElementById('test').innerHTML += "b";
+  location = document.querySelector('input[name="location"]:checked').value;
   var whatTimeIsThis = new SpeechSynthesisUtterance('You say B');
   window.speechSynthesis.speak(whatTimeIsThis);
 }
 
 var whereAmI = function() {
-  // document.getElementById('test').innerHTML += "b";
   var whereAmI = new SpeechSynthesisUtterance('You say B');
   window.speechSynthesis.speak(whereAmI);
 }
 
 var nextLocation = function() {
-  // document.getElementById('test').innerHTML += "b";
   var nextLocation = new SpeechSynthesisUtterance('You say B');
   window.speechSynthesis.speak(nextLocation);
 }
 
 var replay = function() {
-  // document.getElementById('test').innerHTML += "b";
   var replay = new SpeechSynthesisUtterance('You say B');
   window.speechSynthesis.speak(replay);
 }
