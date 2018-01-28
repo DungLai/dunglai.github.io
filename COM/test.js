@@ -32,7 +32,7 @@ if (annyang) {
   annyang.start();
 }
 
-var amISpeaking = window.speechSynthesisInstance.speaking;
+var amISpeaking = speechSynthesisInstance.speaking;
 
 while (amISpeaking){
   document.getElementById('test').innerHTML = "SPEAKING!!!";
