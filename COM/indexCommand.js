@@ -1,5 +1,4 @@
 ////////////////////// speech recognition //////////////////////// 
-var location = 0;
 
 var help = function() {
   // document.getElementById('test').innerHTML += "hello";
@@ -13,7 +12,7 @@ var whatIsThis = function() {
 }
 
 var whatTimeIsThis = function() {
-  location = document.querySelector('input[name="location"]:checked').value;
+  var location = document.querySelector('input[name="location"]:checked').value;
   var whatTimeIsThis = new SpeechSynthesisUtterance('Video is recoreded at ' + dictTime[location]);
   window.speechSynthesis.speak(whatTimeIsThis);
 }
