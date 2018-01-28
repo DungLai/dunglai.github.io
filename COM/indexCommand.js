@@ -2,7 +2,7 @@
 
 var help = function() {
   // document.getElementById('test').innerHTML += "hello";
-  var help = new SpeechSynthesisUtterance('This is an auditory based simulation of Flinder Street Station. You can use the following voice commands: help, what is this, when was the video recoreded, where am i, next location, replay');
+  var help = new SpeechSynthesisUtterance('This is an auditory based simulation of Flinder Street Station. You can use the following voice commands: help, what is this, when was the video recorded, where am i, next location, replay');
   window.speechSynthesis.speak(help);
 }
 
@@ -51,7 +51,7 @@ if (annyang) {
   var commands = {
     'help': help, // list of commands
     'what is this': whatIsThis, // description of project
-    'when (was the video) recoreded' : whenRecoreded, // time when video was recorded
+    'when (was the video) recorded' : whenRecoreded, // time when video was recorded
     'where am i' : whereAmI, // location information
     'next location' : nextLocation, // move to next location
     'replay' : replay // replay the video 
