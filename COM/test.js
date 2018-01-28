@@ -31,3 +31,11 @@ if (annyang) {
   // Start listening. You can call this here, or attach this call to an event, button, etc.
   annyang.start();
 }
+
+var amISpeaking = window.speechSynthesisInstance.speaking;
+
+while (amISpeaking){
+  document.getElementById('test').innerHTML = "SPEAKING!!!";
+} else {
+  document.getElementById('test').innerHTML = "NOT SPEAKING!!!";
+}
