@@ -21,6 +21,8 @@ var whereAmI = function() {
   var location = document.querySelector('input[name="location"]:checked').value;
   var whereAmI = new SpeechSynthesisUtterance('You are at ' + dictDesc[location]);
   window.speechSynthesis.speak(whereAmI);
+  var narration = new SpeechSynthesisUtterance(dictNarration[location])
+  window.speechSynthesis.speak(narration);
 }
 
 var nextLocation = function() {

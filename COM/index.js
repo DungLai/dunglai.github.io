@@ -23,9 +23,31 @@
 			17: "1:37pm",	
 			18: "1:39pm"
 		}
+
+		var dictNarration = {
+			1: "",
+			2: "you are facing North, there is a pedestrian cross road in front of you. Behind you is Flinder Street entrance and there will be some steps to get into Flinder Street  Station ",
+			3: "",
+			4: "",
+			5: "",
+			6: "",
+			7: "",
+			8: "",
+			9: "",
+			10: "",
+			11: "",
+			12: "",
+			13: "",
+			14: "",
+			15: "",
+			16: "",
+			17: "",
+			18: ""
+		}
+
 		var dictDesc = {
 			1: "Walk and record along predefined route from Platform 3, up escalators, through barriers and onto Flinders/Swanston steps.",
-			2: "Start of Cnr Flinders and Swanston at steps",
+			2: "Start of Cnr Flinders and Swanston at steps.",
 			3: "Under main dome",
 			4: "",
 			5: "ear barriers",
