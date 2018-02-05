@@ -9,6 +9,7 @@
 </head>
 <body>
 	<div id="title">An immersive journey preparation tool for people with vision impairment</div>
+	<div id="author">Dung Lai, Chris McCarthy, David Sly, Harrison Bennett, Matt Shackleton , Stuart Favillla</div>
 	<div class="main-body">
 		<div class='left-body'>
 		<div class='web-plat'>
@@ -42,17 +43,30 @@
 				<input style="position: absolute; margin: 302 0 0 675 " name='location' type="radio" value='3' id="3" onclick="showVideo(3)">
 				<input style="position: absolute; margin: 342 0 0 744 " name='location' type="radio" value='2' id="2" onclick="showVideo(2)"> 
 			</div>
-
 			<div id='youtubeVideo'>Please choose one location</div>
+			<br>
+			<div id='youtubeVideoAmbeo'>Audio recorded by Sennheiser Ambeo VR 360 Microphone</div>
 			<div id="description">
 				<div style="text-align: left;">
 					Use <strong>headphone</strong> for best experience<br><br>
 					<strong>Rotating by:</strong>
 					<li>Tilting your phone</li>
+					<li>WASD key</li>
 					<li>Watch in VR mode</li>
 					<li>Drag your mouse</li>
 					<li>Slide your finger</li>
 					<li>Use navigation controller on top left of the video</li>
+					<br>
+					<strong><u>Voice recognition and speech synthesis</u></strong>
+					<br>
+					<br>
+					<strong>Commands list:</strong>
+					<li>help</li>
+					<li>what is this?</li>
+					<li>where am i</li>
+					<li>when (was the video) recorded</li>
+					<li>next location</li>
+					<li>replay</li>
 					<!-- <strong>Currently playing:</strong> -->
 					<!-- <div id="note">EMPTY, Please choose one location on the map</div> -->
 				</div>
@@ -65,18 +79,26 @@
 			<br><br>
 			This project (a participant for the <a href="http://www.melbourne.vic.gov.au/about-melbourne/melbourne-profile/smart-city/Pages/innovation-competition-city-accessibility.aspx">Open innovation competition on city accessibility</a> in 2018) is a proof of concept for a long-term technology-enabled solution to issues experienced by people with vision impaired.
 			<br><br>
-			The surround sound technology that we use in this project is called <strong>ambisonics</strong>, a full-sphere surround sound technique: in addition to the horizontal plane, it covers sound sources above and below the listener.
+			<div style="text-align: center;"><strong>Method</strong></div>
 			<br>
-			<img src="assets/mic.png" width="200px">
-			<img src="assets/pattern.gif" width="230px">
+			We develop an auditory-based simulator to simulate the sensory experience of a specific location in Melbourne’s CBD. The idea is to provide people who have vision impairment and blindness an immersive tool that allows them to experience the sounds of environments they plan to walk through. The simulator would allow them to rotate their body and hear the sounds change as they rotate.<br>
+			<img src='assets/3d.png' width="40%">
+			<img src='assets/blind.jpg' width="40%"><br>
+			In order to archive what we call “immersive” experience, we use Ambisonic Technology [1]: a full-sphere surround sound technique, in addition to the horizontal plane, it covers  sound sources above and below the listener
 			<br>
-			Sound are recorded by a tetrahedron microphone (left image) to get 4-channel monophonic A-format. This will then be converted into 4-channel B-format using mathematical formula.
+			<img src="assets/mic.png" width="30%">
+			<img src="assets/pattern.gif" width="30%">
+			<img src="assets/math.png" width="30%">
+			<br>
+			Sounds are recorded by a tetrahedron microphone (left image) to get 4-channel monophonic A-format. This is converted into 4-channel B-format using mathematical formula shown below [1]. B-format file contains XYZ directions which covers all 3 dimensions. W channel is called omnidirectional.
+			<br>
+			<img src="assets/compare.png" width="100%">
 		</div>
 	<div style="clear:left;" class="mobile-plat">
 		<strong>II. Desktop Platform</strong> <br><br>
 		For desktop platform, we development a standalone application using <a href='https://cycling74.com/products/max/'><strong>Max/MSP</strong></a> - a visual programming language for music and multimedia.
 		<br>
-		We make use of <a href='https://github.com/abaskind/hedrot'>Hedrot</a> - Open-Source Head Tracker. This product can be integrated in headphone tracks yaw-pitch-roll value when user rotate.
+		We make use of <a href='https://github.com/abaskind/hedrot'>Hedrot</a> - Open-Source Head Tracker. This product can be integrated in headphone tracks yaw-pitch-roll value when users rotate.
 		<br>
 		<figure>
   		<img src='assets/teensy-part.png' width='250px' height="250px">
@@ -86,7 +108,7 @@
   		<figcaption>Hedrot parts --- Schematics --- Build headtracker --- Integrate Headtracker to headphone</figcaption>
 		</figure>
 		<br>
-		Below are application interface on desktop, user can choose a specific location to play the sound, headtracker will automatically be detected once plugged in:
+		Below is desktop application interface, users can choose a specific location to play the sound, headtracker will automatically be detected once plugged in:
 		<figure>
   		<img src='assets/max-presentation.png' width='70%'>
   		<figcaption></figcaption>
@@ -96,6 +118,12 @@
   		<img src='assets/max-demo.png' width='70%'>
   		<figcaption></figcaption>
 		</figure>
+		<br>
+		<strong>Narration and Audio Description based on user’s head direction</strong>
+		<br>
+		The surround area will be described, description is on-request and dynamically adjusted based on head direction. The yaw value from headtracker is extracted and separated into 4 parts: front, back, left and right. Audio cue will be played based on the head direction.
+		<div style="clear:left">
+		<img src='assets/narration.png' width="20%">
 		<br>
 		<strong>Main Equipments:</strong>
 		<ul>

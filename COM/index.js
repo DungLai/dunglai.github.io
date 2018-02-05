@@ -1,6 +1,7 @@
 
 		function showVideo(location){
-			document.getElementById('youtubeVideo').innerHTML = dictTime[location] + " " +dictDesc[location] + '<iframe width="560" height="315" src="https://www.youtube.com/embed/' + dictYoutube[location] + '?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>'
+			document.getElementById('youtubeVideo').innerHTML = dictTime[location] + " " +dictDesc[location] + '<iframe width="560" height="315" src="https://www.youtube.com/embed/' + dictYoutube[location] + '?autoplay=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>'
+			document.getElementById('youtubeVideoAmbeo').innerHTML = '<iframe width="560" height="315" src="https://www.youtube.com/embed/' + dictYoutubeAmbeo[location] + '?autoplay=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>'
 		}
 
 		var dictTime = {
@@ -66,6 +67,7 @@
 			18: "In subway near platform 2/3 entrance"
 		}
 
+		//audio by VIRB 360
 		var dictYoutube = {
 			1: "a7gG0tIKkuY",
 			2: "pTbWLeybnRA",
@@ -87,6 +89,27 @@
 		 	18: "SbomIdTWH8U"		
 		}
 
+		//audio by Ambeo mic
+		var dictYoutubeAmbeo = {
+			1: "bHfYH1X3qMQ",
+			2: "oMmGzehHz8I",
+			3: "coTEW5bWb_U",
+			4: "",
+			5: "Pya1ZSjtJkc",
+			6: "asXy9f0s7fQ",
+			7: "61ykPQsIxmg",
+			8: "MMjGUxem810",
+			9: "JHg9lxDyycI",
+			10: "rOHuu16QDjY",
+			11: "WY0bFAvDA-A",
+			12: "bH2CpwHc2nI",
+			13: "bH2CpwHc2nI",
+			14: "SPgXmsCU3Iw",
+			15: "yXdVdDxZ_I0",
+			16: "o6YOR6L1iC4",
+			17: "LNzb-qQ4ctA",
+		 	18: "2mDcAZ-6Czc"		
+		}
 // fit content to right-body div
 $(function() {
     while( $('#right-body div').height() > $('#right-body').height() ) {
