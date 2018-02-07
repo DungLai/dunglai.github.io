@@ -1,7 +1,7 @@
 
 		function showVideo(location){
 			document.getElementById('youtubeVideo').innerHTML = dictTime[location] + " " +dictDesc[location] + '<iframe width="560" height="315" src="https://www.youtube.com/embed/' + dictYoutube[location] + '?autoplay=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>'
-			document.getElementById('youtubeVideoAmbeo').innerHTML += '<br> <iframe width="560" height="315" src="https://www.youtube.com/embed/' + dictYoutubeAmbeo[location] + '?autoplay=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>'
+			document.getElementById('youtubeVideoAmbeo').innerHTML = '<br> <iframe width="560" height="315" src="https://www.youtube.com/embed/' + dictYoutubeAmbeo[location] + '?autoplay=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>'
 		}
 
 		var dictTime = {
