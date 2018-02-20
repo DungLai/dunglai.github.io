@@ -61,11 +61,10 @@ input[type="radio"] {
   box-shadow:
     inset 0 0 0 .1em black,
     0 0 0 .1em;
-  border-radius: 10000%;
+  border-radius: 10%;
   transition: .2s;
   cursor:pointer;
-  color: #363945;	
-  
+  color: red;	
 }
 
 #mapFS {
@@ -122,14 +121,18 @@ input[type="radio"] {
 	}
 }
 
-@media (max-width: 1281px) {
+@media (max-width: 800px) {
 	.web-plat, .mobile-plat {
 		max-width: 100%;
 	}
 
-	.container input {
+	.container input[type="radio"] {
 		width: : 2px;
 		height: 10px;
+		color: none;
+	  box-shadow: none;
+	  border-radius: 10%;
+	  cursor:pointer;
 	}
 }
 
@@ -154,22 +157,17 @@ input[type="radio"] {
     height: auto;
 }
 
-.container input {
+.container input[type="radio"] {
     position: absolute;
 /*    top: 50%;
     left: 50%;*/
     /*transform: translate(-50%, -50%);*/
     /*-ms-transform: translate(-50%, -50%);*/
     /*background-color: red;*/
-    color: red;
-    font-size: 20px;
+    /*font-size: 20px;*/
     /*padding: 12px 24px;*/
     border: none;
     cursor: pointer;
     /*border-radius: 5px;*/
     /*text-align: center;*/
-}
-
-.container .btn:hover {
-    background-color: black;
 }
