@@ -126,6 +126,11 @@ input[type="radio"] {
 	.web-plat, .mobile-plat {
 		max-width: 100%;
 	}
+
+	.container input {
+		width: : 2px;
+		height: 10px;
+	}
 }
 
 .mobile-plat {
