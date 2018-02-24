@@ -121,6 +121,7 @@ input[type="radio"] {
 	}
 }
 
+/*mobile device*/
 @media (max-width: 800px) {
 	.web-plat, .mobile-plat {
 		max-width: 100%;
@@ -133,6 +134,10 @@ input[type="radio"] {
 	  box-shadow: none;
 	  border-radius: 10%;
 	  cursor:pointer;
+	}
+
+	#title {
+		font-size: 15px;
 	}
 }
 
