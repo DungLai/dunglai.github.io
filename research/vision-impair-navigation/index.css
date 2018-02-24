@@ -171,3 +171,8 @@ input[type="radio"] {
     /*border-radius: 5px;*/
     /*text-align: center;*/
 }
+
+.w3-padding-32 {
+	padding-top: 0 !important ;
+	padding-bottom: 0 !important ;
+}

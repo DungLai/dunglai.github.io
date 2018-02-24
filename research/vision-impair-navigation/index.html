@@ -1,3 +1,7 @@
+<!-- collapse at width = 992,993 -->
+
+
+
 <!DOCTYPE html>
 <html>
 <!-- https://www.w3schools.com/w3css/tryw3css_templates_blog.htm -->
@@ -5,8 +9,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="index.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="index.css">
 <style>
 body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 </style>
@@ -37,9 +41,11 @@ and is wrapped around the whole page content, except for the footer in this exam
 <div class="w3-row">
 
 <!-- Blog entries -->
-<div class="w3-col l8 s12">
+<!-- <div class="demo"> -->
+<!-- <div class="w3-col l8 s12"> -->
   <!-- Blog entry -->
-  <div class="w3-card-4 w3-margin w3-white">
+  <div class="w3-card-4 w3-margin w3-white" >
+    <div class="map-interface" style="width: 50%">
     <!-- <img src="assets/img1.png" alt="the project" style="width:100%"> -->
     <div class="w3-container">
       <h3><b>The Project</b></h3>
@@ -51,11 +57,6 @@ listening to the 3D audio field through ambisonic techniques.
 
     <div class="w3-container">
       <p>     
-        <!-- <div id='interface' style="position:relative;"> -->
-          <!-- <img id="mapFS" style="position: absolute;" src="assets/FSmap1.png" alt="Flinder Street Station Floor map"> -->
-          <!-- <input style="position: absolute; margin: 0 0 0 0" name='location' type="radio" value='18'  id="18" onclick="showVideo(18)"/>  -->
-        <!-- </div> -->
-
       <div class="container">
         <img src="assets/FSmap1.png" alt="Snow" style="width:100%">
         <input style="top:15% ;left:66.5%" name='location' type="radio" value='18'  id="18" onclick="showVideo(18)"> 
@@ -76,26 +77,6 @@ listening to the 3D audio field through ambisonic techniques.
         <input style="top:75% ;left:82.5%" name='location' type="radio" value='3' id="3" onclick="showVideo(3)">
         <input style="top:86% ;left:93.5%" name='location' type="radio" value='2' id="2" onclick="showVideo(2)"> 
       </div>
- <!--        <div class='interface'>
-          <img id="map" src="assets/FSmap1.png" style="position: absolute;" alt="Flinder Street Station Floor map">
-          <input style="position: absolute; margin: 56 0 0 529.5" name='location' type="radio" value='18'  id="18" onclick="showVideo(18)"> 
-          <input style="position: absolute; margin: 91 0 0 537.1" name='location' type="radio" value='17'  id="17" onclick="showVideo(17)"> 
-          <input style="position: absolute; margin: 132.5 0 0 539.8px" name='location' type="radio" value='16'  id="16" onclick="showVideo(16)"> 
-          <input style="position: absolute; margin: 158 0 0 545 " name='location' type="radio" value='1' id="1" onclick="showVideo(1)"> 
-          <input style="position: absolute; margin: 216.2 0 0 514 " name='location' type="radio" value='7' id="7" onclick="showVideo(7)"> 
-          <input style="position: absolute; margin: 216.2 0 0 420 " name='location' type="radio" value='8' id="8" onclick="showVideo(8)">
-          <input style="position: absolute; margin: 216.2 0 0 310 " name='location' type="radio" value='11'  id="11" onclick="showVideo(11)"> 
-          <input style="position: absolute; margin: 307 0 0 514 " name='location' type="radio" value='6' id="6" onclick="showVideo(6)"> 
-          <input style="position: absolute; margin: 307 0 0 420 " name='location' type="radio" value='9' id="9" onclick="showVideo(9)"> 
-          <input style="position: absolute; margin: 307 0 0 310 " name='location' type="radio" value='10'  id="10" onclick="showVideo(10)"> 
-          <input style="position: absolute; margin: 362 0 0 514 " name='location' type="radio" value='14'  id="14" onclick="showVideo(14)">  
-          <input style="position: absolute; margin: 362 0 0 420 " name='location' type="radio" value='13'  id="13" onclick="showVideo(13)"> 
-          <input style="position: absolute; margin: 362 0 0 310 " name='location' type="radio" value='12'  id="12" onclick="showVideo(12)"> 
-          <input style="position: absolute; margin: 362 0 0 184 " name='location' type="radio" value='15'  id="15" onclick="showVideo(15)"> 
-          <input style="position: absolute; margin: 297 0 0 616 " name='location' type="radio" value='5' id="5" onclick="showVideo(5)"> 
-          <input style="position: absolute; margin: 302 0 0 675 " name='location' type="radio" value='3' id="3" onclick="showVideo(3)">
-          <input style="position: absolute; margin: 342 0 0 744 " name='location' type="radio" value='2' id="2" onclick="showVideo(2)"> 
-        </div> -->
       </p>
 
       <!-- <h3><b>Demo</b></h3> -->
@@ -110,8 +91,10 @@ listening to the 3D audio field through ambisonic techniques.
         </div>
       </div> -->
     </div>
+    </div>
   </div>
   <hr>
+<div class="w3-col l8 s12">
 
   <div class="w3-card-4 w3-margin w3-white">
     <img src="assets/img2.png" alt="the project" style="width:100%">
