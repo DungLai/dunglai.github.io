@@ -138,6 +138,12 @@ input[type="radio"] {
 
 	#title {
 		font-size: 15px;
+		line-height: none;
+	}
+
+	#author {
+		font-size: 13px;
+		line-height: none;
 	}
 }
 
