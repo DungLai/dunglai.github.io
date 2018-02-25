@@ -68,26 +68,26 @@
 		}
 
 		//audio by VIRB 360
-		var dictYoutube = {
-			1: "a7gG0tIKkuY",
-			2: "pTbWLeybnRA",
-			3: "zmrERTfzuIk",
-			4: "",
-			5: "sSLgvlaHTT4",
-			6: "InK6ql6NRqQ",
-			7: "XYNNNJzAYSo",
-			8: "F5UP-9N372Q",
-			9: "L3i9-akFGB4",
-			10: "Z0_Kaq91lt4",
-			11: "yq-pfTnxj1Y",
-			12: "I5aGoJxzgfI",
-			13: "H9QFw0gcCZI",
-			14: "vLU2JqArU84",
-			15: "MUQgjWfAIv4",
-			16: "3I9tY9d-UPE",
-			17: "hUf7nWDwUXY",
-		 	18: "SbomIdTWH8U"		
-		}
+		// var dictYoutube = {
+		// 	1: "a7gG0tIKkuY",
+		// 	2: "pTbWLeybnRA",
+		// 	3: "zmrERTfzuIk",
+		// 	4: "",
+		// 	5: "sSLgvlaHTT4",
+		// 	6: "InK6ql6NRqQ",
+		// 	7: "XYNNNJzAYSo",
+		// 	8: "F5UP-9N372Q",
+		// 	9: "L3i9-akFGB4",
+		// 	10: "Z0_Kaq91lt4",
+		// 	11: "yq-pfTnxj1Y",
+		// 	12: "I5aGoJxzgfI",
+		// 	13: "H9QFw0gcCZI",
+		// 	14: "vLU2JqArU84",
+		// 	15: "MUQgjWfAIv4",
+		// 	16: "3I9tY9d-UPE",
+		// 	17: "hUf7nWDwUXY",
+		//  	18: "SbomIdTWH8U"		
+		// }
 
 		//audio by Ambeo mic
 		var dictYoutubeAmbeo = {

@@ -152,6 +152,7 @@ input[type="radio"] {
 
 	.youtubeVideo {
 		width: 100% !important;
+		padding-top: 2px !important;
 	}	
 }
 
@@ -218,7 +219,7 @@ height: 100%;
 
 .youtubeVideo {
 	padding: 0.01em 16px;
-	padding-top: 12px;
+	padding-top: 10px;
 	box-sizing: inherit;
 	width: 45%;
 	display: block; 
@@ -231,4 +232,50 @@ height: 100%;
 	width: 55%; 
 	display: block; 
 	float:left;
+}
+
+/*chatbot*/
+#bodybox {
+}
+
+#chatboarder {
+	max-height: 300px;
+  border-style: solid;
+  border-width: 3px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 15px;
+  padding-right: 20px;
+  padding-left: 15px;
+  border-radius: 15px;
+}
+
+#chatlog1 {
+	font:10px !important;
+}
+
+.chatlog {
+   font: 10px !important/*arial, sans-serif*/;
+}
+
+#chatbox {
+  font: 20px /*arial, sans-serif*/;
+  height: 22px;
+  width: 100%;
+}
+/*
+h1 {
+  margin: auto;
+}
+
+pre {
+  background-color: #f0f0f0;
+  margin-left: 20px;
+}*/
+
+#commands-list {
+	text-align: center;
 }
