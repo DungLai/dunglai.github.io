@@ -31,21 +31,6 @@
 	height: 400px
 }
 
-#youtubeVideo, #youtubeVideoAmbeo {
-	border-width: thin;
-	border-size:2px;
-	border-style:solid;
-	border-color:black;
-	text-align: center;
-	width: 560px;
-	height: 315px;
-	margin-right: 10px;
-	margin-bottom: 6px;
-	padding-bottom: 15px; /*margin between video and mobile platform*/
-	position: relative;
-	float: left;
-}
-
 #description {
 	float:left;
 	max-width: 220px;
