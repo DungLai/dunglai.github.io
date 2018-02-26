@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      AI for FlappyBird Game &middot; Dung Lai
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+  <!-- <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110006044-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-110006044-1');
+  </script> 
+
+  <!-- toogle button -->
+  <script>
+  function myFunction() {
+      var x = document.getElementById("myDIV");
+      if (x.style.display === "none") {
+          x.style.display = "block";
+      } else {
+          x.style.display = "none";
+      }
+  }
+  </script>
+  
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>A personal website of <a href="https://dunglai.github.io/about" target="">Dung Lai</a>, containing technical blog on technology.</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Home</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about/">About</a>
+        
+      
+    
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+    
+    <span class="sidebar-nav-item">Currently v1.0.0</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2018. All rights reserved.
+    </p>
+  </div>
+</div>
+
+ 
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">Dung Lai</a>
+            <small>blog</small>             
+          </h3>
+        </div>
+      </div>
+      
+      <link rel="stylesheet" href="/public/css/blog-index.css">
+
+<nav>
+	<div class='blog-wrapper'>
+		<div class='blog-index'>
+			<strong><u>Machine learning</u></strong></br>
+				<li><a href='https://dunglai.github.io/2017/12/21/gradient-descent/'>6. Gradient Descent</a><img src='../public/post-assets/LinearRegression/plot2.png'/></li>
+				<li><a href='https://dunglai.github.io/2017/12/09/k-nearest-neighbors/'>5. K Nearest Neighbors</a></li>
+				<li><a href='https://dunglai.github.io/2017/10/10/linear-regression/'>4. Linear Regression</a></li>
+				<li><a href='https://dunglai.github.io/2017/09/21/FlappyBirdAI/'>3. AI for flappy bird game (Neural Network, Genetic Algorithm)</a></li>
+				<li><a href='https://dunglai.github.io/2017/06/10/image-compression/'>2. Image Segmentation using K-Means</a></li>
+				<li><a href='https://dunglai.github.io/2017/06/01/k-means/'>1. K-Means Clustering</a></li>
+			<strong><u>Other</u></strong></br>
+				<li><a href='https://dunglai.github.io/2017/06/30/mongodbmapping/'>4. Mapping MySQL to MongoDB</a></li>
+				<li><a href='https://dunglai.github.io/2017/06/27/UniversityMySQL/'>3. University MySQL DB</a></li>
+				<li><a href='https://dunglai.github.io/2017/05/27/Planetary-Rover/'>2. Planetary Rover Game (C#, Winform)</a></li>
+				<li><a href='https://dunglai.github.io/2017/03/01/Music-Player/'>1. Music Player (Pascal)</a></li>
+		</div>
+	</div>
+</nav>
+
+      <div class="container content">
+        <div class="post">
+  <h1 style="font-size: 130%;" class="post-title">AI for FlappyBird Game</h1>
+  <span class="post-date" style="float:none;">21 Sep 2017</span>
+  
+  <div class="tag">Python</div>
+<div class="tag">Neural Network</div>
+<div class="tag">Genetic Algorithm</div>
+<div class="tag">Machine Learning</div>
+<p><strong>Content:</strong>
+<!-- MarkdownTOC depth=4 --></p>
+
+<ul>
+  <li><a href="#1-introduction">1. Introduction</a></li>
+  <li><a href="#2-genetic-algorithm-methodology">2. Genetic Algorithm Methodology</a>
+    <ul>
+      <li><a href="#21-optmization-problem">2.1. Optmization Problem</a></li>
+      <li><a href="#22-terminology">2.2. Terminology</a>
+        <ul>
+          <li><a href="#221-population-chromosome-and-genome">2.2.1. Population, chromosome and genome</a></li>
+          <li><a href="#222-selection-mutation-and-crossover">2.2.2. Selection, mutation and crossover</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#3-genetic-operators">3. Genetic Operators</a>
+    <ul>
+      <li><a href="#31-encoding-and-decoding">3.1. Encoding and Decoding</a></li>
+      <li><a href="#32-selection">3.2. Selection</a></li>
+      <li><a href="#33-mutation">3.3. Mutation</a></li>
+      <li><a href="#34-crossover">3.4. Crossover</a></li>
+    </ul>
+  </li>
+  <li><a href="#4-implementation">4. Implementation</a>
+    <ul>
+      <li><a href="#41-implementation-overview">4.1. Implementation Overview</a></li>
+      <li><a href="#42-flowchart">4.2. Flowchart</a></li>
+      <li><a href="#43-pseudo-algorithm">4.3. Pseudo Algorithm</a></li>
+    </ul>
+  </li>
+  <li><a href="#5-application-in-building-ai-for-flappy-bird-game">5. Application in building AI for Flappy Bird Game</a>
+    <ul>
+      <li><a href="#51-gameplay-overview">5.1. Gameplay overview</a></li>
+      <li><a href="#52-training-model">5.2. Training model</a>
+        <ul>
+          <li><a href="#521-neural-network-overiew">5.2.1. Neural Network Overiew</a></li>
+          <li><a href="#522-neural-network-for-flappy-bird-ai">5.2.2. Neural Network for Flappy Bird AI</a></li>
+        </ul>
+      </li>
+      <li><a href="#53-input-of-training-model">5.3. Input of training model</a></li>
+      <li><a href="#54-implementation-of-ga">5.4. Implementation of GA</a>
+        <ul>
+          <li><a href="#541-encode">5.4.1. Encode</a></li>
+          <li><a href="#542-applying-genetic-operator">5.4.2. Applying genetic operator</a></li>
+          <li><a href="#543-fitness-function">5.4.3. Fitness function</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#6-experiment-statistical-result">6. Experiment Statistical Result</a></li>
+  <li><a href="#7-further-research">7. Further Research</a></li>
+  <li><a href="#8-discussion">8. Discussion</a></li>
+  <li><a href="#9-reference">9. Reference</a></li>
+  <li><a href="#10-source-code-and-report">10. Source Code and Report</a></li>
+</ul>
+
+<!-- /MarkdownTOC -->
+<p><em>Objective</em></p>
+<ol>
+  <li>Have some ideas of Multilayer perceptron (Neural Network model)</li>
+  <li>Understand Genetic Algorithm</li>
+  <li>Implementation of building AI for simple game.</li>
+</ol>
+
+<p><strong>Source Code</strong> in Python for the implementation of AI for Flappy Bird game will be provided, the external package I use in my implementation is only <a href="http://www.numpy.org/">Numpy</a> to make use of matrix form.</p>
+
+<p>After reading this blog, you will be able to build AI for a lot of simple games, not just FlappyBird. <a href="https://www.youtube.com/watch?v=qv6UVOQ0F44">MarI/O</a> is a great example of unbeatable AI for game achieved by Neural Network model and Evolutionary Algorithm <a href="http://nn.cs.utexas.edu/downloads/papers/stanley.ec02.pdf">(Neat)</a>.</p>
+<embed class="video" width="1550" height="400" style="width: 100%" src="/public/post-assets/FlappyBirdAI/demo.mp4" scale="aspect" controller="true" />
+
+<div class="thecap">Demo video</div>
+<p><em>Abstract</em></p>
+
+<p>In today’s world, an intelligent and optimal problem solving approaches are required in every field. Machine are becoming more and more efficient, many applications have been made recently to solve complex problem. Genetic algorithm is a heuristic search technique in artificial intelligent to find the most optimized solution for a given problem based on crossover, mutation, selection and some other techniques inspired by Darwin’s theory of evolution. This report demonstrate how GA approaches to a optimization problem in general. An implementation of GA on building an AI for a famous arcade game namely Flappy Bird is provided.
+<a name="1-introduction"></a></p>
+<h2 id="1-introduction">1. Introduction</h2>
+<p>GA (Genetic Algorithm) has been successful in complex engineering applications that involved multiple objective, non well-defined optimization function. For example, the design of analog circuits <a href="#ref1"><script type="math/tex">^[1]</script></a> and optimization of space-born antennae <a href="#ref2"><script type="math/tex">^[2]</script></a> are developed using GA.</p>
+
+<p>Optimization algorithms can roughly be divided into three classes: mathematical programming algorithms, heuristics, and metaheuristics. Mathematical programming algorithms have the most rigorous foundations, and it may be possible to prove that the algorithm actually converges, check that the proposed solution is close to at least a local optimum, and to estimate the rate of convergence. Metaheuristics algorithm use metaphors, usually come from unrelated field to define selection algorithm. Simulated annealing, ant colony, bee swarm, harmony search are examples of algorithm that are derived from different fields rather than computer science.</p>
+
+<p>GA is an artificial intelligence metaheuristic search technique that is derived from the Darwin’s theory of biological organism evolution. As for many other metaheuristic methods, controversial reviews have been made around GA due to the lack of core and concrete mathematical foundation. In other words, many people consider it as a complete black box.</p>
+
+<p>In the next part, a brief introduction to GA will be demonstrated as well as its application in training a neural network that can play Flappy Bird game.</p>
+<div class="imgcap">
+<img style="display: inline-block; width: 55%;" src="/public/post-assets/FlappyBirdAI/fig1.PNG" width="500" align="center" />
+<div class="thecap">Fig. 1: Experiment result</div>
+</div>
+<p><a name="2-genetic-algorithm-methodology"></a></p>
+<h2 id="2-genetic-algorithm-methodology">2. Genetic Algorithm Methodology</h2>
+<p><a name="21-optmization-problem"></a></p>
+<h3 id="21-optmization-problem">2.1. Optmization Problem</h3>
+<p>Most problem in real life don’t have formula and technique to calculate the exact result because of the vast generic complexity. GA works on a population of possible solutions and evolve them using method inspired by Darwin’s theory in biology. The rest of the report will discuss the different between GA and other method and also perform some experiment to estimate the effectiveness of GA.</p>
+
+<p>Each problem using GA requires a <strong>fitness function</strong> which measures the quality of the solution toward an optimization problem.
+<a name="22-terminology"></a></p>
+<h3 id="22-terminology">2.2. Terminology</h3>
+<p>In GA, a <strong>population</strong> of candidate solutions (also called phenotypes) is evolved toward better solutions of an optimization problem. Each candidate solution is represented by a <strong>chromosome</strong> which is a set of <strong>genes</strong> which can be alter <strong>mutate</strong> and <strong>crossover</strong>. A new set of chromosome, also known as <strong>generation</strong> is formed using <strong>selection</strong>.
+<a name="221-population-chromosome-and-genome"></a></p>
+<h4 id="221-population-chromosome-and-genome">2.2.1. Population, chromosome and genome</h4>
+<p><strong>Population</strong>: The number of individuals present with same length of chromosome. In other words, they are a set of possible solution to a optimization problem.</p>
+
+<p><strong>Genome</strong>: A part of a chromosome. The value of each gene has an effect on the quality of solution.</p>
+
+<p><strong>Chromosome</strong>: A set of genomes. Chromosome is the solution in form of genes.</p>
+<div class="imgcap">
+<img style="display: inline-block; width: 55%;" src="/public/post-assets/FlappyBirdAI/gene_definition.PNG" width="500" align="center" />
+<div class="thecap">Fig. 2: Population, Chromosomes and Genes</div>
+</div>
+<p><a name="222-selection-mutation-and-crossover"></a></p>
+<h4 id="222-selection-mutation-and-crossover">2.2.2. Selection, mutation and crossover</h4>
+<p><strong>Selection</strong>: Next generation’s population will keep some of the best solution in the previous generation so that best traits is retained.</p>
+
+<p><strong>Mutation</strong>: Alter genome in chromosome.</p>
+
+<p><strong>Crossover</strong>: Mixing two individual to produce a new pair of offspring that have the trait of both 
+<a name="3-genetic-operators"></a></p>
+<h2 id="3-genetic-operators">3. Genetic Operators</h2>
+<p><a name="31-encoding-and-decoding"></a></p>
+<h3 id="31-encoding-and-decoding">3.1. Encoding and Decoding</h3>
+<p>Encoding technique depends heavily on the problem. Generally, encoding is the order of every genes that have an effects on the solution. Decoding is translate chromosome to solution of optimization problem. Encoding is a method to clean data before putting it in genetic operators.</p>
+<div class="imgcap">
+<img style="display: inline-block; width: 55%;" src="/public/post-assets/FlappyBirdAI/def_table.PNG" width="500" align="center" />
+</div>
+<p><a name="32-selection"></a></p>
+<h3 id="32-selection">3.2. Selection</h3>
+<p>Selection process is mainly responsible for assuring survival of the best-fit
+individuals. Best solution will be retained in the next generation.</p>
+
+<p><strong>Roulette wheel selection method</strong></p>
+
+<p>Fitness proportionate selection, also known as roulette wheel selection, is a genetic operator used in GA for selecting potentially useful solutions for recombination.</p>
+
+<p>In this method, each gene have a probability of being selected for next generation. This probability is defined by:</p>
+
+<p>\begin{equation} \label{eq:1}
+p_i = \frac{f_i}{\sum_{j=1}^{N}f_j}
+\end{equation}
+<script type="math/tex">p_i</script>: Probability of individual with index <script type="math/tex">i</script> being selected.</p>
+
+<p><script type="math/tex">f</script>: Fitness function</p>
+
+<p><script type="math/tex">f_i</script>: Fitness value of individual with index <script type="math/tex">i</script></p>
+
+<p><strong>Best fitness selection method</strong>
+In this selection method, best individuals with highest fitness is being selected. This method is a trade off between diversity of population and average fitness of population where diversity decreases and average fitness increases in comparison with Roulette wheel selection method.
+<a name="33-mutation"></a></p>
+<h3 id="33-mutation">3.3. Mutation</h3>
+<p>Mutation is used to maintain genetic diversity from one generation of a population of
+chromosomes to the next. It is analogous to biological mutation.</p>
+
+<p>The purpose of mutation in GA is preserving and introducing diversity. Mutation should
+allow the algorithm to escape local minima by preventing the population of chromosomes
+from becoming too similar to each other, thus slowing or even stopping evolution. Mutation can be done with a formula or randomly.</p>
+<div class="imgcap">
+<img style="display: inline-block; width: 40%;" src="/public/post-assets/FlappyBirdAI/mutation.PNG" width="500" align="center" />
+<div class="thecap">Example of mutation on binary encoding and value encoding</div>
+</div>
+<p><a name="34-crossover"></a></p>
+<h3 id="34-crossover">3.4. Crossover</h3>
+<p>The crossover splits up the parent individuals and recombines them. Crossover point can be chosen randomly to increase diversity of new population.</p>
+<div class="imgcap">
+<img style="display: inline-block; width: 40%;" src="/public/post-assets/FlappyBirdAI/mutation.PNG" width="500" align="center" />
+<div class="thecap">Fig. 4: Genetic Code of the parents and offspring before and after the crossover</div>
+</div>
+<p>Multi-point crossovers are simply crossovers with more than one position where crossover will occur.
+<a name="4-implementation"></a></p>
+<h2 id="4-implementation">4. Implementation</h2>
+<p><a name="implementation-overview"></a>
+The algorithm can be done by continuously create new set of possible solution using GA to evolve every generation overtime until an acceptable solution is found.
+<a name="41-implementation-overview"></a></p>
+<h3 id="41-implementation-overview">4.1. Implementation Overview</h3>
+<p><a name="42-flowchart"></a></p>
+<h3 id="42-flowchart">4.2. Flowchart</h3>
+<div class="imgcap">
+<img style="display: inline-block; width: 55%;" src="/public/post-assets/FlappyBirdAI/flowchart.PNG" width="500" align="center" />
+<div class="thecap">Fig. 5: GA Flowchart</div>
+</div>
+<p><a name="43-pseudo-algorithm"></a></p>
+<h3 id="43-pseudo-algorithm">4.3. Pseudo Algorithm</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>START 
+
+Initializing population.
+Calculate fitness of each individual. 
+
+DO UNTIL BEST SOLUTION IS FOUND 
+	Encoding each individual to produce chromosome
+	Perform GA operators on exist population
+	Decode new population and kill old population
+
+LOOP 
+
+END 
+</code></pre></div></div>
+<p><a name="5-application-in-building-ai-for-flappy-bird-game"></a></p>
+<h2 id="5-application-in-building-ai-for-flappy-bird-game">5. Application in building AI for Flappy Bird Game</h2>
+<p><a name="51-gameplay-overview"></a></p>
+<h3 id="51-gameplay-overview">5.1. Gameplay overview</h3>
+<p>Flappy Bird is a mobile game developed by a Vietnamese developer Dong Nguyen. The objective was to direct a flying bird, named “Faby”, who moves continuously to the right, between sets of Mario-like pipes. If the player touches the pipes, they lose. Faby briefly flaps upward each time that the player taps the screen; if the screen is not tapped, Faby falls because of gravity; each pair of pipes that he navigates between earns the player a single point.
+<a name="52-training-model"></a></p>
+<h3 id="52-training-model">5.2. Training model</h3>
+<p>In this section, multilayer perceptron model will be discussed and an implementation on Flappy Bird game will also be provided.
+<a name="521-neural-network-overiew"></a></p>
+<h4 id="521-neural-network-overiew">5.2.1. Neural Network Overiew</h4>
+<ol>
+  <li><strong>Layer</strong>: They are a set of neuron (a circle that contain a number). Beside input layers and output layers, one Multilayer Perceptron can have one or more hidden layer.</li>
+</ol>
+<div class="imgcap">
+<img style="display: inline-block; width: 40%;" src="/public/post-assets/FlappyBirdAI/nnmodel.PNG" width="500" align="center" />
+<div class="thecap">Fig. 6: Example of multilayer perceptron network with 2 hidden layers</div>
+</div>
+<ol>
+  <li><strong>Unit</strong>: One node (the circle in Fig <script type="math/tex">6</script>) is called one unit. Input of each unit is symbolised as <script type="math/tex">z</script> and output of each unit is symbolised as <script type="math/tex">a</script> (<script type="math/tex">a</script> stands for activation, input unit  in next layer)</li>
+  <li><strong>Weights</strong> and <strong>Biases</strong>: In fig <script type="math/tex">7</script>, the number that in the line which connects 2 nodes in 2 layer is called Weights, they determine how much affect a node could have on the next input unit in the next layer, biases is the node <script type="math/tex">x_0</script> in fig 7, the value is normally constant at 1. They add the flexibility to the network.</li>
+</ol>
+<div class="imgcap">
+<img style="display: inline-block; width: 40%;" src="/public/post-assets/FlappyBirdAI/feedforward.PNG" width="500" align="center" />
+<div class="thecap">Fig. 7: Feed Forward Process with Sigmoid activator</div>
+</div>
+<ol>
+  <li><strong>Activator</strong>, <strong>activation function</strong>: When talking about activator, they mean the function that apply on a nodes to produce the output unit. The purpose of activation function is to squeeze the value after multiplying nodes value and weights to produce a number within a defined range.</li>
+</ol>
+<div class="imgcap">
+<img style="display: inline-block; width: 30%;" src="/public/post-assets/FlappyBirdAI/sigmoid.PNG" width="500" align="center" />
+<div class="thecap">Fig. 8: Sigmoid function squeeze number to value of 0 when s goes to -infinity and 1 when x goes to infinity</div>
+</div>
+<div class="imgcap">
+<img style="display: inline-block; width: 30%;" src="/public/post-assets/FlappyBirdAI/activator.PNG" width="500" align="center" />
+<div class="thecap">Fig. 9: Different activation functions</div>
+</div>
+
+<p><a name="522-neural-network-for-flappy-bird-ai"></a></p>
+<h4 id="522-neural-network-for-flappy-bird-ai">5.2.2. Neural Network for Flappy Bird AI</h4>
+<p>In this experiment, a simple multilayer perceptron model <a href="#ref5"><script type="math/tex">^5</script></a> is chosen. The network includes one hidden layer with 6 nodes, one output layer and one input layer. One bias node is added in input layer and hidden layer. These bias nodes ensure constant variable can have an effect on the solution. Hidden layer and output layer use sigmoid function as activator.</p>
+
+<p>Output of neural network is a number in range 0 and 1. <code class="highlighter-rouge">Threshold</code> is set to <script type="math/tex">0.5</script>. If <script type="math/tex">output>0.5</script> then the bird will flap.</p>
+<div class="imgcap">
+<img style="display: inline-block; width: 55%;" src="/public/post-assets/FlappyBirdAI/neural.PNG" width="500" align="center" />
+<div class="thecap">Fig. 10: Neural Network Architecture</div>
+</div>
+<p><a name="53-input-of-training-model"></a></p>
+<h3 id="53-input-of-training-model">5.3. Input of training model</h3>
+<p>In neural network, every input should be related to the solution. There are 5 inputs as described in figure 6.</p>
+<div class="imgcap">
+<img style="display: inline-block; width: 55%;" src="/public/post-assets/FlappyBirdAI/fig11.PNG" width="500" align="center" />
+<div class="thecap">Fig. 11: Experiment result</div>
+</div>
+<p><strong>Input 1</strong>: Horizontal distance between bird and Tube (Horizontal line in figure 7)</p>
+
+<p><strong>Input 2</strong>: Vertical distance between bird and the middle of two tubes (Vertical line in figure 7)</p>
+
+<p><strong>Input 3</strong>: Width of bird</p>
+
+<p><strong>Input 4</strong>: Height of bird</p>
+
+<p><strong>Input 5</strong>: Width of tube
+<a name="54-implementation-of-ga"></a></p>
+<h3 id="54-implementation-of-ga">5.4. Implementation of GA</h3>
+<p><a name="541-encode"></a></p>
+<h4 id="541-encode">5.4.1. Encode</h4>
+<p>There are 49 weights in neural network in figure 6. All of these weights are added into an float array of size 49. This array will carry all the information of the whole network. As a result, each array is considered as an chromosome with value encoding method as described in previous section on encoding. Each weight is now a gene in a chromosome.
+<a name="542-applying-genetic-operator"></a></p>
+<h4 id="542-applying-genetic-operator">5.4.2. Applying genetic operator</h4>
+<p>Selection, mutation and crossover is used in this experiment.</p>
+
+<p>Selection: Best fitness selection method</p>
+
+<p>Mutation: Modify a weight by randomly assign a new number to it.</p>
+
+<p>Crossover: Exchange two weight by a fixed possibility</p>
+<div class="imgcap">
+<img style="display: inline-block; width: 40%;" src="/public/post-assets/FlappyBirdAI/para_table.PNG" width="500" align="center" />
+</div>
+<p><a name="543-fitness-function"></a></p>
+<h4 id="543-fitness-function">5.4.3. Fitness function</h4>
+<p>In this experiment, fitness function is simply the survival time of a bird, the unit is the number of frames being refreshed after the bird dies.
+<a name="6-experiment-statistical-result"></a></p>
+<h2 id="6-experiment-statistical-result">6. Experiment Statistical Result</h2>
+<div class="imgcap">
+<img style="float:left; display: inline-block; width: 50%;" src="/public/post-assets/FlappyBirdAI/plot.PNG" width="500" align="center" />
+<img id="fig1" style="float:left; display: inline-block; width: 50%;" src="/public/post-assets/FlappyBirdAI/plot2.PNG" width="500" align="center" />
+<div class="thecap">Fig. 12: Experiment 1 and 2<br /></div>
+</div>
+<div style="clear:left;"></div>
+<p>The two above graphs describe the correlation between number of generation and best fitness score to figure out if GA actually helps the population evolve over time or not. In both experiment, an impressive solution is found. However, the first experiment took 230 generations while the second experiment took over 1000 generations in order to find the best solution. A correlation coefficient (Pearson) is performed to test whether there is a correlation between number of generation and best fitness score.</p>
+<div class="imgcap">
+<img style="display: inline-block; width: 40%;" src="/public/post-assets/FlappyBirdAI/ex_result.PNG" width="500" align="center" />
+<div class="thecap">Statistical Result</div>
+</div>
+<p>The code to produce the 2 statistical graphs</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">scipy</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="c">#insert array)</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="c">#insert array)</span>
+<span class="c"># fit with np.polyfit</span>
+<span class="k">print</span><span class="p">(</span><span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">pearsonr</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+<span class="n">m</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s">'.'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">m</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">b</span><span class="p">,</span> <span class="s">'-'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'Generation'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'Best Fitness Score'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+<p>Both experiment share the same result, there is a strong, positive linear relationship between number of generation and best fitness score and Pearson’s correlation shows that this relationship is significant, <script type="math/tex">r=.5</script>, <script type="math/tex">% <![CDATA[
+p<.001 %]]></script>.</p>
+
+<p>We can conclude that GA do improve the optimization overtime. However, time complexity cannot be measured exactly due to the high arbitrary aspect.
+<a name="7-further-research"></a></p>
+<h2 id="7-further-research">7. Further Research</h2>
+<p>As there are many randomness in GA, the experiment result could be biased. Further research can be done by controlling the arbitrary factors. 
+<a name="8-discussion"></a></p>
+<h2 id="8-discussion">8. Discussion</h2>
+<p>It can clearly be seen that there is not much concrete mathematical foundation to GA. The algorithm itself is heavily derived from biology. The performance of GA is also not being calculated or estimated, this is the reason why many people tend to have negative opinions on it. However, I strongly believe that one day, researcher will find a solid foundation and make improvement GA. Neural network is an example, the idea is derived from an unrelated field, namely neuroscience, nodes describe the connection between millions of neurons in the brain of human. Overtime, researchers and developers improve the performance of neural network, some fantastic training technique such as backpropagation are introduced and ensure the convergence of the optimization problem, many variations have been made to neural network too, such as convolutional neural network (CNN), recurrent neural network (RNN) and long short-term memory (LSTM) architecture. Again, I strongly believe that the same boom in research will happen to GA one day.
+<a name="9-reference"></a></p>
+<h2 id="9-reference">9. Reference</h2>
+<ol>
+  <li>
+    <p>Ali Jafari, Maryam Zekri, Saeed Sadri, Alireza Mallahzade <strong>“Design of Analog Integrated Circuits by Using Genetic Algorithm”</strong>. [Online] Available at:
+http://ieeexplore.ieee.org/document/5445763/</p>
+  </li>
+  <li>
+    <p>Haihong Tao, Guisheng Liao, Ling Wang <strong>Space-borne antenna adaptive side-lobe nulling algorithm based on gradient-genetic algorithm.</strong> [Online] Available at: http://ieeexplore.ieee.org/document/1321992/</p>
+  </li>
+  <li>
+    <p>E. Eiben (1994). “Genetic algorithms with multi-parent recombination”. PPSN III:
+Proceedings of the International Conference on
+Evolutionary Computation. The Third
+Conference on Parallel Problem Solving from
+Nature: 78–87. ISBN 3-540-58484-6</p>
+  </li>
+  <li>
+    <p>E. Schultz, J. Mellander, C. Endorf (2008), “Intrusion Detection and Prevention - A basic genetic algorithm”, [image online], http://my.opera.com/blu3c4t/blog/show.dml/2636486.</p>
+  </li>
+  <li>
+    <p>Andrew, Ng. , ‘Machine learning’, Standford University Online, lecture notes week 4, [online]: https://www.coursera.org/learn/machine-learning</p>
+  </li>
+</ol>
+
+<p><a name="10-source-code-and-report"></a></p>
+<h2 id="10-source-code-and-report">10. Source Code and Report</h2>
+<p>The way I implement the AI is:</p>
+
+<p>First, build a normal Flappy Bird game, use space to trigeer Flap() method of the bird.</p>
+
+<p>Second, build ANN class and assign it to each bird. The following code is the whole ANN class in my program, you could read it and hopefully you understand the idea.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">Bird</span> <span class="k">as</span> <span class="n">Bird_Class</span>
+<span class="kn">from</span> <span class="nn">settings</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+<span class="k">class</span> <span class="nc">ANN</span><span class="p">:</span>
+  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">genome</span> <span class="o">=</span> <span class="bp">None</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">fitness</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">weight1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,(</span><span class="n">HIDDEN_LAYER</span><span class="p">,</span> <span class="n">INPUT_LAYER</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span><span class="c">#add bias node by adding 1 to input layer</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">weight2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,(</span><span class="n">OUTPUT_LAYER</span><span class="p">,</span> <span class="n">HIDDEN_LAYER</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="n">genome</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span> <span class="c">#if constructor have genome then use that genome for weight</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">genome</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">__sigmoid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">np_array</span><span class="p">):</span> <span class="c">#private method in ANN class, apply sigmoid function to numpy array</span>
+    <span class="k">return</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span> <span class="o">*</span> <span class="n">np_array</span><span class="p">))</span>
+
+  <span class="k">def</span> <span class="nf">__regularize_input</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">list_input</span><span class="p">):</span> <span class="c">#regularize input, make it between 0 and 1</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">list_input</span><span class="p">)</span> <span class="o">!=</span> <span class="p">(</span><span class="n">INPUT_LAYER</span><span class="p">,</span><span class="mi">1</span><span class="p">):</span> <span class="c">#check dimension of input</span>
+      <span class="n">sys</span><span class="o">.</span><span class="nb">exit</span><span class="p">(</span><span class="s">'INPUT to Neural Nets doesnt match'</span><span class="p">)</span>
+
+    <span class="nb">sum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="nb">sum</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">list_input</span><span class="p">))</span>
+
+    <span class="k">for</span> <span class="n">array</span> <span class="ow">in</span> <span class="n">list_input</span><span class="p">:</span>
+      <span class="k">if</span> <span class="nb">sum</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+      <span class="k">else</span><span class="p">:</span>
+        <span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="nb">sum</span>
+
+  <span class="c">#This function return a number x, if x &gt; threshold then bird.flap()</span>
+  <span class="k">def</span> <span class="nf">feed_forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">list_input</span><span class="p">):</span> <span class="c">#list_input muse be numpy array dim(2,1)</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">list_input</span><span class="p">)</span> <span class="o">!=</span> <span class="p">(</span><span class="n">INPUT_LAYER</span><span class="p">,</span><span class="mi">1</span><span class="p">):</span> <span class="c">#check dimension of input</span>
+      <span class="n">sys</span><span class="o">.</span><span class="nb">exit</span><span class="p">(</span><span class="s">'INPUT to Neural Nets doesnt match'</span><span class="p">)</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">__regularize_input</span><span class="p">(</span><span class="n">list_input</span><span class="p">)</span><span class="c">#regularize input, make it between 0 and 1</span>
+
+    <span class="n">nodes_hidden_layer</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">weight1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">]]),</span> <span class="n">list_input</span><span class="p">),</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">))</span> <span class="c">#concatenate vertically, using matrix multiplication on weight and nodes</span>
+
+    <span class="n">activation_hidden_layer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__sigmoid</span><span class="p">(</span><span class="n">nodes_hidden_layer</span><span class="p">)</span> <span class="c">#apply sigmoid activation on hidden layer</span>
+
+    <span class="n">node_output_layer</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">weight2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">]]),</span> <span class="n">activation_hidden_layer</span><span class="p">),</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">))</span> <span class="c">#matrix multiplication of weight and activation to create final output</span>
+
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__sigmoid</span><span class="p">(</span><span class="n">node_output_layer</span><span class="p">)</span> <span class="c">#apply sigmoid function on final output</span>
+
+  <span class="k">def</span> <span class="nf">encode</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="c">#put all weight into a list double</span>
+
+    <span class="n">genome</span> <span class="o">=</span> <span class="p">[]</span> <span class="c">#write each row from left to right</span>
+
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">weight1</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span> <span class="c">#read each row first</span>
+      <span class="k">for</span> <span class="n">row_element</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">weight1</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span> <span class="c">#read element of row from left to right</span>
+        <span class="n">genome</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">weight1</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="n">row_element</span><span class="p">])</span>
+
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">weight2</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+      <span class="k">for</span> <span class="n">row_element</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">weight2</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+        <span class="n">genome</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">weight2</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="n">row_element</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">genome</span>
+
+  <span class="k">def</span> <span class="nf">decode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">genome</span><span class="p">):</span> <span class="c">#read weight from genome</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">HIDDEN_LAYER</span><span class="p">):</span> <span class="c">#read genome from left to right</span>
+      <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">INPUT_LAYER</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">weight1</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">genome</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="p">(</span><span class="n">INPUT_LAYER</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">j</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">OUTPUT_LAYER</span><span class="p">):</span>
+      <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">HIDDEN_LAYER</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">weight2</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">genome</span><span class="p">[(</span><span class="n">i</span><span class="o">*</span><span class="p">(</span><span class="n">OUTPUT_LAYER</span><span class="p">))</span> <span class="o">+</span> <span class="n">j</span> <span class="o">+</span> <span class="n">HIDDEN_LAYER</span><span class="o">*</span><span class="p">(</span><span class="n">INPUT_LAYER</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+
+  <span class="nd">@classmethod</span> <span class="c">#class method is some method that must be call with class, like ANN.selection but the only thing they care about is the parameter</span>
+  <span class="k">def</span> <span class="nf">selection</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">bird_list</span><span class="p">):</span>
+    <span class="n">elite_birds_copy</span> <span class="o">=</span> <span class="p">[]</span> <span class="c">#create a copy of list to put all elite bird in to avoid inconsistency problem</span>
+    <span class="n">elite_birds</span> <span class="o">=</span>  <span class="n">bird_list</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="nb">round</span><span class="p">(</span><span class="n">SELECTION_PERCENTAGE</span><span class="o">*</span><span class="n">POPULATION</span><span class="p">)]</span>
+
+    <span class="k">for</span> <span class="n">bird</span> <span class="ow">in</span> <span class="n">elite_birds</span><span class="p">:</span>
+      <span class="n">gen</span> <span class="o">=</span> <span class="n">bird</span><span class="o">.</span><span class="n">ANN</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span> <span class="c">#encode to gen</span>
+      <span class="n">elite_birds_copy</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Bird_Class</span><span class="o">.</span><span class="n">Bird</span><span class="p">(</span><span class="n">gen</span><span class="p">))</span> <span class="c">#decode gen to read weight</span>
+
+    <span class="k">return</span> <span class="n">elite_birds_copy</span>
+
+  <span class="nd">@classmethod</span>
+  <span class="k">def</span> <span class="nf">mutation</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">bird</span><span class="p">):</span> <span class="c">#change some weights randomly</span>
+    <span class="n">gen</span> <span class="o">=</span> <span class="n">bird</span><span class="o">.</span><span class="n">ANN</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">TOTAL_WEIGHT</span><span class="p">):</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">MUTATION_RATE</span><span class="o">*</span><span class="mi">100</span><span class="p">):</span>
+        <span class="n">gen</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="c">#random float from -1 to 1</span>
+
+    <span class="n">new_bird</span> <span class="o">=</span> <span class="n">Bird_Class</span><span class="o">.</span><span class="n">Bird</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">new_bird</span>
+
+  <span class="nd">@classmethod</span> <span class="c">#swap weight with certain chance (MUTATION RATE)</span>
+  <span class="k">def</span> <span class="nf">crossover</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">bird1</span><span class="p">,</span> <span class="n">bird2</span><span class="p">):</span> <span class="c">#swap weight</span>
+    <span class="n">gen_bird1</span> <span class="o">=</span> <span class="n">bird1</span><span class="o">.</span><span class="n">ANN</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span> <span class="c">#mutation on a gene so that the actual bird.ANN will not be change</span>
+    <span class="n">gen_bird2</span> <span class="o">=</span> <span class="n">bird2</span><span class="o">.</span><span class="n">ANN</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">gen_bird1</span><span class="p">:</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">CROSSOVER_RATE</span><span class="o">*</span><span class="mi">100</span><span class="p">):</span> <span class="c">#Create a random number from 0 and 100 and check with possibility of CROSSOVER_RATE</span>
+        <span class="n">gen_bird1</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">gen_bird2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">gen_bird2</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">gen_bird1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="p">[</span><span class="n">Bird_Class</span><span class="o">.</span><span class="n">Bird</span><span class="p">(</span><span class="n">gen_bird1</span><span class="p">),</span> <span class="n">Bird_Class</span><span class="o">.</span><span class="n">Bird</span><span class="p">(</span><span class="n">gen_bird2</span><span class="p">)]</span>
+
+  <span class="nd">@classmethod</span>
+  <span class="k">def</span> <span class="nf">save_weight</span><span class="p">(</span><span class="n">cls</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+  <span class="nd">@classmethod</span>
+  <span class="k">def</span> <span class="nf">create_new_generation</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">bird_list</span><span class="p">):</span>
+    <span class="n">new_generation</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c">#selection</span>
+    <span class="n">elite_birds</span> <span class="o">=</span> <span class="n">ANN</span><span class="o">.</span><span class="n">selection</span><span class="p">(</span><span class="n">bird_list</span><span class="p">)</span>
+    <span class="n">new_generation</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">elite_birds</span><span class="p">)</span>
+
+    <span class="c">#mutation</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">MUTATION_PERCENTAGE</span><span class="o">*</span><span class="mi">100</span><span class="o">/</span><span class="n">POPULATION</span><span class="p">)):</span>
+       <span class="n">new_generation</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ANN</span><span class="o">.</span><span class="n">mutation</span><span class="p">(</span><span class="n">bird_list</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+
+    <span class="c"># crossover with the elite birds</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">round</span><span class="p">((</span><span class="n">MUTATION_PERCENTAGE</span><span class="o">*</span><span class="mi">100</span><span class="o">/</span><span class="n">POPULATION</span><span class="p">)),</span> <span class="nb">round</span><span class="p">(((</span><span class="n">MUTATION_PERCENTAGE</span><span class="o">*</span><span class="mi">100</span><span class="o">/</span><span class="n">POPULATION</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">CROSSOVER_PERCENTAGE</span><span class="o">*</span><span class="mi">100</span><span class="o">/</span><span class="n">POPULATION</span><span class="p">)))):</span>
+      <span class="n">new_generation</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ANN</span><span class="o">.</span><span class="n">crossover</span><span class="p">(</span><span class="n">bird_list</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">elite_birds</span><span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">elite_birds</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)])[</span><span class="mi">0</span><span class="p">])</span>
+
+    <span class="c">#random bird to increase diversity</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">POPULATION</span><span class="o">-</span><span class="nb">len</span><span class="p">(</span><span class="n">new_generation</span><span class="p">)):</span>
+      <span class="n">new_generation</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Bird_Class</span><span class="o">.</span><span class="n">Bird</span><span class="p">())</span>
+
+    <span class="k">return</span> <span class="n">new_generation</span>
+
+</code></pre></div></div>
+<p>Continue Reading… Please download source code!</p>
+
+<p><a href="/public/post-assets/FlappyBirdAI/report.pdf">Download PDF Report</a></p>
+
+<p>Full source code: https://github.com/DungLai/AI-FlappyBird</p>
+
+</div>
+        <!-- Start of StatCounter Code for Default Guide -->
+        <hr>
+Total visits:
+<script type="text/javascript">
+var sc_project=11553218; 
+var sc_invisible=0; 
+var sc_security="55ea133f"; 
+var sc_text=2; 
+var scJsHost = (("https:" == document.location.protocol) ?
+"https://secure." : "http://www.");
+document.write("<sc"+"ript type='text/javascript' src='" +
+scJsHost+
+"statcounter.com/counter/counter.js'></"+"script>");
+</script>
+<noscript><div class="statcounter"><a title="Web Analytics
+Made Easy - StatCounter" href="http://statcounter.com/"
+target="_blank"><img class="statcounter"
+src="//c.statcounter.com/11553218/0/55ea133f/0/" alt="Web
+Analytics Made Easy - StatCounter"></a></div></noscript>
+<!-- End of StatCounter Code for Default Guide -->
+<a href="http://statcounter.com/p11553218/?guest=1">(Powered by Statcounter)</a>
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2018/01/25/SVD/">
+            Singular Value Decomposition
+            <small>25 Jan 2018</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2017/12/21/gradient-descent/">
+            Gradient Descent
+            <small>21 Dec 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2017/12/09/k-nearest-neighbors/">
+            K Nearest Neighbors
+            <small>09 Dec 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2017/10/10/linear-regression/">
+            Linear Regression
+            <small>10 Oct 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2017/06/30/mongodbmapping/">
+            Mapping MySQL to MongoDB
+            <small>30 Jun 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://dunglai-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+   
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if (!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+  </body>
+
+  
+</html>

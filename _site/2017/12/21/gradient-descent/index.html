@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Gradient Descent &middot; Dung Lai
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+  <!-- <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110006044-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-110006044-1');
+  </script> 
+
+  <!-- toogle button -->
+  <script>
+  function myFunction() {
+      var x = document.getElementById("myDIV");
+      if (x.style.display === "none") {
+          x.style.display = "block";
+      } else {
+          x.style.display = "none";
+      }
+  }
+  </script>
+  
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>A personal website of <a href="https://dunglai.github.io/about" target="">Dung Lai</a>, containing technical blog on technology.</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Home</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about/">About</a>
+        
+      
+    
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+    
+    <span class="sidebar-nav-item">Currently v1.0.0</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2018. All rights reserved.
+    </p>
+  </div>
+</div>
+
+ 
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">Dung Lai</a>
+            <small>blog</small>             
+          </h3>
+        </div>
+      </div>
+      
+      <link rel="stylesheet" href="/public/css/blog-index.css">
+
+<nav>
+	<div class='blog-wrapper'>
+		<div class='blog-index'>
+			<strong><u>Machine learning</u></strong></br>
+				<li><a href='https://dunglai.github.io/2017/12/21/gradient-descent/'>6. Gradient Descent</a><img src='../public/post-assets/LinearRegression/plot2.png'/></li>
+				<li><a href='https://dunglai.github.io/2017/12/09/k-nearest-neighbors/'>5. K Nearest Neighbors</a></li>
+				<li><a href='https://dunglai.github.io/2017/10/10/linear-regression/'>4. Linear Regression</a></li>
+				<li><a href='https://dunglai.github.io/2017/09/21/FlappyBirdAI/'>3. AI for flappy bird game (Neural Network, Genetic Algorithm)</a></li>
+				<li><a href='https://dunglai.github.io/2017/06/10/image-compression/'>2. Image Segmentation using K-Means</a></li>
+				<li><a href='https://dunglai.github.io/2017/06/01/k-means/'>1. K-Means Clustering</a></li>
+			<strong><u>Other</u></strong></br>
+				<li><a href='https://dunglai.github.io/2017/06/30/mongodbmapping/'>4. Mapping MySQL to MongoDB</a></li>
+				<li><a href='https://dunglai.github.io/2017/06/27/UniversityMySQL/'>3. University MySQL DB</a></li>
+				<li><a href='https://dunglai.github.io/2017/05/27/Planetary-Rover/'>2. Planetary Rover Game (C#, Winform)</a></li>
+				<li><a href='https://dunglai.github.io/2017/03/01/Music-Player/'>1. Music Player (Pascal)</a></li>
+		</div>
+	</div>
+</nav>
+
+      <div class="container content">
+        <div class="post">
+  <h1 style="font-size: 130%;" class="post-title">Gradient Descent</h1>
+  <span class="post-date" style="float:none;">21 Dec 2017</span>
+  
+  <div class="tag">Calculus</div>
+<div class="tag">Regression</div>
+<div class="tag">Optimization</div>
+
+<p>An optimization algorithm which uses gradient value of cost function to recursively adjust the solution of optimization problem.</p>
+
+<p><strong>Content:</strong>
+<!-- MarkdownTOC depth=3 --></p>
+
+<ul>
+  <li><a href="#1-introduction">1. Introduction</a>
+    <ul>
+      <li><a href="#11-why-gradient-descent">1.1. Why gradient descent?</a></li>
+      <li><a href="#12-methodology">1.2. Methodology</a></li>
+    </ul>
+  </li>
+  <li><a href="#2-gradient-descent-for-linear-regression">2. Gradient Descent for Linear Regression</a>
+    <ul>
+      <li><a href="#21-matrix-derivatives">2.1. Matrix derivatives</a></li>
+      <li><a href="#22-numerical-differentiation">2.2. Numerical Differentiation</a></li>
+      <li><a href="#23-python-code-for-visualization">2.3. Python code for visualization</a></li>
+    </ul>
+  </li>
+  <li><a href="#3-discussion">3. Discussion</a>
+    <ul>
+      <li><a href="#31-when-to-stop">3.1. When to stop?</a></li>
+      <li><a href="#32-stucking-in-local-optimum">3.2. Stucking in Local Optimum</a></li>
+      <li><a href="#33-speed-to-convergence-learning-rate">3.3. Speed to convergence (Learning rate)</a></li>
+      <li><a href="#34-disadvantage-compared-to-using-formula">3.4. Disadvantage compared to using formula</a></li>
+      <li><a href="#35-speedup-gd">3.5. Speedup GD</a></li>
+    </ul>
+  </li>
+  <li><a href="#4-reference">4. Reference</a></li>
+</ul>
+
+<!-- /MarkdownTOC -->
+
+<p><a name="1-introduction"></a></p>
+<h2 id="1-introduction">1. Introduction</h2>
+<p><a name="11-why-gradient-descent"></a></p>
+<h3 id="11-why-gradient-descent">1.1. Why gradient descent?</h3>
+<p>Given an optimization problem: Find <script type="math/tex">x</script> so that <script type="math/tex">f(x)=x^4-5x^2-x+3</script> as in <a href="#fig1">figure 1</a> reaches minumum value, an approach is to solve <script type="math/tex">f'(x)=0</script> to find all local minima then compare them to get global minimum. In our example, solving <script type="math/tex">f'(x)=0</script> gives us 2 local minima at <script type="math/tex">x=x_1</script> and <script type="math/tex">x=x_2</script>, because <script type="math/tex">f(x_1)>f(x_2)</script> hence <script type="math/tex">f(x)</script> reaches minimum at <script type="math/tex">x=x_2</script>.</p>
+
+<p>The problem with the approach above is that sometimes, <strong>the equation <script type="math/tex">f'(x)=0</script> cannot be solved easily</strong>. In this case, we can use an algorithm call <strong>gradient descent</strong> to find the <em>approximate</em> solution.
+<a name="12-methodology"></a></p>
+<h3 id="12-methodology">1.2. Methodology</h3>
+<div class="message">Gradient descent (GD) is an iterative optimization problem algorithm for finding the minimum of a function. To find a local minimum of a function using GD, one takes steps proportional to the negative of the gradient (or of the approximate gradient) of the function at the current point.</div>
+
+<p>To be more specific, GD will iteratively change the value of <script type="math/tex">x</script> <script type="math/tex">(x:=x+\beta)</script> so that in each iteration, hopefully, <script type="math/tex">f(x)</script> is getting smaller and moving closer to the minimum.</p>
+
+<p>One way to ensure that the adjustment <script type="math/tex">\beta</script> to <script type="math/tex">x</script> will cause <script type="math/tex">f(x)</script> smaller is to make <script type="math/tex">\beta</script> equal a <strong>portion of the negative of the gradient</strong>: <script type="math/tex">\beta=-\alpha f'(x)</script> where <script type="math/tex">\alpha</script> is a positive number and it’s called <strong>learning rate</strong>. In conclusion, the adjustment to <script type="math/tex">x</script> will be:</p>
+
+<p>\begin{equation} \tag{1} \label{eq:1}
+x := x - \alpha f’(x)
+\end{equation}</p>
+
+<p>Considering the point <script type="math/tex">x_0</script> in <a href="#fig1">figure 1</a>, because <script type="math/tex">% <![CDATA[
+f'(x0)<0 %]]></script> so <script type="math/tex">% <![CDATA[
+\alpha f'(x) <0 %]]></script> which means the update to <script type="math/tex">x</script> as in equation (\ref{eq:1})	 will move <script type="math/tex">x</script> to the right hand side, making <script type="math/tex">f(x)</script> descending.</p>
+<div class="imgcap" id="fig1">
+	<img style="display: inline-block; width: 60%" src="/public/post-assets/GradientDescent/fig1.png" width="500" align="center" />
+	<div class="thecap">Figure 1</div>
+</div>
+<div style="clear:right;"></div>
+
+<p><a name="2-gradient-descent-for-linear-regression"></a></p>
+<h2 id="2-gradient-descent-for-linear-regression">2. Gradient Descent for Linear Regression</h2>
+<p>Before we move on to the implementation and visualization, let’s quickly go through the concept of matrix derivative (to work with multi-dimensional data) and numerical differentiation (to calculate approximate gradient at a specific value of <script type="math/tex">x</script>)
+<a name="21-matrix-derivatives"></a></p>
+<h3 id="21-matrix-derivatives">2.1. Matrix derivatives</h3>
+<p>In our previous example, <script type="math/tex">x</script> is one-dimensional vector, but it’s not likely the case in most problem, <script type="math/tex">x</script> could a vector in n-dimensional space. In this case, we need to update all element in <script type="math/tex">x</script> <strong>simutaneously</strong>. If we don’t update them simutaneously then <script type="math/tex">f'(x)</script> will change everytime an element in <script type="math/tex">x</script> is updated. Matrix derivatives could help us archieve that.</p>
+
+<p>The following equation is the formula for derivatives of <script type="math/tex">f(A)</script> with respect to <script type="math/tex">m</script>x<script type="math/tex">n</script> matrix <script type="math/tex">A</script>.</p>
+
+<p>\begin{equation}
+\triangledown_A f(A) = \begin{bmatrix}
+\frac{\partial f}{\partial A_{11}} &amp; \cdots  &amp; \frac{\partial f}{\partial A_{1n}} \newline
+ \vdots &amp; \ddots &amp; \vdots \newline
+ \frac{\partial f}{\partial A_{m1}} &amp; \cdots &amp; \frac{\partial f}{\partial A_{mn}}
+\end{bmatrix} 
+\end{equation}</p>
+
+<p>In linear regression, <script type="math/tex">x</script> is a vector. Formula for derivatives with repsect to a vector:</p>
+
+<p>\begin{equation}
+\triangledown_x f(x) = \begin{bmatrix}
+\frac{\partial f}{\partial x_{1}}\newline
+ \vdots \newline
+ \frac{\partial f}{\partial x_{m}} 
+\end{bmatrix} 
+\end{equation}</p>
+
+<p><a name="22-numerical-differentiation"></a></p>
+<h3 id="22-numerical-differentiation">2.2. Numerical Differentiation</h3>
+<p>Numerical Differentiation can be used to check whether our gradient function (in code) is correct or not. When testing, give some value <script type="math/tex">x</script> then check whether or not <script type="math/tex">f'(x)</script> calculated by equation \eqref{eq:2} is closed enough to <script type="math/tex">f'(x)</script> calculated by equation \eqref{eq:3}.
+\begin{equation} \tag{2} \label{eq:2}
+f’(x) = \lim_{\varepsilon \rightarrow 0}\frac{f(x + \varepsilon) - f(x)}{\varepsilon}
+\end{equation}</p>
+
+<p>\begin{equation} \tag{3} \label{eq:3}
+f’(x) \approx \frac{f(x + \varepsilon) - f(x - \varepsilon)}{2\varepsilon} 
+\end{equation}</p>
+
+<p>The proof of numerical differentiation can be found at <a href="https://en.wikipedia.org/wiki/Numerical_differentiation">Wikipedia</a>
+<a name="23-python-code-for-visualization"></a></p>
+<h3 id="23-python-code-for-visualization">2.3. Python code for visualization</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">linear_model</span>
+<span class="kn">import</span> <span class="nn">matplotlib.animation</span> <span class="k">as</span> <span class="n">animation</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+
+<span class="c"># apply gradient descent algorithm to optimiza cost function of several variables</span>
+
+<span class="k">def</span> <span class="nf">cost</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+	<span class="s">"""Cost function of linear regression (LR) model with coefficient x"""</span>
+	<span class="n">m</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> 
+	<span class="k">return</span> <span class="o">.</span><span class="mi">5</span><span class="o">/</span><span class="n">m</span> <span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">-</span><span class="n">b</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="k">def</span> <span class="nf">grad</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+	<span class="s">"""Gradient function of cost function"""</span>
+	<span class="n">m</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+	<span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="n">m</span> <span class="o">*</span><span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">-</span><span class="n">b</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">numerical_grad</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">cost</span><span class="p">):</span>
+	<span class="s">"""Calculating numerical gradient with coefficient x to check whether our grad function is correct or not"""</span>
+	<span class="n">eps</span> <span class="o">=</span> <span class="mf">1e-4</span>
+	<span class="n">g</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span>
+		<span class="n">x_p</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+		<span class="n">x_n</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+		<span class="n">x_p</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">eps</span> 
+		<span class="n">x_n</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-=</span> <span class="n">eps</span>
+		<span class="n">g</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">cost</span><span class="p">(</span><span class="n">x_p</span><span class="p">)</span> <span class="o">-</span> <span class="n">cost</span><span class="p">(</span><span class="n">x_n</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">eps</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">g</span> 
+
+<span class="k">def</span> <span class="nf">check_grad</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">cost</span><span class="p">,</span> <span class="n">grad</span><span class="p">):</span>
+	<span class="s">"""Check grad function by comparing actual gradient value and numerical gradient (estimation)"""</span>
+	<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+	<span class="n">grad1</span> <span class="o">=</span> <span class="n">grad</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+	<span class="n">grad2</span> <span class="o">=</span> <span class="n">numerical_grad</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">cost</span><span class="p">)</span>
+	<span class="k">return</span> <span class="bp">True</span> <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">grad1</span> <span class="o">-</span> <span class="n">grad2</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-6</span> <span class="k">else</span> <span class="bp">False</span> 
+
+<span class="k">def</span> <span class="nf">gradient_descent</span><span class="p">(</span><span class="n">x_init</span><span class="p">,</span> <span class="n">grad</span><span class="p">,</span> <span class="n">alpha</span><span class="p">):</span>
+	<span class="s">"""
+	Running gradient descent with initial value x_init, grad function, learning rate alpha 
+	This function return x: list of solution after each iteration and iteration: last iteration it has gone through
+	"""</span>
+	<span class="n">m</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x_init</span><span class="p">)</span>
+	<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">x_init</span><span class="p">]</span>
+	<span class="k">for</span> <span class="n">iteration</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">itr</span><span class="p">):</span>
+		<span class="n">x_new</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">alpha</span><span class="o">*</span><span class="n">grad</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> 
+		<span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">grad</span><span class="p">(</span><span class="n">x_new</span><span class="p">))</span><span class="o">/</span><span class="n">m</span> <span class="o">&lt;</span> <span class="mf">1e-3</span><span class="p">:</span> <span class="c">#Stop gradient descent when grad value is too small.</span>
+			<span class="k">break</span>
+		<span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x_new</span><span class="p">)</span>
+	<span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">iteration</span><span class="p">)</span>
+
+<span class="c">############### Main ####################</span>
+
+<span class="c"># create random data </span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">29</span><span class="p">,</span><span class="mi">29</span><span class="p">,</span><span class="mi">35</span><span class="p">,</span><span class="mi">37</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">46</span><span class="p">]])</span><span class="o">.</span><span class="n">T</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">16</span><span class="p">]])</span><span class="o">.</span><span class="n">T</span>
+
+<span class="n">fig1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="s">'GD for Linear Regression'</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">xlim</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">60</span><span class="p">),</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span> <span class="c">#restrict the figure showing only values in specified range</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="s">'ro'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">'_nolegend_'</span><span class="p">)</span> <span class="c"># plot data points</span>
+<span class="n">line</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([],</span> <span class="p">[],</span> <span class="n">color</span> <span class="o">=</span> <span class="s">'blue'</span><span class="p">)</span> <span class="c"># plot function used in animation</span>
+
+<span class="c"># plot solution found by scikit learn</span>
+<span class="n">lr</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">lr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+<span class="n">x0_gd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">46</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">y0_sklearn</span> <span class="o">=</span> <span class="n">lr</span><span class="o">.</span><span class="n">intercept_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">lr</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x0_gd</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x0_gd</span><span class="p">,</span> <span class="n">y0_sklearn</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">'green'</span><span class="p">)</span>
+
+<span class="c"># apply gradient descent</span>
+<span class="n">itr</span> <span class="o">=</span> <span class="mi">90</span>
+<span class="n">learning_rate</span> <span class="o">=</span> <span class="o">.</span><span class="mo">0001</span> <span class="c">#.0001</span>
+<span class="n">x_init</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">]])</span>
+
+<span class="n">ones</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">1</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">)</span> <span class="c">#Append bias to A</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">ones</span><span class="p">,</span><span class="n">A</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">'Checking gradient...'</span><span class="p">,</span> <span class="n">check_grad</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">cost</span><span class="p">,</span> <span class="n">grad</span><span class="p">))</span> <span class="c">#Output: Checking gradient... True</span>
+
+<span class="n">x_init</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">]])</span>
+
+<span class="c"># running gradient descent</span>
+<span class="n">myGD</span> <span class="o">=</span> <span class="n">gradient_descent</span><span class="p">(</span><span class="n">x_init</span><span class="p">,</span> <span class="n">grad</span><span class="p">,</span> <span class="n">learning_rate</span><span class="p">)</span>
+
+<span class="c"># plot x_init (black line)</span>
+<span class="n">x0_gd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">46</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">y0_init</span> <span class="o">=</span> <span class="n">x_init</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">x_init</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x0_gd</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x0_gd</span><span class="p">,</span> <span class="n">y0_init</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s">'black'</span><span class="p">)</span>
+
+<span class="c"># plot lines in each iteration</span>
+<span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+	<span class="n">x_gd</span> <span class="o">=</span> <span class="n">myGD</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
+	<span class="n">y0_gd</span> <span class="o">=</span> <span class="n">x_gd</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">x_gd</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x0_gd</span>
+	<span class="n">line</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">x0_gd</span><span class="p">,</span><span class="n">y0_gd</span><span class="p">)</span>
+	<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'Iteration: {}/{}, learning rate: {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">myGD</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">learning_rate</span><span class="p">))</span>
+	<span class="k">return</span> <span class="n">line</span><span class="p">,</span>
+
+<span class="c"># legend for graph</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">((</span><span class="s">'Value in each GD iteration'</span><span class="p">,</span> <span class="s">'Solution by formular'</span><span class="p">,</span> <span class="s">'Inital value for GD'</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="p">(</span><span class="mf">0.52</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">))</span>
+<span class="n">ltext</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">get_legend</span><span class="p">()</span><span class="o">.</span><span class="n">get_texts</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">ltext</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">ltext</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">ltext</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="c"># save animation to mp4 file using ffmpeg</span>
+<span class="n">Writer</span> <span class="o">=</span> <span class="n">animation</span><span class="o">.</span><span class="n">writers</span><span class="p">[</span><span class="s">'ffmpeg'</span><span class="p">]</span>
+<span class="n">writer</span> <span class="o">=</span> <span class="n">Writer</span><span class="p">(</span><span class="n">fps</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">artist</span><span class="o">=</span><span class="s">'Me'</span><span class="p">),</span> <span class="n">bitrate</span><span class="o">=</span><span class="mi">1800</span><span class="p">)</span>
+
+<span class="n">line_ani</span> <span class="o">=</span> <span class="n">animation</span><span class="o">.</span><span class="n">FuncAnimation</span><span class="p">(</span><span class="n">fig1</span><span class="p">,</span> <span class="n">update</span><span class="p">,</span> <span class="n">myGD</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">blit</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="c"># # Save mp4 file for animation, require ffmpeg and set path to environment variable.</span>
+<span class="c"># line_ani.save('lines.mp4', writer='ffmpeg')</span>
+
+<span class="c"># # Convert mp4 to gif</span>
+<span class="c"># # https://stackoverflow.com/questions/11269575/how-to-hide-output-of-subprocess-in-python-2-7</span>
+<span class="c"># FNULL = open(os.devnull, 'w')</span>
+<span class="c"># subprocess.call(['ffmpeg', '-i', 'lines.mp4', 'lines.gif'], stdout=FNULL, stderr=subprocess.STDOUT) # Execute command line to convert .mp4 to .gif using ffmpeg and hide output of command line to terminal</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="s">'Iter and cost function'</span><span class="p">)</span>
+
+<span class="n">cost_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">iter_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">itr</span><span class="p">):</span>
+	<span class="n">iter_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">itr</span><span class="p">):</span>
+	<span class="n">cost_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cost</span><span class="p">(</span><span class="n">myGD</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">]))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">iter_list</span><span class="p">,</span> <span class="n">cost_list</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'Iteration'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'Cost value'</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> 
+</code></pre></div></div>
+<div class="imgcap">
+	<img style="display: inline-block; width: 60%;" src="/public/post-assets/GradientDescent/lines.gif" width="500" align="center" />
+<div class="thecap">Code output</div>
+</div>
+
+<p><a name="3-discussion"></a></p>
+<h2 id="3-discussion">3. Discussion</h2>
+<p><a name="31-when-to-stop"></a></p>
+<h3 id="31-when-to-stop">3.1. When to stop?</h3>
+<p>The relationship between cost value in each iteration is shown in <a href="#2a">figure 2.a</a>, clearly, the cost value tends to bottoms out and remains stable after iteration 40. The rest iteration doesn’t seem to reduces the cost value as much and could be unnecessary. When the calculation is expensive, we might not want to continued the iteration while the solution is already good enough. So plotting cost value after each iteration or even calculating the slope of that function could be a way to decide when to stop GD.</p>
+
+<p><a href="#2a">Figure 2.b</a> shows that setting <script type="math/tex">1e-3</script> as the threshold is not good enough to stop GD because in that example, the optimal solution occurs when <script type="math/tex">\mid {grad} \mid \approx 5.94</script>.</p>
+<div class="imgcap">
+	<img id="2a" style="display: inline-block; float:left; width: 50%;" src="/public/post-assets/GradientDescent/cost_iter.png" width="500" align="center" />
+	<div class="imgcap">
+	<img style="display: inline-block; float:left; width: 50%;" src="/public/post-assets/GradientDescent/10000parabola.gif" width="500" align="center" />
+	<div class="thecap">Figure 2.a: Relationship between cost value and iteration number</div>
+<div class="thecap">Figure 2.b: GD stuck in local optimum</div>
+</div>
+<div class="thecap"></div>
+</div>
+<div style="clear:left"></div>
+
+<p><a name="32-stucking-in-local-optimum"></a></p>
+<h3 id="32-stucking-in-local-optimum">3.2. Stucking in Local Optimum</h3>
+
+<p>In figure <a href="#fig3">(3)</a>, when trying to fit data by a parabola, GD get stuck in a local optimum, we know that because the green line is the solution found by formula (which is global optimum as I have explain in <a href="https://dunglai.github.io/2017/10/10/linear-regression/">this blog</a>). When trying to fit a parabola, another vector is added to the collumn space. When working with high dimensional space, it’s likely to have multiple local mimima. It means GD is very sensitive to initial value and it’s hard to get out of a local minimum. There are serveral variant of GD that can deal with this problem such as Stochastic Gradient Descent.</p>
+
+<div class="imgcap">
+	<img id="fig3" style="display: inline-block; width: 60%;" src="/public/post-assets/GradientDescent/100parabola.gif" width="500" align="center" />
+	<div class="thecap">Figure 3: GD stucked in a local optimum</div>
+</div>
+<p><a href="dunglai.github.io/public/post-assets/GradientDescent/gd_parabola_100iter.py">Source Code for figure 3</a></p>
+
+<p><a name="33-speed-to-convergence-learning-rate"></a></p>
+<h3 id="33-speed-to-convergence-learning-rate">3.3. Speed to convergence (Learning rate)</h3>
+<p>Learning rate (<script type="math/tex">\alpha</script>) is an important parameter, small learning rate as in figure 4.a can slow down GD and maybe makes it very slow to converge. On the other hand, large learning rate as in figure 4.b can make GD impossible to converge.</p>
+<div class="imgcap">
+	<img style="display: inline-block; width: 60%;" src="/public/post-assets/GradientDescent/learning_rate.jpg" width="500" align="center" />
+	<div class="thecap">Figure 4.a: Small learning rates.</div>
+	<div class="thecap">Figure 4.b: Large learning rates.</div>
+</div>
+
+<p><a name="34-disadvantage-compared-to-using-formula"></a></p>
+<h3 id="34-disadvantage-compared-to-using-formula">3.4. Disadvantage compared to using formula</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Gradient Descent</th>
+      <th>Normal Equation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Need to chose learning rate</td>
+      <td>No need to choose learning rate</td>
+    </tr>
+    <tr>
+      <td>Needs many iteration</td>
+      <td>Don’t need to iterate</td>
+    </tr>
+    <tr>
+      <td>Work well even when n (features) is large</td>
+      <td>Need to compute projection matrix 0(n3)</td>
+    </tr>
+    <tr>
+      <td>O(kn2)</td>
+      <td>Slow if n (features) is very large</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><a name="35-speedup-gd"></a></p>
+<h3 id="35-speedup-gd">3.5. Speedup GD</h3>
+<p><strong>Feature Scaling</strong> is commonly be used when working with GD, we want features are in similar scale (range) and it can be archieved by:</p>
+
+<ul>
+  <li><strong>Rescaling</strong>: The simplest method is rescaling the range of features to scale the range in [0, 1] or [−1, 1]. Selecting the target range depends on the nature of the data.</li>
+</ul>
+
+<p>\begin{equation}
+x’=\frac{x-min(x)}{max(x)-min(x)}
+\end{equation}</p>
+
+<p><script type="math/tex">x</script> is original value and <script type="math/tex">x'</script> is the normalized value.</p>
+
+<ul>
+  <li><strong>Mean normalisation</strong></li>
+</ul>
+
+<p>\begin{equation}
+x’=\frac{x-mean(x)}{s_i}
+\end{equation}</p>
+
+<p><script type="math/tex">s_i</script> can be standard deviation or <script type="math/tex">s_i</script> is the range of value (max-min).
+<a name="4-reference"></a></p>
+<h2 id="4-reference">4. Reference</h2>
+
+<ol>
+  <li><a href="https://machinelearningcoban.com/2017/01/12/gradientdescent/">Blog by Tiepvu</a></li>
+  <li><a href="http://sebastianruder.com/optimizing-gradient-descent/">Blog by sebastianruder</a></li>
+  <li><a href="http://cs229.stanford.edu/notes/cs229-notes1.pdf">Lecture note from Andrew Ng in machine learning course CS229</a></li>
+  <li><a href="https://en.wikipedia.org/wiki/Feature_scaling">Feature Scaling</a></li>
+  <li><a href="https://www.coursera.org/learn/machine-learning">Machine Learning course by Andrew Ng in Coursera</a></li>
+</ol>
+
+</div>
+        <!-- Start of StatCounter Code for Default Guide -->
+        <hr>
+Total visits:
+<script type="text/javascript">
+var sc_project=11553218; 
+var sc_invisible=0; 
+var sc_security="55ea133f"; 
+var sc_text=2; 
+var scJsHost = (("https:" == document.location.protocol) ?
+"https://secure." : "http://www.");
+document.write("<sc"+"ript type='text/javascript' src='" +
+scJsHost+
+"statcounter.com/counter/counter.js'></"+"script>");
+</script>
+<noscript><div class="statcounter"><a title="Web Analytics
+Made Easy - StatCounter" href="http://statcounter.com/"
+target="_blank"><img class="statcounter"
+src="//c.statcounter.com/11553218/0/55ea133f/0/" alt="Web
+Analytics Made Easy - StatCounter"></a></div></noscript>
+<!-- End of StatCounter Code for Default Guide -->
+<a href="http://statcounter.com/p11553218/?guest=1">(Powered by Statcounter)</a>
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2018/01/25/SVD/">
+            Singular Value Decomposition
+            <small>25 Jan 2018</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2017/12/09/k-nearest-neighbors/">
+            K Nearest Neighbors
+            <small>09 Dec 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2017/10/10/linear-regression/">
+            Linear Regression
+            <small>10 Oct 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2017/09/21/FlappyBirdAI/">
+            AI for FlappyBird Game
+            <small>21 Sep 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2017/06/30/mongodbmapping/">
+            Mapping MySQL to MongoDB
+            <small>30 Jun 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://dunglai-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+   
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if (!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+  </body>
+
+  
+</html>

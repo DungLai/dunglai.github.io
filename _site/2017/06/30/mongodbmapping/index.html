@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Mapping MySQL to MongoDB &middot; Dung Lai
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+  <!-- <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110006044-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-110006044-1');
+  </script> 
+
+  <!-- toogle button -->
+  <script>
+  function myFunction() {
+      var x = document.getElementById("myDIV");
+      if (x.style.display === "none") {
+          x.style.display = "block";
+      } else {
+          x.style.display = "none";
+      }
+  }
+  </script>
+  
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>A personal website of <a href="https://dunglai.github.io/about" target="">Dung Lai</a>, containing technical blog on technology.</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Home</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about/">About</a>
+        
+      
+    
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+    
+    <span class="sidebar-nav-item">Currently v1.0.0</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2018. All rights reserved.
+    </p>
+  </div>
+</div>
+
+ 
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">Dung Lai</a>
+            <small>blog</small>             
+          </h3>
+        </div>
+      </div>
+      
+      <link rel="stylesheet" href="/public/css/blog-index.css">
+
+<nav>
+	<div class='blog-wrapper'>
+		<div class='blog-index'>
+			<strong><u>Machine learning</u></strong></br>
+				<li><a href='https://dunglai.github.io/2017/12/21/gradient-descent/'>6. Gradient Descent</a><img src='../public/post-assets/LinearRegression/plot2.png'/></li>
+				<li><a href='https://dunglai.github.io/2017/12/09/k-nearest-neighbors/'>5. K Nearest Neighbors</a></li>
+				<li><a href='https://dunglai.github.io/2017/10/10/linear-regression/'>4. Linear Regression</a></li>
+				<li><a href='https://dunglai.github.io/2017/09/21/FlappyBirdAI/'>3. AI for flappy bird game (Neural Network, Genetic Algorithm)</a></li>
+				<li><a href='https://dunglai.github.io/2017/06/10/image-compression/'>2. Image Segmentation using K-Means</a></li>
+				<li><a href='https://dunglai.github.io/2017/06/01/k-means/'>1. K-Means Clustering</a></li>
+			<strong><u>Other</u></strong></br>
+				<li><a href='https://dunglai.github.io/2017/06/30/mongodbmapping/'>4. Mapping MySQL to MongoDB</a></li>
+				<li><a href='https://dunglai.github.io/2017/06/27/UniversityMySQL/'>3. University MySQL DB</a></li>
+				<li><a href='https://dunglai.github.io/2017/05/27/Planetary-Rover/'>2. Planetary Rover Game (C#, Winform)</a></li>
+				<li><a href='https://dunglai.github.io/2017/03/01/Music-Player/'>1. Music Player (Pascal)</a></li>
+		</div>
+	</div>
+</nav>
+
+      <div class="container content">
+        <div class="post">
+  <h1 style="font-size: 130%;" class="post-title">Mapping MySQL to MongoDB</h1>
+  <span class="post-date" style="float:none;">30 Jun 2017</span>
+  
+  <p><strong>Content:</strong>
+<!-- MarkdownTOC depth=5 --></p>
+
+<ul>
+  <li><a href="#1-introduction">1. Introduction</a></li>
+  <li><a href="#2-mapping-tables-rows-columns">2. Mapping Tables, Rows, Columns</a>
+    <ul>
+      <li><a href="#21-quick-sql-review">2.1. Quick SQL review</a></li>
+      <li><a href="#22-collection">2.2. Collection</a></li>
+      <li><a href="#23-dynamic-schema">2.3. Dynamic Schema</a></li>
+    </ul>
+  </li>
+  <li><a href="#3-mapping-join-and-relationships">3. Mapping Join and Relationships</a>
+    <ul>
+      <li><a href="#31-quick-sql-review">3.1. Quick SQL review</a></li>
+    </ul>
+  </li>
+  <li><a href="#4-linking-documents-and-embedding-documents">4. Linking Documents and Embedding Documents</a>
+    <ul>
+      <li><a href="#41-linking-documents">4.1. Linking Documents</a></li>
+      <li><a href="#42-embedding-documents">4.2. Embedding Documents</a></li>
+    </ul>
+  </li>
+  <li><a href="#5-mapping-query">5. Mapping Query</a>
+    <ul>
+      <li><a href="#51-create">5.1. Create</a></li>
+      <li><a href="#52-insert">5.2. Insert</a></li>
+      <li><a href="#53-read">5.3. Read</a>
+        <ul>
+          <li><a href="#531-read-all-data">5.3.1. Read All Data</a></li>
+          <li><a href="#532-read-specific-data-in-collection">5.3.2. Read specific data in collection</a></li>
+          <li><a href="#533-read-data-with-condition">5.3.3. Read data with condition</a></li>
+          <li><a href="#534-read-auto-generate-id">5.3.4. Read auto generate ID</a></li>
+          <li><a href="#535-read-specific-data-with-condition">5.3.5. Read specific data with condition</a></li>
+          <li><a href="#536-logical-operator">5.3.6. Logical Operator</a></li>
+          <li><a href="#537-sort">5.3.7. Sort</a></li>
+          <li><a href="#538-limit-display-output-data">5.3.8. Limit display output data</a></li>
+        </ul>
+      </li>
+      <li><a href="#54-update">5.4. Update</a></li>
+      <li><a href="#55-remove">5.5. Remove</a></li>
+    </ul>
+  </li>
+  <li><a href="#6-conclusion">6. Conclusion</a></li>
+</ul>
+
+<!-- /MarkdownTOC -->
+
+<p><em>Abstract</em></p>
+
+<p>NoSQL database are becoming a fundamental role of the database landscape nowadays, first version released in 2007, at that time, MySQL, an open-source relational database management system (RDBMS) has been developed extensively for more than 10 years. NoSQL has a handful of advantages including lower cost, easier scalability and open sources features. However, NoSQL is still a relatively young technology, making it difficult for  IT engineer and student to learn.</p>
+
+<p><a name="1-introduction"></a></p>
+<h2 id="1-introduction">1. Introduction</h2>
+<p>With the less constrained structure, scalable schema design of NoSQL and faster access compared to traditional RDBMS. Coming from an SQL background, it could be challenging and time-consuming to map database management concept from SQL to NoSQL. This report will go through fundamental concept of MongoDB functionality, terms and simple query syntax. The difference of this report is that we assume that you have basic knowledge of SQL, and everything from this report will be built and map based on that knowledge you have on SQL.</p>
+
+<p><a name="2-mapping-tables-rows-columns"></a></p>
+<h2 id="2-mapping-tables-rows-columns">2. Mapping Tables, Rows, Columns</h2>
+<p><a name="21-quick-sql-review"></a></p>
+<h3 id="21-quick-sql-review">2.1. Quick SQL review</h3>
+<p>In SQL databse, tables are objects that are being managed, all data or information of objects and database are stored in tables. Table contains column (a set of data values of a particular type) and row (attribute type and their value). The columns provide the structure according to which the rows are composed.
+<a name="22-collection"></a></p>
+<h3 id="22-collection">2.2. Collection</h3>
+<p>Each database in MongoDB consists of collections which are equivalent to an RDBMS database consisting of SQL tables.
+Collection stores data in the form of documents which is equivalent to tables storing data in rows.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>SQL</th>
+      <th>NoSQL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Table</td>
+      <td>Collection</td>
+    </tr>
+    <tr>
+      <td>Column</td>
+      <td>JSON structure</td>
+    </tr>
+    <tr>
+      <td>Row</td>
+      <td>Field</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="imgcap">
+	<img style="display: inline-block; width: 50%;" src="/public/post-assets/MongoDBmapping/ReportLatex/collection.png" width="500" align="center" />
+</div>
+<p>The document above is equivalent to a row in RDBMS, a collection contains multiple document above. This document use JSON format, it consists of key value pairs.</p>
+
+<p>Notice that the field above has a unique id. It is considered as primary key when comparing to MySQL.</p>
+<div class="imgcap">
+	<img style="display: inline-block; width: 100%;" src="/public/post-assets/MongoDBmapping/ReportLatex/collection_mapping.PNG" width="500" align="center" />
+	<div class="thecap">Fig.1: Mapping table to collection</div>
+</div>
+<p><a name="23-dynamic-schema"></a></p>
+<h3 id="23-dynamic-schema">2.3. Dynamic Schema</h3>
+<p>In NoSQL, documents within a collection can have different schema. The fields in MongoDB can be easily added, removed and modified. For example, typical documents have 4 fields, like students have name, class, gender and date of birth, now, it is possible to create a student that have name, faculty and parent details. The number of fields as well as structure can be different. There is no constraint on data types of the fields. This functionality to use dynamic schema allows us to generate dynamic documents at run time.</p>
+
+<p>For instance, consider the following two documents inside the same collection but having different schemas (Fig 2):</p>
+<div class="imgcap">
+	<img style="display: inline-block; width: 100%;" src="/public/post-assets/MongoDBmapping/ReportLatex/dynamicshema.png" width="500" align="center" />
+	<div class="thecap">Fig.2: Dynamic schema example</div>
+</div>
+<p>The first document contains the fields address and dob which are not present in the second document while the second document contains fields gender and occupation which are not present in the first one. Imagine if we would have designed this thing in SQL, we would have kept four extra columns for address, dob, gender and occupation, some of which would store empty (or null) values, and hence occupying unnecessary space.</p>
+
+<p>This model of dynamic schema is the reason why NoSQL databases are highly scalable in terms of design. Various complex schemas (hierarchical, tree-structured, etc) which would require number of RDBMS tables can be designed efficiently using such documents. A typical example would be to store user posts, their likes, comments and other associated information in the form of documents. An SQL implementation for the same would ideally have separate tables for storing posts, comments and likes while a MongoDB document can store all these information in a single document.
+<a name="3-mapping-join-and-relationships"></a></p>
+<h2 id="3-mapping-join-and-relationships">3. Mapping Join and Relationships</h2>
+<p><a name="31-quick-sql-review"></a></p>
+<h3 id="31-quick-sql-review">3.1. Quick SQL review</h3>
+<p>Relationships in RDBMS are achieved using primary and foreign key relationships and querying those using joins. There is no such straightforward mapping in MongoDB but the relationships here are designed using embedded and linking documents.</p>
+<div class="imgcap">
+	<img style="display: inline-block; width: 55%;" src="/public/post-assets/MongoDBmapping/ReportLatex/pfkf.PNG" width="500" align="center" />
+	<div class="thecap">Fig.3: Relation in SQL</div>
+</div>
+<p><a name="4-linking-documents-and-embedding-documents"></a></p>
+<h2 id="4-linking-documents-and-embedding-documents">4. Linking Documents and Embedding Documents</h2>
+<p><a name="41-linking-documents"></a></p>
+<h3 id="41-linking-documents">4.1. Linking Documents</h3>
+<p>Linking documents is a method in which multiple collections are created with some similar fields both collection, these similar fields are equivalent to foreign key in SQL.</p>
+<div class="imgcap">
+	<img style="display: inline-block; width: 55%;" src="/public/post-assets/MongoDBmapping/ReportLatex/linkingdocuments.PNG" width="500" align="center" />
+	<div class="thecap">Fig.4: Linking Document in NoSQL</div>
+</div>
+<p>The user id field in our document in Fig 4 is simply a field that holds some data and all the logic associated with it has to be implemented by us. For example, even if you will insert some user id in the contact information document that does not exist in the user information collection, MongoDB is not going to throw any error saying that corresponding user id was not found in the user information collection(unlike SQL where this would be an invalid foreign key constraint).
+<a name="42-embedding-documents"></a></p>
+<h3 id="42-embedding-documents">4.2. Embedding Documents</h3>
+<p>Embedding documents mean instead of creating separate collections as we did in Linking Document, we will try to merge every information into one collection. The fields that are being copied from one collection to another collection will be extended in only one collection.</p>
+<div class="imgcap">
+	<img style="display: inline-block; width: 55%;" src="/public/post-assets/MongoDBmapping/ReportLatex/embeddeddocuments.PNG" width="500" align="center" />
+	<div class="thecap">Fig.5: Embedded Documents  in NoSQL</div>
+</div>
+<p>In the above example, we have embedded a small document of contact information inside the user information. In the similar manner, large complex documents and hierarchical data can be embedded like this to relate entities.
+<a name="5-mapping-query"></a></p>
+<h2 id="5-mapping-query">5. Mapping Query</h2>
+<p>In this section, we will translate all fundamental query from MySQL to MongoDB along with example in syntax.
+Let’s start with a brief on terminology and concepts:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>SQL</th>
+      <th>NoSQL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>database</td>
+      <td>database</td>
+    </tr>
+    <tr>
+      <td>table</td>
+      <td>collection</td>
+    </tr>
+    <tr>
+      <td>row</td>
+      <td>document or JSON document</td>
+    </tr>
+    <tr>
+      <td>column</td>
+      <td>field</td>
+    </tr>
+    <tr>
+      <td>index</td>
+      <td>index</td>
+    </tr>
+    <tr>
+      <td>table joins</td>
+      <td>lookup, embedded documents</td>
+    </tr>
+    <tr>
+      <td>primary key</td>
+      <td>primary key</td>
+    </tr>
+    <tr>
+      <td>aggregation</td>
+      <td>aggregation pipeline</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><a name="51-create"></a></p>
+<h3 id="51-create">5.1. Create</h3>
+<p>In MongoDB, it is not possible and not necessary to define the structure of a collection as we normally did in MySQL (create table, naming column, define data type). MongoDB use JSON format which is an unstructured format to store data.<br />
+The structure of the document is automatically created when the first insert occurs in the collection. However, you can create an empty collection using createCollection command.</p>
+
+<div class="imgcap">
+	<img style="display: inline-block; width: 40%;" src="/public/post-assets/MongoDBmapping/ReportLatex/createsql.PNG" width="500" align="center" />
+	<div class="thecap">Fig.6: Create table in SQL</div>
+</div>
+<p>In MongoDB, we can only create an empty collection:<code class="highlighter-rouge">db.createCollection("posts")</code>
+<a name="52-insert"></a></p>
+<h3 id="52-insert">5.2. Insert</h3>
+<div class="imgcap">
+	<img style="display: inline-block; width: 35%;" src="/public/post-assets/MongoDBmapping/ReportLatex/insertsql.PNG" width="500" align="center" />
+	<div class="thecap">Fig.7: Insert data in SQL</div>
+</div>
+<p>Data in NoSQL has JSON format, we can either insert the JSON file to collection or insert key-value pair into collection:
+<code class="highlighter-rouge">db.people.insert({ userid: "bcd001", age: 45, status: "A" })</code>
+<strong>Note</strong>: We can create a new field for id. However, The inserted document will contain the auto generated id field.
+<a name="53-read"></a></p>
+<h3 id="53-read">5.3. Read</h3>
+<p><a name="531-read-all-data"></a></p>
+<h4 id="531-read-all-data">5.3.1. Read All Data</h4>
+<p>MongoDB uses the find method which is equivalent to the SELECT command in SQL. The following statements simply read all the documents from the posts collection.</p>
+<div class="imgcap">
+	<img style="display: inline-block; width: 40%;" src="/public/post-assets/MongoDBmapping/ReportLatex/read1.PNG" width="500" align="center" />
+	<div class="thecap">Fig.8: Read all data</div>
+</div>
+<p><a name="532-read-specific-data-in-collection"></a></p>
+<h4 id="532-read-specific-data-in-collection">5.3.2. Read specific data in collection</h4>
+<p>The following query fetches specific columns, post text  and post likes count as specified in the second set of braces <code class="highlighter-rouge">{}</code>. We mark the value as 1 in the second bracket to include the field in the output.</p>
+<div class="imgcap">
+	<img style="display: inline-block; width: 55%;" src="/public/post-assets/MongoDBmapping/ReportLatex/read2.PNG" width="500" align="center" />
+	<div class="thecap">Fig.9: Read specific data</div>
+</div>
+<p><a name="533-read-data-with-condition"></a></p>
+<h4 id="533-read-data-with-condition">5.3.3. Read data with condition</h4>
+<p>The following query does a conditional search for documents having username field as mark. All the criteria for fetching the documents have to be placed in the first braces <code class="highlighter-rouge">{}</code> separated by commas.</p>
+<div class="imgcap">
+	<img style="display: inline-block; width: 55%;" src="/public/post-assets/MongoDBmapping/ReportLatex/read3.PNG" width="500" align="center" />
+	<div class="thecap">Fig.10: Read data with condition</div>
+</div>
+<p><a name="534-read-auto-generate-id"></a></p>
+<h4 id="534-read-auto-generate-id">5.3.4. Read auto generate ID</h4>
+<p>In MongoDB, every time we input new data, one specific id will be auto generated and this id will be displayed by all read commands that we described above. Set id to 0 to disable showing id with find command.
+<code class="highlighter-rouge">db.posts.find({},{posttext:1,postlikescount:1,id:0})</code>
+<a name="535-read-specific-data-with-condition"></a></p>
+<h4 id="535-read-specific-data-with-condition">5.3.5. Read specific data with condition</h4>
+<div class="imgcap">
+	<img style="display: inline-block; width: 70%;" src="/public/post-assets/MongoDBmapping/ReportLatex/read4.PNG" width="500" align="center" />
+	<div class="thecap">Fig.11: Read specific data with condition</div>
+</div>
+<p><a name="536-logical-operator"></a></p>
+<h4 id="536-logical-operator">5.3.6. Logical Operator</h4>
+<p>We will examine how to do an <code class="highlighter-rouge">OR</code> operator in MongoDB, same syntax applied to other logical operators.</p>
+<div class="imgcap">
+	<img style="display: inline-block; width: 40%;" src="/public/post-assets/MongoDBmapping/ReportLatex/orsql.PNG" width="500" align="center" />
+	<div class="thecap">Fig.12: Logical operator OR in MySQL</div>
+</div>
+<p>In MongoDB, we use the following command:
+<code class="highlighter-rouge">db.posts.find({\$or:[{username:'mark'},{postprivacy: 'public'}]},{posttext:1,postlikescount:1})</code>
+<a name="537-sort"></a></p>
+<h4 id="537-sort">5.3.7. Sort</h4>
+<p>Next, we will use the sort method which sorts the result in ascending order of postlikescount(indicated by 1).</p>
+<div class="imgcap">
+	<img style="display: inline-block; width: 35%;" src="/public/post-assets/MongoDBmapping/ReportLatex/sortsql.PNG" width="500" align="center" />
+	<div class="thecap">Fig.13: Sort in MySQL</div>
+</div>
+<p><code class="highlighter-rouge">db.posts.find({username:"mark"}).sort({postlikescount:1})</code>
+To sort the results in descending order,  we specify -1 as the value of the field.
+<code class="highlighter-rouge">db.posts.find({username:"mark"}).sort({postlikescount:-1})</code>
+<a name="538-limit-display-output-data"></a></p>
+<h4 id="538-limit-display-output-data">5.3.8. Limit display output data</h4>
+<p>To limit the number of documents to be returned, we use the limit method specifying the number of documents.</p>
+<div class="imgcap">
+	<img style="display: inline-block; width: 45%;" src="/public/post-assets/MongoDBmapping/ReportLatex/Limit.PNG" width="500" align="center" />
+	<div class="thecap">Fig.14: Limit number of output data being displayed</div>
+</div>
+<p><a name="54-update"></a></p>
+<h3 id="54-update">5.4. Update</h3>
+<p>The first parameter to the update method specifies the criteria to select the documents. The second parameter specifies the actual update operation to be performed. For example, the following query selects all the documents with username as mark and sets their postprivacy as private.</p>
+
+<p>One difference here is that by default, MongoDB update query updates only one (and the first matched) document. To update all the matching documents we have to provide a third parameter specifying multi as true indicating that we want to update multiple documents.
+<code class="highlighter-rouge">db.posts.update({username:"mark"},{\$set:{postprivacy:"private"\\}},{multi:true})</code></p>
+<div class="imgcap">
+	<img style="display: inline-block; width: 40%;" src="/public/post-assets/MongoDBmapping/ReportLatex/updatesql.PNG" width="500" align="center" />
+	<div class="thecap">Fig.15: Update in SQL</div>
+</div>
+<p><a name="55-remove"></a></p>
+<h3 id="55-remove">5.5. Remove</h3>
+<div class="imgcap">
+	<img style="display: inline-block; width: 55%;" src="/public/post-assets/MongoDBmapping/ReportLatex/remove.PNG" width="500" align="center" />
+	<div class="thecap">Fig.16: Remove comparison</div>
+</div>
+<p><a name="6-conclusion"></a></p>
+<h2 id="6-conclusion">6. Conclusion</h2>
+<p>This report has shown you fundamental concept of MongoDB, most of the core concepts in term of data management are similar to MySQL. Upon this report, reader should try out more complex queries such as map reduce in order to gain more knowledge of NoSQL.<br />
+Attached to this report is an example where the author of this report convert an University database in SQL to NoSQL. Reader can check out that report for further details.</p>
+
+<p><a href="dunglai.github.io/public/post-assets/MongoDBmapping/report latex/bare_conf.pdf"><strong>Download Report</strong></a></p>
+
+<p><em>Reference</em></p>
+<ol>
+  <li>
+    <p>https://docs.microsoft.com/en-us/sql/relational-databases/tables/primary-and-foreign-key-constraints</p>
+  </li>
+  <li>
+    <p>https://www.javatpoint.com/mongodb-history</p>
+  </li>
+  <li>
+    <p>https://code.tutsplus.com/articles/mapping-relational-databases-and-sql-to-mongodb–net-35650</p>
+  </li>
+  <li>
+    <p>https://docs.mongodb.com/manual/reference/sql-comparison/</p>
+  </li>
+  <li>
+    <p>https://docs.microsoft.com/en-us/sql/relational-databases/tables/create-foreign-key-relationships</p>
+  </li>
+</ol>
+
+</div>
+        <!-- Start of StatCounter Code for Default Guide -->
+        <hr>
+Total visits:
+<script type="text/javascript">
+var sc_project=11553218; 
+var sc_invisible=0; 
+var sc_security="55ea133f"; 
+var sc_text=2; 
+var scJsHost = (("https:" == document.location.protocol) ?
+"https://secure." : "http://www.");
+document.write("<sc"+"ript type='text/javascript' src='" +
+scJsHost+
+"statcounter.com/counter/counter.js'></"+"script>");
+</script>
+<noscript><div class="statcounter"><a title="Web Analytics
+Made Easy - StatCounter" href="http://statcounter.com/"
+target="_blank"><img class="statcounter"
+src="//c.statcounter.com/11553218/0/55ea133f/0/" alt="Web
+Analytics Made Easy - StatCounter"></a></div></noscript>
+<!-- End of StatCounter Code for Default Guide -->
+<a href="http://statcounter.com/p11553218/?guest=1">(Powered by Statcounter)</a>
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2018/01/25/SVD/">
+            Singular Value Decomposition
+            <small>25 Jan 2018</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2017/12/21/gradient-descent/">
+            Gradient Descent
+            <small>21 Dec 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2017/12/09/k-nearest-neighbors/">
+            K Nearest Neighbors
+            <small>09 Dec 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2017/10/10/linear-regression/">
+            Linear Regression
+            <small>10 Oct 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2017/09/21/FlappyBirdAI/">
+            AI for FlappyBird Game
+            <small>21 Sep 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://dunglai-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+   
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if (!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+  </body>
+
+  
+</html>

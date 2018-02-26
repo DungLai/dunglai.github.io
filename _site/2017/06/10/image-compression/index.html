@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Image Compression Application &middot; Dung Lai
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+  <!-- <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110006044-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-110006044-1');
+  </script> 
+
+  <!-- toogle button -->
+  <script>
+  function myFunction() {
+      var x = document.getElementById("myDIV");
+      if (x.style.display === "none") {
+          x.style.display = "block";
+      } else {
+          x.style.display = "none";
+      }
+  }
+  </script>
+  
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>A personal website of <a href="https://dunglai.github.io/about" target="">Dung Lai</a>, containing technical blog on technology.</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Home</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about/">About</a>
+        
+      
+    
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+    
+    <span class="sidebar-nav-item">Currently v1.0.0</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2018. All rights reserved.
+    </p>
+  </div>
+</div>
+
+ 
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">Dung Lai</a>
+            <small>blog</small>             
+          </h3>
+        </div>
+      </div>
+      
+      <link rel="stylesheet" href="/public/css/blog-index.css">
+
+<nav>
+	<div class='blog-wrapper'>
+		<div class='blog-index'>
+			<strong><u>Machine learning</u></strong></br>
+				<li><a href='https://dunglai.github.io/2017/12/21/gradient-descent/'>6. Gradient Descent</a><img src='../public/post-assets/LinearRegression/plot2.png'/></li>
+				<li><a href='https://dunglai.github.io/2017/12/09/k-nearest-neighbors/'>5. K Nearest Neighbors</a></li>
+				<li><a href='https://dunglai.github.io/2017/10/10/linear-regression/'>4. Linear Regression</a></li>
+				<li><a href='https://dunglai.github.io/2017/09/21/FlappyBirdAI/'>3. AI for flappy bird game (Neural Network, Genetic Algorithm)</a></li>
+				<li><a href='https://dunglai.github.io/2017/06/10/image-compression/'>2. Image Segmentation using K-Means</a></li>
+				<li><a href='https://dunglai.github.io/2017/06/01/k-means/'>1. K-Means Clustering</a></li>
+			<strong><u>Other</u></strong></br>
+				<li><a href='https://dunglai.github.io/2017/06/30/mongodbmapping/'>4. Mapping MySQL to MongoDB</a></li>
+				<li><a href='https://dunglai.github.io/2017/06/27/UniversityMySQL/'>3. University MySQL DB</a></li>
+				<li><a href='https://dunglai.github.io/2017/05/27/Planetary-Rover/'>2. Planetary Rover Game (C#, Winform)</a></li>
+				<li><a href='https://dunglai.github.io/2017/03/01/Music-Player/'>1. Music Player (Pascal)</a></li>
+		</div>
+	</div>
+</nav>
+
+      <div class="container content">
+        <div class="post">
+  <h1 style="font-size: 130%;" class="post-title">Image Compression Application</h1>
+  <span class="post-date" style="float:none;">10 Jun 2017</span>
+  
+  <div class="tag">Pascal</div>
+<div class="tag">Machine Learning</div>
+<p>This blog post is an extension to <a href="https://dunglai.github.io/2017/06/01/k-means/">my previous post on K-means algorithm</a>. We will use K-means clustering method to find <script type="math/tex">k</script> dominent colors of an image. Each pixel of an image is represented as a 3 dimensional vector (containing RGB value) where the previous blog post visualize k-means on 2D vector (points on 2D plane).
+<strong>Content:</strong>
+<!-- MarkdownTOC depth=3 --></p>
+
+<ul>
+  <li><a href="#1-introduction">1. Introduction</a></li>
+  <li><a href="#2-main-functions">2. Main functions</a></li>
+  <li><a href="#3-demo-video">3. Demo Video</a></li>
+  <li><a href="#4-algorithm-recap">4. Algorithm Recap</a>
+    <ul>
+      <li><a href="#41-k-means-on-3-dimensional-space">4.1. K-means on 3-dimensional space</a></li>
+      <li><a href="#42-represent-data-in-array-format">4.2. Represent data in array format</a></li>
+    </ul>
+  </li>
+  <li><a href="#5-source-code-and-pdf-report">5. Source Code and PDF report</a></li>
+</ul>
+
+<!-- /MarkdownTOC -->
+<p><a name="1-introduction"></a></p>
+<h2 id="1-introduction">1. Introduction</h2>
+<p>This blog is an extra section of the previous blog <a href="https://dunglai.github.io/2017/06/01/k-means/">K-Means Clustering with Visualization tool</a> that i wrote.</p>
+
+<p>Let’s see a quick demo of the program, the main function of the program is:
+<a name="2-main-functions"></a></p>
+<h2 id="2-main-functions">2. Main functions</h2>
+<p><strong>Input:</strong></p>
+<ol>
+  <li><strong>Image</strong> (filename of image)</li>
+  <li><strong>K</strong> (integer, number of color we want after compressing)</li>
+</ol>
+
+<p><strong>Output:</strong> New image which contains K colors</p>
+<div class="imgcap">
+<img style="display: inline-block; width: 100%;" src="/public/post-assets/ImageCompression/demo.png" width="500" align="center" />
+<div class="thecap">Left image (1000KB) - Righ image (10KB)<br /></div>
+</div>
+<p><a name="3-demo-video"></a></p>
+<h2 id="3-demo-video">3. Demo Video</h2>
+<embed class="video" width="1600" height="400" style="width: 100%" src="/public/post-assets/ImageCompression/demo.mp4" scale="aspect" controller="true" />
+
+<div class="thecap">Demo video</div>
+<p><a name="4-algorithm-recap"></a></p>
+<h2 id="4-algorithm-recap">4. Algorithm Recap</h2>
+<p><a name="41-k-means-on-3-dimensional-space"></a></p>
+<h3 id="41-k-means-on-3-dimensional-space">4.1. K-means on 3-dimensional space</h3>
+<p>Let me briefly explain the algorithm that I use in this program.</p>
+
+<p>According to the previous blog <a href="https://dunglai.github.io/2017/06/01/k-means/">K-Means Clustering with Visualization tool</a>. K-means algorithm is able to put data into group/ or cluster. In the visualization tool, each data is a point on a plane, each point has 2 properties, namely x-axis location and y-axis location. In this image compression application, each data point is one pixel of the image, each data point (pixel) has 3 properties, namely, Red color, Green color and Blue color density (RGB color). Each red, green and blue density will have a value ranging from 0-255.</p>
+
+<p>When data is points on plane, all data points are put in a 2-dimensional space. In the case of image compression application, each data is a point on a 3-dimensional space, our goal here is to cluster all these points. For example, if we have a 100x100 resolution image, we have 10000 pixels in total, they will be 10000 points on a 3-dimensional space.
+<a name="42-represent-data-in-array-format"></a></p>
+<h3 id="42-represent-data-in-array-format">4.2. Represent data in array format</h3>
+<p>The way I choose to represent a pixel in array format is below:</p>
+<div class="language-pascal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">img</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">][</span><span class="n">RGB</span><span class="p">]</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>img: the image we store, Img will be a 3-dimensional array.
+[x]: x-location (if we have a 20x30 image, x will range from 0 to 19)
+[y]: y-location (if we have a 20x30 image, y will range from 0 to 29)
+[RGB]: Red, green and blue channel. RGB will have 3 value: 0, 1 and 2 corresponding to Red, Green and Blue
+</code></pre></div></div>
+<p><em>Example:</em> 
+img[1][2][0]: The Red channel value of pixel in the location 1 (x-axis) and 2 (y-axis).
+<a name="5-source-code-and-pdf-report"></a></p>
+<h2 id="5-source-code-and-pdf-report">5. Source Code and PDF report</h2>
+<p><strong>Source Code:</strong></p>
+<div class="language-pascal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">type</span>	
+<span class="c1">// type used for application  
+</span>	<span class="n">RGB</span> 				<span class="p">=</span> <span class="k">array</span><span class="p">[</span><span class="m">0..2</span><span class="p">]</span> <span class="k">of</span> <span class="kt">Single</span><span class="p">;</span>			<span class="c1">// x-axis 	// store red, green and blue of an image
+</span>	<span class="n">CollumnPixels</span> 		<span class="p">=</span> <span class="k">array</span> <span class="k">of</span> <span class="n">RGB</span><span class="p">;</span>						<span class="c1">// y-axis, rowPixels
+</span>	<span class="n">imgArray</span> 			<span class="p">=</span> <span class="k">array</span> <span class="k">of</span> <span class="n">CollumnPixels</span><span class="p">;</span>			<span class="c1">// 3-dimensional array used to store red, green, blue color of each pixel in an image 
+</span>	<span class="n">IntArray</span>			<span class="p">=</span> <span class="k">array</span> <span class="k">of</span> <span class="kt">Integer</span><span class="p">;</span>					<span class="c1">// label
+</span>
+	<span class="n">SingleColorArray</span>	<span class="p">=</span> <span class="k">array</span> <span class="k">of</span> <span class="n">Color</span><span class="p">;</span>					<span class="c1">// 1 dimensional array used to store color
+</span>	<span class="n">ColorArray</span> 			<span class="p">=</span> <span class="k">array</span> <span class="k">of</span> <span class="n">SingleColorArray</span><span class="p">;</span>		<span class="c1">// 2 dimensional array used to store color
+// typed used for Visualization
+</span>	<span class="n">PointsRecord</span> <span class="p">=</span> <span class="k">Record</span>
+		<span class="n">x</span>    <span class="p">:</span> <span class="kt">Single</span><span class="p">;</span>										<span class="c1">// x-axit on panel
+</span>		<span class="n">y</span>    <span class="p">:</span> <span class="kt">Single</span><span class="p">;</span>										<span class="c1">// y-axit on panel
+</span>		<span class="n">idx</span>  <span class="p">:</span> <span class="kt">Integer</span><span class="p">;</span> 									<span class="c1">// store label of each point, instead of create another array or enumeration to store it
+</span>	<span class="k">end</span><span class="p">;</span>
+
+	<span class="n">PointsArray</span> <span class="p">=</span> <span class="k">array</span> <span class="k">of</span> <span class="n">PointsRecord</span><span class="p">;</span> 					<span class="c1">// Store all the points on panel and the init points
+</span>
+<span class="c1">// Setlength to 3-dimen array
+</span><span class="k">procedure</span> <span class="n">AddSize</span><span class="p">(</span><span class="k">var</span> <span class="n">Img</span><span class="p">:</span> <span class="n">ImgArray</span><span class="p">;</span> <span class="n">row</span><span class="p">:</span> <span class="kt">Integer</span><span class="p">;</span> <span class="n">col</span><span class="p">:</span> <span class="kt">Integer</span><span class="p">);</span>
+<span class="k">var</span>
+	<span class="n">i</span><span class="p">:</span> <span class="kt">Integer</span><span class="p">;</span>
+<span class="k">begin</span>
+	<span class="n">SetLength</span><span class="p">(</span><span class="n">Img</span><span class="p">,</span> <span class="n">row</span><span class="p">);</span>
+	<span class="k">for</span> <span class="n">i</span><span class="p">:=</span><span class="m">0</span> <span class="k">to</span> <span class="n">row</span><span class="p">-</span><span class="m">1</span> <span class="k">do</span>
+	<span class="k">begin</span>
+		<span class="n">SetLength</span><span class="p">(</span><span class="n">Img</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">col</span><span class="p">);</span>
+	<span class="k">end</span><span class="p">;</span>
+<span class="k">end</span><span class="p">;</span>
+
+<span class="c1">//return 3-dimensional array
+</span><span class="k">function</span> <span class="n">ReadImage</span><span class="p">(</span><span class="k">var</span> <span class="n">filename</span><span class="p">:</span> <span class="k">String</span><span class="p">):</span> <span class="n">ImgArray</span><span class="p">;</span>
+<span class="k">var</span>
+	<span class="n">userBmp</span><span class="p">:</span> <span class="n">Bitmap</span><span class="p">;</span>
+	<span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">:</span> <span class="kt">Integer</span><span class="p">;</span>
+	<span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">:</span> <span class="kt">Integer</span><span class="p">;</span>
+	<span class="n">c</span><span class="p">:</span> <span class="n">Color</span><span class="p">;</span>
+<span class="k">begin</span>
+	<span class="k">WriteLn</span><span class="p">(</span><span class="s">'Reading in image... Please wait...'</span><span class="p">);</span>
+
+	<span class="n">userBmp</span> <span class="p">:=</span> <span class="n">BitmapNamed</span><span class="p">(</span><span class="n">filename</span><span class="p">);</span>
+
+	<span class="n">row</span> <span class="p">:=</span> <span class="n">BitmapHeight</span><span class="p">(</span><span class="n">userBmp</span><span class="p">);</span>
+	<span class="n">col</span> <span class="p">:=</span> <span class="n">BitmapWidth</span><span class="p">(</span><span class="n">userBmp</span><span class="p">);</span>
+
+	<span class="n">AddSize</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">);</span>
+
+	<span class="k">for</span> <span class="n">i</span><span class="p">:=</span><span class="m">0</span> <span class="k">to</span> <span class="n">row</span><span class="p">-</span><span class="m">1</span> <span class="k">do</span>
+	<span class="k">begin</span>
+		<span class="k">for</span> <span class="n">j</span><span class="p">:=</span><span class="m">0</span> <span class="k">to</span> <span class="n">col</span><span class="p">-</span><span class="m">1</span> <span class="k">do</span>
+		<span class="k">begin</span>
+			<span class="n">c</span> <span class="p">:=</span> <span class="n">GetPixel</span><span class="p">(</span><span class="n">userBmp</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+			<span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="m">0</span><span class="p">]</span> <span class="p">:=</span> <span class="n">RedOf</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
+			<span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="m">1</span><span class="p">]</span> <span class="p">:=</span> <span class="n">GreenOf</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
+			<span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="m">2</span><span class="p">]</span> <span class="p">:=</span> <span class="n">BlueOf</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
+		<span class="k">end</span><span class="p">;</span>
+	<span class="k">end</span><span class="p">;</span>
+<span class="k">end</span><span class="p">;</span>
+
+<span class="c1">//return width*height x 3, put all pixel into one array
+</span><span class="k">function</span> <span class="n">Reshape</span><span class="p">(</span><span class="k">var</span> <span class="n">img</span><span class="p">:</span> <span class="n">ImgArray</span><span class="p">):</span> <span class="n">CollumnPixels</span><span class="p">;</span> 
+<span class="k">var</span>
+	<span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">:</span> <span class="kt">Integer</span><span class="p">;</span>
+	<span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">rgb</span><span class="p">:</span> <span class="kt">Integer</span><span class="p">;</span>
+<span class="k">begin</span>
+	<span class="n">row</span> <span class="p">:=</span> <span class="n">Length</span><span class="p">(</span><span class="n">img</span><span class="p">);</span>
+	<span class="n">col</span> <span class="p">:=</span> <span class="n">Length</span><span class="p">(</span><span class="n">img</span><span class="p">[</span><span class="m">0</span><span class="p">]);</span>
+
+	<span class="n">SetLength</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">row</span><span class="p">*</span><span class="n">col</span><span class="p">);</span>
+
+	<span class="k">for</span> <span class="n">i</span><span class="p">:=</span><span class="m">0</span> <span class="k">to</span> <span class="n">col</span><span class="p">-</span><span class="m">1</span> <span class="k">do</span>
+	<span class="k">begin</span>
+		<span class="k">for</span> <span class="n">j</span><span class="p">:=</span><span class="m">0</span> <span class="k">to</span> <span class="n">row</span><span class="p">-</span><span class="m">1</span> <span class="k">do</span>
+		<span class="k">begin</span>
+			<span class="k">for</span> <span class="n">rgb</span><span class="p">:=</span><span class="m">0</span> <span class="k">to</span> <span class="m">2</span> <span class="k">do</span>
+			<span class="k">begin</span>
+				<span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="p">*</span><span class="n">row</span><span class="p">+</span><span class="n">j</span><span class="p">][</span><span class="n">rgb</span><span class="p">]</span> <span class="p">:=</span> <span class="n">img</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="n">rgb</span><span class="p">];</span> 
+			<span class="k">end</span><span class="p">;</span>
+		<span class="k">end</span><span class="p">;</span>
+	<span class="k">end</span><span class="p">;</span>
+	<span class="k">WriteLn</span><span class="p">(</span><span class="s">'Reading in image successfully!'</span><span class="p">);</span>
+<span class="k">end</span><span class="p">;</span>
+
+<span class="c1">//return 3-dimensional array from two dimensional array
+</span><span class="k">function</span> <span class="n">InverseReshape</span><span class="p">(</span><span class="k">var</span> <span class="n">imgSingle</span><span class="p">:</span> <span class="n">CollumnPixels</span><span class="p">;</span> <span class="n">row</span><span class="p">:</span> <span class="kt">Integer</span><span class="p">;</span> <span class="n">col</span><span class="p">:</span> <span class="kt">Integer</span><span class="p">):</span> <span class="n">ImgArray</span><span class="p">;</span>
+<span class="k">var</span>
+	<span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">rgb</span><span class="p">:</span> <span class="kt">Integer</span><span class="p">;</span>
+<span class="k">begin</span>
+	<span class="c1">//SetLength to 3 dimensional matrix aka the result of the function according to row, col
+</span>	<span class="n">SetLength</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">row</span><span class="p">);</span>
+	<span class="k">for</span> <span class="n">i</span><span class="p">:=</span><span class="m">0</span> <span class="k">to</span> <span class="n">row</span><span class="p">-</span><span class="m">1</span> <span class="k">do</span>
+	<span class="k">begin</span>
+		<span class="n">Setlength</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">col</span><span class="p">);</span>
+	<span class="k">end</span><span class="p">;</span>
+
+	<span class="c1">//Processing inverse reshape function
+</span>	<span class="k">for</span> <span class="n">i</span><span class="p">:=</span><span class="m">0</span> <span class="k">to</span> <span class="n">col</span><span class="p">-</span><span class="m">1</span> <span class="k">do</span>
+	<span class="k">begin</span>
+		<span class="k">for</span> <span class="n">j</span><span class="p">:=</span><span class="m">0</span> <span class="k">to</span> <span class="n">row</span><span class="p">-</span><span class="m">1</span> <span class="k">do</span>
+		<span class="k">begin</span>
+			<span class="k">for</span> <span class="n">rgb</span><span class="p">:=</span><span class="m">0</span> <span class="k">to</span> <span class="m">2</span> <span class="k">do</span>
+			<span class="k">begin</span>
+				<span class="n">result</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="n">rgb</span><span class="p">]</span> <span class="p">:=</span> <span class="n">imgSingle</span><span class="p">[</span><span class="n">i</span><span class="p">*</span><span class="n">row</span><span class="p">+</span><span class="n">j</span><span class="p">][</span><span class="n">rgb</span><span class="p">];</span> 
+			<span class="k">end</span><span class="p">;</span>
+		<span class="k">end</span><span class="p">;</span>
+	<span class="k">end</span><span class="p">;</span>
+<span class="k">end</span><span class="p">;</span>
+
+<span class="c1">//use random color later
+</span><span class="k">function</span> <span class="n">RandomInitColors</span><span class="p">(</span><span class="k">var</span> <span class="n">colorNum</span><span class="p">:</span> <span class="kt">Integer</span><span class="p">):</span> <span class="n">CollumnPixels</span><span class="p">;</span>
+<span class="k">var</span> 
+	<span class="n">c</span><span class="p">:</span> <span class="n">Color</span><span class="p">;</span>
+	<span class="n">i</span><span class="p">:</span> <span class="kt">Integer</span><span class="p">;</span>
+<span class="k">begin</span>
+	<span class="n">SetLength</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">colorNum</span><span class="p">);</span>
+	<span class="k">for</span> <span class="n">i</span><span class="p">:=</span><span class="m">0</span> <span class="k">to</span> <span class="n">colorNum</span><span class="p">-</span><span class="m">1</span> <span class="k">do</span>
+	<span class="k">begin</span>
+		<span class="n">c</span> <span class="p">:=</span> <span class="n">RandomColor</span><span class="p">();</span>
+		<span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="m">0</span><span class="p">]</span> <span class="p">:=</span> <span class="n">RedOf</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
+		<span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="m">1</span><span class="p">]</span> <span class="p">:=</span> <span class="n">GreenOf</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
+		<span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="m">2</span><span class="p">]</span> <span class="p">:=</span> <span class="n">BlueOf</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
+	<span class="k">end</span><span class="p">;</span>
+<span class="k">end</span><span class="p">;</span>
+
+<span class="c1">//return label for each pixels (form 0 to clusterNumber-1)
+</span><span class="k">function</span> <span class="n">ReadLabels</span><span class="p">(</span><span class="k">var</span> <span class="n">imgSingle</span><span class="p">:</span> <span class="n">CollumnPixels</span><span class="p">;</span> <span class="n">initColor</span><span class="p">:</span> <span class="n">CollumnPixels</span><span class="p">):</span> <span class="n">IntArray</span><span class="p">;</span>
+<span class="k">var</span>
+	<span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">rgb</span><span class="p">:</span> <span class="kt">Integer</span><span class="p">;</span>
+	<span class="n">imgRow</span><span class="p">,</span> <span class="n">initRow</span><span class="p">:</span> <span class="kt">Integer</span><span class="p">;</span>
+	<span class="n">distance</span><span class="p">,</span> <span class="n">min</span><span class="p">:</span> <span class="kt">single</span><span class="p">;</span>
+<span class="k">begin</span>
+	<span class="n">imgRow</span> <span class="p">:=</span> <span class="n">Length</span><span class="p">(</span><span class="n">imgSingle</span><span class="p">);</span>
+	<span class="n">initRow</span> <span class="p">:=</span> <span class="n">Length</span><span class="p">(</span><span class="n">initColor</span><span class="p">);</span>
+
+	<span class="n">SetLength</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">imgRow</span><span class="p">);</span>
+
+	<span class="k">for</span> <span class="n">i</span><span class="p">:=</span><span class="m">0</span> <span class="k">to</span> <span class="n">imgRow</span><span class="p">-</span><span class="m">1</span> <span class="k">do</span>
+	<span class="k">begin</span>
+		<span class="c1">// a random value that is big enough so that first distance value is always smaller than min
+</span>		<span class="n">min</span> <span class="p">:=</span> <span class="m">3</span><span class="p">*</span><span class="m">256</span><span class="p">*</span><span class="m">256</span><span class="p">;</span>
+		<span class="c1">//loop through each pixels to calculate minimum distance
+</span>		<span class="k">for</span> <span class="n">j</span><span class="p">:=</span><span class="m">0</span> <span class="k">to</span> <span class="n">initRow</span><span class="p">-</span><span class="m">1</span> <span class="k">do</span>
+		<span class="k">begin</span>
+			<span class="n">distance</span> <span class="p">:=</span> <span class="m">0</span><span class="p">;</span>
+			<span class="c1">// calculate distance in euculide space
+</span>			<span class="k">for</span> <span class="n">rgb</span><span class="p">:=</span><span class="m">0</span> <span class="k">to</span> <span class="m">2</span> <span class="k">do</span>
+			<span class="k">begin</span>
+				<span class="n">distance</span> <span class="p">+=</span> <span class="n">sqr</span><span class="p">(</span><span class="n">imgSingle</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">rgb</span><span class="p">]-</span><span class="n">initColor</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">rgb</span><span class="p">]);</span>
+			<span class="k">end</span><span class="p">;</span>
+
+			<span class="k">if</span> <span class="p">(</span><span class="n">distance</span> <span class="p">&lt;</span> <span class="n">min</span><span class="p">)</span> <span class="k">then</span>
+			<span class="k">begin</span>
+				<span class="n">min</span> <span class="p">:=</span> <span class="n">distance</span><span class="p">;</span>
+				<span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">:=</span> <span class="n">j</span><span class="p">;</span>
+			<span class="k">end</span><span class="p">;</span>
+		<span class="k">end</span><span class="p">;</span>
+	<span class="k">end</span><span class="p">;</span>
+<span class="k">end</span><span class="p">;</span>
+
+<span class="c1">//calculate the in each cluster then return a vector contain the sum of these cluster
+</span><span class="k">function</span> <span class="n">SumInCluster</span><span class="p">(</span><span class="k">var</span> <span class="n">imgSingle</span><span class="p">:</span> <span class="n">CollumnPixels</span><span class="p">;</span> <span class="n">idx</span><span class="p">:</span> <span class="n">IntArray</span><span class="p">;</span> <span class="n">clusterNum</span><span class="p">:</span> <span class="kt">Integer</span><span class="p">):</span> <span class="n">CollumnPixels</span><span class="p">;</span>
+<span class="k">var</span>
+	<span class="n">i</span><span class="p">,</span> <span class="n">rgb</span><span class="p">,</span> <span class="n">lengthIdx</span><span class="p">:</span> <span class="kt">Integer</span><span class="p">;</span>
+<span class="k">begin</span>
+	<span class="n">Setlength</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">clusterNum</span><span class="p">);</span>
+
+	<span class="c1">//assign initial value 
+</span>	<span class="k">for</span> <span class="n">i</span><span class="p">:=</span><span class="m">0</span> <span class="k">to</span> <span class="n">clusterNum</span><span class="p">-</span><span class="m">1</span> <span class="k">do</span>
+	<span class="k">begin</span>
+		<span class="k">for</span> <span class="n">rgb</span><span class="p">:=</span><span class="m">0</span> <span class="k">to</span> <span class="m">2</span> <span class="k">do</span>
+		<span class="k">begin</span>
+			<span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">rgb</span><span class="p">]</span> <span class="p">:=</span> <span class="m">0</span><span class="p">;</span>
+		<span class="k">end</span><span class="p">;</span>
+	<span class="k">end</span><span class="p">;</span>
+
+	<span class="c1">//cal total sum
+</span>	<span class="n">lengthIdx</span> <span class="p">:=</span> <span class="n">Length</span><span class="p">(</span><span class="n">idx</span><span class="p">);</span>
+	<span class="k">for</span> <span class="n">i</span><span class="p">:=</span><span class="m">0</span> <span class="k">to</span> <span class="n">lengthIdx</span><span class="p">-</span><span class="m">1</span> <span class="k">do</span>
+	<span class="k">begin</span>
+		<span class="k">for</span> <span class="n">rgb</span><span class="p">:=</span><span class="m">0</span> <span class="k">to</span> <span class="m">2</span> <span class="k">do</span>
+		<span class="k">begin</span>
+			<span class="n">result</span><span class="p">[</span><span class="n">idx</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="n">rgb</span><span class="p">]</span> <span class="p">+=</span> <span class="n">imgSingle</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">rgb</span><span class="p">];</span>
+		<span class="k">end</span><span class="p">;</span>
+	<span class="k">end</span><span class="p">;</span>
+<span class="k">end</span><span class="p">;</span>
+
+<span class="c1">//return num_k
+</span><span class="k">function</span> <span class="n">CountCluster</span><span class="p">(</span><span class="k">var</span> <span class="n">imgSingle</span><span class="p">:</span> <span class="n">CollumnPixels</span><span class="p">;</span> <span class="n">idx</span><span class="p">:</span> <span class="n">IntArray</span><span class="p">;</span> <span class="n">clusterNum</span><span class="p">:</span> <span class="kt">Integer</span><span class="p">):</span> <span class="n">IntArray</span><span class="p">;</span>
+<span class="k">var</span>
+	<span class="n">i</span><span class="p">,</span> <span class="n">rgb</span><span class="p">,</span> <span class="n">lengthIdx</span><span class="p">:</span> <span class="kt">Integer</span><span class="p">;</span>
+<span class="k">begin</span>
+	<span class="n">Setlength</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">clusterNum</span><span class="p">);</span>
+
+	<span class="c1">//assign initial value 
+</span>	<span class="k">for</span> <span class="n">i</span><span class="p">:=</span><span class="m">0</span> <span class="k">to</span> <span class="n">clusterNum</span><span class="p">-</span><span class="m">1</span> <span class="k">do</span>
+	<span class="k">begin</span>
+		<span class="k">for</span> <span class="n">rgb</span><span class="p">:=</span><span class="m">0</span> <span class="k">to</span> <span class="m">2</span> <span class="k">do</span>
+		<span class="k">begin</span>
+			<span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">:=</span> <span class="m">0</span><span class="p">;</span>
+		<span class="k">end</span><span class="p">;</span>
+	<span class="k">end</span><span class="p">;</span>
+
+	<span class="c1">//check iteration of cluster 
+</span>	<span class="n">lengthIdx</span> <span class="p">:=</span> <span class="n">Length</span><span class="p">(</span><span class="n">idx</span><span class="p">);</span>
+	<span class="k">for</span> <span class="n">i</span><span class="p">:=</span><span class="m">0</span> <span class="k">to</span> <span class="n">lengthIdx</span><span class="p">-</span><span class="m">1</span> <span class="k">do</span>
+	<span class="k">begin</span>
+		<span class="n">result</span><span class="p">[</span><span class="n">idx</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="p">+=</span> <span class="m">1</span><span class="p">;</span>
+	<span class="k">end</span><span class="p">;</span>
+<span class="k">end</span><span class="p">;</span>
+
+<span class="c1">//assign new value to cluster after calculating the mean
+</span><span class="k">procedure</span> <span class="n">ReassignCluster</span><span class="p">(</span><span class="k">var</span> <span class="n">initialColors</span><span class="p">:</span> <span class="n">CollumnPixels</span><span class="p">;</span> <span class="n">sum_k</span><span class="p">:</span> <span class="n">CollumnPixels</span><span class="p">;</span> <span class="n">num_k</span><span class="p">:</span> <span class="n">IntArray</span><span class="p">);</span>
+<span class="k">var</span>
+	<span class="n">i</span><span class="p">,</span> <span class="n">rgb</span><span class="p">:</span> <span class="kt">Integer</span><span class="p">;</span>
+<span class="k">begin</span>
+	<span class="k">for</span> <span class="n">i</span><span class="p">:=</span><span class="m">0</span> <span class="k">to</span> <span class="n">Length</span><span class="p">(</span><span class="n">initialColors</span><span class="p">)-</span><span class="m">1</span> <span class="k">do</span>
+	<span class="k">begin</span>
+		<span class="k">for</span> <span class="n">rgb</span><span class="p">:=</span><span class="m">0</span> <span class="k">to</span> <span class="m">2</span> <span class="k">do</span>
+		<span class="k">begin</span>
+			<span class="k">if</span> <span class="n">num_k</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">=</span> <span class="m">0</span> <span class="k">then</span>
+				<span class="n">initialColors</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">rgb</span><span class="p">]</span> <span class="p">:=</span> <span class="m">0</span>
+			<span class="k">else</span>
+				<span class="n">initialColors</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">rgb</span><span class="p">]</span> <span class="p">:=</span> <span class="n">sum_k</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">rgb</span><span class="p">]</span> <span class="p">/</span> <span class="n">num_k</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+		<span class="k">end</span><span class="p">;</span>
+	<span class="k">end</span><span class="p">;</span>
+<span class="k">end</span><span class="p">;</span>
+
+<span class="c1">//return the imgSingle (all pixels in one row) after doing the algorithm
+</span><span class="k">procedure</span> <span class="n">AssignLabelToPixel</span><span class="p">(</span><span class="k">var</span> <span class="n">imgSingle</span><span class="p">:</span> <span class="n">CollumnPixels</span><span class="p">;</span> <span class="n">idx</span><span class="p">:</span> <span class="n">IntArray</span><span class="p">;</span> <span class="n">finalCentroids</span><span class="p">:</span> <span class="n">CollumnPixels</span><span class="p">);</span>
+<span class="k">var</span>
+	<span class="n">i</span><span class="p">,</span> <span class="n">rgb</span><span class="p">:</span> <span class="kt">Integer</span><span class="p">;</span>
+<span class="k">begin</span>
+	<span class="k">for</span> <span class="n">i</span><span class="p">:=</span><span class="m">0</span> <span class="k">to</span> <span class="n">High</span><span class="p">(</span><span class="n">imgSingle</span><span class="p">)</span> <span class="k">do</span>
+	<span class="k">begin</span>
+		<span class="k">for</span> <span class="n">rgb</span> <span class="p">:=</span><span class="m">0</span> <span class="k">to</span> <span class="m">2</span> <span class="k">do</span>
+		<span class="k">begin</span>
+			<span class="n">imgSingle</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">rgb</span><span class="p">]</span> <span class="p">:=</span> <span class="n">finalCentroids</span><span class="p">[</span><span class="n">idx</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="n">rgb</span><span class="p">];</span>
+		<span class="k">end</span><span class="p">;</span>
+	<span class="k">end</span><span class="p">;</span>
+<span class="k">end</span><span class="p">;</span>
+
+<span class="c1">//return final centroids
+</span><span class="k">function</span> <span class="n">KMeansOnPixel</span><span class="p">(</span><span class="k">var</span> <span class="n">img</span><span class="p">:</span> <span class="n">ImgArray</span><span class="p">;</span> <span class="n">clusterNum</span><span class="p">:</span> <span class="kt">Integer</span><span class="p">;</span> <span class="n">iter</span><span class="p">:</span> <span class="kt">Integer</span><span class="p">;</span> <span class="n">initialColors</span><span class="p">:</span> <span class="n">CollumnPixels</span><span class="p">):</span> <span class="n">ImgArray</span><span class="p">;</span>
+<span class="k">var</span>
+	<span class="c1">//initialColors: CollumnPixels; //initial random colors 
+</span>	<span class="n">imgSingle</span><span class="p">:</span> <span class="n">CollumnPixels</span><span class="p">;</span> <span class="c1">//2-dimensional array after reshape 3 dimensional array 
+</span>	<span class="n">num_k</span><span class="p">:</span> <span class="n">IntArray</span><span class="p">;</span> <span class="c1">//  clusterNumx3
+</span>	<span class="n">sum_k</span><span class="p">:</span> <span class="k">array</span> <span class="k">of</span> <span class="n">RGB</span><span class="p">;</span> <span class="c1">// sum off all pixel in same cluster  clusterNumx3
+</span>	<span class="n">i</span><span class="p">:</span> <span class="kt">Integer</span><span class="p">;</span>
+	<span class="n">idx</span><span class="p">:</span> <span class="n">IntArray</span><span class="p">;</span> <span class="c1">// The label of each pixel (size = size(imgSingle)); value range from 0 to clusterNum-1
+</span>	<span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">:</span> <span class="kt">Integer</span><span class="p">;</span>
+<span class="k">begin</span>
+	<span class="c1">//convert to 2 dimensional array
+</span>	<span class="n">imgSingle</span> <span class="p">:=</span> <span class="n">Reshape</span><span class="p">(</span><span class="n">img</span><span class="p">);</span>
+
+	<span class="n">row</span> <span class="p">:=</span> <span class="n">Length</span><span class="p">(</span><span class="n">img</span><span class="p">);</span>
+	<span class="n">col</span> <span class="p">:=</span> <span class="n">Length</span><span class="p">(</span><span class="n">img</span><span class="p">[</span><span class="m">0</span><span class="p">]);</span>
+
+	<span class="n">initialColors</span> <span class="p">:=</span> <span class="n">RandomInitColors</span><span class="p">(</span><span class="n">clusterNum</span><span class="p">);</span>
+
+	<span class="k">WriteLn</span><span class="p">(</span><span class="s">'...Running k means....'</span><span class="p">);</span>
+	<span class="k">for</span> <span class="n">i</span><span class="p">:=</span><span class="m">0</span> <span class="k">to</span> <span class="n">iter</span><span class="p">-</span><span class="m">1</span> <span class="k">do</span>
+	<span class="k">begin</span>
+		<span class="c1">//label of each picxel
+</span>		<span class="n">idx</span> <span class="p">:=</span> <span class="n">ReadLabels</span><span class="p">(</span><span class="n">imgSingle</span><span class="p">,</span> <span class="n">initialColors</span><span class="p">);</span>
+
+		<span class="c1">//caculate means
+</span>		<span class="n">sum_k</span> <span class="p">:=</span> <span class="n">SumInCluster</span><span class="p">(</span><span class="n">imgSingle</span><span class="p">,</span> <span class="n">idx</span><span class="p">,</span> <span class="n">clusterNum</span><span class="p">);</span>
+		<span class="n">num_k</span> <span class="p">:=</span> <span class="n">CountCluster</span><span class="p">(</span><span class="n">imgSingle</span><span class="p">,</span> <span class="n">idx</span><span class="p">,</span> <span class="n">clusterNum</span><span class="p">);</span>
+
+		<span class="n">ReassignCluster</span><span class="p">(</span><span class="n">initialColors</span><span class="p">,</span> <span class="n">sum_k</span><span class="p">,</span> <span class="n">num_k</span><span class="p">);</span>
+
+		<span class="k">WriteLn</span><span class="p">(</span><span class="s">'K-Means iteration '</span><span class="p">+</span> <span class="n">IntToStr</span><span class="p">(</span><span class="n">i</span><span class="p">+</span><span class="m">1</span><span class="p">)</span> <span class="p">+</span> <span class="s">'/'</span> <span class="p">+</span> <span class="n">IntToStr</span><span class="p">(</span><span class="n">iter</span><span class="p">)</span> <span class="p">+</span> <span class="s">'...'</span><span class="p">);</span>
+	<span class="k">end</span><span class="p">;</span>
+
+	<span class="c1">//reassign imgSingle
+</span>	<span class="n">AssignLabelToPixel</span><span class="p">(</span><span class="n">imgSingle</span><span class="p">,</span> <span class="n">idx</span><span class="p">,</span> <span class="n">initialColors</span><span class="p">);</span>
+	<span class="n">result</span> <span class="p">:=</span> <span class="n">InverseReshape</span><span class="p">(</span><span class="n">imgSingle</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">);</span>
+<span class="k">end</span><span class="p">;</span>
+
+<span class="c1">//convert 3 dimensional RGB value to 2 dimensional type color
+</span><span class="k">function</span> <span class="n">RGBToColor</span><span class="p">(</span><span class="k">var</span> <span class="n">img</span><span class="p">:</span> <span class="n">ImgArray</span><span class="p">):</span> <span class="n">ColorArray</span><span class="p">;</span>
+<span class="k">var</span>
+	<span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">:</span> <span class="kt">Integer</span><span class="p">;</span>
+	<span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">:</span> <span class="kt">Integer</span><span class="p">;</span>
+<span class="k">begin</span>
+	<span class="n">row</span> <span class="p">:=</span> <span class="n">Length</span><span class="p">(</span><span class="n">img</span><span class="p">);</span>
+	<span class="n">col</span> <span class="p">:=</span> <span class="n">Length</span><span class="p">(</span><span class="n">img</span><span class="p">[</span><span class="m">0</span><span class="p">]);</span>
+
+	<span class="c1">//SetLength for colorarray (row and col size of imgArray);
+</span>	<span class="n">Setlength</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">row</span><span class="p">);</span>
+	<span class="k">for</span> <span class="n">i</span><span class="p">:=</span><span class="m">0</span> <span class="k">to</span> <span class="n">row</span><span class="p">-</span><span class="m">1</span> <span class="k">do</span>
+	<span class="k">begin</span>
+		<span class="n">Setlength</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">col</span><span class="p">);</span>
+	<span class="k">end</span><span class="p">;</span>
+
+	<span class="c1">//begin converting using RGBFloatColor (swinGame API)
+</span>	<span class="k">for</span> <span class="n">i</span><span class="p">:=</span><span class="m">0</span> <span class="k">to</span> <span class="n">row</span><span class="p">-</span><span class="m">1</span> <span class="k">do</span>
+	<span class="k">begin</span>
+		<span class="k">for</span> <span class="n">j</span><span class="p">:=</span><span class="m">0</span> <span class="k">to</span> <span class="n">col</span><span class="p">-</span><span class="m">1</span> <span class="k">do</span>
+		<span class="k">begin</span>
+			<span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="p">:=</span> <span class="n">RGBFloatColor</span><span class="p">(</span><span class="n">img</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="m">0</span><span class="p">]/</span><span class="m">255</span><span class="p">,</span> <span class="n">img</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="m">1</span><span class="p">]/</span><span class="m">255</span><span class="p">,</span> <span class="n">img</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="m">2</span><span class="p">]/</span><span class="m">255</span><span class="p">);</span>
+		<span class="k">end</span><span class="p">;</span>
+	<span class="k">end</span><span class="p">;</span>
+<span class="k">end</span><span class="p">;</span>
+
+<span class="c1">//pass by value function. Use this type to modify the bmp without changing the original one, in other way, we create a copy of the bitmap
+</span><span class="k">function</span> <span class="n">MatrixToBitmap</span><span class="p">(</span><span class="n">img</span><span class="p">:</span> <span class="n">ImgArray</span><span class="p">):</span> <span class="n">Bitmap</span><span class="p">;</span>
+<span class="k">var</span>
+	<span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">:</span> <span class="kt">Integer</span><span class="p">;</span>
+	<span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">:</span> <span class="kt">Integer</span><span class="p">;</span>
+	<span class="n">colorArr</span><span class="p">:</span> <span class="n">ColorArray</span><span class="p">;</span>
+<span class="k">begin</span>
+	<span class="n">row</span> <span class="p">:=</span> <span class="n">Length</span><span class="p">(</span><span class="n">img</span><span class="p">);</span>
+	<span class="n">col</span> <span class="p">:=</span> <span class="n">Length</span><span class="p">(</span><span class="n">img</span><span class="p">[</span><span class="m">0</span><span class="p">]);</span>
+
+	<span class="n">result</span> <span class="p">:=</span> <span class="n">CreateBitMap</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">row</span><span class="p">);</span>
+	<span class="n">colorArr</span> <span class="p">:=</span> <span class="n">RGBToColor</span><span class="p">(</span><span class="n">img</span><span class="p">);</span>
+
+	<span class="k">for</span> <span class="n">i</span><span class="p">:=</span><span class="m">0</span> <span class="k">to</span> <span class="n">row</span><span class="p">-</span><span class="m">1</span> <span class="k">do</span>
+	<span class="k">begin</span>
+		<span class="k">for</span> <span class="n">j</span><span class="p">:=</span><span class="m">0</span> <span class="k">to</span> <span class="n">col</span><span class="p">-</span><span class="m">1</span> <span class="k">do</span> 
+		<span class="k">begin</span>
+			<span class="n">PutPixel</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">colorArr</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">],</span> <span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+		<span class="k">end</span><span class="p">;</span>
+	<span class="k">end</span><span class="p">;</span>
+<span class="k">end</span><span class="p">;</span>
+
+<span class="c1">//main funcion of the application
+</span><span class="k">function</span> <span class="n">KMeans</span><span class="p">(</span><span class="k">var</span> <span class="n">filename</span><span class="p">:</span> <span class="k">String</span><span class="p">;</span> <span class="k">var</span> <span class="n">clusterNum</span><span class="p">:</span> <span class="kt">Integer</span><span class="p">;</span> <span class="k">var</span> <span class="n">iter</span><span class="p">:</span> <span class="kt">Integer</span><span class="p">):</span> <span class="n">Bitmap</span><span class="p">;</span>
+<span class="k">var</span>
+	<span class="n">img</span><span class="p">:</span> <span class="n">ImgArray</span><span class="p">;</span>	<span class="c1">//3 dimensional array of image
+</span>	<span class="n">imgKMeans</span><span class="p">:</span> <span class="n">ImgArray</span><span class="p">;</span>
+	<span class="n">initialColors</span><span class="p">:</span> <span class="n">CollumnPixels</span><span class="p">;</span>
+	<span class="n">bmpOriginal</span><span class="p">:</span> <span class="n">Bitmap</span><span class="p">;</span>
+<span class="k">begin</span>
+	<span class="c1">// Return 3-dimen array
+</span>	<span class="n">img</span> <span class="p">:=</span> <span class="n">ReadImage</span><span class="p">(</span><span class="n">filename</span><span class="p">);</span>
+	<span class="n">bmpOriginal</span> <span class="p">:=</span> <span class="n">BitmapNamed</span><span class="p">(</span><span class="n">filename</span><span class="p">);</span>
+
+	<span class="n">initialColors</span> <span class="p">:=</span> <span class="n">RandomInitColors</span><span class="p">(</span><span class="n">clusterNum</span><span class="p">);</span>
+
+	<span class="n">imgKMeans</span> <span class="p">:=</span> <span class="n">KMeansOnPixel</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">clusterNum</span><span class="p">,</span> <span class="n">iter</span><span class="p">,</span> <span class="n">initialColors</span><span class="p">);</span>
+
+	<span class="n">result</span> <span class="p">:=</span> <span class="n">MatrixToBitmap</span><span class="p">(</span><span class="n">imgKMeans</span><span class="p">);</span>
+<span class="k">end</span><span class="p">;</span>
+</code></pre></div></div>
+<p><a href="/public/post-assets/Kmeans/Report.pdf">Download PDF Report</a></p>
+
+<p>Full Source Code: https://github.com/DungLai/Image-Compression-Segmentation</p>
+
+</div>
+        <!-- Start of StatCounter Code for Default Guide -->
+        <hr>
+Total visits:
+<script type="text/javascript">
+var sc_project=11553218; 
+var sc_invisible=0; 
+var sc_security="55ea133f"; 
+var sc_text=2; 
+var scJsHost = (("https:" == document.location.protocol) ?
+"https://secure." : "http://www.");
+document.write("<sc"+"ript type='text/javascript' src='" +
+scJsHost+
+"statcounter.com/counter/counter.js'></"+"script>");
+</script>
+<noscript><div class="statcounter"><a title="Web Analytics
+Made Easy - StatCounter" href="http://statcounter.com/"
+target="_blank"><img class="statcounter"
+src="//c.statcounter.com/11553218/0/55ea133f/0/" alt="Web
+Analytics Made Easy - StatCounter"></a></div></noscript>
+<!-- End of StatCounter Code for Default Guide -->
+<a href="http://statcounter.com/p11553218/?guest=1">(Powered by Statcounter)</a>
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2018/01/25/SVD/">
+            Singular Value Decomposition
+            <small>25 Jan 2018</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2017/12/21/gradient-descent/">
+            Gradient Descent
+            <small>21 Dec 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2017/12/09/k-nearest-neighbors/">
+            K Nearest Neighbors
+            <small>09 Dec 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2017/10/10/linear-regression/">
+            Linear Regression
+            <small>10 Oct 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2017/09/21/FlappyBirdAI/">
+            AI for FlappyBird Game
+            <small>21 Sep 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://dunglai-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+   
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if (!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+  </body>
+
+  
+</html>

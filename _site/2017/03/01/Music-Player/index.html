@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Music Player with GUI &middot; Dung Lai
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+  <!-- <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110006044-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-110006044-1');
+  </script> 
+
+  <!-- toogle button -->
+  <script>
+  function myFunction() {
+      var x = document.getElementById("myDIV");
+      if (x.style.display === "none") {
+          x.style.display = "block";
+      } else {
+          x.style.display = "none";
+      }
+  }
+  </script>
+  
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>A personal website of <a href="https://dunglai.github.io/about" target="">Dung Lai</a>, containing technical blog on technology.</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Home</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about/">About</a>
+        
+      
+    
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+    
+    <span class="sidebar-nav-item">Currently v1.0.0</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2018. All rights reserved.
+    </p>
+  </div>
+</div>
+
+ 
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">Dung Lai</a>
+            <small>blog</small>             
+          </h3>
+        </div>
+      </div>
+      
+      <link rel="stylesheet" href="/public/css/blog-index.css">
+
+<nav>
+	<div class='blog-wrapper'>
+		<div class='blog-index'>
+			<strong><u>Machine learning</u></strong></br>
+				<li><a href='https://dunglai.github.io/2017/12/21/gradient-descent/'>6. Gradient Descent</a><img src='../public/post-assets/LinearRegression/plot2.png'/></li>
+				<li><a href='https://dunglai.github.io/2017/12/09/k-nearest-neighbors/'>5. K Nearest Neighbors</a></li>
+				<li><a href='https://dunglai.github.io/2017/10/10/linear-regression/'>4. Linear Regression</a></li>
+				<li><a href='https://dunglai.github.io/2017/09/21/FlappyBirdAI/'>3. AI for flappy bird game (Neural Network, Genetic Algorithm)</a></li>
+				<li><a href='https://dunglai.github.io/2017/06/10/image-compression/'>2. Image Segmentation using K-Means</a></li>
+				<li><a href='https://dunglai.github.io/2017/06/01/k-means/'>1. K-Means Clustering</a></li>
+			<strong><u>Other</u></strong></br>
+				<li><a href='https://dunglai.github.io/2017/06/30/mongodbmapping/'>4. Mapping MySQL to MongoDB</a></li>
+				<li><a href='https://dunglai.github.io/2017/06/27/UniversityMySQL/'>3. University MySQL DB</a></li>
+				<li><a href='https://dunglai.github.io/2017/05/27/Planetary-Rover/'>2. Planetary Rover Game (C#, Winform)</a></li>
+				<li><a href='https://dunglai.github.io/2017/03/01/Music-Player/'>1. Music Player (Pascal)</a></li>
+		</div>
+	</div>
+</nav>
+
+      <div class="container content">
+        <div class="post">
+  <h1 style="font-size: 130%;" class="post-title">Music Player with GUI</h1>
+  <span class="post-date" style="float:none;">01 Mar 2017</span>
+  
+  <div class="tag">Pascal</div>
+<p><strong>Content:</strong>
+<!-- MarkdownTOC depth=3 --></p>
+
+<!-- /MarkdownTOC -->
+<p>Music player application with GUI, able to add track, change song, select album, see album and song description</p>
+
+<p>Compiler: <a href="https://www.freepascal.org/">Free Pascal Compiler</a></p>
+
+<p>Graphical API: <a href="http://www.swingame.com/">swinGame API</a></p>
+
+<p><a href="https://github.com/DungLai/Music-Player">Download Full code</a></p>
+
+<embed class="video" width="1600" height="400" style="width: 100%" src="/public/post-assets/MusicPlayer/demo.mp4" scale="aspect" controller="true" />
+
+<div class="thecap">Demo video</div>
+<div class="language-pascal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">program</span> <span class="n">GameMain</span><span class="p">;</span>
+<span class="k">uses</span> <span class="n">TerminalUserInput</span><span class="p">,</span> <span class="n">Sysutils</span><span class="p">,</span> <span class="n">ShellApi</span><span class="p">,</span> <span class="n">Strings</span><span class="p">,</span> <span class="n">SwinGame</span><span class="p">,</span> <span class="n">sgTypes</span><span class="p">;</span>
+<span class="k">type</span>
+	<span class="n">Album</span> <span class="p">=</span> <span class="k">record</span>
+		<span class="n">albumName</span><span class="p">:</span> <span class="k">String</span><span class="p">;</span>
+		<span class="n">artistName</span><span class="p">:</span> <span class="k">String</span><span class="p">;</span>
+		<span class="n">trackNames</span><span class="p">:</span> <span class="k">array</span> <span class="k">of</span> <span class="k">String</span><span class="p">;</span>
+		<span class="n">fileLocations</span><span class="p">:</span> <span class="k">array</span> <span class="k">of</span> <span class="k">String</span><span class="p">;</span>
+	<span class="k">end</span><span class="p">;</span>
+<span class="k">var</span>	
+	<span class="n">AlbumData</span><span class="p">:</span> <span class="k">array</span> <span class="k">of</span> <span class="n">Album</span><span class="p">;</span>
+	<span class="n">titles</span><span class="p">:</span> <span class="k">array</span><span class="p">[</span><span class="m">0..3</span><span class="p">]</span> <span class="k">of</span> <span class="k">String</span><span class="p">;</span>
+	<span class="n">paused</span><span class="p">:</span> <span class="kt">Boolean</span><span class="p">;</span>
+	<span class="n">currentTrack</span><span class="p">:</span> <span class="kt">Integer</span><span class="p">;</span>
+	<span class="n">albumChoice</span><span class="p">:</span> <span class="kt">Integer</span><span class="p">;</span>
+
+<span class="k">procedure</span> <span class="n">FillNowPlaying</span><span class="p">();</span>
+<span class="k">begin</span>
+	<span class="n">FillRectangle</span><span class="p">(</span><span class="n">ColorBlack</span><span class="p">,</span><span class="m">670</span> <span class="p">,</span><span class="m">60</span><span class="p">,</span> <span class="m">150</span><span class="p">,</span> <span class="m">150</span><span class="p">);</span>
+<span class="k">end</span><span class="p">;</span>
+
+<span class="k">procedure</span> <span class="n">LoadData</span><span class="p">();</span>
+<span class="k">var</span>	
+	<span class="n">albumDataLengthTxt</span><span class="p">,</span> <span class="n">albumNameTxt</span><span class="p">,</span> <span class="n">artistNameTxt</span><span class="p">,</span> <span class="n">trackNamesAndFileLocationTxt</span><span class="p">:</span> <span class="kt">TextFile</span><span class="p">;</span>
+	<span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">numberOfAlbum</span><span class="p">,</span> <span class="n">trackLength</span><span class="p">:</span> <span class="kt">Integer</span><span class="p">;</span>
+<span class="k">begin</span>
+	<span class="c1">//load number of album:	
+</span>	<span class="n">AssignFile</span><span class="p">(</span><span class="n">albumDataLengthTxt</span><span class="p">,</span> <span class="n">PathToResource</span><span class="p">(</span><span class="s">'AlbumDataLengthTxt.dat'</span><span class="p">));</span>
+	<span class="n">Reset</span><span class="p">(</span><span class="n">albumDataLengthTxt</span><span class="p">);</span>
+	<span class="n">ReadLn</span><span class="p">(</span><span class="n">albumDataLengthTxt</span><span class="p">,</span> <span class="n">numberOfAlbum</span><span class="p">);</span>
+	<span class="n">SetLength</span><span class="p">(</span><span class="n">AlbumData</span><span class="p">,</span> <span class="n">numberOfAlbum</span><span class="p">);</span>
+	<span class="n">Close</span><span class="p">(</span><span class="n">albumDataLengthTxt</span><span class="p">);</span>
+
+	<span class="c1">//load album name
+</span>	<span class="n">AssignFile</span><span class="p">(</span><span class="n">albumNameTxt</span><span class="p">,</span> <span class="n">PathToResource</span><span class="p">(</span><span class="s">'AlbumNameTxt.dat'</span><span class="p">));</span>
+	<span class="n">Reset</span><span class="p">(</span><span class="n">albumNameTxt</span><span class="p">);</span>
+	<span class="k">for</span> <span class="n">i</span><span class="p">:=</span><span class="m">0</span> <span class="k">to</span> <span class="n">High</span><span class="p">(</span><span class="n">AlbumData</span><span class="p">)</span> <span class="k">do</span>
+		<span class="n">ReadLn</span><span class="p">(</span><span class="n">albumNameTxt</span><span class="p">,</span> <span class="n">AlbumData</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">albumName</span><span class="p">);</span>
+	<span class="n">Close</span><span class="p">(</span><span class="n">albumNameTxt</span><span class="p">);</span>
+
+	<span class="c1">//load artist name
+</span>	<span class="n">AssignFile</span><span class="p">(</span><span class="n">artistNameTxt</span><span class="p">,</span><span class="n">PathToResource</span><span class="p">(</span><span class="s">'ArtistNameTxt.dat'</span><span class="p">));</span>
+	<span class="n">Reset</span><span class="p">(</span><span class="n">artistNameTxt</span><span class="p">);</span>
+	<span class="k">for</span> <span class="n">i</span><span class="p">:=</span><span class="m">0</span> <span class="k">to</span> <span class="n">High</span><span class="p">(</span><span class="n">AlbumData</span><span class="p">)</span> <span class="k">do</span>
+		<span class="n">ReadLn</span><span class="p">(</span><span class="n">artistNameTxt</span><span class="p">,</span> <span class="n">AlbumData</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">artistName</span><span class="p">);</span>
+	<span class="n">Close</span><span class="p">(</span><span class="n">artistNameTxt</span><span class="p">);</span>
+
+	
+	<span class="c1">//load trackNames and fileLocations (also length of tracks)
+</span>	<span class="n">AssignFile</span><span class="p">(</span><span class="n">trackNamesAndFileLocationTxt</span><span class="p">,</span> <span class="n">PathToResource</span><span class="p">(</span><span class="s">'TrackNamesAndFileLocationTxt.dat'</span><span class="p">));</span>
+	<span class="n">Reset</span><span class="p">(</span><span class="n">trackNamesAndFileLocationTxt</span><span class="p">);</span>
+		<span class="c1">//first line is number of tracks (max=15)
+</span>	<span class="k">for</span> <span class="n">i</span><span class="p">:=</span><span class="m">0</span> <span class="k">to</span> <span class="n">High</span><span class="p">(</span><span class="n">AlbumData</span><span class="p">)</span> <span class="k">do</span>
+	<span class="k">begin</span>
+		<span class="n">ReadLn</span><span class="p">(</span><span class="n">trackNamesAndFileLocationTxt</span><span class="p">,</span> <span class="n">trackLength</span><span class="p">);</span>
+		<span class="n">SetLength</span><span class="p">(</span><span class="n">AlbumData</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">trackNames</span><span class="p">,</span> <span class="n">trackLength</span><span class="p">);</span>
+		<span class="n">SetLength</span><span class="p">(</span><span class="n">AlbumData</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">fileLocations</span><span class="p">,</span> <span class="n">trackLength</span><span class="p">);</span>
+		<span class="k">for</span> <span class="n">j</span><span class="p">:=</span><span class="m">0</span> <span class="k">to</span> <span class="n">High</span><span class="p">(</span><span class="n">AlbumData</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">trackNames</span><span class="p">)</span> <span class="k">do</span>
+		<span class="k">begin</span>
+			<span class="n">ReadLn</span><span class="p">(</span><span class="n">trackNamesAndFileLocationTxt</span><span class="p">,</span> <span class="n">AlbumData</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">trackNames</span><span class="p">[</span><span class="n">j</span><span class="p">]);</span>
+			<span class="n">ReadLn</span><span class="p">(</span><span class="n">trackNamesAndFileLocationTxt</span><span class="p">,</span> <span class="n">AlbumData</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">fileLocations</span><span class="p">[</span><span class="n">j</span><span class="p">]);</span>
+		<span class="k">end</span><span class="p">;</span>
+	<span class="k">end</span><span class="p">;</span>
+	<span class="n">Close</span><span class="p">(</span><span class="n">trackNamesAndFileLocationTxt</span><span class="p">);</span>
+<span class="k">end</span><span class="p">;</span>
+
+<span class="k">function</span> <span class="n">ButtonClicked</span><span class="p">(</span><span class="n">X1</span><span class="p">,</span> <span class="n">Y1</span><span class="p">,</span> <span class="n">X2</span><span class="p">,</span> <span class="n">Y2</span><span class="p">:</span> <span class="kt">Single</span><span class="p">):</span> <span class="kt">Boolean</span><span class="p">;</span>
+<span class="k">var</span>
+	<span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">SumX</span><span class="p">,</span> <span class="n">SumY</span><span class="p">:</span> <span class="kt">Single</span><span class="p">;</span>
+<span class="k">begin</span>
+	<span class="n">X</span> <span class="p">:=</span> <span class="n">MouseX</span><span class="p">();</span>
+	<span class="n">Y</span> <span class="p">:=</span> <span class="n">MouseY</span><span class="p">();</span>
+	<span class="n">SumX</span> <span class="p">:=</span> <span class="n">X1</span> <span class="p">+</span> <span class="n">X2</span><span class="p">;</span>
+	<span class="n">SumY</span> <span class="p">:=</span> <span class="n">Y1</span> <span class="p">+</span> <span class="n">Y2</span><span class="p">;</span>
+	<span class="n">result</span> <span class="p">:=</span> <span class="nb">false</span><span class="p">;</span>
+	<span class="k">if</span> <span class="n">MouseClicked</span><span class="p">(</span><span class="n">LeftButton</span><span class="p">)</span> <span class="k">then</span>
+	<span class="k">begin</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">X</span> <span class="p">&gt;=</span> <span class="n">X1</span><span class="p">)</span> <span class="k">and</span> <span class="p">(</span><span class="n">X</span> <span class="p">&lt;=</span> <span class="n">SumX</span><span class="p">)</span> <span class="k">and</span> <span class="p">(</span><span class="n">Y</span> <span class="p">&gt;=</span><span class="n">Y1</span><span class="p">)</span> <span class="k">and</span> <span class="p">(</span><span class="n">Y</span> <span class="p">&lt;=</span> <span class="n">SumY</span><span class="p">)</span> <span class="k">then</span>
+		<span class="k">begin</span>
+			<span class="n">result</span> <span class="p">:=</span> <span class="nb">true</span><span class="p">;</span>
+		<span class="k">end</span><span class="p">;</span>
+	<span class="k">end</span><span class="p">;</span>
+<span class="k">end</span><span class="p">;</span>
+
+<span class="k">procedure</span> <span class="n">LoadResources</span><span class="p">();</span>
+<span class="k">var</span> 
+	<span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">:</span> <span class="kt">Integer</span><span class="p">;</span>
+<span class="k">begin</span>
+	<span class="n">LoadBitmapNamed</span><span class="p">(</span><span class="s">'album1'</span><span class="p">,</span> <span class="s">'album1.png'</span><span class="p">);</span>		
+	<span class="n">LoadBitmapNamed</span><span class="p">(</span><span class="s">'album2'</span><span class="p">,</span> <span class="s">'album2.png'</span><span class="p">);</span>
+	<span class="n">LoadBitmapNamed</span><span class="p">(</span><span class="s">'album3'</span><span class="p">,</span> <span class="s">'album3.png'</span><span class="p">);</span>
+	<span class="n">LoadBitmapNamed</span><span class="p">(</span><span class="s">'album4'</span><span class="p">,</span> <span class="s">'album4.png'</span><span class="p">);</span>
+	<span class="k">for</span> <span class="n">i</span><span class="p">:=</span><span class="m">0</span> <span class="k">to</span> <span class="n">High</span><span class="p">(</span><span class="n">AlbumData</span><span class="p">)</span> <span class="k">do</span>
+	<span class="k">begin</span>
+		<span class="k">for</span> <span class="n">j</span><span class="p">:=</span><span class="m">0</span> <span class="k">to</span> <span class="n">High</span><span class="p">(</span><span class="n">AlbumData</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">fileLocations</span><span class="p">)</span> <span class="k">do</span>
+			<span class="n">LoadMusic</span><span class="p">(</span><span class="n">AlbumData</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">fileLocations</span><span class="p">[</span><span class="n">j</span><span class="p">]);</span>
+	<span class="k">end</span><span class="p">;</span>
+<span class="k">end</span><span class="p">;</span>	
+
+<span class="k">procedure</span> <span class="n">DrawAlbumArtWork</span><span class="p">();</span>		
+<span class="k">begin</span>
+	<span class="n">DrawBitMap</span><span class="p">(</span><span class="s">'album1'</span><span class="p">,</span> <span class="m">20</span><span class="p">,</span> <span class="m">20</span><span class="p">);</span>
+	<span class="n">DrawBitMap</span><span class="p">(</span><span class="s">'album2'</span><span class="p">,</span> <span class="m">20</span><span class="p">,</span> <span class="m">310</span><span class="p">);</span>
+	<span class="n">DrawBitMap</span><span class="p">(</span><span class="s">'album3'</span><span class="p">,</span> <span class="m">320</span><span class="p">,</span> <span class="m">20</span><span class="p">);</span>
+	<span class="n">DrawBitMap</span><span class="p">(</span><span class="s">'album4'</span><span class="p">,</span> <span class="m">320</span><span class="p">,</span> <span class="m">310</span><span class="p">);</span>		
+	<span class="n">RefreshScreen</span><span class="p">(</span><span class="m">60</span><span class="p">);</span>
+<span class="k">end</span><span class="p">;</span>
+
+<span class="k">procedure</span> <span class="n">CreateTitles</span><span class="p">();</span>
+<span class="k">var</span> 
+	<span class="n">i</span><span class="p">:</span> <span class="kt">Integer</span><span class="p">;</span>
+<span class="k">begin</span>
+	<span class="k">for</span> <span class="n">i</span><span class="p">:=</span><span class="m">0</span> <span class="k">to</span> <span class="m">3</span> <span class="k">do</span>
+		<span class="n">titles</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">:=</span> <span class="n">AlbumData</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">albumName</span> <span class="p">+</span> <span class="s">' - '</span> <span class="p">+</span> <span class="n">AlbumData</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">artistName</span><span class="p">;</span>
+<span class="k">end</span><span class="p">;</span>
+
+<span class="k">procedure</span> <span class="n">SongChoose</span><span class="p">(</span><span class="n">i</span><span class="p">:</span> <span class="kt">Integer</span><span class="p">);</span> <span class="c1">//i is album index
+</span><span class="k">begin</span>
+	<span class="k">if</span> <span class="n">ButtonClicked</span><span class="p">(</span><span class="m">620</span><span class="p">,</span> <span class="m">60</span><span class="p">,</span> <span class="m">50</span><span class="p">,</span> <span class="m">10</span><span class="p">)</span> <span class="k">then</span>
+	<span class="k">begin</span>
+		<span class="n">StopMusic</span><span class="p">();</span>
+		<span class="n">PlayMusic</span><span class="p">(</span><span class="n">AlbumData</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">fileLocations</span><span class="p">[</span><span class="m">0</span><span class="p">]);</span>
+		<span class="n">RefreshScreen</span><span class="p">(</span><span class="m">60</span><span class="p">);</span>
+		<span class="n">FillNowPlaying</span><span class="p">();</span>
+		<span class="k">if</span> <span class="n">i</span><span class="p">=</span><span class="m">0</span> <span class="k">then</span> <span class="n">currentTrack</span> <span class="p">:=</span> <span class="m">1</span><span class="p">;</span>
+		<span class="k">if</span> <span class="n">i</span><span class="p">=</span><span class="m">1</span> <span class="k">then</span> <span class="n">currentTrack</span> <span class="p">:=</span> <span class="m">4</span><span class="p">;</span>
+		<span class="k">if</span> <span class="n">i</span><span class="p">=</span><span class="m">2</span> <span class="k">then</span> <span class="n">currentTrack</span> <span class="p">:=</span> <span class="m">6</span><span class="p">;</span>
+		<span class="k">if</span> <span class="n">i</span><span class="p">=</span><span class="m">3</span> <span class="k">then</span> <span class="n">currentTrack</span> <span class="p">:=</span> <span class="m">8</span><span class="p">;</span>
+	<span class="k">end</span><span class="p">;</span>
+
+	<span class="k">if</span> <span class="n">ButtonClicked</span><span class="p">(</span><span class="m">620</span><span class="p">,</span> <span class="m">100</span><span class="p">,</span> <span class="m">50</span><span class="p">,</span> <span class="m">13</span><span class="p">)</span> <span class="k">then</span>
+	<span class="k">begin</span>
+		<span class="n">StopMusic</span><span class="p">();</span>
+		<span class="n">PlayMusic</span><span class="p">(</span><span class="n">AlbumData</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">fileLocations</span><span class="p">[</span><span class="m">1</span><span class="p">]);</span>
+		<span class="n">FillNowPlaying</span><span class="p">();</span>
+		<span class="n">RefreshScreen</span><span class="p">(</span><span class="m">60</span><span class="p">);</span>
+		<span class="k">if</span> <span class="n">i</span><span class="p">=</span><span class="m">0</span> <span class="k">then</span> <span class="n">currentTrack</span> <span class="p">:=</span> <span class="m">2</span><span class="p">;</span>
+		<span class="k">if</span> <span class="n">i</span><span class="p">=</span><span class="m">1</span> <span class="k">then</span> <span class="n">currentTrack</span> <span class="p">:=</span> <span class="m">5</span><span class="p">;</span>
+		<span class="k">if</span> <span class="n">i</span><span class="p">=</span><span class="m">2</span> <span class="k">then</span> <span class="n">currentTrack</span> <span class="p">:=</span> <span class="m">7</span><span class="p">;</span>
+		<span class="k">if</span> <span class="n">i</span><span class="p">=</span><span class="m">3</span> <span class="k">then</span> <span class="n">currentTrack</span> <span class="p">:=</span> <span class="m">9</span><span class="p">;</span>
+	<span class="k">end</span><span class="p">;</span>
+
+	<span class="k">if</span> <span class="n">i</span><span class="p">=</span><span class="m">0</span> <span class="k">then</span>
+	<span class="k">begin</span>
+		<span class="k">if</span> <span class="n">ButtonClicked</span><span class="p">(</span><span class="m">620</span><span class="p">,</span> <span class="m">140</span><span class="p">,</span> <span class="m">50</span><span class="p">,</span> <span class="m">13</span><span class="p">)</span> <span class="k">then</span>
+		<span class="k">begin</span>
+			<span class="n">StopMusic</span><span class="p">();</span>
+			<span class="n">PlayMusic</span><span class="p">(</span><span class="n">AlbumData</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">fileLocations</span><span class="p">[</span><span class="m">2</span><span class="p">]);</span>
+			<span class="n">FillNowPlaying</span><span class="p">();</span>
+			<span class="n">RefreshScreen</span><span class="p">(</span><span class="m">60</span><span class="p">);</span>
+			<span class="k">if</span> <span class="n">i</span><span class="p">=</span><span class="m">0</span> <span class="k">then</span> <span class="n">currentTrack</span> <span class="p">:=</span> <span class="m">3</span><span class="p">;</span>
+		<span class="k">end</span><span class="p">;</span>
+	<span class="k">end</span><span class="p">;</span>
+<span class="k">end</span><span class="p">;</span>
+
+<span class="k">procedure</span> <span class="n">DisplayAlbum1</span><span class="p">();</span> <span class="c1">//display album name and artist
+</span><span class="k">begin</span>
+	<span class="n">DrawText</span><span class="p">(</span><span class="n">titles</span><span class="p">[</span><span class="m">0</span><span class="p">],</span> <span class="n">ColorWhite</span><span class="p">,</span>  <span class="m">620</span><span class="p">,</span> <span class="m">20</span><span class="p">);</span>
+	<span class="n">DrawText</span><span class="p">(</span><span class="n">AlbumData</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="n">trackNames</span><span class="p">[</span><span class="m">0</span><span class="p">],</span> <span class="n">ColorWhite</span><span class="p">,</span> <span class="m">620</span><span class="p">,</span> <span class="m">60</span><span class="p">);</span>
+	<span class="n">DrawText</span><span class="p">(</span><span class="n">AlbumData</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="n">trackNames</span><span class="p">[</span><span class="m">1</span><span class="p">],</span> <span class="n">ColorWhite</span><span class="p">,</span> <span class="m">620</span><span class="p">,</span> <span class="m">100</span><span class="p">);</span>
+	<span class="n">DrawText</span><span class="p">(</span><span class="n">AlbumData</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="n">trackNames</span><span class="p">[</span><span class="m">2</span><span class="p">],</span> <span class="n">ColorWhite</span><span class="p">,</span> <span class="m">620</span><span class="p">,</span> <span class="m">140</span><span class="p">);</span>
+<span class="k">end</span><span class="p">;</span>
+
+<span class="k">procedure</span> <span class="n">DisplayAlbum2</span><span class="p">();</span>
+<span class="k">begin</span>
+	<span class="n">DrawText</span><span class="p">(</span><span class="n">titles</span><span class="p">[</span><span class="m">1</span><span class="p">],</span> <span class="n">ColorWhite</span><span class="p">,</span>  <span class="m">620</span><span class="p">,</span> <span class="m">20</span><span class="p">);</span>
+	<span class="n">DrawText</span><span class="p">(</span><span class="n">AlbumData</span><span class="p">[</span><span class="m">1</span><span class="p">].</span><span class="n">trackNames</span><span class="p">[</span><span class="m">0</span><span class="p">],</span> <span class="n">ColorWhite</span><span class="p">,</span> <span class="m">620</span><span class="p">,</span> <span class="m">60</span><span class="p">);</span>
+	<span class="n">DrawText</span><span class="p">(</span><span class="n">AlbumData</span><span class="p">[</span><span class="m">1</span><span class="p">].</span><span class="n">trackNames</span><span class="p">[</span><span class="m">1</span><span class="p">],</span> <span class="n">ColorWhite</span><span class="p">,</span> <span class="m">620</span><span class="p">,</span> <span class="m">100</span><span class="p">);</span>
+<span class="k">end</span><span class="p">;</span>	
+
+<span class="k">procedure</span> <span class="n">DisplayAlbum3</span><span class="p">();</span>
+<span class="k">begin</span>
+	<span class="n">DrawText</span><span class="p">(</span><span class="n">titles</span><span class="p">[</span><span class="m">2</span><span class="p">],</span> <span class="n">ColorWhite</span><span class="p">,</span>  <span class="m">620</span><span class="p">,</span> <span class="m">20</span><span class="p">);</span>
+	<span class="n">DrawText</span><span class="p">(</span><span class="n">AlbumData</span><span class="p">[</span><span class="m">2</span><span class="p">].</span><span class="n">trackNames</span><span class="p">[</span><span class="m">0</span><span class="p">],</span> <span class="n">ColorWhite</span><span class="p">,</span> <span class="m">620</span><span class="p">,</span> <span class="m">60</span><span class="p">);</span>
+	<span class="n">DrawText</span><span class="p">(</span><span class="n">AlbumData</span><span class="p">[</span><span class="m">2</span><span class="p">].</span><span class="n">trackNames</span><span class="p">[</span><span class="m">1</span><span class="p">],</span> <span class="n">ColorWhite</span><span class="p">,</span> <span class="m">620</span><span class="p">,</span> <span class="m">100</span><span class="p">);</span>
+<span class="k">end</span><span class="p">;</span>
+
+<span class="k">procedure</span> <span class="n">DisplayAlbum4</span><span class="p">();</span>
+<span class="k">begin</span>
+	<span class="n">DrawText</span><span class="p">(</span><span class="n">titles</span><span class="p">[</span><span class="m">3</span><span class="p">],</span> <span class="n">ColorWhite</span><span class="p">,</span>  <span class="m">620</span><span class="p">,</span> <span class="m">20</span><span class="p">);</span>
+	<span class="n">DrawText</span><span class="p">(</span><span class="n">AlbumData</span><span class="p">[</span><span class="m">3</span><span class="p">].</span><span class="n">trackNames</span><span class="p">[</span><span class="m">0</span><span class="p">],</span> <span class="n">ColorWhite</span><span class="p">,</span> <span class="m">620</span><span class="p">,</span> <span class="m">60</span><span class="p">);</span>
+	<span class="n">DrawText</span><span class="p">(</span><span class="n">AlbumData</span><span class="p">[</span><span class="m">3</span><span class="p">].</span><span class="n">trackNames</span><span class="p">[</span><span class="m">1</span><span class="p">],</span> <span class="n">ColorWhite</span><span class="p">,</span> <span class="m">620</span><span class="p">,</span> <span class="m">100</span><span class="p">);</span>
+<span class="k">end</span><span class="p">;</span>
+
+
+<span class="k">procedure</span> <span class="n">SpaceButton</span><span class="p">();</span>
+<span class="k">begin</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">KeyTyped</span><span class="p">(</span><span class="n">VK_SPACE</span><span class="p">))</span> <span class="k">then</span>
+	<span class="k">begin</span>
+		<span class="k">if</span> <span class="n">paused</span> <span class="p">=</span> <span class="nb">false</span> <span class="k">then</span>
+		<span class="k">begin</span>
+			<span class="n">PauseMusic</span><span class="p">();</span>
+			<span class="n">paused</span> <span class="p">:=</span> <span class="nb">true</span><span class="p">;</span>
+		<span class="k">end</span>
+
+		<span class="k">else</span>
+		<span class="k">begin</span>
+			<span class="n">ResumeMusic</span><span class="p">();</span>
+			<span class="n">paused</span> <span class="p">:=</span> <span class="nb">false</span><span class="p">;</span>
+		<span class="k">end</span><span class="p">;</span>
+	<span class="k">end</span><span class="p">;</span>
+<span class="k">end</span><span class="p">;</span>
+
+<span class="k">procedure</span> <span class="n">AlbumChoose</span><span class="p">();</span>
+<span class="k">begin</span>
+	<span class="k">if</span> <span class="n">albumChoice</span><span class="p">=</span><span class="m">1</span> <span class="k">then</span> 
+	<span class="k">begin</span>
+		<span class="n">DisplayAlbum1</span><span class="p">();</span>
+		<span class="n">SongChoose</span><span class="p">(</span><span class="m">0</span><span class="p">);</span>
+		<span class="k">if</span> <span class="n">currentTrack</span> <span class="p">=</span> <span class="m">1</span> <span class="k">then</span>
+			<span class="n">DrawText</span><span class="p">(</span><span class="s">'(Now playing)'</span><span class="p">,</span> <span class="n">ColorWhite</span><span class="p">,</span> <span class="m">670</span><span class="p">,</span> <span class="m">60</span><span class="p">);</span>
+		<span class="k">if</span> <span class="n">currentTrack</span> <span class="p">=</span> <span class="m">2</span> <span class="k">then</span>
+			<span class="n">DrawText</span><span class="p">(</span><span class="s">'(Now playing)'</span><span class="p">,</span> <span class="n">ColorWhite</span><span class="p">,</span> <span class="m">670</span><span class="p">,</span> <span class="m">100</span><span class="p">);</span>
+		<span class="k">if</span> <span class="n">currentTrack</span> <span class="p">=</span> <span class="m">3</span> <span class="k">then</span> 
+			<span class="n">DrawText</span><span class="p">(</span><span class="s">'(Now playing)'</span><span class="p">,</span> <span class="n">ColorWhite</span><span class="p">,</span> <span class="m">670</span><span class="p">,</span> <span class="m">140</span><span class="p">);</span>
+	<span class="k">end</span><span class="p">;</span>
+	<span class="k">if</span> <span class="n">albumChoice</span><span class="p">=</span><span class="m">2</span> <span class="k">then</span> 
+	<span class="k">begin</span>
+		<span class="n">DisplayAlbum2</span><span class="p">();</span>
+		<span class="n">SongChoose</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
+		<span class="k">if</span> <span class="n">currentTrack</span> <span class="p">=</span> <span class="m">4</span> <span class="k">then</span>
+			<span class="n">DrawText</span><span class="p">(</span><span class="s">'(Now playing)'</span><span class="p">,</span> <span class="n">ColorWhite</span><span class="p">,</span> <span class="m">670</span><span class="p">,</span> <span class="m">60</span><span class="p">);</span>
+		<span class="k">if</span> <span class="n">currentTrack</span> <span class="p">=</span> <span class="m">5</span> <span class="k">then</span>
+			<span class="n">DrawText</span><span class="p">(</span><span class="s">'(Now playing)'</span><span class="p">,</span> <span class="n">ColorWhite</span><span class="p">,</span> <span class="m">670</span><span class="p">,</span> <span class="m">100</span><span class="p">);</span>	
+	<span class="k">end</span><span class="p">;</span>
+	<span class="k">if</span> <span class="n">albumChoice</span><span class="p">=</span><span class="m">3</span> <span class="k">then</span>
+	<span class="k">begin</span><span class="p">;</span>
+		<span class="n">DisplayAlbum3</span><span class="p">();</span>
+		<span class="n">SongChoose</span><span class="p">(</span><span class="m">2</span><span class="p">);</span>
+		<span class="k">if</span> <span class="n">currentTrack</span> <span class="p">=</span> <span class="m">6</span> <span class="k">then</span>
+			<span class="n">DrawText</span><span class="p">(</span><span class="s">'(Now playing)'</span><span class="p">,</span> <span class="n">ColorWhite</span><span class="p">,</span> <span class="m">670</span><span class="p">,</span> <span class="m">60</span><span class="p">);</span>
+		<span class="k">if</span> <span class="n">currentTrack</span> <span class="p">=</span><span class="m">7</span> <span class="k">then</span>
+		 	<span class="n">DrawText</span><span class="p">(</span><span class="s">'(Now playing)'</span><span class="p">,</span> <span class="n">ColorWhite</span><span class="p">,</span> <span class="m">670</span><span class="p">,</span> <span class="m">100</span><span class="p">);</span>
+	<span class="k">end</span><span class="p">;</span>
+	<span class="k">if</span> <span class="n">albumChoice</span><span class="p">=</span><span class="m">4</span> <span class="k">then</span>
+	<span class="k">begin</span>
+		<span class="n">DisplayAlbum4</span><span class="p">();</span>
+		<span class="n">SongChoose</span><span class="p">(</span><span class="m">3</span><span class="p">);</span>
+		<span class="k">if</span> <span class="n">currentTrack</span> <span class="p">=</span> <span class="m">8</span> <span class="k">then</span>
+			<span class="n">DrawText</span><span class="p">(</span><span class="s">'(Now playing)'</span><span class="p">,</span> <span class="n">ColorWhite</span><span class="p">,</span> <span class="m">670</span><span class="p">,</span> <span class="m">60</span><span class="p">);</span>
+		<span class="k">if</span> <span class="n">currentTrack</span> <span class="p">=</span> <span class="m">9</span> <span class="k">then</span>
+		 	<span class="n">DrawText</span><span class="p">(</span><span class="s">'(Now playing)'</span><span class="p">,</span> <span class="n">ColorWhite</span><span class="p">,</span> <span class="m">670</span><span class="p">,</span> <span class="m">100</span><span class="p">);</span>
+	<span class="k">end</span><span class="p">;</span>
+<span class="k">end</span><span class="p">;</span>
+
+<span class="k">procedure</span> <span class="n">Main</span><span class="p">();</span>
+<span class="k">begin</span>
+	<span class="n">OpenGraphicsWindow</span><span class="p">(</span><span class="s">'GUI music player'</span><span class="p">,</span> <span class="m">800</span><span class="p">,</span> <span class="m">600</span><span class="p">);</span>
+	<span class="c1">// ShowSwinGameSplashScreen();		
+</span>	<span class="n">LoadResources</span><span class="p">();</span>
+	<span class="n">LoadData</span><span class="p">();</span>
+	<span class="n">ClearScreen</span><span class="p">(</span><span class="n">ColorBlack</span><span class="p">);</span>
+	<span class="n">DrawAlbumArtWork</span><span class="p">();</span>
+	<span class="n">CreateTitles</span><span class="p">();</span>
+	<span class="n">RefreshScreen</span><span class="p">(</span><span class="m">60</span><span class="p">);</span>
+
+	<span class="n">paused</span> <span class="p">:=</span> <span class="nb">false</span><span class="p">;</span>
+	<span class="k">repeat</span> <span class="c1">// The game loop...
+</span>		<span class="n">ProcessEvents</span><span class="p">();</span>
+		<span class="n">SpaceButton</span><span class="p">();</span>		
+		<span class="k">if</span> <span class="n">ButtonClicked</span><span class="p">(</span><span class="m">20</span><span class="p">,</span> <span class="m">20</span><span class="p">,</span> <span class="m">280</span><span class="p">,</span> <span class="m">270</span><span class="p">)</span> <span class="k">then</span>
+		<span class="k">begin</span>
+			<span class="n">ClearScreen</span><span class="p">(</span><span class="n">ColorBlack</span><span class="p">);</span>
+			<span class="n">albumChoice</span> <span class="p">:=</span> <span class="m">1</span><span class="p">;</span>
+			<span class="n">DrawAlbumArtWork</span><span class="p">();</span>
+		<span class="k">end</span><span class="p">;</span>
+		<span class="k">if</span> <span class="n">ButtonClicked</span><span class="p">(</span><span class="m">20</span><span class="p">,</span> <span class="m">310</span><span class="p">,</span> <span class="m">280</span><span class="p">,</span> <span class="m">270</span><span class="p">)</span> <span class="k">then</span>
+		<span class="k">begin</span>
+			<span class="n">ClearScreen</span><span class="p">(</span><span class="n">ColorBlack</span><span class="p">);</span>
+			<span class="n">albumChoice</span> <span class="p">:=</span> <span class="m">2</span><span class="p">;</span>
+			<span class="n">DrawAlbumArtWork</span><span class="p">();</span>
+		<span class="k">end</span><span class="p">;</span>
+
+		<span class="k">if</span> <span class="n">ButtonClicked</span><span class="p">(</span><span class="m">320</span><span class="p">,</span> <span class="m">20</span><span class="p">,</span> <span class="m">280</span><span class="p">,</span> <span class="m">270</span><span class="p">)</span> <span class="k">then</span>
+		<span class="k">begin</span>
+			<span class="n">ClearScreen</span><span class="p">(</span><span class="n">ColorBlack</span><span class="p">);</span>
+			<span class="n">albumChoice</span> <span class="p">:=</span> <span class="m">3</span><span class="p">;</span>
+			<span class="n">DrawAlbumArtWork</span><span class="p">();</span>
+		<span class="k">end</span><span class="p">;</span>
+
+		<span class="k">if</span> <span class="n">ButtonClicked</span><span class="p">(</span><span class="m">320</span><span class="p">,</span> <span class="m">310</span><span class="p">,</span> <span class="m">280</span><span class="p">,</span> <span class="m">270</span><span class="p">)</span> <span class="k">then</span>
+		<span class="k">begin</span>
+			<span class="n">ClearScreen</span><span class="p">(</span><span class="n">colorBlack</span><span class="p">);</span>
+			<span class="n">albumChoice</span> <span class="p">:=</span> <span class="m">4</span><span class="p">;</span>
+			<span class="n">DrawAlbumArtWork</span><span class="p">();</span>
+		<span class="k">end</span><span class="p">;</span>
+
+		<span class="n">AlbumChoose</span><span class="p">();</span>
+		<span class="n">DrawFramerate</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">);</span>
+
+		<span class="n">RefreshScreen</span><span class="p">(</span><span class="m">60</span><span class="p">);</span>	
+	<span class="k">until</span> 
+		<span class="n">WindowCloseRequested</span><span class="p">();</span>
+<span class="k">end</span><span class="p">;</span>
+
+
+<span class="k">begin</span>
+	<span class="n">Main</span><span class="p">();</span>
+<span class="k">end</span><span class="p">.</span>
+</code></pre></div></div>
+
+</div>
+        <!-- Start of StatCounter Code for Default Guide -->
+        <hr>
+Total visits:
+<script type="text/javascript">
+var sc_project=11553218; 
+var sc_invisible=0; 
+var sc_security="55ea133f"; 
+var sc_text=2; 
+var scJsHost = (("https:" == document.location.protocol) ?
+"https://secure." : "http://www.");
+document.write("<sc"+"ript type='text/javascript' src='" +
+scJsHost+
+"statcounter.com/counter/counter.js'></"+"script>");
+</script>
+<noscript><div class="statcounter"><a title="Web Analytics
+Made Easy - StatCounter" href="http://statcounter.com/"
+target="_blank"><img class="statcounter"
+src="//c.statcounter.com/11553218/0/55ea133f/0/" alt="Web
+Analytics Made Easy - StatCounter"></a></div></noscript>
+<!-- End of StatCounter Code for Default Guide -->
+<a href="http://statcounter.com/p11553218/?guest=1">(Powered by Statcounter)</a>
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2018/01/25/SVD/">
+            Singular Value Decomposition
+            <small>25 Jan 2018</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2017/12/21/gradient-descent/">
+            Gradient Descent
+            <small>21 Dec 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2017/12/09/k-nearest-neighbors/">
+            K Nearest Neighbors
+            <small>09 Dec 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2017/10/10/linear-regression/">
+            Linear Regression
+            <small>10 Oct 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2017/09/21/FlappyBirdAI/">
+            AI for FlappyBird Game
+            <small>21 Sep 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://dunglai-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+   
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if (!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+  </body>
+
+  
+</html>

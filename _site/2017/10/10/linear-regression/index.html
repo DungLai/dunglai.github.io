@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Linear Regression &middot; Dung Lai
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+  <!-- <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110006044-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-110006044-1');
+  </script> 
+
+  <!-- toogle button -->
+  <script>
+  function myFunction() {
+      var x = document.getElementById("myDIV");
+      if (x.style.display === "none") {
+          x.style.display = "block";
+      } else {
+          x.style.display = "none";
+      }
+  }
+  </script>
+  
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>A personal website of <a href="https://dunglai.github.io/about" target="">Dung Lai</a>, containing technical blog on technology.</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Home</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about/">About</a>
+        
+      
+    
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+    
+    <span class="sidebar-nav-item">Currently v1.0.0</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2018. All rights reserved.
+    </p>
+  </div>
+</div>
+
+ 
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">Dung Lai</a>
+            <small>blog</small>             
+          </h3>
+        </div>
+      </div>
+      
+      <link rel="stylesheet" href="/public/css/blog-index.css">
+
+<nav>
+	<div class='blog-wrapper'>
+		<div class='blog-index'>
+			<strong><u>Machine learning</u></strong></br>
+				<li><a href='https://dunglai.github.io/2017/12/21/gradient-descent/'>6. Gradient Descent</a><img src='../public/post-assets/LinearRegression/plot2.png'/></li>
+				<li><a href='https://dunglai.github.io/2017/12/09/k-nearest-neighbors/'>5. K Nearest Neighbors</a></li>
+				<li><a href='https://dunglai.github.io/2017/10/10/linear-regression/'>4. Linear Regression</a></li>
+				<li><a href='https://dunglai.github.io/2017/09/21/FlappyBirdAI/'>3. AI for flappy bird game (Neural Network, Genetic Algorithm)</a></li>
+				<li><a href='https://dunglai.github.io/2017/06/10/image-compression/'>2. Image Segmentation using K-Means</a></li>
+				<li><a href='https://dunglai.github.io/2017/06/01/k-means/'>1. K-Means Clustering</a></li>
+			<strong><u>Other</u></strong></br>
+				<li><a href='https://dunglai.github.io/2017/06/30/mongodbmapping/'>4. Mapping MySQL to MongoDB</a></li>
+				<li><a href='https://dunglai.github.io/2017/06/27/UniversityMySQL/'>3. University MySQL DB</a></li>
+				<li><a href='https://dunglai.github.io/2017/05/27/Planetary-Rover/'>2. Planetary Rover Game (C#, Winform)</a></li>
+				<li><a href='https://dunglai.github.io/2017/03/01/Music-Player/'>1. Music Player (Pascal)</a></li>
+		</div>
+	</div>
+</nav>
+
+      <div class="container content">
+        <div class="post">
+  <h1 style="font-size: 130%;" class="post-title">Linear Regression</h1>
+  <span class="post-date" style="float:none;">10 Oct 2017</span>
+  
+  <div class="tag">Linear Algebra</div>
+<div class="tag">Projection</div>
+<div class="tag">Least Square</div>
+<div class="tag">Supervised Learning</div>
+<p><strong>Content:</strong>
+<!-- MarkdownTOC depth=3 --></p>
+
+<ul>
+  <li><a href="#1-introduction">1. Introduction</a></li>
+  <li><a href="#2-least-square-approximation-and-cost-function">2. Least Square Approximation and Cost Function</a></li>
+  <li><a href="#3-solving-optimization-problem">3. Solving Optimization Problem</a>
+    <ul>
+      <li><a href="#31-by-geometry">3.1. By Geometry</a></li>
+      <li><a href="#32-by-algebra">3.2. By Algebra</a></li>
+      <li><a href="#33-by-calculus">3.3. By Calculus</a></li>
+    </ul>
+  </li>
+  <li><a href="#4-discussion">4. Discussion</a>
+    <ul>
+      <li><a href="#41-fitting-a-parabola">4.1. Fitting a parabola</a></li>
+    </ul>
+  </li>
+  <li><a href="#5-coding-with-python">5. Coding with Python</a></li>
+  <li><a href="#6-further-topics-to-study">6. Further topics to study</a></li>
+  <li><a href="#7-reference">7. Reference</a></li>
+</ul>
+
+<!-- /MarkdownTOC -->
+<p><a name="1-introduction"></a></p>
+<h2 id="1-introduction">1. Introduction</h2>
+<p>Suppose we have a dataset containing information of <script type="math/tex">m</script> houses which were sold in a specific area, the data contains area in meter square <script type="math/tex">(a_1)</script>, number of windows <script type="math/tex">(a_2)</script>, number of rooms <script type="math/tex">(a_3)</script>, and lastly, price <script type="math/tex">(b)</script>. We understand that <script type="math/tex">\textbf{a}=[a_1,a_2,a_3]</script> has an influence on the price of the house. Our gold is to predict the price of house providing that we have information about area, number of windows, number of rooms. This prediction is valuable because we can use predicted price to estimate the price of house we want to sell so that it will not be too high or too low regardless of the prices of all houses in the location or we can also use predicted price to determine whether the house that someone is selling is too expensive in comparision with the prices of other houses.</p>
+
+<p>Linear Regression is a model to solve prediction problem. <script type="math/tex">b</script> will be expressed as a linear function of <script type="math/tex">a_1, a_2, a_3</script>:
+\begin{equation} \tag{1}\label{eq:1}
+\mathbf{b}=f(\textbf{a})=x_0+x_1a_1+x_2a_2+x_3a_3
+\end{equation}
+The problem is we cannot always find a linear relationship that fit all the data in the dataset. Our goal is to solve the linear regression problem: Find the coefficients <script type="math/tex">\textbf{x}=[x_0, x_1, x_2, x_3]</script> so that <script type="math/tex">b\approx f(\textbf{a})</script> for as much data as possible.
+<a name="2-least-square-approximation-and-cost-function"></a></p>
+<h2 id="2-least-square-approximation-and-cost-function">2. Least Square Approximation and Cost Function</h2>
+<p>Let <script type="math/tex">\textbf{b}=[b_1, b_2,...,b_m]</script> be the vector containing the value of <script type="math/tex">m</script> trainning data in dataset that we want to predict, in our example, they are <script type="math/tex">m</script> house prices.</p>
+
+<p>Let <script type="math/tex">A=[1, \mathbf{a_1} , \mathbf{a_2}, \mathbf{a_3},..., \mathbf{a_n}]</script> be the matrix containing all feature data, <script type="math/tex">\mathbf{a_1}, \mathbf{a_2},..., \mathbf{a_n}</script> are column vectors containing all data of <script type="math/tex">n</script> features. In our example, <script type="math/tex">n=3</script>, <script type="math/tex">\mathbf{a_1}</script> is column vector containing area in square meter of <script type="math/tex">m</script> houses, <script type="math/tex">\mathbf{a_2}</script> is column vector containing number of windows of <script type="math/tex">m</script> houses.</p>
+
+<p>Let’s take a quick look at this example again:</p>
+<div class="imgcap">
+<img style="display: inline-block; width: 45%; float:left" src="/public/post-assets/LinearRegression/example.png" width="500" align="center" />
+</div>
+<p><br />
+<script type="math/tex">% <![CDATA[
+A=[1, \mathbf{a_1} , \mathbf{a_2}, \mathbf{a_3}] = \begin{bmatrix}
+ 1 & 120 & 4 & 3 \\ 
+ 1 & 200 & 6 & 4 \\ 
+ 1 & 80 & 2 & 2 \\ 
+ 1 & 60 & 1 & 1 \\ 
+ 1 & 3000 & 9 & 6 
+\end{bmatrix}, 
+b = \begin{bmatrix}
+10000 \\
+12200 \\
+70000 \\
+50000 \\
+19000 
+\end{bmatrix} %]]></script></p>
+<div style="clear:left;"></div>
+<p>The linear equation \eqref{eq:1} become
+\begin{equation} \tag{2}\label{eq:2}
+A\mathbf{x}=\mathbf{b}
+\end{equation}  <br />
+It is often happens that <script type="math/tex">A\mathbf{x}=\mathbf{b}</script> has no solution. The usual reason is there are too many equations. The matrix <script type="math/tex">A</script> has more rows than columns (<script type="math/tex">m>n</script>, more data the the number of features). In this case, <script type="math/tex">b</script> is a vector outside of column space of A. We cannot always get the error <script type="math/tex">\mathbf{e}=\mathbf{b}-A\mathbf{x}</script> down to zero. When <script type="math/tex">\mathbf{e}</script> is zero, <script type="math/tex">\mathbf{x}</script> is an exact solution to <script type="math/tex">A\mathbf{x}=\mathbf{b}</script>. <strong>When the length of</strong> <script type="math/tex">\mathbf{e}</script> <strong>is as small as posible,</strong> <script type="math/tex">\hat{\mathbf{x}}</script> is a <strong>least square solution.</strong></p>
+
+<p>With the definition of least square solution above, the format of the cost/loss function is:
+\begin{equation} \tag{3}\label{eq:3}
+L(\mathbf{x})=||e||^2=||A\mathbf{x}-\mathbf{b}||^2_2
+\end{equation}</p>
+
+<p>The notation <script type="math/tex">||\mathbf{x}||_ 2</script> is <a href="https://en.wikipedia.org/wiki/Norm_(mathematics)">Euclidean norm</a>.If <script type="math/tex">\mathbf{x}=(x_1, x_2,...,x_n)</script> is a vector on a <script type="math/tex">n</script>-dimensional space <script type="math/tex">R^n</script> then <script type="math/tex">||x||_ 2:=\sqrt{x_1^2+x_2^2+...+x_n^2}</script>. Therefore, the loss function is defined by the sum of square error:
+\begin{equation} \tag{4}\label{eq:4}
+L(\mathbf{x}) = \sum_{i=1}^{m}(\mathbf{w_i}\mathbf{x}-\mathbf{b_i})^2
+\end{equation}</p>
+
+<p><script type="math/tex">\mathbf{w_i}</script> is row vector i of matrix <script type="math/tex">A</script>. In our example, each <script type="math/tex">\mathbf{w_i}</script> is a row vector containing information of a house.
+<a name="3-solving-optimization-problem"></a></p>
+<h2 id="3-solving-optimization-problem">3. Solving Optimization Problem</h2>
+<p>The optimal <script type="math/tex">\hat{\mathbf{x}}</script> when <script type="math/tex">A\mathbf{x}=\mathbf{b}</script> has no solution is the solution of <script type="math/tex">A^TA\hat{\mathbf{x}}=A^Tb</script>. The following part will be the proof of that statement.</p>
+
+<p>Before we move on the proof, let’s reduce the dimension of data so that it’s possible to visualize. The new problem we will solve is: Find the closest line to the points: <script type="math/tex">(0,6),(1,0),(2,0)</script> or predict <script type="math/tex">y-coordinate</script> by <script type="math/tex">x-coordinate</script>.</p>
+
+<p>No straight line <script type="math/tex">b=C+Dx</script> goes through those three points. We are asking for two numbers C and D that satisfy three equations. Here are the equations at <script type="math/tex">x=0,1,2</script> to match the given values <script type="math/tex">b=6,0,0</script>:
+\[C + D.0 = 6\]
+\[C + D.1 = 0\]
+\[C + D.2 = 0\]
+This 3x2 system has no solution because <script type="math/tex">\mathbf{b}=[6,0,0]</script> is not in the column space of matrix with 2 basis: <script type="math/tex">[1,1,1]</script> and <script type="math/tex">[0,1,2]</script>. In other words, <script type="math/tex">A\mathbf{x}=\mathbf{b}</script> has no solution.
+<script type="math/tex">A =</script> 
+<script type="math/tex">% <![CDATA[
+\begin{bmatrix}
+1 & 0\\
+1 & 1\\
+1 & 2
+\end{bmatrix} %]]></script>
+, <script type="math/tex">\mathbf{x} =</script> 
+<script type="math/tex">\begin{bmatrix}
+C\\
+D
+\end{bmatrix}</script>
+, 
+<script type="math/tex">\mathbf{b} =</script> 
+<script type="math/tex">\begin{bmatrix}
+6\\
+0\\
+0
+\end{bmatrix}</script></p>
+<div class="imgcap">
+	<img style="display: inline-block; width: 80%;" src="/public/post-assets/LinearRegression/fig1.png" width="500" align="center" />
+	<div class="thecap">Image taken from <a href="http://math.mit.edu/~gs/linearalgebra/">Introduction to Linear Algebra book</a> <br /></div>
+</div>
+
+<p><a name="31-by-geometry"></a></p>
+<h3 id="31-by-geometry">3.1. By Geometry</h3>
+<p>We are looking for a linear combination of basis of matrix <script type="math/tex">A</script>, this linear combination produce a vector in the column space of <script type="math/tex">A</script> in order to minimize the length of vector <script type="math/tex">\mathbf{e}</script>, <script type="math/tex">||e||^2=||A\mathbf{x}-\mathbf{b}||^2_2</script> as in equation \eqref{eq:3}. This vector <script type="math/tex">\mathbf{e}</script> is a vector from <script type="math/tex">\mathbf{b}</script> (I’m refering a vector as a point) to a point in column space of <script type="math/tex">A</script> . The smallest distance is <script type="math/tex">\textbf{e}</script> as in figure 4.6b above: <script type="math/tex">\mathbf{e}=\mathbf{b}-\mathbf{p}</script> with <script type="math/tex">\mathbf{p}</script> be the <strong>projection</strong> of vector <script type="math/tex">\textbf{b}</script> onto column space <script type="math/tex">C(A)</script>.</p>
+
+<p>To recap, we have proved that loss function <script type="math/tex">L(\mathbf{x})</script> is minimized when <script type="math/tex">A\mathbf{x}</script> create a projection of <script type="math/tex">\textbf{b}</script> onto column space. 
+The formular for projection of a vector onto a subspace is:
+\begin{equation} \tag{5}\label{eq:5}
+\mathbf{p}=A(A^TA)^{-1}A^T\mathbf{b}
+\end{equation}
+The solution <script type="math/tex">\hat{\mathbf{x}}</script> is:</p>
+
+<p>\begin{equation} \tag{8}\label{eq:8}
+\hat{\mathbf{x}} = (A^TA)^{-1}A^T\mathbf{b}
+\end{equation}</p>
+
+<p>Proof: <script type="math/tex">\mathbf{b}-A\mathbf{\hat{x}}</script> is the error vector that is perpendicular to column space <script type="math/tex">C(A)</script>. It means <script type="math/tex">\mathbf{b}-A\mathbf{\hat{x}}</script> is perpendicular to every vectors lied on <script type="math/tex">C(A)</script>. Therefore, their dot product equal to 0: <script type="math/tex">\mathbf{a_i}^T(\mathbf{b}-A\mathbf{\hat{x}})=0</script> for <script type="math/tex">i</script> in range <script type="math/tex">(1,m)</script>. This leads to <script type="math/tex">A^T(\mathbf{b}-A\mathbf{\hat{x}})=0</script>.
+<a name="32-by-algebra"></a></p>
+<h3 id="32-by-algebra">3.2. By Algebra</h3>
+<p>Every vector <script type="math/tex">\mathbf{b}</script> outside of column space of A can be splited into two parts. The part in column space <script type="math/tex">\mathbf{p}</script> and the perpendicular part <script type="math/tex">\mathbf{e}</script> in the nullspace of <script type="math/tex">A^T</script> (left null space of <script type="math/tex">A</script>). The reason is that column space of A (all vectors which are linear combination of column vector of matrix <script type="math/tex">A</script>) is perpendicular to left null space of <script type="math/tex">A</script> (all vectors <script type="math/tex">\mathbf{x}</script> that <script type="math/tex">A^T\mathbf{x}=0</script>). The two subspace mentioned above fill out the whole space of <script type="math/tex">A</script>.</p>
+
+<p>Refer to figure 4.6b, apply the law for right triangle, it stills true if the triangle lied in high dimensional space: 
+\begin{equation} \tag{6}\label{eq:6}
+||A\mathbf{x}-\mathbf{b}||^2 = ||A\mathbf{x}-\mathbf{p}||^2 + ||\mathbf{e}||^2
+\end{equation}
+In equation \eqref{eq:6}, <script type="math/tex">\mathbf{e}</script> is a fixed vector: the error vector of projection of <script type="math/tex">\mathbf{b}</script> onto column space of <script type="math/tex">A</script>. <script type="math/tex">A\mathbf{x}-\mathbf{p}</script> is a vector on column space and <script type="math/tex">||A\mathbf{x}-\mathbf{b}||^2</script> is the least square error needs to be minimized.</p>
+
+<p>\begin{equation} \tag{7}\label{eq:7}
+||A\mathbf{x}-\mathbf{b}||^2 = ||A\mathbf{x}-\mathbf{p}||^2 + ||\mathbf{e}||^2 \geq ||\mathbf{e}||^2
+\end{equation}
+Since <script type="math/tex">\mathbf{e}</script> is a fixed vector, <script type="math/tex">||\mathbf{e}||^2</script> is a constant.  Least square error is minimized when <script type="math/tex">||A\mathbf{x}-\mathbf{p}||^2=0</script>, which means the solution <script type="math/tex">\hat{\mathbf{x}}</script> is:
+\begin{equation} \tag{9}\label{eq:9}
+\hat{\mathbf{x}}=A^{-1}\mathbf{p}=A^{-1}A(A^TA)^{-1}A^T\mathbf{b}=(A^TA)^{-1}A^T\mathbf{b}
+\end{equation}</p>
+
+<p><a name="33-by-calculus"></a></p>
+<h3 id="33-by-calculus">3.3. By Calculus</h3>
+<p>Rewrite the term we are trying to minimized:
+\begin{equation}
+E = ||A\mathbf{x}-\mathbf{b}||^2 = (C+D.0-6)^2+(C+D.1)^2+(C+D.2)^2 
+\end{equation}
+Take partial derivative of E with respect to C and D individually:
+\begin{equation}
+\partial E / \partial C = 2(C+D.0-6) + 2(C+D.1) + 2(C+D.2) = 0
+\end{equation}
+\begin{equation}
+\partial E / \partial D = 2(C+D.0-6)(0) + 2(C+D.1)(1) + 2(C+D.2)(2) = 0
+\end{equation}
+The above system gives:
+<script type="math/tex">% <![CDATA[
+\begin{bmatrix}
+3 & 3 \\
+3 & 5
+\end{bmatrix}
+\begin{bmatrix}
+C \\
+D
+\end{bmatrix}=
+\begin{bmatrix}
+6 \\
+0
+\end{bmatrix} %]]></script>
+This is identical with <script type="math/tex">A^TA\hat{\mathbf{x}}=A^T\mathbf{b}</script></p>
+
+<p>In a more general case, where <script type="math/tex">A</script> is a <script type="math/tex">m\times n</script> matrix. Let’s recall the equation \eqref{eq:4} of loss function:
+\begin{equation} \tag{4}
+L(\mathbf{x}) = \sum_{i=1}^{m}(\mathbf{w_i}\mathbf{x}-\mathbf{b_i})^2
+\end{equation}</p>
+
+<p>In order to minimize <script type="math/tex">L(\mathbf{x})</script>, we solve <script type="math/tex">\frac{\partial L}{\partial x}=0</script> for each <script type="math/tex">x</script> being element of vector <script type="math/tex">\mathbf{x}</script>.</p>
+
+<p>Using chain rule, the following is derivative of <script type="math/tex">L</script> with respect to <script type="math/tex">x_1</script>, the first element of <script type="math/tex">\mathbf{x}</script>:</p>
+
+<p>\begin{equation} \tag{10}\label{eq:10}
+\frac{\partial L}{\partial x_1} = \sum_{i=1}^{m}2( \mathbf{w_i}\mathbf{x}-\mathbf{b_i})\mathbf{w_i}[0]
+\end{equation}</p>
+
+<p><script type="math/tex">\mathbf{w_i}[0]</script> is the first element of <script type="math/tex">\mathbf{w_i}</script>. Notice that <script type="math/tex">\mathbf{w_i}[0]</script> for <script type="math/tex">i</script> in range <script type="math/tex">(1,m)</script> is the first column of matrix <script type="math/tex">A</script>, also the first row of <script type="math/tex">A^T</script>. Hence, we could rewrite equation \eqref{eq:10} in matrix form:</p>
+
+<p>\begin{equation} \tag{11}\label{eq:11}
+\frac{\partial L}{\partial x_1} = 2A^T \lbrack 0 \rbrack (A\mathbf{x}-b)
+\end{equation}</p>
+
+<p>In equation \eqref{eq:11}, <script type="math/tex">A^T[0]</script> is first row of matrix <script type="math/tex">A^T</script>. Keep going with the derivative of <script type="math/tex">L</script> with respect to every element of <script type="math/tex">\mathbf{x}</script>:</p>
+
+<p>\begin{equation} \tag{12}\label{eq:12}
+\frac{\partial L}{\partial \mathbf{x}} = 2A^T(A\mathbf{x}-\mathbf{b})
+\end{equation}</p>
+
+<p>In order to minimize <script type="math/tex">L(\mathbf{x})</script>, the derivative in every direction is set to 0, which is <script type="math/tex">A^T(A\mathbf{x}-\mathbf{b})=0</script> which leads to the solution <script type="math/tex">\hat{\mathbf{x}} = (A^TA)^{-1}A^T\mathbf{b}</script>. This is the same result as in equation \eqref{eq:8} and \eqref{eq:9}. Every approach leads to the same answer.</p>
+
+<p><strong>Note</strong>: the matrix <script type="math/tex">(A^TA)^{-1}A^T</script> is also call <a href="https://en.wikipedia.org/wiki/Moore%E2%80%93Penrose_inverse">pseudo-inverse matrix</a> of <script type="math/tex">A</script>. The notation is <script type="math/tex">A^\dagger</script> (A dagger), <script type="math/tex">A^\dagger=(A^TA)^{-1}A^T</script>.</p>
+
+<p>Conclusion, if <script type="math/tex">A</script> is not invertiable, the solution <script type="math/tex">\hat{\mathbf{x}}=A^\dagger\mathbf{b}</script>.
+<a name="4-discussion"></a></p>
+<h2 id="4-discussion">4. Discussion</h2>
+<p>In the case of more than one feature, <script type="math/tex">n>1</script>, column space of <script type="math/tex">A</script> become more complex (more dimension). In our example, there are 3 data points <script type="math/tex">(m=3)</script>, <script type="math/tex">m</script> is the dimension of the vector space that column space <script type="math/tex">C(A)</script> and <script type="math/tex">\mathbf{b}</script> lied in, more data means it’s less likely for <script type="math/tex">\mathbf{b}</script> to be lied on <script type="math/tex">C(A)</script>. In this case, the solution is the projection of <script type="math/tex">\mathbf{b}</script> into <script type="math/tex">C(A)</script>. Projection of a vector onto a high dimensional subspace is a vector.</p>
+
+<p><a name="41-fitting-a-parabola"></a></p>
+<h3 id="41-fitting-a-parabola">4.1. Fitting a parabola</h3>
+<p>Instead of looking for coefficients <script type="math/tex">\hat{\mathbf{x}}=[C,D]</script> of the line <script type="math/tex">b=C+Dt</script>, we will look for <script type="math/tex">\hat{\mathbf{x}}=[C,D,E]</script> to fit the parabola <script type="math/tex">b=C+Dx+Ex^2</script>. It means the column space have one more vector: <script type="math/tex">% <![CDATA[
+A=
+\begin{bmatrix}
+1 & x_1 & x_1^2 \\
+\vdots & \vdots & \vdots \\
+1 & x_m & x_m^2
+\end{bmatrix} %]]></script>
+<a name="5-coding-with-python"></a></p>
+<h2 id="5-coding-with-python">5. Coding with Python</h2>
+<p>Fit a straight line:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="c"># create random data </span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">29</span><span class="p">,</span><span class="mi">29</span><span class="p">,</span><span class="mi">35</span><span class="p">,</span><span class="mi">37</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">46</span><span class="p">]])</span><span class="o">.</span><span class="n">T</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">16</span><span class="p">]])</span><span class="o">.</span><span class="n">T</span>
+
+<span class="c">#Visualize data </span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="s">'ro'</span><span class="p">)</span>
+
+<span class="c"># append column ones to matrix A</span>
+<span class="n">ones</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">1</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">)</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">ones</span><span class="p">,</span><span class="n">A</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c"># calculate coefficients to fit a straight line</span>
+<span class="n">A_dagger</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">))</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">transpose</span><span class="p">())</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">A_dagger</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+
+<span class="c"># start and end point of the straight line</span>
+<span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">46</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">y0</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x0</span>
+
+<span class="c"># plot the straight line</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'x coordinates '</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'y coordinates '</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+<p>Using Scikit learn library</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">linear_model</span>
+
+<span class="c"># create random data </span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">29</span><span class="p">,</span><span class="mi">29</span><span class="p">,</span><span class="mi">35</span><span class="p">,</span><span class="mi">37</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">46</span><span class="p">]])</span><span class="o">.</span><span class="n">T</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">16</span><span class="p">]])</span><span class="o">.</span><span class="n">T</span>
+
+<span class="c">#Use Scikit Learn</span>
+<span class="n">lr</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">lr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'Solution found by scikit learn: w ='</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">lr</span><span class="o">.</span><span class="n">intercept_</span><span class="p">)</span> <span class="c">#w0</span>
+<span class="k">print</span><span class="p">(</span><span class="n">lr</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span> <span class="c">#w1</span>
+</code></pre></div></div>
+<div class="imgcap">
+	<img style="display: inline-block; width: 60%;" src="/public/post-assets/LinearRegression/plot1.png" width="500" align="center" />
+	<div class="thecap">Code output</div>
+</div>
+<p>Fitting a prabole:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="c"># create random data </span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">29</span><span class="p">,</span><span class="mi">29</span><span class="p">,</span><span class="mi">35</span><span class="p">,</span><span class="mi">37</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">46</span><span class="p">,</span><span class="mi">42</span><span class="p">,</span><span class="mi">39</span><span class="p">,</span><span class="mi">31</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">]])</span><span class="o">.</span><span class="n">T</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="mi">24</span><span class="p">,</span><span class="mi">25</span><span class="p">]])</span><span class="o">.</span><span class="n">T</span>
+
+<span class="c">#Visualize data </span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="s">'ro'</span><span class="p">)</span>
+
+<span class="c"># append column ones to matrix A</span>
+<span class="n">ones</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">1</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">)</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">ones</span><span class="p">,</span><span class="n">A</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c">## append x^2 to A</span>
+<span class="n">x_square</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">A</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">])</span><span class="o">.</span><span class="n">T</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">A</span><span class="p">,</span><span class="n">x_square</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c"># calculate coefficients to fit a straight line</span>
+<span class="n">A_dagger</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">))</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">transpose</span><span class="p">())</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">A_dagger</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+
+<span class="c"># start and end point of the straight line</span>
+<span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">10000</span><span class="p">)</span>
+<span class="n">y0</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x0</span> <span class="o">+</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x0</span><span class="o">*</span><span class="n">x0</span>
+
+<span class="c"># plot the parabola</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'x coordinates '</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'y coordinates '</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+<div class="imgcap">
+	<img style="display: inline-block; width: 60%;" src="/public/post-assets/LinearRegression/plot2.png" width="500" align="center" />
+	<div class="thecap">Code output</div>
+</div>
+<p>This parabole seems to be underfitting. We need to make the regression equation more complex by adding features (add more dimension to <script type="math/tex">C(A)</script>).
+<a name="6-further-topics-to-study"></a></p>
+<h2 id="6-further-topics-to-study">6. Further topics to study</h2>
+<ol>
+  <li>Evaluation approach such as cross-validation (Determine which solution is the best)</li>
+  <li>Normalization, data value could be in different scale and causing inconsistent.</li>
+  <li>Regularization to avoid overfitting.</li>
+</ol>
+
+<p><a name="7-reference"></a></p>
+<h2 id="7-reference">7. Reference</h2>
+<ol>
+  <li><a href="http://math.mit.edu/~gs/linearalgebra/">Introduction to Linear Algebra</a> book by Prof. Gilbert Strang.</li>
+  <li>Andrew, Ng. , ‘Machine learning’, Standford University Online, lecture notes week 2, [online]: https://www.coursera.org/learn/machine-learning</li>
+</ol>
+
+</div>
+        <!-- Start of StatCounter Code for Default Guide -->
+        <hr>
+Total visits:
+<script type="text/javascript">
+var sc_project=11553218; 
+var sc_invisible=0; 
+var sc_security="55ea133f"; 
+var sc_text=2; 
+var scJsHost = (("https:" == document.location.protocol) ?
+"https://secure." : "http://www.");
+document.write("<sc"+"ript type='text/javascript' src='" +
+scJsHost+
+"statcounter.com/counter/counter.js'></"+"script>");
+</script>
+<noscript><div class="statcounter"><a title="Web Analytics
+Made Easy - StatCounter" href="http://statcounter.com/"
+target="_blank"><img class="statcounter"
+src="//c.statcounter.com/11553218/0/55ea133f/0/" alt="Web
+Analytics Made Easy - StatCounter"></a></div></noscript>
+<!-- End of StatCounter Code for Default Guide -->
+<a href="http://statcounter.com/p11553218/?guest=1">(Powered by Statcounter)</a>
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2018/01/25/SVD/">
+            Singular Value Decomposition
+            <small>25 Jan 2018</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2017/12/21/gradient-descent/">
+            Gradient Descent
+            <small>21 Dec 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2017/12/09/k-nearest-neighbors/">
+            K Nearest Neighbors
+            <small>09 Dec 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2017/09/21/FlappyBirdAI/">
+            AI for FlappyBird Game
+            <small>21 Sep 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2017/06/30/mongodbmapping/">
+            Mapping MySQL to MongoDB
+            <small>30 Jun 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://dunglai-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+   
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if (!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+  </body>
+
+  
+</html>
