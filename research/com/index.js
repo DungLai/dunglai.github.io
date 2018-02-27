@@ -12,16 +12,19 @@ function chatbotResponse() {
     botMessage = 'Whazz up haumie';
   }
 
-  for (i = 0; i < 19; i++) { 
-    if (lastUserMessage === 'play location ' + i) {
-      botMessage = dictTime[i] + " " + dictDesc[i];
+  for (location = 0; location < 19; location++) { 
+    if (lastUserMessage === 'play location ' + location) {
+      document.getElementById(location).checked = true;
+      botMessage = dictTime[location] + " " + dictDesc[location];
       document.getElementById('youtubeVideoAmbeo').innerHTML = '<iframe width="560" height="315" src="https://www.youtube.com/embed/' + dictYoutubeAmbeo[location] + '?autoplay=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
-
     }    
   }
 
-  if (lastUserMessage === 'play location') {
-    botMessage = 'Whazz up haumie';
+  if (lastUserMessage === 'replay') {
+    var location = document.querySelector('input[name="location"]:checked').value;
+    console.log(location);
+    showVideo(location);
+    botMessage = 'Replaying the video, you are at ' + dictDesc[location];
   }
 }
 
@@ -126,29 +129,30 @@ var nextLocation = function() {
 }
 
 var replay = function() {
+  askBot("replay");
   var location = document.querySelector('input[name="location"]:checked').value;
   showVideo(location);
   var replay = new SpeechSynthesisUtterance('Replaying the video, you are at ' + dictDesc[location]);
   window.speechSynthesis.speak(replay);
 }
 
-// if (annyang) {
-//   // Let's define our first command. First the text we expect, and then the function it should call
-//   var commands = {
-//     'help': help, // list of commands
-//     'what is this': whatIsThis, // description of project
-//     'when (was the video) recorded' : whenRecoreded, // time when video was recorded
-//     'where am i' : whereAmI, // location information
-//     'next location' : nextLocation, // move to next location
-//     'replay' : replay // replay the video 
-//   };
+if (annyang) {
+  // Let's define our first command. First the text we expect, and then the function it should call
+  var commands = {
+    'help': help, // list of commands
+    'what is this': whatIsThis, // description of project
+    'when (was the video) recorded' : whenRecoreded, // time when video was recorded
+    'where am i' : whereAmI, // location information
+    'next location' : nextLocation, // move to next location
+    'replay' : replay // replay the video 
+  };
 
-//   // Add our commands to annyang
-//   annyang.addCommands(commands);
+  // Add our commands to annyang
+  annyang.addCommands(commands);
 
-//   // Start listening. You can call this here, or attach this call to an event, button, etc.
-//   annyang.start();
-// }
+  // Start listening. You can call this here, or attach this call to an event, button, etc.
+  annyang.start();
+}
 
 
 /// add transition voice : location 1 => location2 : you walking 3 meter into
@@ -160,7 +164,7 @@ function askBot(text) {
 }
 
 function showVideo(location){
-  document.getElementById('youtubeVideoAmbeo').innerHTML = '<iframe width="560" height="315" src="https://www.youtube.com/embed/' + dictYoutubeAmbeo[location] + '?autoplay=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+  // document.getElementById('youtubeVideoAmbeo').innerHTML = '<iframe width="560" height="315" src="https://www.youtube.com/embed/' + dictYoutubeAmbeo[location] + '?autoplay=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
   askBot("play location " + location)
 }
 
