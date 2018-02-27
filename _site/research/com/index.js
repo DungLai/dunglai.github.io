@@ -27,7 +27,7 @@ function chatbotResponse() {
 
   if (lastUserMessage === 'replay') {
     var location = document.querySelector('input[name="location"]:checked').value;
-    document.getElementById('youtubeVideoAmbeo').innerHTML = '<iframe width="560" height="315" src="https://www.youtube.com/embed/' + dictYoutubeAmbeo[location] + '?autoplay=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+    showVideo(location);
     // lastUserMessage.push("hello");
     botMessage = 'Replaying the video, you are at ' + dictDesc[location];
   }
@@ -178,7 +178,7 @@ if (annyang) {
 function askBot(text) { document.getElementById('chatbox').value = text; newEntry() }
 
 function showVideo(location){ 
-  document.getElementById('youtubeVideoAmbeo').innerHTML = '<iframe width="560" height="315" src="https://www.youtube.com/embed/' + dictYoutubeAmbeo[location] + '?autoplay=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>'; 
+  document.getElementById('youtubeVideoAmbeo').innerHTML = '<iframe width="560" height="315" src="https://www.youtube.com/embed/' + dictYoutubeAmbeo[location] + '?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>'; 
 }
 
 function onClick(location) {
@@ -290,4 +290,8 @@ var dictYoutubeAmbeo = {
   16: "o6YOR6L1iC4",
   17: "LNzb-qQ4ctA",
   18: "2mDcAZ-6Czc"   
+}
+
+window.onload = function(){ 
+  Speech("Welcome to the website, this is an immersive journey preparation tool for people with vision impairment. You will be exploring Flinders Street Station by listening to different locations with spatial surround sound technology. I'm here to help you, Let's start with help command command command.");
 }
