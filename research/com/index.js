@@ -48,7 +48,7 @@ function newEntry() {
       // says the message using the text to speech function written below
     Speech(botMessage);
     //outputs the last few messages to html
-    for (var i = 1; i < 8; i++) {
+    for (var i = 1; i < 3; i++) {
       if (messages[messages.length - i])
         document.getElementById("chatlog" + i).innerHTML = messages[messages.length - i];
     }
@@ -130,10 +130,6 @@ var nextLocation = function() {
 
 var replay = function() {
   askBot("replay");
-  var location = document.querySelector('input[name="location"]:checked').value;
-  showVideo(location);
-  var replay = new SpeechSynthesisUtterance('Replaying the video, you are at ' + dictDesc[location]);
-  window.speechSynthesis.speak(replay);
 }
 
 if (annyang) {
