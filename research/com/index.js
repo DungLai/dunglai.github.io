@@ -48,7 +48,7 @@ function newEntry() {
       // says the message using the text to speech function written below
     Speech(botMessage);
     //outputs the last few messages to html
-    for (var i = 1; i < 3; i++) {
+    for (var i = 1; i < 4; i++) {
       if (messages[messages.length - i])
         document.getElementById("chatlog" + i).innerHTML = messages[messages.length - i];
     }
