@@ -292,6 +292,6 @@ var dictYoutubeAmbeo = {
   18: "2mDcAZ-6Czc"   
 }
 
-window.onload = function(){ 
-  Speech("Welcome to the website, this is an immersive journey preparation tool for people with vision impairment. You will be exploring Flinders Street Station by listening to different locations with spatial surround sound technology. I'm here to help you, Let's start with help command command command.");
-}
+// window.onload = function(){ 
+//   Speech("Welcome to the website, this is an immersive journey preparation tool for people with vision impairment. You will be exploring Flinders Street Station by listening to different locations with spatial surround sound technology. I'm here to help you, Let's start with help command.");
+// }
