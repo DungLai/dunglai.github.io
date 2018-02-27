@@ -1,0 +1,266 @@
+@media only screen and (max-width: 1200px) {
+	.logo {
+		display: none;
+	}
+}
+
+ html {
+ 	margin-bottom: 20px;
+ }
+
+.main-body {
+	margin-left: 80px;
+	margin-right: 80px;
+	float: left;
+}
+
+.left-body {
+	float:left;	
+	margin-right: 25px;
+}
+
+.interface {
+	border-width: thin;
+	border-size: 0.1px;
+	border-style:solid;
+	border-color: black;
+	position: relative;
+	margin-top: 6px;
+	margin-bottom: 6px;
+	width: 800px;
+	height: 400px
+}
+
+#description {
+	float:left;
+	max-width: 220px;
+}
+
+#title {
+	text-align: center;
+	font-size: 200%;
+	margin-bottom: 6px;
+}
+
+input[type="radio"] {
+  box-shadow:
+    inset 0 0 0 .1em black,
+    0 0 0 .1em;
+  border-radius: 10%;
+  transition: .2s;
+  cursor:pointer;
+  color: red;	
+}
+
+#mapFS {
+	width: 100%;
+	height: auto;
+}
+
+.right-body {
+	margin-top: 6px;
+	/*height: 125%;*/
+	min-width: 480px;
+	max-width: 480px;
+	/*max-height: 1000px;*/
+  /*border: 1px solid black;*/
+  /*background-color: green;*/
+  /*overflow: hidden;*/
+  /*font-size: 1em;*/
+}
+
+#map {
+	position: absolute; 
+	width: 800px; 
+	height: 400px; 
+	z-index: -1
+}
+
+.web-plat/*, .mobile-plat */{
+	max-width: 800px;
+}
+
+@media (max-width: 1281px) {
+	.right-body {
+		max-width: 100%;
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	.main-body {
+		margin-right: 0;
+		margin-left: 0;
+	}
+
+	#youtubeVideo {
+		margin-left: 0;
+		/*margin-right: 0;*/
+	}
+
+	.interface {
+		margin-left: 80px;
+	}
+
+	#description {
+		max-width: 350px;
+	}
+}
+
+/*mobile device*/
+@media (max-width: 800px) {
+	.web-plat, .mobile-plat {
+		max-width: 100%;
+	}
+
+	.container input[type="radio"] {
+		width: : 2px;
+		height: 10px;
+		color: none;
+	  box-shadow: none;
+	  border-radius: 10%;
+	  cursor:pointer;
+	}
+
+	#title {
+		font-size: 17px;
+		line-height: none;
+	}
+
+	#author {
+		font-size: 13px;
+		line-height: none;
+	}
+
+	.map-interface {
+		width: 100% !important;
+	}
+
+	.youtubeVideo {
+		width: 100% !important;
+		padding-top: 2px !important;
+	}	
+}
+
+.mobile-plat {
+	margin-right: 0;
+}
+
+#author {
+	text-align: center;
+}
+
+
+/*button on interface*/
+.container {
+    position: relative;
+    width: 100%;
+    /*max-width: 400px; */  /*This line change width of FSmap*/
+}
+
+.container img {
+    width: 100%;
+    height: auto;
+}
+
+.container input[type="radio"] {
+    position: absolute;
+/*    top: 50%;
+    left: 50%;*/
+    /*transform: translate(-50%, -50%);*/
+    /*-ms-transform: translate(-50%, -50%);*/
+    /*background-color: red;*/
+    /*font-size: 20px;*/
+    /*padding: 12px 24px;*/
+    border: none;
+    cursor: pointer;
+    /*border-radius: 5px;*/
+    /*text-align: center;*/
+}
+
+.w3-padding-32 {
+	padding-top: 0 !important ;
+	padding-bottom: 0 !important ;
+}
+
+.video-container {
+position: relative;
+padding-bottom: 56.25%;
+padding-top: 30px; height: 0; overflow: hidden;
+/*padding-bottom: 10px*/
+}
+
+.vid-container {
+	padding-bottom: 20px;
+}
+.video-container iframe,
+.video-container object,
+.video-container embed {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+}
+
+.youtubeVideo {
+	padding: 0.01em 16px;
+	padding-top: 10px;
+	box-sizing: inherit;
+	width: 45%;
+	display: block; 
+	float: right;
+	word-break: break-all; 
+	word-wrap: break-word; 
+}
+
+.map-interface {
+	width: 55%; 
+	display: block; 
+	float:left;
+}
+
+/*chatbot*/
+#bodybox {
+}
+
+#chatboarder {
+	max-height: 300px;
+  border-style: solid;
+  border-width: 3px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 15px;
+  padding-right: 20px;
+  padding-left: 15px;
+  border-radius: 15px;
+}
+
+#chatlog1 {
+	font:10px !important;
+}
+
+.chatlog {
+   font: 10px !important/*arial, sans-serif*/;
+}
+
+#chatbox {
+  font: 20px /*arial, sans-serif*/;
+  height: 22px;
+  width: 100%;
+}
+/*
+h1 {
+  margin: auto;
+}
+
+pre {
+  background-color: #f0f0f0;
+  margin-left: 20px;
+}*/
+
+#commands-list {
+	text-align: center;
+}
