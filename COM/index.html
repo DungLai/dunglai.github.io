@@ -1,141 +1,88 @@
+<!DOCTYPE html>
 <html>
-<head>
-	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
-	<script type="text/javascript" src="index.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script> <!-- Speech Recognition Framework -->
-	<script type="text/javascript" src="indexCommand.js"></script>
-	<link rel="stylesheet" media="all" href="index.css">
-  <title>Your Website Title</title> 
-</head>
-<body>
-	<div id="title">An immersive journey preparation tool for people with vision impairment</div>
-	<div id="author">Dung Lai, Chris McCarthy, David Sly, Harrison Bennett, Matt Shackleton, Stuart Favillla</div>
-	<div class="main-body">
-		<div class='left-body'>
-		<div class='web-plat'>
-			<a href="assets/poster.pdf">Download Poster</a><br>
-			<strong>I. Web platform </strong><br>
-			<br>
-			Ambisonic has been encoded in 360 video using <a href="https://facebook360.fb.com/spatial-workstation/">Facebook 360 Encoder</a> and deployed in Youtube as a 360 video. This will make the video compatible with VR mode. Users can use Google cardboard or Oculus Rift to navigate and change direction. 
-			<br><br>
-			The video can also be rotated by sliding the video or using controller on the top left of the video.
-			<br><br>
-			For mobile user, rotating mobile device will also move the direction of the camera.
-		</div>
-		<br>
-	  	<div style="text-align: center;"><strong>Flinder Street Station Map</strong></div>
-		  <div class='interface'>
-				<img id="map" src="assets/FSmap1.png" alt="Flinder Street Station Floor map">
-			  <input style="position: absolute; margin: 56 0 0 529.5" name='location' type="radio" value='18'  id="18" onclick="showVideo(18)"> 
-			  <input style="position: absolute; margin: 91 0 0 537.1" name='location' type="radio" value='17'  id="17" onclick="showVideo(17)"> 
-			  <input style="position: absolute; margin: 132.5 0 0 539.8px" name='location' type="radio" value='16'  id="16" onclick="showVideo(16)"> 
-			  <input style="position: absolute; margin: 158 0 0 545 " name='location' type="radio" value='1' id="1" onclick="showVideo(1)"> 
-				<input style="position: absolute; margin: 216.2 0 0 514 " name='location' type="radio" value='7' id="7" onclick="showVideo(7)"> 
-				<input style="position: absolute; margin: 216.2 0 0 420 " name='location' type="radio" value='8' id="8" onclick="showVideo(8)">
-				<input style="position: absolute; margin: 216.2 0 0 310 " name='location' type="radio" value='11'  id="11" onclick="showVideo(11)"> 
-				<input style="position: absolute; margin: 307 0 0 514 " name='location' type="radio" value='6' id="6" onclick="showVideo(6)"> 
-				<input style="position: absolute; margin: 307 0 0 420 " name='location' type="radio" value='9' id="9" onclick="showVideo(9)"> 
-				<input style="position: absolute; margin: 307 0 0 310 " name='location' type="radio" value='10'  id="10" onclick="showVideo(10)"> 
-				<input style="position: absolute; margin: 362 0 0 514 " name='location' type="radio" value='14'  id="14" onclick="showVideo(14)">  
-				<input style="position: absolute; margin: 362 0 0 420 " name='location' type="radio" value='13'  id="13" onclick="showVideo(13)"> 
-				<input style="position: absolute; margin: 362 0 0 310 " name='location' type="radio" value='12'  id="12" onclick="showVideo(12)"> 
-				<input style="position: absolute; margin: 362 0 0 184 " name='location' type="radio" value='15'  id="15" onclick="showVideo(15)"> 
-				<input style="position: absolute; margin: 297 0 0 616 " name='location' type="radio" value='5' id="5" onclick="showVideo(5)"> 
-				<input style="position: absolute; margin: 302 0 0 675 " name='location' type="radio" value='3' id="3" onclick="showVideo(3)">
-				<input style="position: absolute; margin: 342 0 0 744 " name='location' type="radio" value='2' id="2" onclick="showVideo(2)"> 
-			</div>
-			<div id='youtubeVideo'>Please choose one location</div>
-			<br>
-			<div id='youtubeVideoAmbeo'>Audio recorded by Sennheiser Ambeo VR 360 Microphone</div>
-			<div id="description">
-				<div style="text-align: left;">
-					Use <strong>headphone</strong> for best experience<br><br>
-					<strong>Rotating by:</strong>
-					<li>Tilting your phone</li>
-					<li>WASD key</li>
-					<li>Watch in VR mode</li>
-					<li>Drag your mouse</li>
-					<li>Slide your finger</li>
-					<li>Use navigation controller on top left of the video</li>
-					<br>
-					<strong><u>Voice recognition and speech synthesis</u></strong>
-					<br>
-					<br>
-					<strong>Commands list:</strong>
-					<li>Help</li>
-					<li>What is this?</li>
-					<li>Where am i?</li>
-					<li>When (was the video) recorded?</li>
-					<li>Next location</li>
-					<li>Replay</li>
-					<!-- <strong>Currently playing:</strong> -->
-					<!-- <div id="note">EMPTY, Please choose one location on the map</div> -->
-				</div>
-			</div>
-		</div>
+<!-- https://www.w3schools.com/w3css/tryw3css_templates_blog.htm -->
+<title>Vision Impair Navigation Project</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="annyang.js"></script> <!-- Speech Recognition Framework -->
+<link rel="icon" href="assets/favicon.png">
+<link rel="stylesheet" href="w3css.css">
+<link rel="stylesheet" href="index.css">
+<script src="index.js"></script>
 
-		<div class="right-body">
-			<div style="text-align: center;"><strong>The project</strong></div>
-			With almost one in five Australians experiencing some form of disability, a large proportion of the community face challenges to actively participate in city life.
-			<br><br>
-			This project (a participant for the <a href="http://www.melbourne.vic.gov.au/about-melbourne/melbourne-profile/smart-city/Pages/innovation-competition-city-accessibility.aspx">Open innovation competition on city accessibility</a> in 2018) is a proof of concept for a long-term technology-enabled solution to issues experienced by people with vision impaired.
-			<br><br>
-			<div style="text-align: center;"><strong>Method</strong></div>
-			<br>
-			We develop an auditory-based simulator to simulate the sensory experience of a specific location in Melbourne’s CBD. The idea is to provide people who have vision impairment and blindness an immersive tool that allows them to experience the sounds of environments they plan to walk through. The simulator would allow them to rotate their body and hear the sounds change as they rotate.<br>
-			<img src='assets/3d.png' width="40%">
-			<img src='assets/blind.jpg' width="40%"><br>
-			In order to archive what we call “immersive” experience, we use Ambisonic Technology [1]: a full-sphere surround sound technique, in addition to the horizontal plane, it covers  sound sources above and below the listener
-			<br>
-			<img src="assets/mic.png" width="30%">
-			<img src="assets/pattern.gif" width="30%">
-			<img src="assets/math.png" width="30%">
-			<br>
-			Sounds are recorded by a tetrahedron microphone (left image) to get 4-channel monophonic A-format. This is converted into 4-channel B-format using mathematical formula shown below [1]. B-format file contains XYZ directions which covers all 3 dimensions. W channel is called omnidirectional.
-			<br>
-			<img src="assets/compare.png" width="100%">
-		</div>
-	<div style="clear:left;" class="mobile-plat">
-		<strong>II. Desktop Platform</strong> <br><br>
-		For desktop platform, we development a standalone application using <a href='https://cycling74.com/products/max/'><strong>Max/MSP</strong></a> - a visual programming language for music and multimedia.
-		<br>
-		We make use of <a href='https://github.com/abaskind/hedrot'>Hedrot</a> - Open-Source Head Tracker. This product can be integrated in headphone tracks yaw-pitch-roll value when users rotate.
-		<br>
-		<figure>
-  		<img src='assets/teensy-part.png' width='250px' height="250px">
-			<img src='assets/schematics.png' width='250px' height="250px">
-			<img src='assets/hedrot.png' width='250px' height="250px">
-			<img src='assets/hedrot-headphone.png' width='250px' height="250px">
-  		<figcaption>Hedrot parts --- Schematics --- Build headtracker --- Integrate Headtracker to headphone</figcaption>
-		</figure>
-		<br>
-		Below is desktop application interface, users can choose a specific location to play the sound, headtracker will automatically be detected once plugged in:
-		<figure>
-  		<img src='assets/max-presentation.png' width='70%'>
-  		<figcaption></figcaption>
-		</figure>
-		Main procedure: start by loading 4 separate mono channels, convert to B format audio using <a href="https://en-au.sennheiser.com/ambeo-blueprints-downloads">sennheiser ambeo a-b format converter</a>. After that, sound field is changed by ambix-rotator plug-in, this plug-in use yaw-pitch-roll data from Headtracker. Finally, ambix_biaural plug-in is used as a HRTF (head related transfer function) so that the output is 2 channel audio that can be played through headphone.
-		<figure>
-  		<img src='assets/max-demo.png' width='70%'>
-  		<figcaption></figcaption>
-		</figure>
-		<br>
-		<strong>Narration and Audio Description based on user’s head direction</strong>
-		<br>
-		The surround area will be described, description is on-request and dynamically adjusted based on head direction. The yaw value from headtracker is extracted and separated into 4 parts: front, back, left and right. Audio cue will be played based on the head direction.
-		<div style="clear:left">
-		<img src='assets/narration.png' width="20%">
-		<br>
-		<strong>Main Equipments:</strong>
-		<ul>
-			<li><a href="https://virb.garmin.com/en-AU">Garmin Virb 360 Camera</a></li>
-			<li><a href="https://en-au.sennheiser.com/microphone-3d-audio-ambeo-vr-mic">Sennheiser Ambeo VR Mic</a></li>
-			<li><a href="https://www.zoom-na.com/products/field-video-recording/field-recording/h6-handy-recorder">Zoom H6 recorder</li>
-			<li><a href="https://www.pjrc.com/store/teensy32.html">Teensy 3.2</a></li>
-		</ul>
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+</style>
 
+<body class="w3-light-grey">
 
-	</div>
-	</div>
+<header class="w3-container w3-center w3-padding-32"> 
+
+  <h1 id='title'><b>An immersive journey preparation tool for people with vision impairment</b></h1>
+  <div id='author'>Dung Lai, Chris McCarthy, David Sly, Harrison Bennett, Matt Shackleton, Stuart Favillla<br></div>
+</header>
+
+<div class="w3-row">
+  <div class="w3-card-4 w3-margin w3-white" style="overflow: hidden;">
+    <div class="map-interface">
+    <div class="w3-container">
+      <h3><b>Demo web application</b></h3>
+
+      <h5>Explore immersive environment with Ambisonic surround sound technology</h5>
+      <center>Flinders Street Station Map</center>
+    </div>
+
+    <div class="w3-container">
+      <p>     
+      <div class="container">
+        <img src="assets/FSmap1.png" alt="Snow" style="width:inherit;">
+        <input style="top:15% ;left:66.5%" name='location' type="radio" value='18'  id="18" onclick="onClick(18)"> 
+        <input style="top:23% ;left:66.5%" name='location' type="radio" value='17'  id="17" onclick="onClick(17)"> 
+        <input style="top:32% ;left:68%" name='location' type="radio" value='16'  id="16" onclick="onClick(16)"> 
+        <input style="top:40% ;left:68.3%" name='location' type="radio" value='1' id="1" onclick="onClick(1)"> 
+        <input style="top:55% ;left:64.5%" name='location' type="radio" value='7' id="7" onclick="onClick(7)"> 
+        <input style="top:55% ;left:51.5%" name='location' type="radio" value='8' id="8" onclick="onClick(8)">
+        <input style="top:55% ;left:38.5%" name='location' type="radio" value='11'  id="11" onclick="onClick(11)"> 
+        <input style="top:78% ;left:64.5%" name='location' type="radio" value='6' id="6" onclick="onClick(6)"> 
+        <input style="top:78% ;left:51.5%" name='location' type="radio" value='9' id="9" onclick="onClick(9)"> 
+        <input style="top:78% ;left:38.5%" name='location' type="radio" value='10'  id="10" onclick="onClick(10)"> 
+        <input style="top:91% ;left:64.5%" name='location' type="radio" value='14'  id="14" onclick="onClick(14)">  
+        <input style="top:91% ;left:51.5%" name='location' type="radio" value='13'  id="13" onclick="onClick(13)"> 
+        <input style="top:91% ;left:38.5%" name='location' type="radio" value='12'  id="12" onclick="onClick(12)"> 
+        <input style="top:91% ;left:25.5%" name='location' type="radio" value='15'  id="15" onclick="onClick(15)"> 
+        <input style="top:74% ;left:76.5%" name='location' type="radio" value='5' id="5" onclick="onClick(5)"> 
+        <input style="top:75% ;left:82.5%" name='location' type="radio" value='3' id="3" onclick="onClick(3)">
+        <input style="top:86% ;left:93.5%" name='location' type="radio" value='2' id="2" onclick="onClick(2)"> 
+      </div>
+      </p>
+    </div>
+    </div>
+    <div class="youtubeVideo"> 
+      <img src="assets/chatbot.jpg" style="width: 20%; float:left">
+
+      <div id='bodybox'>
+        <div id='chatboarder'>
+          <div id="chatlog2" class="chatlog">&nbsp;</div>
+          <div id="chatlog1" class="chatlog">&nbsp;</div>
+          <input type="text" name="chat" id="chatbox" placeholder= "Hi there! Type/Talk here to talk to me.">
+        </div>
+      </div>
+
+      <center>Current supported voice/text commands:</center>
+      <center>
+        Help &#8226 What is this &#8226 Where am i &#8226 Describe &#8226 When recorded &#8226 Next location &#8226 Replay &#8226 Hi &#8226 Hello &#8226 Start Exploring
+      </center>
+      <div class="vid-container">
+        <div class="video-container" id="youtubeVideoAmbeo">
+          <center><strong>Please choose on location</strong></center>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+
+<!-- <footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top">
+  <center>Sponsered by Prof. Denny Meyer, Swinburne University of Technology.<center>
+</footer> -->
 </body>
-</html> 
+</html>
