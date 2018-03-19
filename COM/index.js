@@ -206,27 +206,6 @@ var dictTime = {
   18: "1:39pm"
 }
 
-var dictNarration = {
-  1: "Walk and record along predefined route from Platform 3, up escalators, through barriers and onto Flinders/Swanston steps.",
-  2: "You are facing North, there is a long pedestrian crossroad in front of you. In the middle of the cross, there is a tram stop. 45 degrees to your right is the intersection of Swanston Street and Flinders street",
-  3: "You are standing under the main dome, facing North toward Flinders Street Station entrance, outside entrance is the intersection between Flinders Street and Swanston Street. There are 10 steps down if you keep going forward",
-  4: "",
-  5: "You are facing the main entrance/exit on the corner of Flinders Street and Swanston St. There is a column directly in front of you, with two large arches to exit on either side of the column. 30 degrees to your left there are 4 customer service booths, there might be some queue line up barrier",
-  6: "Straight ahead is North, and you will find barriers that lead you to the main dome entrance/exit. There are more barriers slightly to your right. Around 45 degrees to your left is an ANZ ATM. Situated to the left of the ATM are the toilets",
-  7: "You are facing North. If you walk straight there is a walkway. On the right of the walkway is an entrance to platform 3 via lift. On the left of the walkway is an entrance to platform 3 via escalator or steep stairwell",
-  8: "You are facing North. In front of you is a walkway. On the right of the walkway is an entrance to platform 5 via lift. On the left of the walkway is an entrance to platform 5 via escalator or steep stairwell",
-  9: "You are facing North. There are four picnic style tables sitting directly in front of you, positioned in two rows of two. 45 degrees to your left is the customer service centre",
-  10: "Slightly to your left is a lift to platform 7. Straight ahead you will find a customer centre information centre and a retail shop. Keep walking and you will reach the barriers to exit the station onto the corner of Flinders Street and Swanston Street",
-  11: "Slightly to your left is a lift to platform 7. Straight ahead you will find a customer centre information centre and a retail shop. Keep walking and you will reach the barriers to exit the station onto the corner of Flinders Street and Swanston Street",
-  12: "Facing North along Swanston St. If you walk straight, you will pass a line of retail shops on your left",
-  13: "Facing North along Swanston St. If you walk straight, you will pass a line of retail shops on your left",
-  14: "Facing North along Swanston St. Approximately 20 degrees to your left is a police centre. If you keep walking ahead, you will come to the Flinders St/ Swanston Street crossing",
-  15: "Facing North along Swanston St. If you walk straight, you will pass a line of retail shops on your left",
-  16: "You are facing the platform 2 railway. Walk straight to board train, feel for bumps on platform to signal safety line.",
-  17: "You are facing the platform 2 railway. Walk straight to board train, feel for bumps on platform to signal safety line",
-  18: "Stairs located directly in front of you lead to platforms 2 and 3. Stairs are quite steep"
-}
-
 var dictDesc = {
   1: "Walk and record along predefined route from Platform 3, up escalators, through barriers and onto Flinders/Swanston steps.",
   2: "Start of Cnr Flinders and Swanston at steps.",
