@@ -33,7 +33,7 @@ function chatbotResponse() {
   }
 
   if (lastUserMessage === "help") {
-    botMessage = "This is an auditory based simulation of Flinder Street Station. Those are the supported commands you can use: help, start exploring, next location, replay, what is this, where am i, describe, when recoreded. Or say hi to me";
+    botMessage = "This is an auditory based simulation of Flinder Street Station. Those are the supported commands you can use: help, start exploring, next location, replay, what is this, where am i, describe, when recorded. Or say hi to me";
   }
 
   if (lastUserMessage === "next location") {
