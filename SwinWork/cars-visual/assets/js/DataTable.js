@@ -2,17 +2,21 @@ window.dataTable = function(id, data, columns, colors, callback_highlight){
 	var dataTable = {};
 	var _data = data;
 	var columns2 = [
-		{ name: "Make", field: "make", id: "make", sortable: true, width: 90, resizable: false , headerCssClass: "prKeyHeadColumn", formatter: MakeFormatter },
-		{ name: "Fuel-type", field: "fuel-type", id: "fuel-type", sortable: true, width: 65, resizable: false , headerCssClass: "prKeyHeadColumn", formatter:FuelFormatter },
-	    { name: "Compression", field: "compression", id: "compression", sortable: true, width: 95, resizable: false, headerCssClass: "prKeyHeadColumn", cssClass: "numericCell" },
+		{ name: "Make", field: "make", id: "make", sortable: true, width: 120, resizable: false , headerCssClass: "prKeyHeadColumn", formatter: MakeFormatter },
+		{ name: "Fuel-type", field: "fuel-type", id: "fuel-type", sortable: true, width: 75, resizable: false , headerCssClass: "prKeyHeadColumn", formatter:FuelFormatter },
+	    { name: "Compression", field: "compression-ratio", id: "compression-ratio", sortable: true, width: 95, resizable: false, headerCssClass: "prKeyHeadColumn", cssClass: "numericCell" },
 	    { name: "City-Mpg (mi)", field: "city-mpg", id: "city-mpg", sortable: true, width: 90, resizable: false , headerCssClass: "prKeyHeadColumn", cssClass: "numericCell"},
-	    { name: "Cylinders", field: "cylinders", id: "cylinders", sortable: true, width: 65, resizable: false , headerCssClass: "prKeyHeadColumn", cssClass: "numericCell"},
-	    { name: "Weight (lbs)", field: "weight", id: "weight", sortable: true, width: 85, resizable: false, headerCssClass: "prKeyHeadColumn", cssClass: "numericCell", formatter: NumberFormatter },
+	    { name: "Peak-rpm", field: "peak-rpm", id: "peak-rpm", sortable: true, width: 90, resizable: false , headerCssClass: "prKeyHeadColumn", cssClass: "numericCell"},
+	    { name: "Normalized-losses", field: "normalized-losses", id: "normalized-losses", sortable: true, width: 120, resizable: false , headerCssClass: "prKeyHeadColumn", cssClass: "numericCell"},
+	    { name: "Highway-mpg", field: "highway-mpg", id: "highway-mpg", sortable: true, width: 90, resizable: false , headerCssClass: "prKeyHeadColumn", cssClass: "numericCell"},
+	    { name: "Stroke", field: "stroke", id: "stroke", sortable: true, width: 90, resizable: false , headerCssClass: "prKeyHeadColumn", cssClass: "numericCell"},
+	    { name: "Cylinders", field: "num-of-cylinders", id: "num-of-cylinders", sortable: true, width: 75, resizable: false , headerCssClass: "prKeyHeadColumn", cssClass: "numericCell"},
+	    { name: "Weight (lbs)", field: "curb-weight", id: "curb-weight", sortable: true, width: 85, resizable: false, headerCssClass: "prKeyHeadColumn", cssClass: "numericCell", formatter: NumberFormatter },
 	    { name: "Engine-size (cm3)", field: "engine-size", id: "engine-size", sortable: true, width: 115, resizable: false , headerCssClass: "prKeyHeadColumn", cssClass: "numericCell"},
 	    { name: "Length (cm)", field: "length", id: "length", sortable: true, width: 80,resizable: false , headerCssClass: "prKeyHeadColumn", cssClass: "numericCell" },
 	    { name: "Horsepower", field: "horsepower", id: "horsepower", sortable: true, width: 90, resizable: false , headerCssClass: "prKeyHeadColumn", cssClass: "numericCell"},
 	    { name: "Width (cm)", field: "width", id: "width", sortable: true, width: 80, resizable: false  , headerCssClass: "prKeyHeadColumn", cssClass: "numericCell"},
-	    { name: "Price ($)", field: "price", id: "price", sortable: true, width: 65, resizable: false , headerCssClass: "prKeyHeadColumn", cssClass: "numericCell", formatter: NumberFormatter}
+	    { name: "Price ($)", field: "price", id: "price", sortable: true, width: 100, resizable: false , headerCssClass: "prKeyHeadColumn", cssClass: "numericCell", formatter: NumberFormatter}
 
 	];
 
