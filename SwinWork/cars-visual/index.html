@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
  
 <head>
 	<meta charset="utf-8">
@@ -35,11 +35,12 @@
 
     <!-- JS scripts -->
     <script src="assets/js/ParallelCoordinatesPlot.js"></script>
-    <!-- <script src="assets/js/DonutChartGrouped.js"></script> -->
-    <!-- <script src="assets/js/DonutChartTotals.js"></script> -->
+    <script src="assets/js/DonutChartGrouped.js"></script>
+    <script src="assets/js/DonutChartTotals.js"></script>
     <script src="assets/js/DataTable.js"></script>
-    <!-- <script src="assets/js/LegendChart.js"></script> -->
+    <script src="assets/js/LegendChart.js"></script>
     <script src="assets/js/Stats.js"></script>
+    <script src="assets/js/Scatter.js"></script>
     <script src="assets/js/Main.js"></script>
 
     <!-- Charts CSS -->
@@ -75,7 +76,7 @@
 			</div>
 		</div>
 
-<!-- 		<div class="row padding">
+		<div class="row padding">
 			<div class="col span_12">
 				<h3 class="align-center">Selected Data</h3>
 				<div class="pie"  id="pie-totals"></div>
@@ -84,12 +85,12 @@
 				<h3 class="align-center">Makes Breakdown</h3>	
 				<div class="pie"  id="pie-groups"></div>
 			</div>
-		</div> -->
-
+		</div> <!-- end of row -->
 		<hr class="divider">
 		<div class="row padding" >
 			<div class="col span_24">
 				<h3 class="align-center">Parallel Coordinates Plot</h3>
+
 				<div id="selector">
 					Choose the attributes you want to explore <br>
 					Categorical attributes:  
@@ -108,10 +109,10 @@
 					Metric attributes: 
 					<input onchange="on_select_attr('length')" type="checkbox" name="length" value="length" id='length'> length
 					<input onchange="on_select_attr('width')" type="checkbox" name="width" value="width" id='width'> width
-					<input onchange="on_select_attr('weight')" type="checkbox" name="curb-weight" value="curb-weight" id='curb-weight'> curb-weight
+					<input onchange="on_select_attr('curb-weight')" type="checkbox" name="curb-weight" value="curb-weight" id='curb-weight'> curb-weight
 					<input onchange="on_select_attr('cylinders')" type="checkbox" name="num-of-cylinders" value="num-of-cylinders" id='num-of-cylinders'> num-of-cylinders
 					<input onchange="on_select_attr('engine-size')" type="checkbox" name="engine-size" value="engine-size" id='engine-size'> engine-size
-					<input onchange="on_select_attr('compression')" type="checkbox" name="compression-raito" value="compression-raito" id='compression-raito'> compression-raito
+					<input onchange="on_select_attr('compression-ratio')" type="checkbox" name="compression-ratio" value="compression-ratio" id='compression-ratio'> compression-ratio
 					<input onchange="on_select_attr('horsepower')" type="checkbox" name="horsepower" value="horsepower" id='horsepower'> horsepower
 					<input onchange="on_select_attr('city-mpg')" type="checkbox" name="city-mpg" value="city-mpg" id='city-mpg'> city-mpg
 					<input onchange="on_select_attr('price')" type="checkbox" name="price" value="price" id='price'> price
@@ -121,10 +122,47 @@
 					<input onchange="on_select_attr('stroke')" type="checkbox" name="stroke" value="stroke" id='stroke'> stroke
 					<input onchange="on_select_attr('peak-rpm')" type="checkbox" name="peak-rpm" value="peak-rpm" id='peak-rpm'> peak-rpm
 					<input onchange="on_select_attr('highway-mpg')" type="checkbox" name="highway-mpg" value="highway-mpg" id='highway-mpg'> highway-mpg
-
-  				
-				</div>
+				
 				<div id="pcp"> </div>
+				Choose attributes for scatter plot:
+
+				<select id="var1" name="var1">
+				  <option onclick="on_change_var1('length')" value="length">length</option>
+				  <option onclick="on_change_var1('width')" value="width">width</option>
+				  <option onclick="on_change_var1('curb-weight')" value="curb-weight">curb-weight</option>
+				  <option onclick="on_change_var1('num-of-cylinders')" value="num-of-cylinders">num-of-cylinders</option>
+				  <option onclick="on_change_var1('engine-size')" value="engine-size">engine-size</option>
+				  <option onclick="on_change_var1('compression-ratio')" value="compression-ratio">compression-ratio</option>
+				  <option onclick="on_change_var1('horsepower')" value="horsepower">horsepower</option>
+				  <option onclick="on_change_var1('city-mpg')" value="city-mpg">city-mpg</option>
+				  <option onclick="on_change_var1('price')" value="price">price</option>
+				  <option onclick="on_change_var1('normalized-losses')" value="normalized-losses">normalized-losses</option>
+				  <option onclick="on_change_var1('wheel-base')" value="wheel-base">wheel-base</option>
+				  <option onclick="on_change_var1('bore')" value="bore">bore</option>
+				  <option onclick="on_change_var1('stroke')" value="stroke">stroke</option>
+				  <option onclick="on_change_var1('peak-rpm')" value="peak-rpm">peak-rpm</option>
+				  <option onclick="on_change_var1('highway-mpg')" value="highway-mpg">highway-mpg</option>	
+				</select>
+
+				<select id="var2" name="var2">
+				  <option onclick="on_change_var2('length')" value="length">length</option>
+				  <option onclick="on_change_var2('width')" value="width">width</option>
+				  <option onclick="on_change_var2('curb-weight')" value="curb-weight">curb-weight</option>
+				  <option onclick="on_change_var2('num-of-cylinders')" value="num-of-cylinders">num-of-cylinders</option>
+				  <option onclick="on_change_var2('engine-size')" value="engine-size">engine-size</option>
+				  <option onclick="on_change_var2('compression-ratio')" value="compression-ratio">compression-ratio</option>
+				  <option onclick="on_change_var2('horsepower')" value="horsepower">horsepower</option>
+				  <option onclick="on_change_var2('city-mpg')" value="city-mpg">city-mpg</option>
+				  <option onclick="on_change_var2('price')" value="price">price</option>
+				  <option onclick="on_change_var2('normalized-losses')" value="normalized-losses">normalized-losses</option>
+				  <option onclick="on_change_var2('wheel-base')" value="wheel-base">wheel-base</option>
+				  <option onclick="on_change_var2('bore')" value="bore">bore</option>
+				  <option onclick="on_change_var2('stroke')" value="stroke">stroke</option>
+				  <option onclick="on_change_var2('peak-rpm')" value="peak-rpm">peak-rpm</option>
+				  <option onclick="on_change_var2('highway-mpg')" value="highway-mpg">highway-mpg</option>	
+				</select>
+
+				<div id="scatter"></div>
 			</div>
 		</div> <!-- end of row -->
 		
@@ -133,17 +171,15 @@
 				<h3 class="align-center">Detailed infomation</h3>
 				<div id="data-table"> </div>
 			</div>
-		</div> 
+		</div> <!-- end of row -->
 
 	</div>
 	<!-- END OF CONTENT -->
-<!-- 	<div id="Footer" class="container">
+	<div id="Footer" class="container">
 		<div >
 			<div class="col span_16">&copy; 2015 Mariano Trebino, Data visualization, University of Girona. </div>
 		</div>
 	</div>
- -->
-
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<script type="text/javascript">
   		var main = new Main();

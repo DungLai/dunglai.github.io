@@ -153,6 +153,11 @@ window.parallelCoordinatesChart = function(id, data, colors, dimensions, brush_c
             }) ? null : "none";
         });
         brush_callback(brushed_data)
+
+
+        // update data
+        self._scatter = scatter("scatter", self._data_selected, "width", "length");
+
     }
     
     parallelCoordinatesChart.update = function(dataset) {

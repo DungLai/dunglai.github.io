@@ -47,16 +47,16 @@ function on_select_attr(string) {
     // console.log(self._dimensions_selected);
 }
 
-
 function Main(){
     // reset page, uncheck everything
     $('input:checkbox').removeAttr('checked');
 
-    // set up default check
-    $('#make').prop('checked', true);
-    $('#fuel-type').prop('checked', true);
-    $('#length').prop('checked', true);
-    $('#width').prop('checked', true);
+    self._dimensions_selected = ['make', 'fuel-type', 'compression-ratio', 'city-mpg', 'num-of-cylinders', 'curb-weight', 'engine-size', 'length', 'horsepower', 'width', 'price'];
+
+    // tick checkbox for default dimension
+    for (var i = 0; i < self._dimensions_selected.length; i++) {
+        $('#' + self._dimensions_selected[i]).prop('checked', true);
+    }
 
     self = this;
 
@@ -101,21 +101,20 @@ function Main(){
         "volvo" : "#85bfd1"
     }
 
-    self._dimensions_selected = ['make', 'fuel-type', 'length', 'width'];
+    // self._dimensions_selected = ['make', 'fuel-type', 'length', 'width'];
+    self._dimensions_selected = ['make', 'fuel-type', 'compression-ratio', 'city-mpg', 'num-of-cylinders', 'curb-weight', 'engine-size', 'length', 'horsepower', 'width', 'price'];
 
+    // scatter plot
+    self._var1 = "";
+    self._var2 = ""; 
 
     self.init();
 }
 
-// prototype add more property to existing function
-//// https://www.w3schools.com/js/js_object_prototypes.asp
 Main.prototype = {
-    init : function(csvFile){ 
+    init : function(csvFile){
         console.debug("Main: init");
         d3.csv("./data/imports-85.csv", function(d) {
-        // d3.csv("./data/student-mat.csv", function(d) {
-            // console.log(d['make']);
-            // console.log(+d['width']);
         return {
             //get a full collumn of data
             'make': d['make'],
@@ -123,11 +122,11 @@ Main.prototype = {
             // plus sign : read metric data
             'length' : +d['length'],
             'width' :+d['width'],
-            'weight': +d['curb-weight'],
-            'cylinders' : +d['num-of-cylinders'],
+            'curb-weight': +d['curb-weight'],
+            'num-of-cylinders' : +d['num-of-cylinders'],
             'engine-size' : +d['engine-size'],
             'fuel-system': d['fuel-system'],
-            'compression' : +d['compression-ratio'],
+            'compression-ratio' : +d['compression-ratio'],
             'horsepower' : +d['horsepower'],
             'city-mpg' : +d['city-mpg'],
             'price' : +d['price'],
@@ -148,45 +147,37 @@ Main.prototype = {
         };
         }, function(data) {
             self._data = data;
-            // slice(start, end), separate the array
             self._data_selected = self._data.slice();
-            // console.log(self._data.slice());
             self.setupCharts();
         });    
         
     },
 
     setupCharts : function(){
-        // var dimensions = ['make','aspiration', 'fuel-type', 'compression', 'city-mpg' , 'cylinders', 'weight', 'engine-size','length', 'horsepower','width', 'price'];
-        // var dimensions = ['symboling', 'normalized-losses', 'aspiration' , 'num-of-doors', 'body-style', 'drive-wheels','engine-location', 'wheel-base','bore', 'stroke'];
-        var dimensions = [];
-
-
-        dimensions = self._dimensions_selected;
-        // console.log(dimensions);
+        var dimensions = ['make', 'fuel-type', 'compression-ratio', 'city-mpg' , 'num-of-cylinders', 'curb-weight', 'engine-size','length', 'horsepower','width', 'price'];
         self._stats = stats(self._data);
         self._pcp = parallelCoordinatesChart("pcp", self._data, self._colors, dimensions, self.callback_applyBrushFilter);
-
-        // var dimensions = ['make', 'cylinders', 'weight', 'engine-size','length', 'horsepower','width', 'price'];
-        
-        // self._stats = stats(self._data);
-        // self._pcp = parallelCoordinatesChart("pcp", self._data, self._colors, dimensions, self.callback_applyBrushFilter);
-        // self._legend = legendChart("legend", self._data_selected, self._colors, self.callback_applyGroupFilter)
-        // self._donutMakes = donutChartGrouped("pie-groups", self._data_selected, "make",  self._colors, self._pcp.highlight_group);
-        // self._donutTotals = donutChartTotals("pie-totals", self._data_selected, self._colors);
+        self._legend = legendChart("legend", self._data_selected, self._colors, self.callback_applyGroupFilter)
+        self._donutMakes = donutChartGrouped("pie-groups", self._data_selected, "make",  self._colors, self._pcp.highlight_group);
+        self._donutTotals = donutChartTotals("pie-totals", self._data_selected, self._colors);
         self._dataTable = dataTable("data-table", self._data_selected, dimensions, self._colors, self._pcp.highlight_single)
+        self._scatter = scatter("scatter", self._data_selected, "width", "length");
     },
-
+    
     callback_applyBrushFilter : function(brushed_data){
         self._data_selected = brushed_data;
+        self._scatter = scatter("scatter", self._data_selected, "width", "length");
+
         self.refreshCharts();
     },
 
     refreshCharts : function() {
-        // self._donutTotals.update(self._data_selected);
-        // self._donutMakes.update(self._data_selected);
+        self._donutTotals.update(self._data_selected);
+        self._donutMakes.update(self._data_selected);
         self._pcp.update(self._data_selected);
         self._dataTable.update(self._data_selected);
+        self._scatter = scatter("scatter", self._data_selected, "width", "length");
+        
     },
     
 
@@ -207,7 +198,6 @@ Main.prototype = {
     },
 } 
 
-//capitalize the catergory name in the chart
 function capitalize(string) { 
     return string.charAt(0).toUpperCase() + string.slice(1); 
 }

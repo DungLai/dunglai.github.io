@@ -70,7 +70,6 @@ window.dataTable = function(id, data, columns, colors, callback_highlight){
     }
 
 	dataTable.update = function(data){
-		console.log(data);
 		if (_.isEmpty(data)) return;
 		_data = data;
 		grid.setData(_data);

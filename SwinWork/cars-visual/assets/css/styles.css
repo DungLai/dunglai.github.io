@@ -21,8 +21,25 @@
  *  1. Layout
  *
  *******************************************/
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.dot {
+  stroke: #000;
+}
+
+.tooltip {
+  position: absolute;
+  width: 200px;
+  height: 28px;
+  pointer-events: none;
+}
 body{ background-repeat:no-repeat; background-position: top center; background-attachment: fixed;}
-.container{ max-width: 1500px/*980px*/; } /* Can be wider */
+.container{ max-width: 980/*980px*/; } /* Can be wider */
 
 .padding{ padding:0 2%; }
 
