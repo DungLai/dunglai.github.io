@@ -15,7 +15,7 @@ plt.imshow(A,cmap='gray')
 # plt.show()
 plt.figure(3)
 plt.plot(S)
-k = 200
+k = 50
 S[k:] = 0
 
 # print(U.shape)
