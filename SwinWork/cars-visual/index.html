@@ -89,87 +89,93 @@
 		<hr class="divider">
 		<div class="row padding" >
 			<div class="col span_24">
-				<h3 class="align-center">Parallel Coordinates Plot</h3>
-
-				<div id="selector">
-					Choose the attributes you want to explore <br>
-					Categorical attributes:  
-					<input onchange="on_select_attr('make')" id='make' type="checkbox" name="make" value="make" > make
-					<input onchange="on_select_attr('fuel-type')" type="checkbox" name="fuel-type" id='fuel-type' value="fuel-type"> fuel-type
-					<input onchange="on_select_attr('fuel-system')" type="checkbox" name="fuel-system" id='fuel-system' value="fuel-system"> fuel-system
-					<input onchange="on_select_attr('symboling')" type="checkbox" name="symboling" id='symboling' value="symboling"> symboling
-					<input onchange="on_select_attr('aspiration')" type="checkbox" name="aspiration" id='aspiration' value="aspiration"> aspiration
-					<input onchange="on_select_attr('num-of-doors')" type="checkbox" name="num-of-door" id='num-of-door' value="num-of-door"> num-of-door
-					<input onchange="on_select_attr('body-style')" type="checkbox" name="body-style" id='body-style' value="body-style"> body-style
-					<input onchange="on_select_attr('drive-wheels')" type="checkbox" name="drive-wheels" id='drive-wheels' value="drive-wheels"> drive-wheels
-					<input onchange="on_select_attr('engine-location')" type="checkbox" name="engine-location" id='engine-location' value="engine-location"> engine-location
-					<input onchange="on_select_attr('engine-type')" type="checkbox" name="engine-type" id='engine-type' value="engine-type"> engine-type
+				<!-- <h3 class="align-center">Parallel Coordinates Plot</h3> -->
+				<div class="pcp-plot" style="float:left; max-width: 900px">
+					<div id="selector">
+						Choose the attributes you want to explore <br>
+						Categorical attributes:  
+						<input onchange="on_select_attr('make')" id='make' type="checkbox" name="make" value="make" > make
+						<input onchange="on_select_attr('fuel-type')" type="checkbox" name="fuel-type" id='fuel-type' value="fuel-type"> fuel-type
+						<input onchange="on_select_attr('fuel-system')" type="checkbox" name="fuel-system" id='fuel-system' value="fuel-system"> fuel-system
+						<input onchange="on_select_attr('symboling')" type="checkbox" name="symboling" id='symboling' value="symboling"> symboling
+						<input onchange="on_select_attr('aspiration')" type="checkbox" name="aspiration" id='aspiration' value="aspiration"> aspiration
+						<input onchange="on_select_attr('num-of-doors')" type="checkbox" name="num-of-door" id='num-of-door' value="num-of-door"> num-of-door
+						<input onchange="on_select_attr('body-style')" type="checkbox" name="body-style" id='body-style' value="body-style"> body-style
+						<input onchange="on_select_attr('drive-wheels')" type="checkbox" name="drive-wheels" id='drive-wheels' value="drive-wheels"> drive-wheels
+						<input onchange="on_select_attr('engine-location')" type="checkbox" name="engine-location" id='engine-location' value="engine-location"> engine-location
+						<input onchange="on_select_attr('engine-type')" type="checkbox" name="engine-type" id='engine-type' value="engine-type"> engine-type
+						
+						<br>
+						Metric attributes: 
+						<input onchange="on_select_attr('length')" type="checkbox" name="length" value="length" id='length'> length
+						<input onchange="on_select_attr('width')" type="checkbox" name="width" value="width" id='width'> width
+						<input onchange="on_select_attr('curb-weight')" type="checkbox" name="curb-weight" value="curb-weight" id='curb-weight'> curb-weight
+						<input onchange="on_select_attr('num-of-cylinders')" type="checkbox" name="num-of-cylinders" value="num-of-cylinders" id='num-of-cylinders'> num-of-cylinders
+						<input onchange="on_select_attr('engine-size')" type="checkbox" name="engine-size" value="engine-size" id='engine-size'> engine-size
+						<input onchange="on_select_attr('compression-ratio')" type="checkbox" name="compression-ratio" value="compression-ratio" id='compression-ratio'> compression-ratio
+						<input onchange="on_select_attr('horsepower')" type="checkbox" name="horsepower" value="horsepower" id='horsepower'> horsepower
+						<input onchange="on_select_attr('city-mpg')" type="checkbox" name="city-mpg" value="city-mpg" id='city-mpg'> city-mpg
+						<input onchange="on_select_attr('price')" type="checkbox" name="price" value="price" id='price'> price
+						<input onchange="on_select_attr('normalized-losses')" type="checkbox" name="normalized-losses" value="normalized-losses" id='normalized-losses'> normalized-losses
+						<input onchange="on_select_attr('wheel-base')" type="checkbox" name="wheel-base" value="wheel-base" id='wheel-base'> wheel-base
+						<input onchange="on_select_attr('bore')" type="checkbox" name="bore" value="bore" id='bore'> bore
+						<input onchange="on_select_attr('stroke')" type="checkbox" name="stroke" value="stroke" id='stroke'> stroke
+						<input onchange="on_select_attr('peak-rpm')" type="checkbox" name="peak-rpm" value="peak-rpm" id='peak-rpm'> peak-rpm
+						<input onchange="on_select_attr('highway-mpg')" type="checkbox" name="highway-mpg" value="highway-mpg" id='highway-mpg'> highway-mpg</div>
 					
+					<div id="pcp"> </div>
+				</div>
+<!-- 				Choose attributes for scatter plot: -->
+
+Choose the attributes you want to explore 
+				<div class="scatter-plot" style="float:right">
+
+
+					Choose Y-Axis:   <select style="width: 50%" id="var1" name="var1">
+					  <option onclick="on_change_var1('length')" value="length">length</option>
+					  <option onclick="on_change_var1('width')" value="width">width</option>
+					  <option onclick="on_change_var1('curb-weight')" value="curb-weight">curb-weight</option>
+					  <option onclick="on_change_var1('num-of-cylinders')" value="num-of-cylinders">num-of-cylinders</option>
+					  <option onclick="on_change_var1('engine-size')" value="engine-size">engine-size</option>
+					  <option onclick="on_change_var1('compression-ratio')" value="compression-ratio">compression-ratio</option>
+					  <option onclick="on_change_var1('horsepower')" value="horsepower">horsepower</option>
+					  <option onclick="on_change_var1('city-mpg')" value="city-mpg">city-mpg</option>
+					  <option onclick="on_change_var1('price')" value="price">price</option>
+					  <option onclick="on_change_var1('normalized-losses')" value="normalized-losses">normalized-losses</option>
+					  <option onclick="on_change_var1('wheel-base')" value="wheel-base">wheel-base</option>
+					  <option onclick="on_change_var1('bore')" value="bore">bore</option>
+					  <option onclick="on_change_var1('stroke')" value="stroke">stroke</option>
+					  <option onclick="on_change_var1('peak-rpm')" value="peak-rpm">peak-rpm</option>
+					  <option onclick="on_change_var1('highway-mpg')" value="highway-mpg">highway-mpg</option>	
+					</select>
 					<br>
-					Metric attributes: 
-					<input onchange="on_select_attr('length')" type="checkbox" name="length" value="length" id='length'> length
-					<input onchange="on_select_attr('width')" type="checkbox" name="width" value="width" id='width'> width
-					<input onchange="on_select_attr('curb-weight')" type="checkbox" name="curb-weight" value="curb-weight" id='curb-weight'> curb-weight
-					<input onchange="on_select_attr('cylinders')" type="checkbox" name="num-of-cylinders" value="num-of-cylinders" id='num-of-cylinders'> num-of-cylinders
-					<input onchange="on_select_attr('engine-size')" type="checkbox" name="engine-size" value="engine-size" id='engine-size'> engine-size
-					<input onchange="on_select_attr('compression-ratio')" type="checkbox" name="compression-ratio" value="compression-ratio" id='compression-ratio'> compression-ratio
-					<input onchange="on_select_attr('horsepower')" type="checkbox" name="horsepower" value="horsepower" id='horsepower'> horsepower
-					<input onchange="on_select_attr('city-mpg')" type="checkbox" name="city-mpg" value="city-mpg" id='city-mpg'> city-mpg
-					<input onchange="on_select_attr('price')" type="checkbox" name="price" value="price" id='price'> price
-					<input onchange="on_select_attr('normalized-losses')" type="checkbox" name="normalized-losses" value="normalized-losses" id='normalized-losses'> normalized-losses
-					<input onchange="on_select_attr('wheel-base')" type="checkbox" name="wheel-base" value="wheel-base" id='wheel-base'> wheel-base
-					<input onchange="on_select_attr('bore')" type="checkbox" name="bore" value="bore" id='bore'> bore
-					<input onchange="on_select_attr('stroke')" type="checkbox" name="stroke" value="stroke" id='stroke'> stroke
-					<input onchange="on_select_attr('peak-rpm')" type="checkbox" name="peak-rpm" value="peak-rpm" id='peak-rpm'> peak-rpm
-					<input onchange="on_select_attr('highway-mpg')" type="checkbox" name="highway-mpg" value="highway-mpg" id='highway-mpg'> highway-mpg
-				
-				<div id="pcp"> </div>
-				Choose attributes for scatter plot:
+					Choose X-Axis:   <select style="width: 50%" id="var2" name="var2">
+					  <option onclick="on_change_var2('length')" value="length">length</option>
+					  <option onclick="on_change_var2('width')" value="width">width</option>
+					  <option onclick="on_change_var2('curb-weight')" value="curb-weight">curb-weight</option>
+					  <option onclick="on_change_var2('num-of-cylinders')" value="num-of-cylinders">num-of-cylinders</option>
+					  <option onclick="on_change_var2('engine-size')" value="engine-size">engine-size</option>
+					  <option onclick="on_change_var2('compression-ratio')" value="compression-ratio">compression-ratio</option>
+					  <option onclick="on_change_var2('horsepower')" value="horsepower">horsepower</option>
+					  <option onclick="on_change_var2('city-mpg')" value="city-mpg">city-mpg</option>
+					  <option onclick="on_change_var2('price')" value="price">price</option>
+					  <option onclick="on_change_var2('normalized-losses')" value="normalized-losses">normalized-losses</option>
+					  <option onclick="on_change_var2('wheel-base')" value="wheel-base">wheel-base</option>
+					  <option onclick="on_change_var2('bore')" value="bore">bore</option>
+					  <option onclick="on_change_var2('stroke')" value="stroke">stroke</option>
+					  <option onclick="on_change_var2('peak-rpm')" value="peak-rpm">peak-rpm</option>
+					  <option onclick="on_change_var2('highway-mpg')" value="highway-mpg">highway-mpg</option>	
+					</select>
 
-				<select id="var1" name="var1">
-				  <option onclick="on_change_var1('length')" value="length">length</option>
-				  <option onclick="on_change_var1('width')" value="width">width</option>
-				  <option onclick="on_change_var1('curb-weight')" value="curb-weight">curb-weight</option>
-				  <option onclick="on_change_var1('num-of-cylinders')" value="num-of-cylinders">num-of-cylinders</option>
-				  <option onclick="on_change_var1('engine-size')" value="engine-size">engine-size</option>
-				  <option onclick="on_change_var1('compression-ratio')" value="compression-ratio">compression-ratio</option>
-				  <option onclick="on_change_var1('horsepower')" value="horsepower">horsepower</option>
-				  <option onclick="on_change_var1('city-mpg')" value="city-mpg">city-mpg</option>
-				  <option onclick="on_change_var1('price')" value="price">price</option>
-				  <option onclick="on_change_var1('normalized-losses')" value="normalized-losses">normalized-losses</option>
-				  <option onclick="on_change_var1('wheel-base')" value="wheel-base">wheel-base</option>
-				  <option onclick="on_change_var1('bore')" value="bore">bore</option>
-				  <option onclick="on_change_var1('stroke')" value="stroke">stroke</option>
-				  <option onclick="on_change_var1('peak-rpm')" value="peak-rpm">peak-rpm</option>
-				  <option onclick="on_change_var1('highway-mpg')" value="highway-mpg">highway-mpg</option>	
-				</select>
-
-				<select id="var2" name="var2">
-				  <option onclick="on_change_var2('length')" value="length">length</option>
-				  <option onclick="on_change_var2('width')" value="width">width</option>
-				  <option onclick="on_change_var2('curb-weight')" value="curb-weight">curb-weight</option>
-				  <option onclick="on_change_var2('num-of-cylinders')" value="num-of-cylinders">num-of-cylinders</option>
-				  <option onclick="on_change_var2('engine-size')" value="engine-size">engine-size</option>
-				  <option onclick="on_change_var2('compression-ratio')" value="compression-ratio">compression-ratio</option>
-				  <option onclick="on_change_var2('horsepower')" value="horsepower">horsepower</option>
-				  <option onclick="on_change_var2('city-mpg')" value="city-mpg">city-mpg</option>
-				  <option onclick="on_change_var2('price')" value="price">price</option>
-				  <option onclick="on_change_var2('normalized-losses')" value="normalized-losses">normalized-losses</option>
-				  <option onclick="on_change_var2('wheel-base')" value="wheel-base">wheel-base</option>
-				  <option onclick="on_change_var2('bore')" value="bore">bore</option>
-				  <option onclick="on_change_var2('stroke')" value="stroke">stroke</option>
-				  <option onclick="on_change_var2('peak-rpm')" value="peak-rpm">peak-rpm</option>
-				  <option onclick="on_change_var2('highway-mpg')" value="highway-mpg">highway-mpg</option>	
-				</select>
-
-				<div id="scatter"></div>
+					<div id="scatter"></div>
+				</div>
 			</div>
 		</div> <!-- end of row -->
 		
 		<div class="row padding">
 			<div class="col span_24">
 				<h3 class="align-center">Detailed infomation</h3>
-				<div id="data-table"> </div>
+				<div id="data-table" style="text-align: center;"> </div>
 			</div>
 		</div> <!-- end of row -->
 
@@ -178,6 +184,7 @@
 	<div id="Footer" class="container">
 		<div >
 			<div class="col span_16">&copy; 2015 Mariano Trebino, Data visualization, University of Girona. </div>
+			<div class="col span_16">&copy; 2018 Tuan Dung Lai, Data visualization, Swinburne University of Technology. </div>
 		</div>
 	</div>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>

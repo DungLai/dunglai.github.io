@@ -2,13 +2,9 @@ window.parallelCoordinatesChart = function(id, data, colors, dimensions, brush_c
     var original_data = data;
     var parallelCoordinatesChart = {};
     
-    var margin = {top: 50, right: 10, bottom: 10, left: 60},
-        // width = 950 - margin.left - margin.right,
-        // height = 500 - margin.top - margin.bottom;
-        // width = 800 - margin.left - margin.right,
-        // height = 500 - margin.top - margin.bottom;
-        width = 800 
-        height = 500 - margin.top
+    var margin = {top: 30, right: 10, bottom: 10, left: 60},
+        width = 950 - margin.left - margin.right,
+        height = 500 - margin.top - margin.bottom;
     var x = d3.scale.ordinal().rangePoints([0, width], 1),
         y = {},
         dragging = {},
@@ -157,11 +153,6 @@ window.parallelCoordinatesChart = function(id, data, colors, dimensions, brush_c
             }) ? null : "none";
         });
         brush_callback(brushed_data)
-
-
-        // update data
-        self._scatter = scatter("scatter", self._data_selected, "width", "length");
-
     }
     
     parallelCoordinatesChart.update = function(dataset) {

@@ -9,9 +9,9 @@ function on_change_var1(string) {
   self._var2 = e.options[e.selectedIndex].value;
 
   document.getElementById("scatter").innerHTML = '';
-  console.log("change var 1");
-  console.log("var 1: " + self._var1);
-  console.log("var 2: " + self._var2);
+  // console.log("change var 1");
+  // console.log("var 1: " + self._var1);
+  // console.log("var 2: " + self._var2);
   self._scatter = scatter("scatter", self._data_selected, self._var1, self._var2);
 
 }
@@ -22,9 +22,9 @@ function on_change_var2(string) {
   self._var1 = e.options[e.selectedIndex].value;
 
   document.getElementById("scatter").innerHTML = '';
-  console.log("change var 2");
-  console.log("var 1: " + self._var1);
-  console.log("var 2: " + self._var2);
+  // console.log("change var 2");
+  // console.log("var 1: " + self._var1);
+  // console.log("var 2: " + self._var2);
   self._scatter = scatter("scatter", self._data_selected,self._var1, self._var2);
 
 }
@@ -36,8 +36,10 @@ window.scatter = function(id, data, var1, var2) {
   document.getElementById("scatter").innerHTML = '';
 
   var margin = {top: 20, right: 20, bottom: 30, left: 40},
-      width = 960 ;
-      height = 520 ;
+      width = 490 ;
+      height = 460 ;
+      // width = 100 ;
+      // height = 200 ;
 
 
   /* 
@@ -64,7 +66,8 @@ window.scatter = function(id, data, var1, var2) {
   // var cValue = function(d) { return d.Manufacturer;},
   var cValue = function(d) { return d.make;},
       // color = d3.scale.category10();
-      // color = d3.scale.category20();
+      color = d3.scale.category20();
+      // console.log(color);
       colors = {
         "selected": "#97a4bc",
         "un-selected":  "#e8eefd",
@@ -151,10 +154,11 @@ window.scatter = function(id, data, var1, var2) {
         .data(data)
       .enter().append("circle")
         .attr("class", "dot")
-        .attr("r", 3.5)
+        .attr("r", 5)
         .attr("cx", xMap)
         .attr("cy", yMap)
-        .style("fill", function(d) { return color(cValue(d));}) 
+        // .style("fill", function(d) { return color(cValue(d));}) 
+        .style("fill", function(d) { return colors[d.make];}) 
         .on("mouseover", function(d) {
             tooltip.transition()
                  .duration(200)
@@ -173,6 +177,7 @@ window.scatter = function(id, data, var1, var2) {
     // draw legend
     var legend = svg.selectAll(".legend")
         .data(color.domain())
+        // .data(color[d.make])
       .enter().append("g")
         .attr("class", "legend")
         .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
@@ -182,7 +187,7 @@ window.scatter = function(id, data, var1, var2) {
         .attr("x", width - 18)
         .attr("width", 18)
         .attr("height", 18)
-        .style("fill", color);
+        // .style("fill", color[d.make]);
 
     // draw legend text
     legend.append("text")
