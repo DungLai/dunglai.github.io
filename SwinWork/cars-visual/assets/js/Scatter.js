@@ -1,6 +1,7 @@
 self._var1 = "length";
 self._var2 = "width";
 
+//dropdown menu for scatter plot
 function on_change_var1(string) {
   self._var1 = string;
 
@@ -12,10 +13,13 @@ function on_change_var1(string) {
   // console.log("change var 1");
   // console.log("var 1: " + self._var1);
   // console.log("var 2: " + self._var2);
-  self._scatter = scatter("scatter", self._data_selected, self._var1, self._var2);
+  // self._pcp = parallelCoordinatesChart("pcp", self._data, self._colors, dimensions, self.callback_applyBrushFilter);
+  self._scatter = scatter("scatter", self._data_selected, self._var1, self._var2, self._pcp.highlight_single);
+        // self._dataTable = dataTable("data-table", self._data_selected, dimensions, self._colors, self._pcp.highlight_single)
 
 }
 
+//check box for pcp
 function on_change_var2(string) {
   self._var2 = string;
   var e = document.getElementById("var1");
@@ -25,8 +29,7 @@ function on_change_var2(string) {
   // console.log("change var 2");
   // console.log("var 1: " + self._var1);
   // console.log("var 2: " + self._var2);
-  self._scatter = scatter("scatter", self._data_selected,self._var1, self._var2);
-
+  self._scatter = scatter("scatter", self._data_selected,self._var1, self._var2, self._pcp.highlight_single);
 }
 
 window.scatter = function(id, data, var1, var2, callback_highlight) {

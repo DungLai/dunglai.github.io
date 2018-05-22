@@ -166,7 +166,7 @@ Main.prototype = {
     
     callback_applyBrushFilter : function(brushed_data){
         self._data_selected = brushed_data;
-        self._scatter = scatter("scatter", self._data_selected, "width", "length");
+        self._scatter = scatter("scatter", self._data_selected, "width", "length", self._pcp.highlight_single);
 
         self.refreshCharts();
     },
@@ -176,7 +176,8 @@ Main.prototype = {
         self._donutMakes.update(self._data_selected);
         self._pcp.update(self._data_selected);
         self._dataTable.update(self._data_selected);
-        self._scatter = scatter("scatter", self._data_selected, "width", "length");
+        self._pcp = parallelCoordinatesChart("pcp", self._data, self._colors, dimensions, self.callback_applyBrushFilter);
+        self._scatter = scatter("scatter", self._data_selected, "width", "length", self._pcp.highlight_single);
         
     },
     
