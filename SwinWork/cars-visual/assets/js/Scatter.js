@@ -29,7 +29,7 @@ function on_change_var2(string) {
 
 }
 
-window.scatter = function(id, data, var1, var2) {
+window.scatter = function(id, data, var1, var2, callback_highlight) {
 
   // delete old graph and load new graph
 
@@ -110,7 +110,7 @@ window.scatter = function(id, data, var1, var2) {
       .attr("class", "tooltip")
       .style("opacity", 0);
 
-  // load data
+  // load test dataset
   // d3.csv("cereal.csv", function(error, data) {
   // d3.csv("./data/imports-85.csv", function(error, data) {
 
@@ -159,19 +159,16 @@ window.scatter = function(id, data, var1, var2) {
         .attr("cy", yMap)
         // .style("fill", function(d) { return color(cValue(d));}) 
         .style("fill", function(d) { return colors[d.make];}) 
-        .on("mouseover", function(d) {
-            tooltip.transition()
-                 .duration(200)
-                 .style("opacity", .9);
-            tooltip.html(d["Cereal Name"] + "<br/> (" + xValue(d) 
-  	        + ", " + yValue(d) + ")")
-                 .style("left", (d3.event.pageX + 5) + "px")
-                 .style("top", (d3.event.pageY - 28) + "px");
+
+        //highlight data
+        .on('mouseover', function(d, i) {
+          callback_highlight(data[i]);
+          // tip.transition().duration(0);
         })
-        .on("mouseout", function(d) {
-            tooltip.transition()
-                 .duration(500)
-                 .style("opacity", 0);
+        .on('mouseout', function(d, i) {
+          callback_highlight(undefined);
+
+          // tip.style('display', 'none');
         });
 
     // draw legend

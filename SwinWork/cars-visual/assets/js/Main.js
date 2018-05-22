@@ -161,7 +161,7 @@ Main.prototype = {
         self._donutMakes = donutChartGrouped("pie-groups", self._data_selected, "make",  self._colors, self._pcp.highlight_group);
         self._donutTotals = donutChartTotals("pie-totals", self._data_selected, self._colors);
         self._dataTable = dataTable("data-table", self._data_selected, dimensions, self._colors, self._pcp.highlight_single)
-        self._scatter = scatter("scatter", self._data_selected, "width", "length");
+        self._scatter = scatter("scatter", self._data_selected, "width", "length", self._pcp.highlight_single);
     },
     
     callback_applyBrushFilter : function(brushed_data){
