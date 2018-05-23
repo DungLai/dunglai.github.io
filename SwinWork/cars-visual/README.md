@@ -1,6 +1,8 @@
 [Click here to open web-based visualition](https://dunglai.github.io/SwinWork/cars-visual/index.html)
+
 This visualization is developed upon the work of Mariano Trebino, University of Girona, 2015.
-Developed by Tuan Dung Lai, Swinburne University of Technology, Australia, 2018.
+
+Developed further by Tuan Dung Lai, Swinburne University of Technology, Australia, 2018.
 
 # d3 Cars dataset visualization
 
@@ -9,9 +11,6 @@ The primary question that could be answered by the visualisation is what types o
 The visualisation allows users to analyze the different between products of various cars companies, including prices, brands and specification. Cars enthusiasts can research into the details of parts in a car and how they are related.
 
 People who wish to buy cars can have better understanding of price range and specialization of varied brands in the car market. 
-
-This visualisation 
-
 ## Plots
 
 This visualization uses a Parallel Coordinates Plot and Scatter Plot as the main plot and then three secondary plots: two donuts and one data table (SlickGrid library). All these plots all linked and synchronized. Any modification in any plot is translated to the others.
