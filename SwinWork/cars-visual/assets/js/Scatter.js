@@ -1,3 +1,4 @@
+// Default value for scatter plot
 self._var1 = "length";
 self._var2 = "width";
 
