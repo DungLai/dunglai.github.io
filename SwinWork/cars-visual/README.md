@@ -1,3 +1,7 @@
+[Click here to open web-based visualition](https://dunglai.github.io/SwinWork/cars-visual/index.html)
+This visualization is developed upon the work of Mariano Trebino, University of Girona, 2015.
+Developed by Tuan Dung Lai, Swinburne University of Technology, Australia, 2018.
+
 # d3 Cars dataset visualization
 
 The primary question that could be answered by the visualisation is what types of car a brand normally makes and how the price and other factor of the cars are correlated. 
@@ -6,6 +10,7 @@ The visualisation allows users to analyze the different between products of vari
 
 People who wish to buy cars can have better understanding of price range and specialization of varied brands in the car market. 
 
+This visualisation 
 
 ## Plots
 
