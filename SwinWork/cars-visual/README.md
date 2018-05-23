@@ -39,4 +39,4 @@ The visualisation is tested in FireFox browser only
 
 ## Example
 
-![Example of the visualization](https://github.com/mtrebi/d3_cars/blob/master/example_vis.png)
+![Example of the visualization](https://github.com/DungLai/dunglai.github.io/blob/master/SwinWork/cars-visual/example_vis.png)
