@@ -4,7 +4,7 @@
  <title>Dung Lai</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2018-06-14T12:55:18+10:00</updated>
+ <updated>2018-06-14T13:42:32+10:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Dung Lai</name>
@@ -938,7 +938,7 @@ The problem is we cannot always find a linear relationship that fit all the data
 
 &lt;p&gt;Let’s take a quick look at this example again:&lt;/p&gt;
 &lt;div class=&quot;imgcap&quot;&gt;
-&lt;img style=&quot;display: inline-block; width: 45%; float:left&quot; src=&quot;/public/post-assets/LinearRegression/example.png&quot; width=&quot;500&quot; align=&quot;center&quot; /&gt;
+&lt;img style=&quot;display: inline-block; width: 45%; float:left&quot; src=&quot;../public/post-assets/LinearRegression/example.png&quot; width=&quot;500&quot; align=&quot;center&quot; /&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;br /&gt;
 &lt;script type=&quot;math/tex&quot;&gt;% &lt;![CDATA[
@@ -1005,7 +1005,7 @@ D
 0
 \end{bmatrix}&lt;/script&gt;&lt;/p&gt;
 &lt;div class=&quot;imgcap&quot;&gt;
-	&lt;img style=&quot;display: inline-block; width: 80%;&quot; src=&quot;/public/post-assets/LinearRegression/fig1.png&quot; width=&quot;500&quot; align=&quot;center&quot; /&gt;
+	&lt;img style=&quot;display: inline-block; width: 80%;&quot; src=&quot;../public/post-assets/LinearRegression/fig1.png&quot; width=&quot;500&quot; align=&quot;center&quot; /&gt;
 	&lt;div class=&quot;thecap&quot;&gt;Image taken from &lt;a href=&quot;http://math.mit.edu/~gs/linearalgebra/&quot;&gt;Introduction to Linear Algebra book&lt;/a&gt; &lt;br /&gt;&lt;/div&gt;
 &lt;/div&gt;
 

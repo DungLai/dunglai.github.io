@@ -28,13 +28,13 @@ Each rover is powered by one or more batteries, with each battery able to hold a
 
 Attached to each Rover are a number of devices. There are four different kinds of device: Motor, Radar, Solar Panel, and Drill. Each device has a name, for example the "Tien Corp: M5" motor, or the "Jai Force 27" Solor Panel.
 
-1. Motor — when operated moves the rover. For this simulation, each motor moves the rover in one direction (up, down, left, or right) and uses 1 unit of power to move the rover 1 meter in that direction.
+1. Motor â€” when operated moves the rover. For this simulation, each motor moves the rover in one direction (up, down, left, or right) and uses 1 unit of power to move the rover 1 meter in that direction.
 
-2. Radar — when operated, the radar subtracts 4 units of power from the Battery to which it is connected. It then scans the area within 5 meters of the rover and reports back on the specimens found. Different Radars have different capabilities, being able to report back (Type 1) the location of the found specimens, (Type 2) their size, or (Type 3) their name.
+2. Radar â€” when operated, the radar subtracts 4 units of power from the Battery to which it is connected. It then scans the area within 5 meters of the rover and reports back on the specimens found. Different Radars have different capabilities, being able to report back (Type 1) the location of the found specimens, (Type 2) their size, or (Type 3) their name.
 
-3. Solar Panel — when operated, the solar panel adds 1 unit of power to the battery to which it is connected.
+3. Solar Panel â€” when operated, the solar panel adds 1 unit of power to the battery to which it is connected.
 
-4. Drill — when operated, the drill attempts to extract a specimen at the rovers current location.
+4. Drill â€” when operated, the drill attempts to extract a specimen at the rovers current location.
 
 The drill has a wear factor (percent worn), if this exceeds 100% then there is a 20% chance of drill failure otherwise the drill works successfully. When a specimen is extracted the wear factor increases by 5%, if the drill is operated without the rover being over a specimen then the wear factor increases by 10%.
 
