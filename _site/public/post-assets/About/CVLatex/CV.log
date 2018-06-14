@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (MiKTeX 2.9.6500) (preloaded format=xelatex 2017.12.2)  18 FEB 2018 00:07
+This is XeTeX, Version 3.14159265-2.6-0.99998 (MiKTeX 2.9.6500) (preloaded format=xelatex 2017.12.2)  31 MAY 2018 20:55
 entering extended mode
 **./CV.tex
 (CV.tex
@@ -877,20 +877,24 @@ LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
 (Font)                  OT1/cmss/bx/n --> TU/lmss/bx/n on input line 55.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  OT1/cmtt/m/n --> TU/lmtt/bx/n on input line 55.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 227.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 240.
  [1
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 227.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 240.
  (CV.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 227.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 227.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 227.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 240.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 240.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 240.
  ) 
 Here is how much of TeX's memory you used:
  24190 strings out of 427839
- 457700 string characters out of 3151404
- 540180 words of memory out of 3000000
+ 457705 string characters out of 3151404
+ 541182 words of memory out of 3000000
  28039 multiletter control sequences out of 15000+200000
  530800 words of font info for 44 fonts, out of 3000000 for 9000
  1328 hyphenation exceptions out of 8191
