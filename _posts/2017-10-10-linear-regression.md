@@ -276,6 +276,7 @@ print(lr.coef_) #w1
 	<div class="thecap">Code output</div>
 </div>
 Fitting a prabole:
+
 ```python
 import numpy as np
 import matplotlib
