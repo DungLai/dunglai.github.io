@@ -4,7 +4,7 @@
  <title>Dung Lai</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2018-06-15T20:55:03+10:00</updated>
+ <updated>2018-06-15T21:01:35+10:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Dung Lai</name>
@@ -23,15 +23,8 @@
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;#diagonalize&quot;&gt;Diagonalize&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#svd&quot;&gt;SVD&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#image-compression-using-svd&quot;&gt;Image Compression using SVD&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#energy-based&quot;&gt;Energy based&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#evaluation&quot;&gt;Evaluation&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#python-code&quot;&gt;Python Code&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#image-compression-using-svd&quot;&gt;Image Compression using SVD&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#reference&quot;&gt;Reference&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#svd-1&quot;&gt;SVD&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;!-- /MarkdownTOC --&gt;
@@ -118,6 +111,7 @@ A = QDQ^{-1} = QDQ^T \hspace{2em} with \hspace{1em} Q^{-1} = Q^T
 	&lt;/div&gt;
 &lt;/div&gt;
 &lt;div style=&quot;clear:left&quot;&gt;&lt;/div&gt;
+
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;scipy&lt;/span&gt;
 &lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;scipy&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;misc&lt;/span&gt;
 &lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;scipy&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;linalg&lt;/span&gt;
