@@ -4,7 +4,7 @@
  <title>Dung Lai</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2018-06-14T14:30:41+10:00</updated>
+ <updated>2018-06-15T20:55:03+10:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Dung Lai</name>
@@ -88,51 +88,84 @@ A = QDQ^{-1} = QDQ^T \hspace{2em} with \hspace{1em} Q^{-1} = Q^T
 
 &lt;p&gt;&lt;a name=&quot;svd&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&quot;svd&quot;&gt;SVD&lt;/h3&gt;
+
+&lt;p&gt;The singular value decomposition of a matrix A is the factorization of A into the product of three special matrices: &lt;script type=&quot;math/tex&quot;&gt;A=U \sum V^T&lt;/script&gt; where &lt;script type=&quot;math/tex&quot;&gt;U&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;V&lt;/script&gt; are square orthonormal and the matrix &lt;script type=&quot;math/tex&quot;&gt;\sum&lt;/script&gt; is diagonal with positive real entries in the main diagonal.&lt;/p&gt;
+
+&lt;p&gt;The number of non-zero entries on matrix &lt;script type=&quot;math/tex&quot;&gt;\sum&lt;/script&gt; is the rank of matrix &lt;script type=&quot;math/tex&quot;&gt;A&lt;/script&gt;.&lt;/p&gt;
+
+&lt;p&gt;The diagonal entries of &lt;script type=&quot;math/tex&quot;&gt;\sum&lt;/script&gt; are sorted from biggest to smallest.&lt;/p&gt;
+
 &lt;p&gt;&lt;a name=&quot;image-compression-using-svd&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&quot;image-compression-using-svd&quot;&gt;Image Compression using SVD&lt;/h3&gt;
-&lt;p&gt;&lt;a name=&quot;energy-based&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h4 id=&quot;energy-based&quot;&gt;Energy based&lt;/h4&gt;
-&lt;p&gt;&lt;a name=&quot;evaluation&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h4 id=&quot;evaluation&quot;&gt;Evaluation&lt;/h4&gt;
-&lt;p&gt;&lt;a name=&quot;python-code&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h4 id=&quot;python-code&quot;&gt;Python Code&lt;/h4&gt;
+&lt;p&gt;An image can be factorized into the multiplication of 3 matrices using SVD technique. The diagonal matrix is called the energy of the image.&lt;/p&gt;
+
+&lt;div class=&quot;imgcap&quot;&gt;
+	&lt;img style=&quot;float:left; display: inline-block; width: 50%;&quot; src=&quot;/public/post-assets/SVD/test.png&quot; width=&quot;500&quot; height=&quot;250&quot; /&gt;
+	&lt;img id=&quot;fig1&quot; style=&quot;float:left; display: inline-block; width: 50%;&quot; src=&quot;/public/post-assets/SVD/diagonal_of_S.png&quot; width=&quot;500&quot; height=&quot;250&quot; /&gt;
+	&lt;div class=&quot;thecap&quot;&gt;
+		Figure 1: a) Test image b) Entries in diagonal matrix after SVD factorization&lt;br /&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style=&quot;clear:left&quot;&gt;&lt;/div&gt;
+
+&lt;p&gt;Figure b below shows that most values of those entries are closed to zero, that means these values will not contribute much to the overall image, the first 100 values will significantly affect the structure of the image. The following figure show the compressed image by only retaining the first 50 values of S. This method is called “best rank k approximation”.&lt;/p&gt;
+
+&lt;div class=&quot;imgcap&quot;&gt;
+	&lt;img style=&quot;float:left; display: inline-block; width: 50%;&quot; src=&quot;/public/post-assets/SVD/k=20.png&quot; width=&quot;500&quot; height=&quot;250&quot; /&gt;
+	&lt;img id=&quot;fig1&quot; style=&quot;float:left; display: inline-block; width: 50%;&quot; src=&quot;/public/post-assets/SVD/k=50.png&quot; width=&quot;500&quot; height=&quot;250&quot; /&gt;
+	&lt;div class=&quot;thecap&quot;&gt;
+		Figure 2: a) k=20 b) k=50&lt;br /&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style=&quot;clear:left&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;scipy&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;scipy&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;misc&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;scipy&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;linalg&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;numpy&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;math&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;matplotlib&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;matplotlib&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pyplot&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# load image test.png and store pixel values in matrix A&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# Dimesional of image (1024x768)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;scipy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;misc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;imread&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'test.png'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'L'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;U&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;S&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;V&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;linalg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;svd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;full_matrices&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;figure&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;imshow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cmap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'gray'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Plot the values of entries in diagonal matrix S&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;figure&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;fig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;subplots&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;plot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;S&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xlabel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'entries index of S'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ylabel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'actual values of entries'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# k is the number of largest entries on diagonal matrix that will be retained&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;k&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;50&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;S&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1024&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;768&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;sigma&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;zeros&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;min&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)):&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;sigma&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;S&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;U&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sigma&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;V&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;figure&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Plot image after choosing k biggest entries of S&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;imshow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cmap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'gray'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;show&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div style=&quot;clear:left;&quot;&gt;&lt;/div&gt;
+
 &lt;p&gt;&lt;a name=&quot;reference&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&quot;reference&quot;&gt;Reference&lt;/h3&gt;
 &lt;ol&gt;
   &lt;li&gt;Introduction to linear algebra 4th edition, Gilbert Strang.&lt;/li&gt;
 &lt;/ol&gt;
-
-&lt;p&gt;basis for row space : v1
-basis for col space : u1&lt;/p&gt;
-
-&lt;p&gt;Av1 = sigma u1 (same number of basic cuz number of basis for row space = no of basis for col space = rank )
-=&amp;gt; AV  = ZU (U and V and Z max length = r, now we need to extend it to m)&lt;/p&gt;
-
-&lt;p&gt;A^TA = V Z^2 V^T. A^TA is symetric so it can be diagonalizaed (spectral theorem) -&amp;gt; V is eigenvectors of A^TA, they are orthonormal vector. Same for U.&lt;/p&gt;
-
-&lt;p&gt;NOW HOW TO FILL UP THE REST OF VECTOR TO COMPLETE SVD?
-IS THIS A LEGIT PROOF FOR EXISTENCE OF SVD?&lt;/p&gt;
-
-&lt;p&gt;&lt;a name=&quot;svd-1&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;svd-1&quot;&gt;SVD&lt;/h3&gt;
-
-&lt;p&gt;Suppose we know the (proved fact)[add link] that every square matrix can be factorized into the product of 3 special matrixed.&lt;/p&gt;
-
-&lt;p&gt;We call v1 is a vector in row space. So Av_1 will be the linear combination of collumn vectors in A, the coefficients is elements in v_1. This combination of collumn vector in A creates a new vector in collumn space of A. -&amp;gt; Av1 = sigma u1, we take v1…v_r : basis of row space and we get AV=UZ (not ZU) bc number of basis for col space and row space are equal, now need to prove that U is also orthornomal providing that V is orthornormal basis of row space.&lt;/p&gt;
-
-&lt;p&gt;multiply both side with V^T =&amp;gt; A = UZV^T
-A^TA = VZ^T U^T UZV^T = V Z^2 V^T&lt;/p&gt;
-
-&lt;p&gt;Proof that U is orthogonal matrix: 
-v1, v2 are orthogonal vector =&amp;gt; v1 v2^T = 0 
-u1.u2 (dot product) = Av1.v2^T A^T = 0&lt;/p&gt;
-
-&lt;p&gt;=&amp;gt;
-A^T A V = VZ^2&lt;/p&gt;
-
-&lt;p&gt;=&amp;gt; A^TA v_i = z_i^2 v_i&lt;/p&gt;
-
-&lt;p&gt;=&amp;gt; v_i is eigen… (sometime it doesnt exist but A^TA is symetric positive definite matrix)&lt;/p&gt;
 </content>
  </entry>
  

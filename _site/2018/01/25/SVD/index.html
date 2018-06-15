@@ -222,51 +222,84 @@ A = QDQ^{-1} = QDQ^T \hspace{2em} with \hspace{1em} Q^{-1} = Q^T
 
 <p><a name="svd"></a></p>
 <h3 id="svd">SVD</h3>
+
+<p>The singular value decomposition of a matrix A is the factorization of A into the product of three special matrices: <script type="math/tex">A=U \sum V^T</script> where <script type="math/tex">U</script> and <script type="math/tex">V</script> are square orthonormal and the matrix <script type="math/tex">\sum</script> is diagonal with positive real entries in the main diagonal.</p>
+
+<p>The number of non-zero entries on matrix <script type="math/tex">\sum</script> is the rank of matrix <script type="math/tex">A</script>.</p>
+
+<p>The diagonal entries of <script type="math/tex">\sum</script> are sorted from biggest to smallest.</p>
+
 <p><a name="image-compression-using-svd"></a></p>
 <h3 id="image-compression-using-svd">Image Compression using SVD</h3>
-<p><a name="energy-based"></a></p>
-<h4 id="energy-based">Energy based</h4>
-<p><a name="evaluation"></a></p>
-<h4 id="evaluation">Evaluation</h4>
-<p><a name="python-code"></a></p>
-<h4 id="python-code">Python Code</h4>
+<p>An image can be factorized into the multiplication of 3 matrices using SVD technique. The diagonal matrix is called the energy of the image.</p>
+
+<div class="imgcap">
+	<img style="float:left; display: inline-block; width: 50%;" src="/public/post-assets/SVD/test.png" width="500" height="250" />
+	<img id="fig1" style="float:left; display: inline-block; width: 50%;" src="/public/post-assets/SVD/diagonal_of_S.png" width="500" height="250" />
+	<div class="thecap">
+		Figure 1: a) Test image b) Entries in diagonal matrix after SVD factorization<br />
+	</div>
+</div>
+<div style="clear:left"></div>
+
+<p>Figure b below shows that most values of those entries are closed to zero, that means these values will not contribute much to the overall image, the first 100 values will significantly affect the structure of the image. The following figure show the compressed image by only retaining the first 50 values of S. This method is called “best rank k approximation”.</p>
+
+<div class="imgcap">
+	<img style="float:left; display: inline-block; width: 50%;" src="/public/post-assets/SVD/k=20.png" width="500" height="250" />
+	<img id="fig1" style="float:left; display: inline-block; width: 50%;" src="/public/post-assets/SVD/k=50.png" width="500" height="250" />
+	<div class="thecap">
+		Figure 2: a) k=20 b) k=50<br />
+	</div>
+</div>
+<div style="clear:left"></div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">scipy</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">misc</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">linalg</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="c"># load image test.png and store pixel values in matrix A</span>
+<span class="c"># Dimesional of image (1024x768)</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">misc</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s">'test.png'</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s">'L'</span><span class="p">)</span>
+
+<span class="n">U</span><span class="p">,</span><span class="n">S</span><span class="p">,</span><span class="n">V</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">full_matrices</span> <span class="o">=</span> <span class="bp">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s">'gray'</span><span class="p">)</span>
+
+<span class="c"># Plot the values of entries in diagonal matrix S</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="nb">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s">'entries index of S'</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s">'actual values of entries'</span><span class="p">)</span>
+
+<span class="c"># k is the number of largest entries on diagonal matrix that will be retained</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">S</span><span class="p">[</span><span class="n">k</span><span class="p">:]</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="n">n</span><span class="o">=</span><span class="mi">1024</span>
+<span class="n">m</span><span class="o">=</span><span class="mi">768</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">)):</span>
+	<span class="n">sigma</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">sigma</span><span class="p">,</span> <span class="n">V</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c"># Plot image after choosing k biggest entries of S</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s">'gray'</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+<div style="clear:left;"></div>
+
 <p><a name="reference"></a></p>
 <h3 id="reference">Reference</h3>
 <ol>
   <li>Introduction to linear algebra 4th edition, Gilbert Strang.</li>
 </ol>
-
-<p>basis for row space : v1
-basis for col space : u1</p>
-
-<p>Av1 = sigma u1 (same number of basic cuz number of basis for row space = no of basis for col space = rank )
-=&gt; AV  = ZU (U and V and Z max length = r, now we need to extend it to m)</p>
-
-<p>A^TA = V Z^2 V^T. A^TA is symetric so it can be diagonalizaed (spectral theorem) -&gt; V is eigenvectors of A^TA, they are orthonormal vector. Same for U.</p>
-
-<p>NOW HOW TO FILL UP THE REST OF VECTOR TO COMPLETE SVD?
-IS THIS A LEGIT PROOF FOR EXISTENCE OF SVD?</p>
-
-<p><a name="svd-1"></a></p>
-<h3 id="svd-1">SVD</h3>
-
-<p>Suppose we know the (proved fact)[add link] that every square matrix can be factorized into the product of 3 special matrixed.</p>
-
-<p>We call v1 is a vector in row space. So Av_1 will be the linear combination of collumn vectors in A, the coefficients is elements in v_1. This combination of collumn vector in A creates a new vector in collumn space of A. -&gt; Av1 = sigma u1, we take v1…v_r : basis of row space and we get AV=UZ (not ZU) bc number of basis for col space and row space are equal, now need to prove that U is also orthornomal providing that V is orthornormal basis of row space.</p>
-
-<p>multiply both side with V^T =&gt; A = UZV^T
-A^TA = VZ^T U^T UZV^T = V Z^2 V^T</p>
-
-<p>Proof that U is orthogonal matrix: 
-v1, v2 are orthogonal vector =&gt; v1 v2^T = 0 
-u1.u2 (dot product) = Av1.v2^T A^T = 0</p>
-
-<p>=&gt;
-A^T A V = VZ^2</p>
-
-<p>=&gt; A^TA v_i = z_i^2 v_i</p>
-
-<p>=&gt; v_i is eigen… (sometime it doesnt exist but A^TA is symetric positive definite matrix)</p>
 
 </div>
         <!-- Start of StatCounter Code for Default Guide -->
