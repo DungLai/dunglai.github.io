@@ -1,7 +1,7 @@
 ### Club administration system
 Screen capture:
 
-https://github.com/DungLai/dunglai.github.io/blob/master/Club_Admin/Capture.PNG
+![screen capture](https://github.com/DungLai/dunglai.github.io/blob/master/Club_Admin/Capture.PNG)
 
 Description:
 
