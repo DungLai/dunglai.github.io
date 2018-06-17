@@ -15,12 +15,14 @@ namespace ClubAdmin
 
         public SQL()
         {
-            string host = "192.168.0.9";
+            // ipv4 of local server machine
+            string host = "192.168.0.9"; 
             int port = 3306;
             string database = "clubadmin";
             string username = "root";
             string password = "root";
-
+            
+            // connection string used to connect to server.
             String connString = "Server=" + host + ";Database=" + database
                 + ";port=" + port + ";User Id=" + username + ";password=" + password + ";SslMode=none";
 
