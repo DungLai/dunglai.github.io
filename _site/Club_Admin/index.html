@@ -11,7 +11,7 @@
 
   <title>
     
-      Singular Value Decomposition &middot; Dung Lai
+      Club administration system &middot; Dung Lai
     
   </title>
 
@@ -84,6 +84,12 @@
     
       
         
+          <a class="sidebar-nav-item active" href="/Club_Admin/">Club administration system</a>
+        
+      
+    
+      
+        
           <a class="sidebar-nav-item" href="/about/">About</a>
         
       
@@ -148,23 +154,28 @@
 </nav>
 
       <div class="container content">
-        <div class="post">
-  <h1 style="font-size: 130%;" class="post-title">Singular Value Decomposition</h1>
-  <span class="post-date" style="float:none;">02 Mar 2018</span>
-  
-  <p><strong>Content:</strong></p>
+        <div class="page">
+  <h1 class="page-title">Club administration system</h1>
+  <h3 id="club-administration-system">Club administration system</h3>
+<p>Screen capture:</p>
 
-<!-- MarkdownTOC depth=4 -->
+<p><img src="https://github.com/DungLai/dunglai.github.io/blob/master/temporary_folder/Capture.PNG" alt="Screen Capture" /></p>
 
-<!-- /MarkdownTOC -->
+<p>Description:</p>
 
-<h2 id="g1">g1</h2>
-<h2 id="g2">g2</h2>
+<p>This is a mock application designed for club admin to manage their members.</p>
 
-</div>
-        <!-- Start of StatCounter Code for Default Guide -->
-        <hr>
-Total visits:
+<p>This application is developed using MVC (model, view, controller) model where member and payment are where the business logic happens and the manager is the controller, they have the ability to add members and modify the database, the view is where data is displayed back in the interface. This model creates the separation in design and implementation process that helps to increase the efficiency, it also improves security level.</p>
+
+<p>The club has multiple facilities, one user can enrol in multiple facilities and one facility can have multiple members. This is a many to many relationship. A joint table call enrolment is used to link these two tables.</p>
+
+<p>There are two types of payment: monthly and weekly. Payment is made as an abstract class, their inherited classes can overwrite the make payment method.</p>
+
+<p>The manager can view all members of all facilities as well as all member of a specific facility. This is done using polymorphism technique: using one single method, the parameter of the method determines what process will be executed.</p>
+
+          <!-- Start of StatCounter Code for Default Guide -->
+<hr>
+TOTAL VISITS:
 <script type="text/javascript">
 var sc_project=11553218; 
 var sc_invisible=0; 
@@ -183,77 +194,7 @@ src="//c.statcounter.com/11553218/0/55ea133f/0/" alt="Web
 Analytics Made Easy - StatCounter"></a></div></noscript>
 <!-- End of StatCounter Code for Default Guide -->
 <a href="http://statcounter.com/p11553218/?guest=1">(Powered by Statcounter)</a>
-<div class="related">
-  <h2>Related Posts</h2>
-  <ul class="related-posts">
-    
-      <li>
-        <h3>
-          <a href="/2018/01/25/SVD/">
-            Singular Value Decomposition
-            <small>25 Jan 2018</small>
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
-          <a href="/2017/12/21/gradient-descent/">
-            Gradient Descent
-            <small>21 Dec 2017</small>
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
-          <a href="/2017/12/09/k-nearest-neighbors/">
-            K Nearest Neighbors
-            <small>09 Dec 2017</small>
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
-          <a href="/2017/10/10/linear-regression/">
-            Linear Regression
-            <small>10 Oct 2017</small>
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
-          <a href="/2017/09/21/FlappyBirdAI/">
-            AI for FlappyBird Game
-            <small>21 Sep 2017</small>
-          </a>
-        </h3>
-      </li>
-    
-  </ul>
 </div>
-<div id="disqus_thread"></div>
-<script>
-
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-/*
-var disqus_config = function () {
-this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-*/
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.src = 'https://dunglai-github-io.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
    
       </div>
     </div>
