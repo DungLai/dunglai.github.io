@@ -4,7 +4,7 @@
  <title>Dung Lai</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2018-06-28T01:18:10+10:00</updated>
+ <updated>2018-06-28T01:22:02+10:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Dung Lai</name>
@@ -66,11 +66,20 @@
       &lt;li&gt;Technical Challanges&lt;/li&gt;
     &lt;/ol&gt;
   &lt;/li&gt;
-  &lt;li&gt;Acknowledgement&lt;/li&gt;
-  &lt;li&gt;Reference&lt;/li&gt;
+  &lt;li&gt;
+    &lt;ol&gt;
+      &lt;li&gt;Acknowledgement&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;ol&gt;
+      &lt;li&gt;Reference&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;!-- /MarkdownTOC --&gt;
+
 &lt;h2 id=&quot;abstract&quot;&gt;Abstract&lt;/h2&gt;
 
 &lt;p&gt;This report summarizes the development of a long-term scalable technology-enable solution to assist journey preparation for members of vision impaired community. The existing application allows users to familiarize themselves with a specific location in the CBD by letting them experience the immersive auditory-based simulator supported with state-of-the-art surround-sound technology called Ambisonic and dynamic interactive voice interface.&lt;/p&gt;
@@ -266,11 +275,11 @@ The microphone we utilized is called Sennheiser Ambeo VR Mic, an application is 
 
 &lt;p&gt;Currently, the existing feature of the system has many technical aspects that need to be investigated. The Ambisonic playback on mobile application produces some form of white noise when the sound fields are being changed, audio processing techniques can be applied to reduce the level of white noise (the mixture of different frequency). Voice recognition and gesture recognition are useful features of the mobile application, it helps people with vision impairment interact with the application without other sources of assistance. Each Ambisonic B-format file contains 4 channels with high fidelity sound quality, this leads to the increase in memory if files are encoded in the Android app itself. However, the Android application has limited heap space, other approaches such as uploading sound files to the cloud and let users download them individually can solve the problem. Currently, users must put their Android device horizontally to correctly rotate the sound field, this is not effective and unusual for users. The application should allow users to point the device toward the directions that they want to rotate into.&lt;/p&gt;
 
-&lt;h2 id=&quot;acknowledgement&quot;&gt;Acknowledgement&lt;/h2&gt;
+&lt;h2 id=&quot;6-acknowledgement&quot;&gt;6. Acknowledgement&lt;/h2&gt;
 
 &lt;p&gt;The authors would like to thank Stuart Favilla, David Sly, Lil Deverell, Denny Myer and other faculty members of Swinburne University as well as other summer internship students for providing insight and expertise and equipment that greatly assisted the research and development.&lt;/p&gt;
 
-&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
+&lt;h2 id=&quot;7-reference&quot;&gt;7. Reference&lt;/h2&gt;
 
 &lt;p&gt;[1]	Open Innovation Competition on Accessibility [http://www.melbourne.vic.gov.au/about-melbourne/melbourne-profile/smart-city/Pages/innovation-competition-city-accessibility.aspx]&lt;/p&gt;
 
@@ -290,9 +299,9 @@ The microphone we utilized is called Sennheiser Ambeo VR Mic, an application is 
 
 &lt;p&gt;[9]  Hedrot headtracker [https://abaskind.github.io/hedrot/]&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;&quot;&gt;Download Technical Report in PDF&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/public/post-assets/NavigationTrainer/TechnicalReport.pdf&quot;&gt;Download Technical Report in PDF&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;&quot;&gt;Download Poster&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/public/post-assets/NavigationTrainer/poster.pdf&quot;&gt;Download Poster&lt;/a&gt;&lt;/p&gt;
 </content>
  </entry>
  

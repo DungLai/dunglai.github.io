@@ -28,10 +28,11 @@ img  : ../public/post-assets/NavigationTrainer/title.gif
 	- 3.3. Mobile Application, rotation capability using on device sensor
 - 4. User Experience Testing
 - 5. Technical Challanges
-- Acknowledgement
-- Reference
+- 6. Acknowledgement
+- 7. Reference
 
 <!-- /MarkdownTOC -->
+
 ## Abstract
 
 This report summarizes the development of a long-term scalable technology-enable solution to assist journey preparation for members of vision impaired community. The existing application allows users to familiarize themselves with a specific location in the CBD by letting them experience the immersive auditory-based simulator supported with state-of-the-art surround-sound technology called Ambisonic and dynamic interactive voice interface. 
@@ -228,11 +229,11 @@ Improvement could also be done to existing directional description. The informat
 
 Currently, the existing feature of the system has many technical aspects that need to be investigated. The Ambisonic playback on mobile application produces some form of white noise when the sound fields are being changed, audio processing techniques can be applied to reduce the level of white noise (the mixture of different frequency). Voice recognition and gesture recognition are useful features of the mobile application, it helps people with vision impairment interact with the application without other sources of assistance. Each Ambisonic B-format file contains 4 channels with high fidelity sound quality, this leads to the increase in memory if files are encoded in the Android app itself. However, the Android application has limited heap space, other approaches such as uploading sound files to the cloud and let users download them individually can solve the problem. Currently, users must put their Android device horizontally to correctly rotate the sound field, this is not effective and unusual for users. The application should allow users to point the device toward the directions that they want to rotate into. 
 
-## Acknowledgement
+## 6. Acknowledgement
 
 The authors would like to thank Stuart Favilla, David Sly, Lil Deverell, Denny Myer and other faculty members of Swinburne University as well as other summer internship students for providing insight and expertise and equipment that greatly assisted the research and development.
 
-## Reference
+## 7. Reference
 
 [1]	Open Innovation Competition on Accessibility [http://www.melbourne.vic.gov.au/about-melbourne/melbourne-profile/smart-city/Pages/innovation-competition-city-accessibility.aspx]
 
@@ -253,6 +254,6 @@ The authors would like to thank Stuart Favilla, David Sly, Lil Deverell, Denny M
 [9]  Hedrot headtracker [https://abaskind.github.io/hedrot/] 
 
 
-[Download Technical Report in PDF]()
+[Download Technical Report in PDF](/public/post-assets/NavigationTrainer/TechnicalReport.pdf)
 
-[Download Poster]()
+[Download Poster](/public/post-assets/NavigationTrainer/poster.pdf)
