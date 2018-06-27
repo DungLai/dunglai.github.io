@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-// default value of scatter plot variables
-=======
-// Default value for scatter plot
->>>>>>> f47bb85e2bef32238971a1faf7860d0c8e82ee57
+
 self._var1 = "length";
 self._var2 = "width";
 
