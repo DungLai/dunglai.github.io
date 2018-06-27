@@ -8,7 +8,7 @@ img  : ../public/post-assets/NavigationTrainer/title.gif
 <h3><a href="https://dunglai.github.io/COM/index.html"><strong>Demo web application</strong></a></h3>
 
 <div class="imgcap">
-<img style="display: inline-block; width: 100%;" src ="/public/post-assets/NavigationTrainer/poster.png" width = "500" align = "center">
+<img style="display: inline-block; width: 100%;" src ="/public/post-assets/NavigationTrainer/poster.PNG" width = "500" align = "center">
 <div class="thecap">Research Poster</div>
 </div>
 
