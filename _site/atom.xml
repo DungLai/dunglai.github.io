@@ -4,7 +4,7 @@
  <title>Dung Lai</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2018-06-28T01:34:40+10:00</updated>
+ <updated>2018-06-28T01:35:45+10:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Dung Lai</name>
@@ -20,7 +20,7 @@
    <content type="html">&lt;h3&gt;&lt;a href=&quot;https://dunglai.github.io/COM/index.html&quot;&gt;&lt;strong&gt;Demo web application&lt;/strong&gt;&lt;/a&gt;&lt;/h3&gt;
 
 &lt;div class=&quot;imgcap&quot;&gt;
-&lt;img style=&quot;display: inline-block; width: 100%;&quot; src=&quot;/public/post-assets/NavigationTrainer/poster.png&quot; width=&quot;500&quot; align=&quot;center&quot; /&gt;
+&lt;img style=&quot;display: inline-block; width: 100%;&quot; src=&quot;/public/post-assets/NavigationTrainer/poster.PNG&quot; width=&quot;500&quot; align=&quot;center&quot; /&gt;
 &lt;div class=&quot;thecap&quot;&gt;Research Poster&lt;/div&gt;
 &lt;/div&gt;
 

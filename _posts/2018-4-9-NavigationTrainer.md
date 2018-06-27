@@ -62,7 +62,7 @@ To achieve an “immersive” experience, Ambisonic Technology [2]: a full-spher
 Sounds are recorded by a tetrahedron microphone, which contains 4 capsules pointing toward 4 different directions (fig 2.1), to get 4-channel monophonic A-format. This is converted into 4-channel B-format, encoding the directional information of a given three-dimensional sound field to four channels called W, X, Y, Z using mathematical formula (fig 2.2)
 
 <div class="imgcap" style="text-align: center;">
-<img style="display: inline-block; width: 30%;" src ="/public/post-assets/NavigationTrainer/mic.PNG" width = "500" align = "center">
+<img style="display: inline-block; width: 30%;" src ="/public/post-assets/NavigationTrainer/mic.png" width = "500" align = "center">
 <img id="fig1" style="display: inline-block; width: 30%;" src ="/public/post-assets/NavigationTrainer/math.png" width = "500" align = "center">
 </div>
 <div style="clear:left"></div>
