@@ -4,13 +4,297 @@
  <title>Dung Lai</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2018-06-27T13:09:58+10:00</updated>
+ <updated>2018-06-28T01:18:10+10:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Dung Lai</name>
    <email>tuandunglai@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Journey Preparation Tool Project</title>
+   <link href="http://localhost:4000/2018/04/09/NavigationTrainer/"/>
+   <updated>2018-04-09T00:00:00+10:00</updated>
+   <id>http://localhost:4000/2018/04/09/NavigationTrainer</id>
+   <content type="html">&lt;h3&gt;&lt;a href=&quot;https://dunglai.github.io/COM/index.html&quot;&gt;Demo web application&lt;/a&gt;&lt;/h3&gt;
+
+&lt;div class=&quot;imgcap&quot;&gt;
+&lt;img style=&quot;display: inline-block; width: 100%;&quot; src=&quot;/public/post-assets/NavigationTrainer/poster.png&quot; width=&quot;500&quot; align=&quot;center&quot; /&gt;
+&lt;div class=&quot;thecap&quot;&gt;Research Poster&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Content:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;!-- MarkdownTOC --&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Abstract&lt;/li&gt;
+  &lt;li&gt;
+    &lt;ol&gt;
+      &lt;li&gt;Introduction&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;ol&gt;
+      &lt;li&gt;Surround Sound Technology
+        &lt;ul&gt;
+          &lt;li&gt;2.1. Ambisonic Technology&lt;/li&gt;
+          &lt;li&gt;2.2. Recording Technique&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;ol&gt;
+      &lt;li&gt;Development
+        &lt;ul&gt;
+          &lt;li&gt;3.1. Web Application, voice-based interaction&lt;/li&gt;
+          &lt;li&gt;3.2. Desktop Application, external Headtracker integrated on headphone&lt;/li&gt;
+          &lt;li&gt;3.3. Mobile Application, rotation capability using on device sensor&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;ol&gt;
+      &lt;li&gt;User Experience Testing&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;ol&gt;
+      &lt;li&gt;Technical Challanges&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Acknowledgement&lt;/li&gt;
+  &lt;li&gt;Reference&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- /MarkdownTOC --&gt;
+&lt;h2 id=&quot;abstract&quot;&gt;Abstract&lt;/h2&gt;
+
+&lt;p&gt;This report summarizes the development of a long-term scalable technology-enable solution to assist journey preparation for members of vision impaired community. The existing application allows users to familiarize themselves with a specific location in the CBD by letting them experience the immersive auditory-based simulator supported with state-of-the-art surround-sound technology called Ambisonic and dynamic interactive voice interface.&lt;/p&gt;
+
+&lt;h2 id=&quot;1-introduction&quot;&gt;1. Introduction&lt;/h2&gt;
+
+&lt;p&gt;With almost one in five Australians experiencing some form of disability, a substantial proportion of the community faces challenges to actively participate in city life [1]. This project is developing a long-term scalable technology-enable solution to assist journey preparation for members of vision impaired community. A cross-platform application has been developed to simulate the sensory experience of Flinders Street Railway Station located in the Melbourne CBD. The simulator would allow users to rotate their body and experience the sounds change.&lt;/p&gt;
+
+&lt;h2 id=&quot;2-surround-sound-technology&quot;&gt;2. Surround Sound Technology&lt;/h2&gt;
+
+&lt;h3 id=&quot;21-ambisonic-technology&quot;&gt;2.1. Ambisonic Technology&lt;/h3&gt;
+
+&lt;p&gt;To achieve an “immersive” experience, Ambisonic Technology [2]: a full-sphere surround sound technique, in addition to the horizontal plane, it covers sound sources above and below the listener. 3D audio can be reproduced over many loudspeakers positioned all around the listener. For the scope of the project, the 3D audio is played through the headphone, the technology used is called Binaural Synthesis. It consists of simulating, at someone’s eardrums, the same acoustical sound field produced as one which would have been produced by a real audio scene. This immersive 3D audio will assist people with vision impairment to visualize the surrounding areas in conjunction with improving their mental mapping skills.&lt;/p&gt;
+
+&lt;div class=&quot;imgcap&quot;&gt;
+&lt;img style=&quot;display: inline-block; width: 40%;&quot; src=&quot;/public/post-assets/NavigationTrainer/fig1.png&quot; width=&quot;500&quot; align=&quot;center&quot; /&gt;
+&lt;div class=&quot;thecap&quot;&gt;Fig. 1. Stereo sound and 3D audio comparison [3]&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;22-recording-technique&quot;&gt;2.2. Recording Technique&lt;/h3&gt;
+
+&lt;p&gt;Sounds are recorded by a tetrahedron microphone, which contains 4 capsules pointing toward 4 different directions (fig 2.1), to get 4-channel monophonic A-format. This is converted into 4-channel B-format, encoding the directional information of a given three-dimensional sound field to four channels called W, X, Y, Z using mathematical formula (fig 2.2)&lt;/p&gt;
+
+&lt;div class=&quot;imgcap&quot; style=&quot;text-align: center;&quot;&gt;
+&lt;img style=&quot;display: inline-block; width: 30%;&quot; src=&quot;/public/post-assets/NavigationTrainer/mic.PNG&quot; width=&quot;500&quot; align=&quot;center&quot; /&gt;
+&lt;img id=&quot;fig1&quot; style=&quot;display: inline-block; width: 30%;&quot; src=&quot;/public/post-assets/NavigationTrainer/math.png&quot; width=&quot;500&quot; align=&quot;center&quot; /&gt;
+&lt;/div&gt;
+&lt;div style=&quot;clear:left&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;thecap&quot;&gt;Fig. 2. (1) soundfield microphone , (2) B-format encoding formula [2]&lt;/div&gt;
+
+&lt;p&gt;Where &lt;script type=&quot;math/tex&quot;&gt;s_i&lt;/script&gt; are mono audio signal recorded by each individual capsule we want to encode at the position &lt;script type=&quot;math/tex&quot;&gt;\phi&lt;/script&gt; (horizontal angle (azimuth) phi), and &lt;script type=&quot;math/tex&quot;&gt;\theta&lt;/script&gt; (vertical angle (elevation) theta) [2].
+The microphone we utilized is called Sennheiser Ambeo VR Mic, an application is provided with the Mic with the capability of converting sound file from A to B. This software works as a VST2 or VST3 plugin, which can be used in any digital audio workstation (DAW) for editing purposes. Reaper software (a complete digital audio production application) is used within the project to generate a set of B-format audio files.&lt;/p&gt;
+
+&lt;div class=&quot;imgcap&quot;&gt;
+&lt;img style=&quot;display: inline-block; width: 55%;&quot; src=&quot;/public/post-assets/NavigationTrainer/fig3.png&quot; width=&quot;500&quot; align=&quot;center&quot; /&gt;
+&lt;div class=&quot;thecap&quot;&gt;Fig. 1. Stereo sound and 3D audio comparison [3]&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;3-development&quot;&gt;3. Development&lt;/h2&gt;
+
+&lt;h3 id=&quot;31-web-application-voice-based-interaction&quot;&gt;3.1. Web Application, voice-based interaction&lt;/h3&gt;
+
+&lt;p&gt;The Ambisonic sound capsules have been encoded in 360 videos, recorded by Garmin Virb 360 Video Camera, using Facebook 360 Encoder (image on the right) and deployed on YouTube. To upload 360 videos with 3D audio on YouTube, the audio must be a 4 channels B-format with first-order ambiX, ACN ordering, and SN3D normalization. This will make the video compatible with VR mode, allowing users to use Google Cardboard or Oculus Rift to navigate and change direction. The video can also be rotated by sliding the video using a mouse or using WASD keys on the keyboard or using the controller on the top left of the video&lt;/p&gt;
+
+&lt;div class=&quot;imgcap&quot;&gt;
+&lt;img style=&quot;display: inline-block; width: 30%;&quot; src=&quot;/public/post-assets/NavigationTrainer/encoder.png&quot; width=&quot;500&quot; align=&quot;center&quot; /&gt;
+&lt;div class=&quot;thecap&quot;&gt;Fig: Facebook 360 Encoder&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Users can interact with the interface using either voice or text commands and then narration will be played back upon user’s request. This function is based on &lt;a href=&quot;https://www.google.com/chrome/demos/speech.html&quot;&gt;Web Speech API&lt;/a&gt; [6], a JavaScript API provided by Google Inc to enable web developers to incorporate speech recognition and synthesis into web pages. Here are current support commands that users can interact with the web interface via microphone.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Help – provide a list of available commands for users&lt;/li&gt;
+  &lt;li&gt;What is this – describe the project and website&lt;/li&gt;
+  &lt;li&gt;Where am I – describe the place where the video was recorded&lt;/li&gt;
+  &lt;li&gt;Describe – describe the surrounding environment&lt;/li&gt;
+  &lt;li&gt;When recorded – show the time when the video was recorded&lt;/li&gt;
+  &lt;li&gt;Next location – play the next video&lt;/li&gt;
+  &lt;li&gt;Replay – replay the current video&lt;/li&gt;
+  &lt;li&gt;Hi/ Hello – guide user to help command.&lt;/li&gt;
+  &lt;li&gt;Start Exploring – play the first location (outside Flinders Street Station entrance)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;imgcap&quot;&gt;
+&lt;img style=&quot;display: inline-block; width: 80%;&quot; src=&quot;/public/post-assets/NavigationTrainer/web_interface.png&quot; width=&quot;500&quot; align=&quot;center&quot; /&gt;
+&lt;div class=&quot;thecap&quot;&gt;Fig. 4. Web application interface &lt;/div&gt; Link to Web Demo: https://dunglai.github.io/COM/index.html
+&lt;/div&gt;
+
+&lt;h3 id=&quot;32-desktop-application-external-headtracker-integrated-on-headphone&quot;&gt;3.2. Desktop Application, external Headtracker integrated on headphone&lt;/h3&gt;
+
+&lt;p&gt;A Desktop application is also being developed using Max/MSP, a visual programming language, to explore the use of headtracking, allowing the tracking of yaw-pitch-roll value that determine the orientation of the head/body. This value is used to change sound field and generate directional narration.&lt;/p&gt;
+
+&lt;div class=&quot;imgcap&quot;&gt;
+&lt;img style=&quot;display: inline-block; width: 25%;&quot; src=&quot;/public/post-assets/NavigationTrainer/rotation.png&quot; width=&quot;500&quot; align=&quot;center&quot; /&gt;
+&lt;div class=&quot;thecap&quot;&gt;Fig: 3 values that define the orientation in 3D space&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The Hedrot head tracker [9] is successfully implemented and the integration is shown in figure 4. By separate the Yaw value from the head tracker into 4 quarters representing front, left, right and back, the surround area will be described so that description is on-request and dynamically adjusted based on head direction.&lt;/p&gt;
+
+&lt;div class=&quot;imgcap&quot;&gt;
+&lt;img style=&quot;display: inline-block; width: 55%;&quot; src=&quot;/public/post-assets/NavigationTrainer/fig5.png&quot; width=&quot;500&quot; align=&quot;center&quot; /&gt;
+&lt;div class=&quot;thecap&quot;&gt;Fig. 5. Teensy board parts – Schematics – Build head tracker – Integration on the headphone&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The implementation of Hedrot headtracker and desktop application is done in Max/MSP programming language.&lt;/p&gt;
+
+&lt;div class=&quot;imgcap&quot;&gt;
+&lt;img style=&quot;display: inline-block; width: 55%;&quot; src=&quot;/public/post-assets/NavigationTrainer/maxmsp_interface.png&quot; width=&quot;500&quot; align=&quot;center&quot; /&gt;
+&lt;div class=&quot;thecap&quot;&gt;Fig. 6. Desktop application interface &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;33-mobile-application-rotation-capability-using-on-device-sensor&quot;&gt;3.3. Mobile Application, rotation capability using on device sensor&lt;/h3&gt;
+
+&lt;p&gt;In the process of building a proof of concept in a variety of platforms, an Android application was developed, allowing users to experience immersive spatial audio recorded in various locations on Flinders Street Station. The application is capable of changing soundfield using hardware-based sensors which are physical components built into a handset or tablet device. Specifically, data is extracted from the geomagnetic field sensor in combination with the accelerometer using android sensor API [8] to determine a device’s position relative to the magnetic north pole, this orientation data in quaternion format is then passed through Google VR audio engine to rotate Ambisonic soundfield.&lt;/p&gt;
+
+&lt;p&gt;The &lt;a href=&quot;https://developers.google.com/vr/reference/android/com/google/vr/sdk/audio/GvrAudioEngine&quot;&gt;Google VR audio engine&lt;/a&gt; [7] allows the user to spatialize sound sources in 3D space, including distance and height cues. The GvrAudioEngine is capable of playing back spatial sound in two separate ways: Sound Object rendering, allows the user to create a virtual sound source in 3D space, the second method allows the user to play back Ambisonic soundfield. The first method was used to create the artificial directional audio narration of surrounding environment and objects, the second method was used to playback Ambisonic audio files recorded in real-time using Sennheiser Ambeo VR Microphone.&lt;/p&gt;
+
+&lt;div class=&quot;imgcap&quot;&gt;
+&lt;img style=&quot;display: inline-block; width: 40%;&quot; src=&quot;/public/post-assets/NavigationTrainer/mobile_interface.png&quot; width=&quot;500&quot; align=&quot;center&quot; /&gt;
+&lt;div class=&quot;thecap&quot;&gt;Fig. 7. Android application interface &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/DungLai/Navigation-Trainer&quot;&gt;Github link to Java code&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Get Jaw-Pitch-Roll from android sensor:&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MainActivity&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Activity&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mOrientation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mQuaternion&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mMagneticField&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mGravity&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mAzimut&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mPitch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mRoll&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;SensorManager&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sm&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;TextView&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;textView1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;TextView&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;testView&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;SensorEventListener&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sel&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SensorEventListener&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(){&lt;/span&gt;
+        &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onAccuracyChanged&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Sensor&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sensor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;accuracy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{}&lt;/span&gt;
+        &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onSensorChanged&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SensorEvent&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;sensor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Sensor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;TYPE_MAGNETIC_FIELD&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;mMagneticField&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;values&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;sensor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Sensor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;TYPE_ACCELEROMETER&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;mGravity&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;values&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mGravity&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mMagneticField&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;textView1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setText&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;null&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+            &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;];&lt;/span&gt;
+            &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;I&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;];&lt;/span&gt;
+            &lt;span class=&quot;kt&quot;&gt;boolean&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;success&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SensorManager&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getRotationMatrix&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;I&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mGravity&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mMagneticField&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;success&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;mOrientation&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;];&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;mQuaternion&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;];&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;SensorManager&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getOrientation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mOrientation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;mAzimut&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mOrientation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;];&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// orientation contains: azimut, pitch and roll&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;mPitch&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mOrientation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;];&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;mRoll&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mOrientation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;];&lt;/span&gt;
+
+                &lt;span class=&quot;n&quot;&gt;SensorManager&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getQuaternionFromVector&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mQuaternion&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mOrientation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;gvrAudioEngine&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setSoundfieldRotation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;soundFieldId&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mQuaternion&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mQuaternion&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mQuaternion&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mQuaternion&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]);&lt;/span&gt;
+
+            &lt;span class=&quot;c1&quot;&gt;// print rotation value to screen&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;textView1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setText&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;x: &quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mAzimut&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;\ny: &quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mPitch&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;\nz: &quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mRoll&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;};&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Load soundfield using GoogleVR audio engine and pass data from sensor:&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MainActivity&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Activity&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;GvrAudioEngine&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gvrAudioEngine&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//    private volatile int sourceId = GvrAudioEngine.INVALID_ID;&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;volatile&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;soundFieldId&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;GvrAudioEngine&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;INVALID_ID&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+
+        &lt;span class=&quot;c1&quot;&gt;// Initialize 3D audio engine.&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;gvrAudioEngine&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;GvrAudioEngine&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;GvrAudioEngine&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;RenderingMode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;BINAURAL_LOW_QUALITY&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+        &lt;span class=&quot;n&quot;&gt;radbut2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setOnClickListener&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;View&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;OnClickListener&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+            &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onClick&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;View&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;gvrAudioEngine&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;stopSound&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;soundFieldId&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;soundFieldId&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gvrAudioEngine&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;createSoundfield&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;2-Bformat-32bits.wav&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;gvrAudioEngine&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setSoundVolume&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;soundFieldId&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;40&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;gvrAudioEngine&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;playSound&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;soundFieldId&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;testView&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setText&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Currently playing: Location 2&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;});&lt;/span&gt;
+
+    &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onStop&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&amp;gt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;sm&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;unregisterListener&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;kd&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;onStop&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;4-user-experience-testing&quot;&gt;4. User Experience Testing&lt;/h2&gt;
+
+&lt;p&gt;The information being delivered by the app is refined constantly during the project to ensure that users will be benefited by the given information. A small consultation has been made with &lt;a href=&quot;http://www.lildeverell.net/&quot;&gt;Lil Deverell&lt;/a&gt; – an orientation and mobility specialist with the aim of improving the quality of the overall system. It is suggested to add doppler effect in the platform, showing when and where trains are going, the transition between locations, the sound of cane, GPS sequence instructions in linear order. These factors will help users develop mental mapping skills. Furthermore, videos should be captured at different time of day and ideally, in crowded and pressure environment, crossroad route should also be recorded. This will prepare them with the real pressure of navigating around the city on their own and reduce their stress.&lt;/p&gt;
+
+&lt;p&gt;Improvement could also be done to existing directional description. The information provided need to have learned elements. The users should be notified when their orientation is perpendicular to the train lines or aligned with the train direction. Information such as tactile pavers and objects they can hear in real-time is also beneficial in making educated guesses. Information is not restricted to visual, non-visual cue such as smells, materials, temperature, wind, light pulse (for people with low vision), lift, entrance point, coffee shop sounds, barrier, reflect sound, consistent sound, and toilet. Additionally, information about the structure of the area will help users to get the big picture. Another significant detail that help reducing stress is preparing them to find convenient spots to wait for someone, this could be corners, spots where low vision people can lean on, solid objects that they can touch, and balance surface, this prevents them from standing on the way of other people. Lastly, the source of assistance is also as important as other factors.&lt;/p&gt;
+
+&lt;h2 id=&quot;5-technical-challanges&quot;&gt;5. Technical Challanges&lt;/h2&gt;
+
+&lt;p&gt;Currently, the existing feature of the system has many technical aspects that need to be investigated. The Ambisonic playback on mobile application produces some form of white noise when the sound fields are being changed, audio processing techniques can be applied to reduce the level of white noise (the mixture of different frequency). Voice recognition and gesture recognition are useful features of the mobile application, it helps people with vision impairment interact with the application without other sources of assistance. Each Ambisonic B-format file contains 4 channels with high fidelity sound quality, this leads to the increase in memory if files are encoded in the Android app itself. However, the Android application has limited heap space, other approaches such as uploading sound files to the cloud and let users download them individually can solve the problem. Currently, users must put their Android device horizontally to correctly rotate the sound field, this is not effective and unusual for users. The application should allow users to point the device toward the directions that they want to rotate into.&lt;/p&gt;
+
+&lt;h2 id=&quot;acknowledgement&quot;&gt;Acknowledgement&lt;/h2&gt;
+
+&lt;p&gt;The authors would like to thank Stuart Favilla, David Sly, Lil Deverell, Denny Myer and other faculty members of Swinburne University as well as other summer internship students for providing insight and expertise and equipment that greatly assisted the research and development.&lt;/p&gt;
+
+&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
+
+&lt;p&gt;[1]	Open Innovation Competition on Accessibility [http://www.melbourne.vic.gov.au/about-melbourne/melbourne-profile/smart-city/Pages/innovation-competition-city-accessibility.aspx]&lt;/p&gt;
+
+&lt;p&gt;[2]	An Introduction to Higher Order Ambisonic by Florian Hollerweger, 2008 [http://flo.mur.at/writings/HOA-intro.pdf]&lt;/p&gt;
+
+&lt;p&gt;[3]	3D Audio, 3D sound lab [http://pro.3dsoundlabs.com/category/intro-to-3d-audio/]&lt;/p&gt;
+
+&lt;p&gt;[4]	Ambeo software for virtual Reality [https://en-us.sennheiser.com/ambeo-blueprints-virtual-reality]&lt;/p&gt;
+
+&lt;p&gt;[5]	Add Spatial Audio to a Video For YouTube [https://fb360spatialworkstation.zendesk.com/hc/en-us/articles/207888189-Add-Spatial-Audio-to-a-Video-For-YouTube]&lt;/p&gt;
+
+&lt;p&gt;[6]	Web Speech API [https://w3c.github.io/speech-api/speechapi.html]&lt;/p&gt;
+
+&lt;p&gt;[7] 	Google VR Audio Engine for Android [https://developers.google.com/vr/reference/android/com/google/vr/sdk/audio/GvrAudioEngine]&lt;/p&gt;
+
+&lt;p&gt;[8]  Android Sensor API [https://developer.android.com/guide/topics/sensors/sensors_overview.html]&lt;/p&gt;
+
+&lt;p&gt;[9]  Hedrot headtracker [https://abaskind.github.io/hedrot/]&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;&quot;&gt;Download Technical Report in PDF&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;&quot;&gt;Download Poster&lt;/a&gt;&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Singular Value Decomposition</title>
