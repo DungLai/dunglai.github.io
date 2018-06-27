@@ -4,7 +4,7 @@
  <title>Dung Lai</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2018-06-28T01:35:45+10:00</updated>
+ <updated>2018-06-28T01:37:33+10:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Dung Lai</name>
@@ -81,7 +81,7 @@
 &lt;p&gt;Sounds are recorded by a tetrahedron microphone, which contains 4 capsules pointing toward 4 different directions (fig 2.1), to get 4-channel monophonic A-format. This is converted into 4-channel B-format, encoding the directional information of a given three-dimensional sound field to four channels called W, X, Y, Z using mathematical formula (fig 2.2)&lt;/p&gt;
 
 &lt;div class=&quot;imgcap&quot; style=&quot;text-align: center;&quot;&gt;
-&lt;img style=&quot;display: inline-block; width: 30%;&quot; src=&quot;/public/post-assets/NavigationTrainer/mic.PNG&quot; width=&quot;500&quot; align=&quot;center&quot; /&gt;
+&lt;img style=&quot;display: inline-block; width: 30%;&quot; src=&quot;/public/post-assets/NavigationTrainer/mic.png&quot; width=&quot;500&quot; align=&quot;center&quot; /&gt;
 &lt;img id=&quot;fig1&quot; style=&quot;display: inline-block; width: 30%;&quot; src=&quot;/public/post-assets/NavigationTrainer/math.png&quot; width=&quot;500&quot; align=&quot;center&quot; /&gt;
 &lt;/div&gt;
 &lt;div style=&quot;clear:left&quot;&gt;&lt;/div&gt;
@@ -283,6 +283,8 @@ The microphone we utilized is called Sennheiser Ambeo VR Mic, an application is 
 &lt;p&gt;[8]  Android Sensor API [https://developer.android.com/guide/topics/sensors/sensors_overview.html]&lt;/p&gt;
 
 &lt;p&gt;[9]  Hedrot headtracker [https://abaskind.github.io/hedrot/]&lt;/p&gt;
+
+&lt;hr /&gt;
 
 &lt;p&gt;&lt;a href=&quot;/public/post-assets/NavigationTrainer/TechnicalReport.pdf&quot;&gt;&lt;strong&gt;Download Technical Report in PDF&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
 

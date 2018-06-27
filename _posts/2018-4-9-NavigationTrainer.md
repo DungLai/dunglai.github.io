@@ -265,6 +265,7 @@ The authors would like to thank Stuart Favilla, David Sly, Lil Deverell, Denny M
 
 [9]  Hedrot headtracker [https://abaskind.github.io/hedrot/] 
 
+---
 
 [**Download Technical Report in PDF**](/public/post-assets/NavigationTrainer/TechnicalReport.pdf)
 
