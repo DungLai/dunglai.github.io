@@ -5,7 +5,7 @@ desc : <div class="tag">3D sound</div><div class="tag">GoogleVR</div><div class=
 img  : ../public/post-assets/NavigationTrainer/title.gif
 ---
 
-<h3><a href="https://dunglai.github.io/COM/index.html">Demo web application</a></h3>
+<h3><a href="https://dunglai.github.io/COM/index.html"><strong>Demo web application</strong></a></h3>
 
 <div class="imgcap">
 <img style="display: inline-block; width: 100%;" src ="/public/post-assets/NavigationTrainer/poster.png" width = "500" align = "center">
@@ -17,32 +17,36 @@ img  : ../public/post-assets/NavigationTrainer/title.gif
 
 <!-- MarkdownTOC -->
 
-- Abstract
-- 1. Introduction
-- 2. Surround Sound Technology
-	- 2.1. Ambisonic Technology
-	- 2.2. Recording Technique
-- 3. Development
-	- 3.1. Web Application, voice-based interaction
-	- 3.2. Desktop Application, external Headtracker integrated on headphone
-	- 3.3. Mobile Application, rotation capability using on device sensor
-- 4. User Experience Testing
-- 5. Technical Challanges
-- 6. Acknowledgement
-- 7. Reference
+- [Abstract](#0)
+- [1. Introduction](#1)
+- [2. Surround Sound Technology](#2)
+	- [2.1. Ambisonic Technology](#2.1)
+	- [2.2. Recording Technique](#2.2)
+- [3. Development](#3)
+	- [3.1. Web Application, voice-based interaction](#3.1)
+	- [3.2. Desktop Application, external Headtracker integrated on headphone](#3.2)
+	- [3.3. Mobile Application, rotation capability using on device sensor](#3.3)
+- [4. User Experience Testing](#4)
+- [5. Technical Challanges](#5)
+- [6. Acknowledgement](#6)
+- [7. Reference](#7)
 
 <!-- /MarkdownTOC -->
 
+<a name="0"></a>
 ## Abstract
 
 This report summarizes the development of a long-term scalable technology-enable solution to assist journey preparation for members of vision impaired community. The existing application allows users to familiarize themselves with a specific location in the CBD by letting them experience the immersive auditory-based simulator supported with state-of-the-art surround-sound technology called Ambisonic and dynamic interactive voice interface. 
 
+<a name="1"></a>
 ## 1. Introduction
 
 With almost one in five Australians experiencing some form of disability, a substantial proportion of the community faces challenges to actively participate in city life [1]. This project is developing a long-term scalable technology-enable solution to assist journey preparation for members of vision impaired community. A cross-platform application has been developed to simulate the sensory experience of Flinders Street Railway Station located in the Melbourne CBD. The simulator would allow users to rotate their body and experience the sounds change. 
 
+<a name="2"></a>
 ## 2. Surround Sound Technology
 
+<a name="2.1"></a>
 ### 2.1. Ambisonic Technology
 
 To achieve an “immersive” experience, Ambisonic Technology [2]: a full-sphere surround sound technique, in addition to the horizontal plane, it covers sound sources above and below the listener. 3D audio can be reproduced over many loudspeakers positioned all around the listener. For the scope of the project, the 3D audio is played through the headphone, the technology used is called Binaural Synthesis. It consists of simulating, at someone’s eardrums, the same acoustical sound field produced as one which would have been produced by a real audio scene. This immersive 3D audio will assist people with vision impairment to visualize the surrounding areas in conjunction with improving their mental mapping skills.  
@@ -52,6 +56,7 @@ To achieve an “immersive” experience, Ambisonic Technology [2]: a full-spher
 <div class="thecap">Fig. 1. Stereo sound and 3D audio comparison [3]</div>
 </div>
 
+<a name="2.2"></a>
 ### 2.2. Recording Technique
 
 Sounds are recorded by a tetrahedron microphone, which contains 4 capsules pointing toward 4 different directions (fig 2.1), to get 4-channel monophonic A-format. This is converted into 4-channel B-format, encoding the directional information of a given three-dimensional sound field to four channels called W, X, Y, Z using mathematical formula (fig 2.2)
@@ -71,8 +76,10 @@ The microphone we utilized is called Sennheiser Ambeo VR Mic, an application is 
 <div class="thecap">Fig. 1. Stereo sound and 3D audio comparison [3]</div>
 </div>
 
+<a name="3"></a>
 ## 3. Development
 
+<a name="3.1"></a>
 ### 3.1. Web Application, voice-based interaction
 
 The Ambisonic sound capsules have been encoded in 360 videos, recorded by Garmin Virb 360 Video Camera, using Facebook 360 Encoder (image on the right) and deployed on YouTube. To upload 360 videos with 3D audio on YouTube, the audio must be a 4 channels B-format with first-order ambiX, ACN ordering, and SN3D normalization. This will make the video compatible with VR mode, allowing users to use Google Cardboard or Oculus Rift to navigate and change direction. The video can also be rotated by sliding the video using a mouse or using WASD keys on the keyboard or using the controller on the top left of the video
@@ -99,6 +106,7 @@ Users can interact with the interface using either voice or text commands and th
 <div class="thecap">Fig. 4. Web application interface </div> Link to Web Demo: https://dunglai.github.io/COM/index.html
 </div>
 
+<a name="3.2"></a>
 ### 3.2. Desktop Application, external Headtracker integrated on headphone
 
 A Desktop application is also being developed using Max/MSP, a visual programming language, to explore the use of headtracking, allowing the tracking of yaw-pitch-roll value that determine the orientation of the head/body. This value is used to change sound field and generate directional narration. 
@@ -122,6 +130,7 @@ The implementation of Hedrot headtracker and desktop application is done in Max/
 <div class="thecap">Fig. 6. Desktop application interface </div>
 </div>
 
+<a name="3.3"></a>
 ### 3.3. Mobile Application, rotation capability using on device sensor
 
 In the process of building a proof of concept in a variety of platforms, an Android application was developed, allowing users to experience immersive spatial audio recorded in various locations on Flinders Street Station. The application is capable of changing soundfield using hardware-based sensors which are physical components built into a handset or tablet device. Specifically, data is extracted from the geomagnetic field sensor in combination with the accelerometer using android sensor API [8] to determine a device's position relative to the magnetic north pole, this orientation data in quaternion format is then passed through Google VR audio engine to rotate Ambisonic soundfield.
@@ -218,21 +227,24 @@ public class MainActivity extends Activity {
 }
 ```
 
+<a name="4"></a>
 ## 4. User Experience Testing 
 
 The information being delivered by the app is refined constantly during the project to ensure that users will be benefited by the given information. A small consultation has been made with [Lil Deverell](http://www.lildeverell.net/) – an orientation and mobility specialist with the aim of improving the quality of the overall system. It is suggested to add doppler effect in the platform, showing when and where trains are going, the transition between locations, the sound of cane, GPS sequence instructions in linear order. These factors will help users develop mental mapping skills. Furthermore, videos should be captured at different time of day and ideally, in crowded and pressure environment, crossroad route should also be recorded. This will prepare them with the real pressure of navigating around the city on their own and reduce their stress.
 
 Improvement could also be done to existing directional description. The information provided need to have learned elements. The users should be notified when their orientation is perpendicular to the train lines or aligned with the train direction. Information such as tactile pavers and objects they can hear in real-time is also beneficial in making educated guesses. Information is not restricted to visual, non-visual cue such as smells, materials, temperature, wind, light pulse (for people with low vision), lift, entrance point, coffee shop sounds, barrier, reflect sound, consistent sound, and toilet. Additionally, information about the structure of the area will help users to get the big picture. Another significant detail that help reducing stress is preparing them to find convenient spots to wait for someone, this could be corners, spots where low vision people can lean on, solid objects that they can touch, and balance surface, this prevents them from standing on the way of other people. Lastly, the source of assistance is also as important as other factors.
 
-
+<a name="5"></a>
 ## 5. Technical Challanges
 
 Currently, the existing feature of the system has many technical aspects that need to be investigated. The Ambisonic playback on mobile application produces some form of white noise when the sound fields are being changed, audio processing techniques can be applied to reduce the level of white noise (the mixture of different frequency). Voice recognition and gesture recognition are useful features of the mobile application, it helps people with vision impairment interact with the application without other sources of assistance. Each Ambisonic B-format file contains 4 channels with high fidelity sound quality, this leads to the increase in memory if files are encoded in the Android app itself. However, the Android application has limited heap space, other approaches such as uploading sound files to the cloud and let users download them individually can solve the problem. Currently, users must put their Android device horizontally to correctly rotate the sound field, this is not effective and unusual for users. The application should allow users to point the device toward the directions that they want to rotate into. 
 
+<a name="6"></a>
 ## 6. Acknowledgement
 
 The authors would like to thank Stuart Favilla, David Sly, Lil Deverell, Denny Myer and other faculty members of Swinburne University as well as other summer internship students for providing insight and expertise and equipment that greatly assisted the research and development.
 
+<a name="7"></a>
 ## 7. Reference
 
 [1]	Open Innovation Competition on Accessibility [http://www.melbourne.vic.gov.au/about-melbourne/melbourne-profile/smart-city/Pages/innovation-competition-city-accessibility.aspx]
@@ -254,6 +266,6 @@ The authors would like to thank Stuart Favilla, David Sly, Lil Deverell, Denny M
 [9]  Hedrot headtracker [https://abaskind.github.io/hedrot/] 
 
 
-[Download Technical Report in PDF](/public/post-assets/NavigationTrainer/TechnicalReport.pdf)
+[**Download Technical Report in PDF**](/public/post-assets/NavigationTrainer/TechnicalReport.pdf)
 
-[Download Poster](/public/post-assets/NavigationTrainer/poster.pdf)
+[**Download Poster**](/public/post-assets/NavigationTrainer/poster.pdf)
