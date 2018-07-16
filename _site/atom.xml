@@ -4,13 +4,65 @@
  <title>Dung Lai</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2018-06-28T01:37:33+10:00</updated>
+ <updated>2018-07-16T20:04:26+10:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Dung Lai</name>
    <email>tuandunglai@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Interactive Visualisation</title>
+   <link href="http://localhost:4000/2018/07/10/cars-visualisation/"/>
+   <updated>2018-07-10T00:00:00+10:00</updated>
+   <id>http://localhost:4000/2018/07/10/cars-visualisation</id>
+   <content type="html">&lt;h1 id=&quot;click-here-to-open-web-based-visualition&quot;&gt;&lt;a href=&quot;https://dunglai.github.io/SwinWork/cars-visual/index.html&quot;&gt;Click here to open web-based visualition&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;&lt;strong&gt;The visualisation is tested in FireFox browser only&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://github.com/DungLai/dunglai.github.io/blob/master/SwinWork/cars-visual/example_vis.png&quot; alt=&quot;Example of the visualization&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/DungLai/dunglai.github.io/blob/master/SwinWork/cars-visual&quot;&gt;Click here for source code&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Framework: &lt;a href=&quot;https://d3js.org/&quot;&gt;D3js&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;This visualization is developed upon the work of Mariano Trebino, University of Girona, 2015.&lt;/p&gt;
+
+&lt;p&gt;Developed further by Tuan Dung Lai, Swinburne University of Technology, Australia, 2018.&lt;/p&gt;
+
+&lt;h3 id=&quot;d3-cars-dataset-visualization&quot;&gt;d3 Cars dataset visualization&lt;/h3&gt;
+
+&lt;p&gt;The primary question that could be answered by the visualisation is what types of car a brand normally makes and how the price and other factor of the cars are correlated.&lt;/p&gt;
+
+&lt;p&gt;The visualisation allows users to analyze the different between products of various cars companies, including prices, brands and specification. Cars enthusiasts can research into the details of parts in a car and how they are related.&lt;/p&gt;
+
+&lt;p&gt;People who wish to buy cars can have better understanding of price range and specialization of varied brands in the car market.&lt;/p&gt;
+
+&lt;h3 id=&quot;plots&quot;&gt;Plots&lt;/h3&gt;
+
+&lt;p&gt;This visualization uses a Parallel Coordinates Plot and Scatter Plot as the main plot and then three secondary plots: two donuts and one data table (SlickGrid library). All these plots all linked and synchronized. Any modification in any plot is translated to the others.&lt;/p&gt;
+
+&lt;h3 id=&quot;exploration&quot;&gt;Exploration&lt;/h3&gt;
+
+&lt;p&gt;I provide many tools to explore the data. Try hovering the donuts, or the data table. Brush the parallel coordinates plot or sort the table!&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Checkbox area above the parallel coordinates plot lets users add or remove variables from the diagram.&lt;/li&gt;
+  &lt;li&gt;Scatter plot on the right utilizes the spare space and let users compare specific variables&lt;/li&gt;
+  &lt;li&gt;Dropdown menu lets users customize the variables for scatter plot.&lt;/li&gt;
+  &lt;li&gt;Brush filter technique is still applied when users change variables. In other words, users can highlight the range of data to visualize.&lt;/li&gt;
+  &lt;li&gt;Table data is updated regularly upon changes from the diagram.&lt;/li&gt;
+  &lt;li&gt;Scatter plot will change when the selected data from parallel coordinates plot is changed.&lt;/li&gt;
+  &lt;li&gt;Data points from scatter plot can be hovered and the corresponding data will be highlighted in the other diagram.&lt;/li&gt;
+  &lt;li&gt;Color scheme is consistent on both graphs and the table.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;data&quot;&gt;Data&lt;/h3&gt;
+
+&lt;p&gt;The data used in this example is contained in the folder assets/data in .csv format and can be found &lt;a href=&quot;http://archive.ics.uci.edu/ml/datasets/Automobile&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Journey Preparation Tool Project</title>
