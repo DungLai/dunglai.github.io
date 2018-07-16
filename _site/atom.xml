@@ -4,7 +4,7 @@
  <title>Dung Lai</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2018-07-16T21:44:59+10:00</updated>
+ <updated>2018-07-16T21:47:11+10:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Dung Lai</name>
@@ -21,7 +21,7 @@
 
 &lt;p&gt;&lt;strong&gt;The visualisation is tested in FireFox browser only&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://github.com/DungLai/dunglai.github.io/blob/master/SwinWork/cars-visual/example_vis.png&quot; alt=&quot;example&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../public/post-assets/CarsVisualisation/example_vis.png&quot; alt=&quot;example&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://github.com/DungLai/dunglai.github.io/blob/master/SwinWork/cars-visual&quot;&gt;Click here for source code&lt;/a&gt;&lt;/p&gt;
 
