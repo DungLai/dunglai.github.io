@@ -9,7 +9,7 @@ img  : ../public/post-assets/CarsVisualisation/title.png
 
 **The visualisation is tested in FireFox browser only**
 
-![Example of the visualization](https://github.com/DungLai/dunglai.github.io/blob/master/SwinWork/cars-visual/example_vis.png)
+<img src="https://github.com/DungLai/dunglai.github.io/blob/master/SwinWork/cars-visual/example_vis.png" alt="example">
 
 [Click here for source code](https://github.com/DungLai/dunglai.github.io/blob/master/SwinWork/cars-visual)
 
