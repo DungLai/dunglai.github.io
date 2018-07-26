@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Linked List &middot; Dung Lai
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+  <!-- <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110006044-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-110006044-1');
+  </script> 
+
+  <!-- toogle button -->
+  <script>
+  function myFunction() {
+      var x = document.getElementById("myDIV");
+      if (x.style.display === "none") {
+          x.style.display = "block";
+      } else {
+          x.style.display = "none";
+      }
+  }
+  </script>
+  
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>A personal website of <a href="https://dunglai.github.io/about" target="">Dung Lai</a>, containing technical blog on technology.</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Home</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+    
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about/">About</a>
+        
+      
+    
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+    
+    <span class="sidebar-nav-item">Currently v1.0.0</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2018. All rights reserved.
+    </p>
+  </div>
+</div>
+
+ 
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">Dung Lai</a>
+            <small>blog</small>             
+          </h3>
+        </div>
+      </div>
+      
+      <link rel="stylesheet" href="/public/css/blog-index.css">
+
+<nav>
+	<div class='blog-wrapper'>
+		<div class='blog-index'>
+			<strong><u>Machine learning</u></strong></br>
+				<li><a href='https://dunglai.github.io/2018/01/25/SVD/'>7. Singular Value Decomposition</a></li>
+				<li><a href='https://dunglai.github.io/2017/12/21/gradient-descent/'>6. Gradient Descent</a></li>
+				<li><a href='https://dunglai.github.io/2017/12/09/k-nearest-neighbors/'>5. K Nearest Neighbors</a></li>
+				<li><a href='https://dunglai.github.io/2017/10/10/linear-regression/'>4. Linear Regression</a></li>
+				<li><a href='https://dunglai.github.io/2017/09/21/FlappyBirdAI/'>3. AI for flappy bird game (Neural Network, Genetic Algorithm)</a></li>
+				<li><a href='https://dunglai.github.io/2017/06/10/image-compression/'>2. Image Segmentation using K-Means</a></li>
+				<li><a href='https://dunglai.github.io/2017/06/01/k-means/'>1. K-Means Clustering</a></li>
+			<strong><u>Data Structure and Algorithm</u></strong></br>
+				<li><a href='https://dunglai.github.io/2018/07/10/cars-visualisation/'>5. Interactive Visualisation</a></li>	
+			<strong><u>Other</u></strong></br>
+				<li><a href='https://dunglai.github.io/2018/07/10/cars-visualisation/'>5. Interactive Visualisation</a></li>
+				<li><a href='https://dunglai.github.io/2017/06/30/mongodbmapping/'>4. Mapping MySQL to MongoDB</a></li>
+				<li><a href='https://dunglai.github.io/2017/06/27/UniversityMySQL/'>3. University MySQL DB</a></li>
+				<li><a href='https://dunglai.github.io/2017/05/27/Planetary-Rover/'>2. Planetary Rover Game (C#, Winform)</a></li>
+				<li><a href='https://dunglai.github.io/2017/03/01/Music-Player/'>1. Music Player (Pascal)</a></li>
+			<strong><u>Project</u></strong></br>
+				<li><a href='https://dunglai.github.io/2018/04/09/NavigationTrainer/'>1. Journey Preparation Tool</a></li>
+		</div>
+	</div>
+</nav>
+
+      <div class="container content">
+        <div class="post">
+  <h1 style="font-size: 130%;" class="post-title">Linked List</h1>
+  <span class="post-date" style="float:none;">26 Jul 2018</span>
+  
+  <h1 id="comparing-array-and-linked-list">Comparing Array and Linked List</h1>
+
+<h3 id="1-array">1. Array</h3>
+
+<p>Fixed size, contain elements of same  data type. 
+When array is full, we need to create a new array with double the size and free the memory for former array.
+Insertion and deletion make almost all element moved/shifted</p>
+
+<ol>
+  <li>Access: read/write element at any position: O(1) - best thing about array</li>
+  <li>Insert, worst case is insert at the first position so all elements are shifted: O(n), insert at last position costs O(1)</li>
+  <li>Remove, remove first element cost O(n) and remove last element costs O(1)</li>
+  <li>Add, when array reaches max size, we need to copy all elements into new array: O(n), when not max size, it costs O(1)</li>
+</ol>
+
+<h3 id="2-linked-list">2. Linked list</h3>
+
+<p>Linked list is non-consecutive nodes in memory, each node stores the actual data and the link to the next node (the address of the next node).</p>
+
+<p>Good thing is that each node cost small memory and all nodes doesnt take a long chunk in memory.</p>
+
+<p>Althought the total memory is a bit larger (carry a pointer every element), if data is big, carrying a pointer is not a big deal</p>
+
+<p>First node: Head node, this gives access of completed list
+Last node: Does not point to any node. So if we want to access an element in between, we need to start to ask the first node.</p>
+
+<ol>
+  <li>Access: O(n)</li>
+  <li>Insert O(1), indexing (finding the node) is O(n)</li>
+</ol>
+
+<p>Implementation:</p>
+
+<p>These implementations are done individually and independent to each other</p>
+
+<ol>
+  <li>size() - returns number of data elements in list - O(n)</li>
+  <li>is_empty() - bool returns true if empty - O(1)</li>
+  <li>value_at(index) - returns the value of the nth item (starting at 0 for first) O(n)</li>
+  <li>push_front(value) - adds an item to the front of the list O(1)</li>
+  <li>pop_front() - remove front item and return its value O(1)</li>
+  <li>push_back(value) - adds an item at the end O(1)</li>
+  <li>pop_back() - removes end item and returns its value O(n)</li>
+  <li>front() - get value of front item O(1)</li>
+  <li>back() - get value of end item O(1)</li>
+  <li>insert(index, value) - insert value at index, so current item at that index is pointed to by new item at index O(n)</li>
+  <li>erase(index) - removes node at given index O(n)</li>
+  <li>search(value) - return an a list containing the indexes of every items that match the value O(n)</li>
+  <li>reverse() - reverses the list, reverse_recursion() - reverse the list using recursion O(n)</li>
+  <li>clear() - empty the list O(1)</li>
+  <li>search() - search list and return the array that containt the position of the value that matched, index start at 0 O(n)</li>
+</ol>
+
+<h2 id="implementation">Implementation</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">ListNode</span><span class="p">:</span>
+    <span class="s">"ListNode class, each node has data and the reference to the next node"</span>
+    
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span>
+        <span class="bp">self</span><span class="o">.</span><span class="nb">next</span> <span class="o">=</span> <span class="bp">None</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">SingleLinkedList</span><span class="p">:</span>
+    <span class="s">"class for single linked list: each node contain reference to next node"</span>
+    
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s">"A LinkedList only has first node and last node "</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">head</span> <span class="o">=</span> <span class="bp">None</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">tail</span> <span class="o">=</span> <span class="bp">None</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">def</span> <span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s">"count the number of list items"</span>
+        
+        <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span> 
+        <span class="n">current_node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span>
+        
+        <span class="k">while</span> <span class="n">current_node</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">current_node</span> <span class="o">=</span> <span class="n">current_node</span><span class="o">.</span><span class="nb">next</span>
+        
+        <span class="k">return</span> <span class="n">count</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">def</span> <span class="nf">is_empty</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s">"check if the list is empty or not"</span>
+        
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">False</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">def</span> <span class="nf">value_at</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+        <span class="s">"return the value of the nth element, index start at 0"</span>
+        
+        <span class="n">current_index</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">current_node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span>
+        
+        <span class="k">while</span> <span class="n">current_node</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">current_index</span> <span class="o">==</span> <span class="n">index</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">current_node</span><span class="o">.</span><span class="n">data</span>
+            
+            <span class="n">current_index</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">current_node</span> <span class="o">=</span> <span class="n">current_node</span><span class="o">.</span><span class="nb">next</span>
+            
+        <span class="k">return</span> <span class="s">"Error: Index out of range"</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">def</span> <span class="nf">push_front</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="s">"push an item to the front of the list"</span>
+         
+        <span class="c"># convert data type of item to ListNode data type</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">ListNode</span><span class="p">):</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="n">ListNode</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        
+        <span class="c"># when list is empty</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">head</span> <span class="o">=</span> <span class="n">value</span>
+            <span class="k">return</span> 
+        
+        <span class="c"># when list has one element, has to fix tail when add new element</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">tail</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tail</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tail</span><span class="o">.</span><span class="nb">next</span> <span class="o">=</span> <span class="bp">None</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">head</span> <span class="o">=</span> <span class="n">value</span>
+            <span class="n">value</span><span class="o">.</span><span class="nb">next</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tail</span>
+            <span class="k">return</span>
+        
+        <span class="c"># when list has at least 2 element</span>
+        <span class="n">value</span><span class="o">.</span><span class="nb">next</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">head</span> <span class="o">=</span> <span class="n">value</span> 
+        
+        <span class="k">return</span> 
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">def</span> <span class="nf">pop_front</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s">"remove front item and return its value"</span>
+        
+        <span class="c"># when list is empty, return None, list remains unchanged</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">None</span>
+        
+        <span class="c"># when list has 1 item, return head value and remove head of list</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">tail</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">head_value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span><span class="o">.</span><span class="n">data</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">head</span> <span class="o">=</span> <span class="bp">None</span>
+            <span class="k">return</span> <span class="n">head_value</span>
+        
+        <span class="c"># when list has 2 items, return head value and remove head from list</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span><span class="o">.</span><span class="nb">next</span> <span class="ow">is</span> <span class="bp">self</span><span class="o">.</span><span class="n">tail</span><span class="p">:</span>
+            <span class="n">head_value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span><span class="o">.</span><span class="n">data</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">head</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tail</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">head</span><span class="o">.</span><span class="nb">next</span> <span class="o">=</span> <span class="bp">None</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tail</span> <span class="o">=</span> <span class="bp">None</span>
+            <span class="k">return</span> <span class="n">head_value</span>
+        
+        <span class="c"># when list has 3 items</span>
+        <span class="n">head_value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span><span class="o">.</span><span class="n">data</span>
+            
+        <span class="c"># change head position of linked list</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">head</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span><span class="o">.</span><span class="nb">next</span>
+        
+        <span class="k">return</span> <span class="n">head_value</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">def</span> <span class="nf">push_back</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+        <span class="s">"add item to end of list"</span>
+        
+        <span class="c"># convert data type of item to ListNode data type</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">ListNode</span><span class="p">):</span>
+            <span class="n">item</span> <span class="o">=</span> <span class="n">ListNode</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+        
+        <span class="c"># when list is empty then the value being added becomes head, otherwise it becomes </span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">head</span> <span class="o">=</span> <span class="n">item</span>
+            <span class="k">return</span>
+        <span class="c"># when list has 1 item</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">tail</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tail</span> <span class="o">=</span> <span class="n">item</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">head</span><span class="o">.</span><span class="nb">next</span> <span class="o">=</span> <span class="n">item</span>
+            <span class="k">return</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tail</span><span class="o">.</span><span class="nb">next</span> <span class="o">=</span> <span class="n">item</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tail</span> <span class="o">=</span> <span class="n">item</span> 
+            <span class="k">return</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">def</span> <span class="nf">pop_back</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s">"removes end item and returns its value"</span>
+        
+        <span class="c"># edge case</span>
+        <span class="c"># when list is empty</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">head</span> <span class="o">=</span> <span class="bp">None</span>
+            <span class="k">return</span> <span class="bp">None</span>
+        
+        <span class="c"># when list has 1 item, head is the last element</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">tail</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">head_value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span><span class="o">.</span><span class="n">data</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">head</span> <span class="o">=</span> <span class="bp">None</span>
+            <span class="k">return</span> <span class="n">head_value</span>
+        
+        <span class="c"># when list has 2 items, remove tail and return it</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span><span class="o">.</span><span class="nb">next</span> <span class="ow">is</span> <span class="bp">self</span><span class="o">.</span><span class="n">tail</span><span class="p">:</span>
+            <span class="n">tail_value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tail</span><span class="o">.</span><span class="n">data</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tail</span> <span class="o">=</span> <span class="bp">None</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">head</span><span class="o">.</span><span class="nb">next</span> <span class="o">=</span> <span class="bp">None</span>
+            <span class="k">return</span> <span class="n">tail_value</span>
+        
+        <span class="c"># when list has at least 3 items</span>
+        <span class="n">previous_node</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="n">current_node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span>
+        
+        <span class="c"># traverse the whole list to get the last node</span>
+        <span class="k">while</span> <span class="n">current_node</span><span class="o">.</span><span class="nb">next</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">previous_node</span> <span class="o">=</span> <span class="n">current_node</span>
+            <span class="n">current_node</span> <span class="o">=</span> <span class="n">current_node</span><span class="o">.</span><span class="nb">next</span>
+        
+        <span class="n">tail_value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tail</span><span class="o">.</span><span class="n">data</span>
+        
+        <span class="c"># current_node.next is none when current_node is the last node</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tail</span> <span class="o">=</span> <span class="n">previous_node</span>
+        <span class="n">previous_node</span><span class="o">.</span><span class="nb">next</span> <span class="o">=</span> <span class="bp">None</span>
+            
+        <span class="k">return</span> <span class="n">tail_value</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">def</span> <span class="nf">front</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s">"get value of front item"</span>
+        
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">None</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span><span class="o">.</span><span class="n">data</span>
+    
+    <span class="k">def</span> <span class="nf">back</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s">"get value of end item"</span>
+        
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">tail</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">None</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">tail</span><span class="o">.</span><span class="n">data</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="s">"insert value at index, put value at position index so current item at that index is pointed to the new item at index, index starts at 0"</span>
+        
+        <span class="n">success_msg</span> <span class="o">=</span> <span class="s">"Node inserted succesfully at index </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="n">index</span>
+        <span class="n">fail_msg</span> <span class="o">=</span> <span class="s">"Error: index </span><span class="si">%</span><span class="s">s out of range, unable to insert"</span> <span class="o">%</span> <span class="n">index</span>
+        
+        <span class="c"># convert value to ListNode type if not already</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">ListNode</span><span class="p">):</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="n">ListNode</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        
+        <span class="c"># edge case: list is empty, there will be no next node</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">index</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">head</span> <span class="o">=</span> <span class="n">value</span>
+                <span class="k">return</span> <span class="n">success_msg</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">fail_msg</span>
+        
+        <span class="c"># when list has 1 item, we have to fix tail</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">tail</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span> 
+            <span class="c"># insert to head</span>
+            <span class="k">if</span> <span class="n">index</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">tail</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">head</span> <span class="o">=</span> <span class="n">value</span>
+                <span class="n">value</span><span class="o">.</span><span class="nb">next</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tail</span>
+                <span class="k">return</span> <span class="n">success_msg</span>
+            
+            <span class="c"># insert to tail</span>
+            <span class="k">if</span> <span class="n">index</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">tail</span> <span class="o">=</span> <span class="n">value</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">head</span><span class="o">.</span><span class="nb">next</span> <span class="o">=</span> <span class="n">value</span>
+                <span class="k">return</span> <span class="n">success_msg</span>
+        
+        <span class="c"># when list has at least 2 items, put value in the position index </span>
+        <span class="n">current_index</span> <span class="o">=</span> <span class="mi">0</span> 
+
+        <span class="n">previous_node</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="n">current_node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span>
+        
+        <span class="k">while</span> <span class="n">current_node</span><span class="o">.</span><span class="nb">next</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="c"># insert to head</span>
+            <span class="k">if</span> <span class="n">index</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">value</span><span class="o">.</span><span class="nb">next</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">head</span> <span class="o">=</span> <span class="n">value</span>
+                <span class="k">return</span> <span class="n">success_msg</span>
+            
+            <span class="c"># insert to the middle of the list</span>
+            <span class="k">if</span> <span class="n">current_index</span> <span class="o">==</span> <span class="n">index</span><span class="p">:</span>
+                <span class="c"># insert new node</span>
+                <span class="n">previous_node</span><span class="o">.</span><span class="nb">next</span> <span class="o">=</span> <span class="n">value</span>
+                <span class="n">value</span><span class="o">.</span><span class="nb">next</span> <span class="o">=</span> <span class="n">current_node</span>
+                <span class="k">return</span> <span class="n">success_msg</span>
+            
+            <span class="c"># increment index</span>
+            <span class="n">current_index</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">previous_node</span> <span class="o">=</span> <span class="n">current_node</span>
+            <span class="n">current_node</span> <span class="o">=</span> <span class="n">current_node</span><span class="o">.</span><span class="nb">next</span>
+            
+        <span class="c"># when current_node.next is none, it mean we have traversed the whole list insert to tail</span>
+        <span class="k">if</span> <span class="n">current_node</span><span class="o">.</span><span class="nb">next</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">and</span> <span class="n">current_index</span> <span class="o">==</span> <span class="n">index</span><span class="p">:</span>
+            <span class="n">current_node</span><span class="o">.</span><span class="nb">next</span> <span class="o">=</span> <span class="n">value</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tail</span> <span class="o">=</span> <span class="n">value</span>
+            <span class="k">return</span> <span class="n">success_msg</span>
+        
+        <span class="k">return</span> <span class="n">fail_msg</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">def</span> <span class="nf">print</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s">"outputs all value of list"</span>
+        
+        <span class="n">current_node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span>
+        
+        <span class="k">while</span> <span class="n">current_node</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">current_node</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">' '</span><span class="p">)</span>
+            <span class="n">current_node</span> <span class="o">=</span> <span class="n">current_node</span><span class="o">.</span><span class="nb">next</span>
+        
+        <span class="k">print</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">def</span> <span class="nf">erase</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+        <span class="s">"remove a node from the list by its position, change the referece of the node that point to them to the reference of next node from the deleted node, unrefereced data will be taken by python garbage collector"</span>
+        
+        <span class="n">success_msg</span> <span class="o">=</span> <span class="s">"Node deleted successfully at index </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="n">index</span>
+        <span class="n">fail_msg</span> <span class="o">=</span> <span class="s">"Error: index </span><span class="si">%</span><span class="s">s out of range, unable to delete"</span> <span class="o">%</span><span class="n">index</span>
+        
+        <span class="c"># When list is empty </span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">fail_msg</span>
+        
+        <span class="c"># When list has 1 item</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">tail</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">index</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">head</span> <span class="o">=</span> <span class="bp">None</span>
+                <span class="k">return</span> <span class="n">success_msg</span>
+        
+        <span class="c"># When list has 2 items, has to remove tail</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span><span class="o">.</span><span class="nb">next</span> <span class="ow">is</span> <span class="bp">self</span><span class="o">.</span><span class="n">tail</span><span class="p">:</span>
+            <span class="c"># when erase head</span>
+            <span class="k">if</span> <span class="n">index</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">head</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tail</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">head</span><span class="o">.</span><span class="nb">next</span> <span class="o">=</span> <span class="bp">None</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">tail</span> <span class="o">=</span> <span class="bp">None</span>
+                <span class="k">return</span> <span class="n">success_msg</span>
+            <span class="c"># when erase tail</span>
+            <span class="k">if</span> <span class="n">index</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">tail</span> <span class="o">=</span> <span class="bp">None</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">head</span><span class="o">.</span><span class="nb">next</span> <span class="o">=</span> <span class="bp">None</span>
+                <span class="k">return</span> <span class="n">success_msg</span>
+            
+            <span class="k">return</span> <span class="n">fail_msg</span>
+        
+        <span class="c"># when list has at least 3 items</span>
+        
+        <span class="n">current_index</span> <span class="o">=</span> <span class="mi">0</span>
+        
+        <span class="n">previous_node</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="n">current_node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span>
+        
+        <span class="k">while</span> <span class="n">current_node</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">current_index</span> <span class="o">==</span> <span class="n">index</span><span class="p">:</span> 
+                
+                <span class="c"># when erase the first node</span>
+                <span class="k">if</span> <span class="n">previous_node</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span> <span class="c"># if current_node is head</span>
+        
+                    <span class="c"># when erase first node, the second node become the head</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">head</span> <span class="o">=</span> <span class="n">current_node</span><span class="o">.</span><span class="nb">next</span>
+                
+                    <span class="c"># remove the current node to free memory</span>
+                    <span class="n">current_node</span> <span class="o">=</span> <span class="bp">None</span>
+                    
+                    <span class="k">return</span> <span class="n">success_msg</span>
+                
+                <span class="c"># when erase last node</span>
+                <span class="k">if</span> <span class="n">current_node</span><span class="o">.</span><span class="nb">next</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span> <span class="c"># if current_node is tail</span>
+                    <span class="n">previous_node</span><span class="o">.</span><span class="nb">next</span> <span class="o">=</span> <span class="bp">None</span> <span class="c"># current_node will be collected by python garbage collector</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">tail</span> <span class="o">=</span> <span class="n">previous_node</span>
+                    <span class="k">return</span> <span class="n">success_msg</span>
+                    
+                <span class="c"># when erase a node in the middle of the list, change reference of the node before the one being deleted</span>
+                <span class="n">previous_node</span><span class="o">.</span><span class="nb">next</span> <span class="o">=</span> <span class="n">current_node</span><span class="o">.</span><span class="nb">next</span>
+                
+                <span class="k">return</span> <span class="n">success_msg</span>
+            
+            <span class="n">current_index</span> <span class="o">+=</span><span class="mi">1</span>
+            <span class="n">previous_node</span> <span class="o">=</span> <span class="n">current_node</span>
+            <span class="n">current_node</span> <span class="o">=</span> <span class="n">current_node</span><span class="o">.</span><span class="nb">next</span>
+        
+        <span class="k">return</span> <span class="n">fail_msg</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="s">"search list and return the array that containt the position of the value that matched, index start at 0"</span>
+        
+        <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span> 
+        
+        <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">current_node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span>
+        
+        <span class="k">while</span> <span class="n">current_node</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            
+            <span class="k">if</span> <span class="n">current_node</span><span class="o">.</span><span class="n">data</span> <span class="o">==</span> <span class="n">value</span><span class="p">:</span>
+                <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+                
+            <span class="n">index</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">current_node</span> <span class="o">=</span> <span class="n">current_node</span><span class="o">.</span><span class="nb">next</span>
+            
+        <span class="k">return</span> <span class="n">results</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">def</span> <span class="nf">reverse</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s">"reverse the referencing order of linked list using iterative method"</span>
+        
+        <span class="n">previous_node</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="n">current_node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">tail</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span>
+        
+        <span class="k">while</span> <span class="n">current_node</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            
+            <span class="c"># store next node because the pointer to the next node will be change after that</span>
+            <span class="n">next_node</span> <span class="o">=</span> <span class="n">current_node</span><span class="o">.</span><span class="nb">next</span>
+            
+            <span class="c"># change pointer of each node to the previous node</span>
+            <span class="n">current_node</span><span class="o">.</span><span class="nb">next</span> <span class="o">=</span> <span class="n">previous_node</span>
+            
+            <span class="c"># shift the position of current and previous node</span>
+            <span class="n">previous_node</span> <span class="o">=</span> <span class="n">current_node</span>
+            <span class="n">current_node</span> <span class="o">=</span> <span class="n">next_node</span>
+        
+        <span class="c"># previous node is the last node, make it the head of single linked list</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">head</span> <span class="o">=</span> <span class="n">previous_node</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">def</span> <span class="nf">reverse_recursion</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">head</span><span class="p">):</span>
+        <span class="s">"reverse a linked list using recursion method given the head node"</span>
+        
+        <span class="c"># cannot use self.head instead of head because head is updated in recursion while self.head is a fixed value, self doesn't change</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">tail</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span>
+        <span class="n">current_node</span> <span class="o">=</span> <span class="n">head</span>
+        <span class="n">rest</span> <span class="o">=</span> <span class="n">current_node</span><span class="o">.</span><span class="nb">next</span>
+        
+        <span class="k">if</span> <span class="n">rest</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="c"># rest is null when current_node is the last node of the list</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tail</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">head</span> <span class="o">=</span> <span class="n">current_node</span>
+            <span class="k">return</span> 
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">reverse_recursion</span><span class="p">(</span><span class="n">rest</span><span class="p">)</span>
+        
+        <span class="c"># create a reverse the link between current_node and the next node of it</span>
+        <span class="n">current_node</span><span class="o">.</span><span class="nb">next</span><span class="o">.</span><span class="nb">next</span> <span class="o">=</span> <span class="n">current_node</span>
+        
+        <span class="c"># remove the the original link</span>
+        <span class="n">current_node</span><span class="o">.</span><span class="nb">next</span> <span class="o">=</span> <span class="bp">None</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="k">def</span> <span class="nf">clear</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s">"empty the list, python garbage collector will clear unreferenced memory"</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">head</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tail</span> <span class="o">=</span> <span class="bp">None</span>
+</code></pre></div></div>
+
+<h2 id="testing">Testing</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># function for testing</span>
+
+<span class="k">def</span> <span class="nf">print_list_infor</span><span class="p">(</span><span class="nb">list</span><span class="p">):</span>
+    <span class="s">"print head,tail and the actual list"</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Front: </span><span class="si">%</span><span class="s">s, Back: </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="p">(</span><span class="nb">list</span><span class="o">.</span><span class="n">front</span><span class="p">(),</span> <span class="nb">list</span><span class="o">.</span><span class="n">back</span><span class="p">()))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Actual list: "</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+    <span class="nb">list</span><span class="o">.</span><span class="k">print</span><span class="p">()</span>
+    <span class="k">print</span><span class="p">()</span>
+
+</code></pre></div></div>
+
+<h3 id="test-size-push_front-is_empty">Test size(), push_front(), is_empty()</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">list</span> <span class="o">=</span> <span class="n">SingleLinkedList</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Size of empty list: </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="nb">list</span><span class="o">.</span><span class="n">size</span><span class="p">(),</span> <span class="n">end</span> <span class="o">=</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Is empty value: </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="nb">list</span><span class="o">.</span><span class="n">is_empty</span><span class="p">())</span>
+<span class="k">print</span><span class="p">()</span>
+
+<span class="nb">list</span><span class="o">.</span><span class="n">push_front</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">print_list_infor</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+
+<span class="nb">list</span><span class="o">.</span><span class="n">push_front</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">print_list_infor</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+
+
+<span class="k">print</span><span class="p">(</span><span class="s">"List size: </span><span class="si">%</span><span class="s">s, actual list: "</span> <span class="o">%</span> <span class="nb">list</span><span class="o">.</span><span class="n">size</span><span class="p">(),</span> <span class="n">end</span> <span class="o">=</span> <span class="s">""</span><span class="p">)</span>
+<span class="nb">list</span><span class="o">.</span><span class="k">print</span><span class="p">()</span>
+
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Size of empty list: 0
+Is empty value: True
+
+Front: 2, Back: None
+Actual list: 2 
+
+Front: 1, Back: 2
+Actual list: 1 2 
+
+List size: 2, actual list: 1 2 
+</code></pre></div></div>
+
+<h3 id="test-value_at">Test value_at()</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">print_list_infor</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"Value at index -1: </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="nb">list</span><span class="o">.</span><span class="n">value_at</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Value at index 0: </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="nb">list</span><span class="o">.</span><span class="n">value_at</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Value at index 1: </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="nb">list</span><span class="o">.</span><span class="n">value_at</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Value at index 2: </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="nb">list</span><span class="o">.</span><span class="n">value_at</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Front: 1, Back: 2
+Actual list: 1 2 
+
+Value at index -1: Error: Index out of range
+Value at index 0: 1
+Value at index 1: 2
+Value at index 2: Error: Index out of range
+</code></pre></div></div>
+
+<h3 id="test-pop_front">Test pop_front()</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">list</span><span class="o">.</span><span class="n">push_front</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">print_list_infor</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+
+
+<span class="k">print</span><span class="p">(</span><span class="s">"Value return by pop front: </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="nb">list</span><span class="o">.</span><span class="n">pop_front</span><span class="p">())</span>
+<span class="n">print_list_infor</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+
+
+<span class="k">print</span><span class="p">(</span><span class="s">"Value return by pop front: </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="nb">list</span><span class="o">.</span><span class="n">pop_front</span><span class="p">())</span>
+<span class="n">print_list_infor</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"Value return by pop front: </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="nb">list</span><span class="o">.</span><span class="n">pop_front</span><span class="p">())</span>
+<span class="n">print_list_infor</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+
+
+<span class="k">print</span><span class="p">(</span><span class="s">"Value return by pop front: </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="nb">list</span><span class="o">.</span><span class="n">pop_front</span><span class="p">())</span>
+<span class="n">print_list_infor</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Front: 3, Back: 2
+Actual list: 3 1 2 
+
+Value return by pop front: 3
+Front: 1, Back: 2
+Actual list: 1 2 
+
+Value return by pop front: 1
+Front: 2, Back: None
+Actual list: 2 
+
+Value return by pop front: 2
+Front: None, Back: None
+Actual list: 
+
+Value return by pop front: None
+Front: None, Back: None
+Actual list: 
+</code></pre></div></div>
+
+<h3 id="test-push_back">Test push_back()</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">"Actual list: "</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+<span class="n">print_list_infor</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+
+<span class="nb">list</span><span class="o">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">print_list_infor</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+
+<span class="nb">list</span><span class="o">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">print_list_infor</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Actual list: Front: None, Back: None
+Actual list: 
+
+Front: 1, Back: None
+Actual list: 1 
+
+Front: 1, Back: 2
+Actual list: 1 2 
+</code></pre></div></div>
+
+<h3 id="test-pop_back">Test pop_back()</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">list</span><span class="o">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">print_list_infor</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"Value return by pop back: </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="nb">list</span><span class="o">.</span><span class="n">pop_back</span><span class="p">())</span>
+<span class="n">print_list_infor</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"Value return by pop back: </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="nb">list</span><span class="o">.</span><span class="n">pop_back</span><span class="p">())</span>
+<span class="n">print_list_infor</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"Value return by pop back: </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="nb">list</span><span class="o">.</span><span class="n">pop_back</span><span class="p">())</span>
+<span class="n">print_list_infor</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"Value return by pop back: </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="nb">list</span><span class="o">.</span><span class="n">pop_back</span><span class="p">())</span>
+<span class="n">print_list_infor</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Front: 1, Back: 3
+Actual list: 1 2 3 
+
+Value return by pop back: 3
+Front: 1, Back: 2
+Actual list: 1 2 
+
+Value return by pop back: 2
+Front: 1, Back: None
+Actual list: 1 
+
+Value return by pop back: 1
+Front: None, Back: None
+Actual list: 
+
+Value return by pop back: None
+Front: None, Back: None
+Actual list: 
+</code></pre></div></div>
+
+<h3 id="test-front-back">Test front() back()</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">"Front: </span><span class="si">%</span><span class="s">s, Back: </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="p">(</span><span class="nb">list</span><span class="o">.</span><span class="n">front</span><span class="p">(),</span> <span class="nb">list</span><span class="o">.</span><span class="n">back</span><span class="p">()))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Actual list: "</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+<span class="nb">list</span><span class="o">.</span><span class="k">print</span><span class="p">()</span>
+<span class="k">print</span><span class="p">()</span>
+
+<span class="nb">list</span><span class="o">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Actual list: "</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+<span class="nb">list</span><span class="o">.</span><span class="k">print</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Front: </span><span class="si">%</span><span class="s">s, Back: </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="p">(</span><span class="nb">list</span><span class="o">.</span><span class="n">front</span><span class="p">(),</span> <span class="nb">list</span><span class="o">.</span><span class="n">back</span><span class="p">()))</span>
+<span class="k">print</span><span class="p">()</span>
+
+<span class="nb">list</span><span class="o">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Actual list: "</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+<span class="nb">list</span><span class="o">.</span><span class="k">print</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Front: </span><span class="si">%</span><span class="s">s, Back: </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="p">(</span><span class="nb">list</span><span class="o">.</span><span class="n">front</span><span class="p">(),</span> <span class="nb">list</span><span class="o">.</span><span class="n">back</span><span class="p">()))</span>
+<span class="k">print</span><span class="p">()</span>
+
+<span class="nb">list</span><span class="o">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Actual list: "</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+<span class="nb">list</span><span class="o">.</span><span class="k">print</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Front: </span><span class="si">%</span><span class="s">s, Back: </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="p">(</span><span class="nb">list</span><span class="o">.</span><span class="n">front</span><span class="p">(),</span> <span class="nb">list</span><span class="o">.</span><span class="n">back</span><span class="p">()))</span>
+<span class="k">print</span><span class="p">()</span>
+
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Front: None, Back: None
+Actual list: 
+
+Actual list: 3 
+Front: 3, Back: None
+
+Actual list: 3 2 
+Front: 3, Back: 2
+
+Actual list: 3 2 1 
+Front: 3, Back: 1
+</code></pre></div></div>
+
+<h2 id="test-insertindexvalue">Test insert(index,value)</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">list</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+<span class="n">print_list_infor</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">print_list_infor</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">print_list_infor</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">print_list_infor</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">print_list_infor</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">print_list_infor</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">print_list_infor</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">print_list_infor</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Front: None, Back: None
+Actual list: 
+
+Error: index -1 out of range, unable to insert
+Front: None, Back: None
+Actual list: 
+
+Error: index 1 out of range, unable to insert
+Front: None, Back: None
+Actual list: 
+
+Node inserted succesfully at index 0
+Front: 1, Back: None
+Actual list: 1 
+
+Node inserted succesfully at index 1
+Front: 1, Back: 2
+Actual list: 1 2 
+
+Node inserted succesfully at index 0
+Front: 2, Back: 2
+Actual list: 2 1 2 
+
+Node inserted succesfully at index 0
+Front: 3, Back: 2
+Actual list: 3 2 1 2 
+
+Node inserted succesfully at index 2
+Front: 3, Back: 2
+Actual list: 3 2 4 1 2 
+</code></pre></div></div>
+
+<h3 id="test-eraseindex">Test erase(index)</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">"Actual list: "</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+<span class="n">print_list_infor</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="o">.</span><span class="n">erase</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">print_list_infor</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="o">.</span><span class="n">erase</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="n">print_list_infor</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="o">.</span><span class="n">erase</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">print_list_infor</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="o">.</span><span class="n">erase</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">print_list_infor</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="o">.</span><span class="n">erase</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="n">print_list_infor</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="o">.</span><span class="n">erase</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="n">print_list_infor</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Actual list: Front: 3, Back: 2
+Actual list: 3 2 4 1 2 
+
+Node deleted successfully at index 1
+Front: 3, Back: 2
+Actual list: 3 4 1 2 
+
+Node deleted successfully at index 0
+Front: 4, Back: 2
+Actual list: 4 1 2 
+
+Error: index 3 out of range, unable to delete
+Front: 4, Back: 2
+Actual list: 4 1 2 
+
+Node deleted successfully at index 2
+Front: 4, Back: 1
+Actual list: 4 1 
+
+Node deleted successfully at index 0
+Front: 1, Back: None
+Actual list: 1 
+
+Node deleted successfully at index 0
+Front: None, Back: None
+Actual list: 
+</code></pre></div></div>
+
+<h3 id="test-reverse-reverse_recursion">Test reverse(), reverse_recursion()</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">list</span><span class="o">.</span><span class="n">push_front</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">list</span><span class="o">.</span><span class="n">push_front</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">list</span><span class="o">.</span><span class="n">push_front</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="nb">list</span><span class="o">.</span><span class="n">push_front</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="n">print_list_infor</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+
+<span class="nb">list</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"List reversing..."</span><span class="p">)</span>
+<span class="n">print_list_infor</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+
+<span class="nb">list</span><span class="o">.</span><span class="n">reverse_recursion</span><span class="p">(</span><span class="nb">list</span><span class="o">.</span><span class="n">head</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"List reversing..."</span><span class="p">)</span>
+<span class="n">print_list_infor</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Front: 5, Back: 1
+Actual list: 5 4 3 1 
+
+List reversing...
+Front: 1, Back: 5
+Actual list: 1 3 4 5 
+
+List reversing...
+Front: 5, Back: 1
+Actual list: 5 4 3 1 
+</code></pre></div></div>
+
+
+</div>
+        <!-- Start of StatCounter Code for Default Guide -->
+        <hr>
+Total visits:
+<script type="text/javascript">
+var sc_project=11553218; 
+var sc_invisible=0; 
+var sc_security="55ea133f"; 
+var sc_text=2; 
+var scJsHost = (("https:" == document.location.protocol) ?
+"https://secure." : "http://www.");
+document.write("<sc"+"ript type='text/javascript' src='" +
+scJsHost+
+"statcounter.com/counter/counter.js'></"+"script>");
+</script>
+<noscript><div class="statcounter"><a title="Web Analytics
+Made Easy - StatCounter" href="http://statcounter.com/"
+target="_blank"><img class="statcounter"
+src="//c.statcounter.com/11553218/0/55ea133f/0/" alt="Web
+Analytics Made Easy - StatCounter"></a></div></noscript>
+<!-- End of StatCounter Code for Default Guide -->
+<a href="http://statcounter.com/p11553218/?guest=1">(Powered by Statcounter)</a>
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2018/07/10/cars-visualisation/">
+            Interactive Visualisation
+            <small>10 Jul 2018</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2018/04/09/NavigationTrainer/">
+            Journey Preparation Tool Project
+            <small>09 Apr 2018</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2018/01/25/SVD/">
+            Singular Value Decomposition
+            <small>25 Jan 2018</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2017/12/21/gradient-descent/">
+            Gradient Descent
+            <small>21 Dec 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2017/12/09/k-nearest-neighbors/">
+            K Nearest Neighbors
+            <small>09 Dec 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://dunglai-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+   
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if (!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+  </body>
+
+  
+</html>
