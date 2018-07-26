@@ -4,7 +4,7 @@
  <title>Dung Lai</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2018-07-26T23:43:05+10:00</updated>
+ <updated>2018-07-26T23:46:39+10:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Dung Lai</name>
@@ -69,6 +69,7 @@ Last node: Does not point to any node. So if we want to access an element in bet
   &lt;li&gt;search() - search list and return the array that containt the position of the value that matched, index start at 0 O(n)&lt;/li&gt;
 &lt;/ol&gt;
 
+&lt;p&gt;&lt;a name=&quot;StackQueue&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&quot;short-note-on-stack-and-queue&quot;&gt;Short note on Stack and Queue&lt;/h3&gt;
 &lt;p&gt;Stack and Queue are abstract data type that has different accesing protocols.&lt;/p&gt;
 

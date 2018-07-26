@@ -51,6 +51,7 @@ These implementations are done individually and independent to each other
 14. clear() - empty the list O(1)
 15. search() - search list and return the array that containt the position of the value that matched, index start at 0 O(n)
 
+<a name="StackQueue">
 ### Short note on Stack and Queue
 Stack and Queue are abstract data type that has different accesing protocols.
 
