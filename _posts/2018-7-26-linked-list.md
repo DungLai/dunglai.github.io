@@ -1,6 +1,6 @@
 ---
 layout : post
-title :	Linked List
+title :	Linked List, Stack, Queue
 desc : <div class="tag">Data Structure</div><div class="tag">Python</div></br>An implementation of linked list data structure from scratch. 15 different opperations are implemented in python with test case for each operation.
 img  : ../public/post-assets/DataStructure/LinkedList/title.gif
 ---
@@ -8,9 +8,7 @@ img  : ../public/post-assets/DataStructure/LinkedList/title.gif
 <a href="https://github.com/DungLai/dunglai.github.io/blob/master/public/post-assets/DataStructure/LinkedList/Linked_List.ipynb"><strong>Download Jupyter/IPython Notebook here</strong></a>
 
 # Comparing Array and Linked List
-
 ### 1. Array
-
 Fixed size, contain elements of same  data type. 
 When array is full, we need to create a new array with double the size and free the memory for former array.
 Insertion and deletion make almost all element moved/shifted
@@ -21,7 +19,6 @@ Insertion and deletion make almost all element moved/shifted
 4. Add, when array reaches max size, we need to copy all elements into new array: O(n), when not max size, it costs O(1)
 
 ### 2. Linked list
-
 Linked list is non-consecutive nodes in memory, each node stores the actual data and the link to the next node (the address of the next node). 
 
 Good thing is that each node cost small memory and all nodes doesnt take a long chunk in memory.
@@ -53,6 +50,22 @@ These implementations are done individually and independent to each other
 13. reverse() - reverses the list, reverse_recursion() - reverse the list using recursion O(n)
 14. clear() - empty the list O(1)
 15. search() - search list and return the array that containt the position of the value that matched, index start at 0 O(n)
+
+### Short note on Stack and Queue
+Stack and Queue are abstract data type that has different accesing protocols.
+
+Stack: Imagine a stack of paper. The last piece put into the stack is on the top, so it is the first one to come out. This is LIFO. Adding a piece of paper is called "pushing", and removing a piece of paper is called "popping".
+
+Queue: Imagine a queue at the store. The first person in line is the first person to get out of line. This is FIFO. A person getting into line is "enqueued", and a person getting out of line is "dequeued".
+
+Enqueue O(1), Dequeue O(1). When implementing with linked list, enqueue (adding data) happens at tail and dequeue (removing data) happens at head. This ensure that no traversal is needed for both operation.
+
+Priority Queue: This can be implemented using linked list, each node store a number that represent the priority of the node.
+
+<div class="imgcap">
+	<img style="display: inline-block; width: 90%;" src ="/public/post-assets/DataStructure/StackAndQueue/fig1.PNG" width = "500" align = "center">
+	<div class="thecap">Fig 1: Stack and Queue difference<br></div>
+</div>
 
 ## Implementation
 

@@ -11,7 +11,7 @@
 
   <title>
     
-      Linked List &middot; Dung Lai
+      Linked List, Stack, Queue &middot; Dung Lai
     
   </title>
 
@@ -158,15 +158,13 @@
 
       <div class="container content">
         <div class="post">
-  <h1 style="font-size: 130%;" class="post-title">Linked List</h1>
+  <h1 style="font-size: 130%;" class="post-title">Linked List, Stack, Queue</h1>
   <span class="post-date" style="float:none;">26 Jul 2018</span>
   
-  <p><a href="https://github.com/DungLai/dunglai.github.io/blob/master/public/post-assets/DataStructure/LinkedList/Linked_List.ipynb"><strong>Download Jupyter/IPython Notebook here<strong>&lt;/a&gt;</strong></strong></a></p>
+  <p><a href="https://github.com/DungLai/dunglai.github.io/blob/master/public/post-assets/DataStructure/LinkedList/Linked_List.ipynb"><strong>Download Jupyter/IPython Notebook here</strong></a></p>
 
 <h1 id="comparing-array-and-linked-list">Comparing Array and Linked List</h1>
-
 <h3 id="1-array">1. Array</h3>
-
 <p>Fixed size, contain elements of same  data type. 
 When array is full, we need to create a new array with double the size and free the memory for former array.
 Insertion and deletion make almost all element moved/shifted</p>
@@ -179,7 +177,6 @@ Insertion and deletion make almost all element moved/shifted</p>
 </ol>
 
 <h3 id="2-linked-list">2. Linked list</h3>
-
 <p>Linked list is non-consecutive nodes in memory, each node stores the actual data and the link to the next node (the address of the next node).</p>
 
 <p>Good thing is that each node cost small memory and all nodes doesnt take a long chunk in memory.</p>
@@ -215,6 +212,22 @@ Last node: Does not point to any node. So if we want to access an element in bet
   <li>clear() - empty the list O(1)</li>
   <li>search() - search list and return the array that containt the position of the value that matched, index start at 0 O(n)</li>
 </ol>
+
+<h3 id="short-note-on-stack-and-queue">Short note on Stack and Queue</h3>
+<p>Stack and Queue are abstract data type that has different accesing protocols.</p>
+
+<p>Stack: Imagine a stack of paper. The last piece put into the stack is on the top, so it is the first one to come out. This is LIFO. Adding a piece of paper is called “pushing”, and removing a piece of paper is called “popping”.</p>
+
+<p>Queue: Imagine a queue at the store. The first person in line is the first person to get out of line. This is FIFO. A person getting into line is “enqueued”, and a person getting out of line is “dequeued”.</p>
+
+<p>Enqueue O(1), Dequeue O(1). When implementing with linked list, enqueue (adding data) happens at tail and dequeue (removing data) happens at head. This ensure that no traversal is needed for both operation.</p>
+
+<p>Priority Queue: This can be implemented using linked list, each node store a number that represent the priority of the node.</p>
+
+<div class="imgcap">
+	<img style="display: inline-block; width: 90%;" src="/public/post-assets/DataStructure/StackAndQueue/fig1.PNG" width="500" align="center" />
+	<div class="thecap">Fig 1: Stack and Queue difference<br /></div>
+</div>
 
 <h2 id="implementation">Implementation</h2>
 

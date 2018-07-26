@@ -4,7 +4,7 @@
  <title>Dung Lai</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2018-07-26T23:22:38+10:00</updated>
+ <updated>2018-07-26T23:43:05+10:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Dung Lai</name>
@@ -13,16 +13,14 @@
 
  
  <entry>
-   <title>Linked List</title>
+   <title>Linked List, Stack, Queue</title>
    <link href="http://localhost:4000/2018/07/26/linked-list/"/>
    <updated>2018-07-26T00:00:00+10:00</updated>
    <id>http://localhost:4000/2018/07/26/linked-list</id>
    <content type="html">&lt;p&gt;&lt;a href=&quot;https://github.com/DungLai/dunglai.github.io/blob/master/public/post-assets/DataStructure/LinkedList/Linked_List.ipynb&quot;&gt;&lt;strong&gt;Download Jupyter/IPython Notebook here&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;comparing-array-and-linked-list&quot;&gt;Comparing Array and Linked List&lt;/h1&gt;
-
 &lt;h3 id=&quot;1-array&quot;&gt;1. Array&lt;/h3&gt;
-
 &lt;p&gt;Fixed size, contain elements of same  data type. 
 When array is full, we need to create a new array with double the size and free the memory for former array.
 Insertion and deletion make almost all element moved/shifted&lt;/p&gt;
@@ -35,7 +33,6 @@ Insertion and deletion make almost all element moved/shifted&lt;/p&gt;
 &lt;/ol&gt;
 
 &lt;h3 id=&quot;2-linked-list&quot;&gt;2. Linked list&lt;/h3&gt;
-
 &lt;p&gt;Linked list is non-consecutive nodes in memory, each node stores the actual data and the link to the next node (the address of the next node).&lt;/p&gt;
 
 &lt;p&gt;Good thing is that each node cost small memory and all nodes doesnt take a long chunk in memory.&lt;/p&gt;
@@ -71,6 +68,22 @@ Last node: Does not point to any node. So if we want to access an element in bet
   &lt;li&gt;clear() - empty the list O(1)&lt;/li&gt;
   &lt;li&gt;search() - search list and return the array that containt the position of the value that matched, index start at 0 O(n)&lt;/li&gt;
 &lt;/ol&gt;
+
+&lt;h3 id=&quot;short-note-on-stack-and-queue&quot;&gt;Short note on Stack and Queue&lt;/h3&gt;
+&lt;p&gt;Stack and Queue are abstract data type that has different accesing protocols.&lt;/p&gt;
+
+&lt;p&gt;Stack: Imagine a stack of paper. The last piece put into the stack is on the top, so it is the first one to come out. This is LIFO. Adding a piece of paper is called “pushing”, and removing a piece of paper is called “popping”.&lt;/p&gt;
+
+&lt;p&gt;Queue: Imagine a queue at the store. The first person in line is the first person to get out of line. This is FIFO. A person getting into line is “enqueued”, and a person getting out of line is “dequeued”.&lt;/p&gt;
+
+&lt;p&gt;Enqueue O(1), Dequeue O(1). When implementing with linked list, enqueue (adding data) happens at tail and dequeue (removing data) happens at head. This ensure that no traversal is needed for both operation.&lt;/p&gt;
+
+&lt;p&gt;Priority Queue: This can be implemented using linked list, each node store a number that represent the priority of the node.&lt;/p&gt;
+
+&lt;div class=&quot;imgcap&quot;&gt;
+	&lt;img style=&quot;display: inline-block; width: 90%;&quot; src=&quot;/public/post-assets/DataStructure/StackAndQueue/fig1.PNG&quot; width=&quot;500&quot; align=&quot;center&quot; /&gt;
+	&lt;div class=&quot;thecap&quot;&gt;Fig 1: Stack and Queue difference&lt;br /&gt;&lt;/div&gt;
+&lt;/div&gt;
 
 &lt;h2 id=&quot;implementation&quot;&gt;Implementation&lt;/h2&gt;
 
