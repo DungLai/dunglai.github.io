@@ -4,7 +4,7 @@
  <title>Dung Lai</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2018-07-26T23:12:35+10:00</updated>
+ <updated>2018-07-26T23:19:56+10:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Dung Lai</name>
@@ -17,7 +17,9 @@
    <link href="http://localhost:4000/2018/07/26/linked-list/"/>
    <updated>2018-07-26T00:00:00+10:00</updated>
    <id>http://localhost:4000/2018/07/26/linked-list</id>
-   <content type="html">&lt;h1 id=&quot;comparing-array-and-linked-list&quot;&gt;Comparing Array and Linked List&lt;/h1&gt;
+   <content type="html">&lt;p&gt;&lt;a href=&quot;https://github.com/DungLai/dunglai.github.io/blob/master/public/post-assets/DataStructure/LinkedList/Linked_List.ipynb&quot;&gt;&lt;strong&gt;Download Jupyter/IPython Notebook here&lt;strong&gt;&amp;lt;/a&amp;gt;&lt;/strong&gt;&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;comparing-array-and-linked-list&quot;&gt;Comparing Array and Linked List&lt;/h1&gt;
 
 &lt;h3 id=&quot;1-array&quot;&gt;1. Array&lt;/h3&gt;
 
