@@ -5,7 +5,7 @@ desc : <div class="tag">Data Structure</div><div class="tag">Python</div></br>An
 img  : ../public/post-assets/DataStructure/LinkedList/title.gif
 ---
 
-<a href="https://github.com/DungLai/dunglai.github.io/blob/master/public/post-assets/DataStructure/LinkedList/Linked_List.ipynb"><strong>Download Jupyter/IPython Notebook here<strong></a>
+<a href="https://github.com/DungLai/dunglai.github.io/blob/master/public/post-assets/DataStructure/LinkedList/Linked_List.ipynb"><strong>Download Jupyter/IPython Notebook here</strong></a>
 
 # Comparing Array and Linked List
 
