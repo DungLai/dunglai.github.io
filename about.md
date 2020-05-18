@@ -20,5 +20,3 @@ Facebook: https://www.facebook.com/dung.lai.733
 Linkedin: https://www.linkedin.com/in/tuandunglai/
 
 Github: https://github.com/DungLai
-
-[**Download CV**](https://dunglai.github.io/public/post-assets/About/CVLatex/CV.pdf)
