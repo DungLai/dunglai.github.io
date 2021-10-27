@@ -1,0 +1,14 @@
+#menu_text {
+	background-color:  #1abc9c;
+	text-align: center;
+	padding: 80px;
+}
+
+nav {
+	background-color: #333;
+	padding: 14px 20px;
+}
+
+nav a {
+	color: white;
+}

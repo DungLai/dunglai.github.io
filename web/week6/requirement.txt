@@ -1,0 +1,53 @@
+Tạo 2 trang website đăng kí lớp học:
+
+A. register.html (trang đăng kí)
+B. payment.html (trang thanh toán)
+
+----
+
+A. register.html:
+
+Đây là trang đăng kí gồm form đăng kí để người dùng điền thông tin và chọn lớp học, trang này gồm các mục sau đây:
+
+1. Firstname 
+2. Lastname 
+3. Email
+4. Phone number
+5. Age 
+6. Status (chỉ chọn 1: highschool, university, working hoặc retired)
+7. Courses (có thể chọn nhiều trong 6 lớp học của Dũng)
+
+Sau đây là các điều kiện cần thỏa mãn, nếu không thỏa mãn, người dùng sẽ không submit được form, trang web sẽ hiển thị lỗi và yêu cầu người dùng nhập lại:
+
+R1: Firstname và Lastname chỉ gồm các chữ cái, không được có số hoặc kí tự đặc biệt, tổng số kí tự phải dưới 30
+
+R2: Email phải có kí tự @
+
+R3: Phone number phải bắt đầu bởi +84 hoặc 0, sau đó là 9 hoặc 10 chữ số
+
+R4: Age phải là số nguyên, tối đa là 150
+
+R5: Nếu phần education là highschool thì age bắt buộc phải nhỏ hơn hoặc bằng 18
+
+R6: Number of Student là số nguyên
+
+B. payment.html 
+
+Trang này hiển thị những thông tin được người dùng nhập từ trang register.html, thông tin được chuyển từ register.html sang payment.html bằng session storage
+
+Trang payment hiển thị tổng số tiền phải trả, số tiền được cộng dồn từ các lớp học mà người dùng đăng kí ở trang trước, ngoài ra có thêm các logic sau:
+
+1. Giảm giá 20% nếu người dùng đăng kí 3 lớp hoặc hơn
+2. Giảm 10% nếu người đăng kí là đang ở highschool 
+
+Dưới mục tổng số tiền phải thanh toán, người dùng chọn một phương thức thanh toán (paypal, chuyển qua thẻ, hoặc tự gửi vào số tài khoản) và được nhập discount code.
+
+1. Nếu người dùng chọn paypal, tăng tổng giá tiền lên 5%
+2. Nếu discount code họ nhập là DLLT thì giảm 30% toàn bộ
+
+Sau khi người dùng chọn phương thức thanh toán và nhập discount code ở trang payment, submit toàn bộ form data lên https://dunglailaptrinh.com/api.php bằng phương thức POST để hiện thị toàn bộ các mục đó dưới dạng table.
+
+
+Nếu bạn là lập trình viên đi làm thuê hoặc đang cần nhờ người làm web thì đoạn trên gọi là requirement list (những yêu cầu cần làm), môi trường càng chuyên nghiệp, dự án càng nhiều tầng tầng lớp lớp quản lí thì requirement càng rõ ràng, còn nếu bình thường thì nó cũng sẽ chỉ đại khái như thế kia, người ta sẽ trao đổi miệng với nhau, sau đó bạn có thể đặt câu hỏi để làm rõ mọi thứ hơn, hoặc bạn có thể làm 1 bản draft để người ta xem rồi người ta cho ý kiến rồi mình sửa tiếp.
+
+Bạn có thể làm theo những yêu cầu trên, ở video tới mình sẽ làm những cái kia cùng các bạn nhé!
