@@ -1,0 +1,9 @@
+CREATE TABLE student (
+	student_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	name VARCHAR(25) NOT NULL,
+	grade FLOAT NOT NULL,
+	class INT NOT NULL
+);
+
+
+INSERT INTO student (name, grade, class) VALUES ('Tuan Lai', 7.7, 11);
