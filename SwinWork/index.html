@@ -1,0 +1,307 @@
+
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+.wrap { padding: 1rem 0 2rem; }
+.metrics { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-bottom: 1.5rem; }
+.metric { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 14px 16px; }
+.metric-label { font-size: 12px; color: var(--color-text-secondary); margin-bottom: 6px; }
+.metric-val { font-size: 22px; font-weight: 500; color: var(--color-text-primary); }
+.metric-sub { font-size: 11px; color: var(--color-text-tertiary); margin-top: 3px; }
+.controls { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1rem 1.25rem; margin-bottom: 1.25rem; }
+.ctrl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 2rem; }
+.ctrl-row { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 0.5px solid var(--color-border-tertiary); }
+.ctrl-row:last-child { border-bottom: none; }
+.ctrl-label { font-size: 13px; color: var(--color-text-secondary); flex: 0 0 160px; }
+.ctrl-val { font-size: 13px; font-weight: 500; color: var(--color-text-primary); min-width: 70px; text-align: right; }
+.chart-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1rem 1.25rem; margin-bottom: 1.25rem; }
+.chart-title { font-size: 13px; font-weight: 500; color: var(--color-text-secondary); margin-bottom: 14px; }
+.legend { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 12px; }
+.legend-item { display: flex; align-items: center; gap: 5px; font-size: 12px; color: var(--color-text-secondary); }
+.legend-dot { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+.breakdown { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1rem 1.25rem; }
+.brow { display: flex; justify-content: space-between; align-items: center; padding: 7px 0; border-bottom: 0.5px solid var(--color-border-tertiary); font-size: 14px; }
+.brow:last-child { border-bottom: none; }
+.brow-label { color: var(--color-text-secondary); display: flex; align-items: center; gap: 8px; }
+.brow-bar-wrap { flex: 1; margin: 0 14px; height: 6px; background: var(--color-background-secondary); border-radius: 3px; overflow: hidden; }
+.brow-bar { height: 100%; border-radius: 3px; transition: width 0.3s; }
+.brow-val { font-weight: 500; color: var(--color-text-primary); min-width: 80px; text-align: right; }
+.grand { font-weight: 500; margin-top: 4px; }
+.dot { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+.fx-note { font-size: 11px; color: var(--color-text-tertiary); text-align: right; margin-bottom: 1rem; }
+</style>
+
+<div class="wrap">
+
+<p class="fx-note">All prices in AUD &nbsp;·&nbsp; FX rate: 1 USD = A$1.55 &nbsp;·&nbsp; <a href="https://www.xe.com/currencyconverter/convert/?Amount=1&From=USD&To=AUD" style="color:var(--color-text-info);font-size:11px;">check live rate</a></p>
+
+<div class="metrics">
+  <div class="metric">
+    <div class="metric-label">Total / month</div>
+    <div class="metric-val" id="m-total">A$0</div>
+    <div class="metric-sub" id="m-total-usd">USD $0</div>
+  </div>
+  <div class="metric">
+    <div class="metric-label">Cost per client</div>
+    <div class="metric-val" id="m-perclient">A$0</div>
+    <div class="metric-sub" id="m-perclient-usd">USD $0</div>
+  </div>
+  <div class="metric">
+    <div class="metric-label">Cost per call</div>
+    <div class="metric-val" id="m-percall">A$0</div>
+    <div class="metric-sub">Gemini + Twilio only</div>
+  </div>
+  <div class="metric">
+    <div class="metric-label">Suggested retainer</div>
+    <div class="metric-val" id="m-retainer">A$0</div>
+    <div class="metric-sub">2.5× per client/month</div>
+  </div>
+</div>
+
+<div class="controls">
+  <div class="ctrl-grid">
+    <div>
+      <div class="ctrl-row">
+        <span class="ctrl-label">Clients</span>
+        <input type="range" id="clients" min="1" max="20" step="1" value="3" style="flex:1;" oninput="calc()">
+        <span class="ctrl-val" id="clients-out">3</span>
+      </div>
+      <div class="ctrl-row">
+        <span class="ctrl-label">Calls / client / month</span>
+        <input type="range" id="calls" min="50" max="1000" step="50" value="200" style="flex:1;" oninput="calc()">
+        <span class="ctrl-val" id="calls-out">200</span>
+      </div>
+      <div class="ctrl-row">
+        <span class="ctrl-label">Avg call duration (min)</span>
+        <input type="range" id="dur" min="1" max="15" step="1" value="5" style="flex:1;" oninput="calc()">
+        <span class="ctrl-val" id="dur-out">5 min</span>
+      </div>
+    </div>
+    <div>
+      <div class="ctrl-row">
+        <span class="ctrl-label">Phone numbers / client</span>
+        <input type="range" id="nums" min="1" max="3" step="1" value="1" style="flex:1;" oninput="calc()">
+        <span class="ctrl-val" id="nums-out">1</span>
+      </div>
+      <div class="ctrl-row">
+        <span class="ctrl-label">Gemini model</span>
+        <select id="model" style="flex:1; font-size:13px;" onchange="calc()">
+          <option value="flash">2.5 Flash (cheapest)</option>
+          <option value="native">2.5 Flash Native Audio</option>
+          <option value="live31">3.1 Flash Live (newest)</option>
+        </select>
+      </div>
+      <div class="ctrl-row">
+        <span class="ctrl-label">Cloud Run instance</span>
+        <select id="instance" style="flex:1; font-size:13px;" onchange="calc()">
+          <option value="65.24">1 vCPU / 512MB</option>
+          <option value="130">2 vCPU / 1GB</option>
+          <option value="260">4 vCPU / 2GB</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="chart-card">
+  <div class="chart-title">Monthly cost by number of clients (AUD)</div>
+  <div class="legend">
+    <span class="legend-item"><span class="legend-dot" style="background:#185FA5;"></span>Cloud Run (fixed)</span>
+    <span class="legend-item"><span class="legend-dot" style="background:#1D9E75;"></span>Gemini API</span>
+    <span class="legend-item"><span class="legend-dot" style="background:#D85A30;"></span>Twilio calls</span>
+    <span class="legend-item"><span class="legend-dot" style="background:#888780;"></span>Twilio numbers</span>
+  </div>
+  <div style="position:relative; width:100%; height:220px;">
+    <canvas id="chart1"></canvas>
+  </div>
+</div>
+
+<div class="chart-card">
+  <div class="chart-title">Cost per client vs suggested retainer as clients grow (AUD)</div>
+  <div class="legend">
+    <span class="legend-item"><span class="legend-dot" style="background:#534AB7;"></span>Cost / client</span>
+    <span class="legend-item"><span class="legend-dot" style="background:#EF9F27;"></span>Suggested retainer (2.5×)</span>
+  </div>
+  <div style="position:relative; width:100%; height:220px;">
+    <canvas id="chart2"></canvas>
+  </div>
+</div>
+
+<div class="breakdown">
+  <div class="chart-title" style="margin-bottom:12px;">Cost breakdown at current settings (AUD)</div>
+  <div class="brow">
+    <span class="brow-label"><span class="dot" style="background:#185FA5;"></span>Cloud Run server</span>
+    <div class="brow-bar-wrap"><div class="brow-bar" id="bar-server" style="background:#185FA5;"></div></div>
+    <span class="brow-val" id="v-server">A$0</span>
+  </div>
+  <div class="brow">
+    <span class="brow-label"><span class="dot" style="background:#1D9E75;"></span>Gemini API (all clients)</span>
+    <div class="brow-bar-wrap"><div class="brow-bar" id="bar-gemini" style="background:#1D9E75;"></div></div>
+    <span class="brow-val" id="v-gemini">A$0</span>
+  </div>
+  <div class="brow">
+    <span class="brow-label"><span class="dot" style="background:#D85A30;"></span>Twilio calls (all clients)</span>
+    <div class="brow-bar-wrap"><div class="brow-bar" id="bar-twilio" style="background:#D85A30;"></div></div>
+    <span class="brow-val" id="v-twilio">A$0</span>
+  </div>
+  <div class="brow">
+    <span class="brow-label"><span class="dot" style="background:#888780;"></span>Twilio numbers</span>
+    <div class="brow-bar-wrap"><div class="brow-bar" id="bar-numbers" style="background:#888780;"></div></div>
+    <span class="brow-val" id="v-numbers">A$0</span>
+  </div>
+  <div class="brow grand">
+    <span style="color:var(--color-text-primary);">Total / month</span>
+    <div class="brow-bar-wrap"></div>
+    <span class="brow-val" id="v-total">A$0</span>
+  </div>
+</div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const FX = 1.55;
+const TWILIO_NUM_USD = 2.50;
+const TWILIO_MIN_USD = 0.013;
+const TOKENS_PER_SEC = 25;
+const CALLER_RATIO = 0.6;
+const BOT_RATIO = 0.4;
+const MARKUP = 2.5;
+
+const MODELS = {
+  flash:  { inAudio: 1.00, outAudio: 2.50, perMin: false },
+  native: { inAudio: 3.00, outAudio: 12.00, perMin: false },
+  live31: { inMin: 0.005, outMin: 0.018, perMin: true }
+};
+
+function aud(usd) { return usd * FX; }
+function fmtAUD(usd, dec) { return 'A$' + aud(usd).toFixed(dec !== undefined ? dec : 2); }
+function fmtAUDval(audVal, dec) { return 'A$' + audVal.toFixed(dec !== undefined ? dec : 2); }
+
+function geminiCostUSD(model, durMin) {
+  const m = MODELS[model];
+  if (m.perMin) return (durMin * CALLER_RATIO * m.inMin) + (durMin * BOT_RATIO * m.outMin);
+  const secs = durMin * 60;
+  return (secs * CALLER_RATIO * TOKENS_PER_SEC / 1e6) * m.inAudio +
+         (secs * BOT_RATIO    * TOKENS_PER_SEC / 1e6) * m.outAudio;
+}
+
+function computeUSD(clients, calls, dur, nums, model, serverUSD) {
+  const perCallGemini = geminiCostUSD(model, dur);
+  const perCallTwilio = dur * TWILIO_MIN_USD;
+  const totalCalls = clients * calls;
+  const gemini  = totalCalls * perCallGemini;
+  const twilioC = totalCalls * perCallTwilio;
+  const twilioN = clients * nums * TWILIO_NUM_USD;
+  const total   = serverUSD + gemini + twilioC + twilioN;
+  return { serverUSD, gemini, twilioC, twilioN, total,
+           perCall: perCallGemini + perCallTwilio };
+}
+
+let chart1, chart2;
+
+function tickAUD(v) {
+  if (v >= 1000) return 'A$' + (v/1000).toFixed(1) + 'k';
+  return 'A$' + v.toFixed(0);
+}
+
+function initCharts() {
+  chart1 = new Chart(document.getElementById('chart1'), {
+    type: 'bar',
+    data: { labels: [], datasets: [
+      { label: 'Cloud Run', data: [], backgroundColor: '#185FA5', stack: 'a' },
+      { label: 'Gemini',    data: [], backgroundColor: '#1D9E75', stack: 'a' },
+      { label: 'Twilio calls', data: [], backgroundColor: '#D85A30', stack: 'a' },
+      { label: 'Twilio numbers', data: [], backgroundColor: '#888780', stack: 'a' }
+    ]},
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false }, tooltip: {
+        callbacks: { label: ctx => ' A$' + ctx.parsed.y.toFixed(2) }
+      }},
+      scales: {
+        x: { stacked: true, grid: { display: false }, ticks: { color: '#888780', font: { size: 11 } } },
+        y: { stacked: true, grid: { color: 'rgba(136,135,128,0.15)' }, ticks: { color: '#888780', font: { size: 11 }, callback: tickAUD } }
+      }
+    }
+  });
+
+  chart2 = new Chart(document.getElementById('chart2'), {
+    type: 'line',
+    data: { labels: [], datasets: [
+      { label: 'Cost/client', data: [], borderColor: '#534AB7', backgroundColor: 'transparent', tension: 0.3, pointRadius: 3, pointBackgroundColor: '#534AB7' },
+      { label: 'Retainer',   data: [], borderColor: '#EF9F27', backgroundColor: 'transparent', tension: 0.3, borderDash: [4,3], pointRadius: 3, pointBackgroundColor: '#EF9F27' }
+    ]},
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false }, tooltip: {
+        callbacks: { label: ctx => ' A$' + ctx.parsed.y.toFixed(2) }
+      }},
+      scales: {
+        x: { grid: { display: false }, ticks: { color: '#888780', font: { size: 11 } } },
+        y: { grid: { color: 'rgba(136,135,128,0.15)' }, ticks: { color: '#888780', font: { size: 11 }, callback: tickAUD } }
+      }
+    }
+  });
+}
+
+function calc() {
+  const clients = parseInt(document.getElementById('clients').value);
+  const calls   = parseInt(document.getElementById('calls').value);
+  const dur     = parseInt(document.getElementById('dur').value);
+  const nums    = parseInt(document.getElementById('nums').value);
+  const model   = document.getElementById('model').value;
+  const serverUSD = parseFloat(document.getElementById('instance').value);
+
+  document.getElementById('clients-out').textContent = clients;
+  document.getElementById('calls-out').textContent = calls.toLocaleString();
+  document.getElementById('dur-out').textContent = dur + ' min';
+  document.getElementById('nums-out').textContent = nums;
+
+  const c = computeUSD(clients, calls, dur, nums, model, serverUSD);
+  const totalAUD = aud(c.total);
+  const perClientAUD = totalAUD / clients;
+
+  document.getElementById('m-total').textContent = 'A$' + totalAUD.toFixed(2);
+  document.getElementById('m-total-usd').textContent = 'USD $' + c.total.toFixed(2);
+  document.getElementById('m-perclient').textContent = 'A$' + perClientAUD.toFixed(2);
+  document.getElementById('m-perclient-usd').textContent = 'USD $' + (c.total / clients).toFixed(2);
+  document.getElementById('m-percall').textContent = 'A$' + aud(c.perCall).toFixed(4);
+  document.getElementById('m-retainer').textContent = 'A$' + Math.round(perClientAUD * MARKUP);
+
+  const mx = c.total || 1;
+  const pct = v => (v / mx * 100).toFixed(1) + '%';
+  document.getElementById('v-server').textContent  = 'A$' + aud(c.serverUSD).toFixed(2);
+  document.getElementById('v-gemini').textContent  = 'A$' + aud(c.gemini).toFixed(2);
+  document.getElementById('v-twilio').textContent  = 'A$' + aud(c.twilioC).toFixed(2);
+  document.getElementById('v-numbers').textContent = 'A$' + aud(c.twilioN).toFixed(2);
+  document.getElementById('v-total').textContent   = 'A$' + totalAUD.toFixed(2);
+  document.getElementById('bar-server').style.width  = pct(c.serverUSD);
+  document.getElementById('bar-gemini').style.width  = pct(c.gemini);
+  document.getElementById('bar-twilio').style.width  = pct(c.twilioC);
+  document.getElementById('bar-numbers').style.width = pct(c.twilioN);
+
+  const maxClients = Math.max(20, clients + 5);
+  const steps = Array.from({ length: maxClients }, (_, i) => i + 1);
+
+  chart1.data.labels = steps.map(n => n + (n === 1 ? ' client' : ''));
+  chart1.data.datasets[0].data = steps.map(n => parseFloat(aud(computeUSD(n, calls, dur, nums, model, serverUSD).serverUSD).toFixed(2)));
+  chart1.data.datasets[1].data = steps.map(n => parseFloat(aud(computeUSD(n, calls, dur, nums, model, serverUSD).gemini).toFixed(2)));
+  chart1.data.datasets[2].data = steps.map(n => parseFloat(aud(computeUSD(n, calls, dur, nums, model, serverUSD).twilioC).toFixed(2)));
+  chart1.data.datasets[3].data = steps.map(n => parseFloat(aud(computeUSD(n, calls, dur, nums, model, serverUSD).twilioN).toFixed(2)));
+  chart1.update();
+
+  chart2.data.labels = steps.map(n => n + '');
+  chart2.data.datasets[0].data = steps.map(n => {
+    const t = aud(computeUSD(n, calls, dur, nums, model, serverUSD).total);
+    return parseFloat((t / n).toFixed(2));
+  });
+  chart2.data.datasets[1].data = steps.map(n => {
+    const t = aud(computeUSD(n, calls, dur, nums, model, serverUSD).total);
+    return parseFloat((t / n * MARKUP).toFixed(2));
+  });
+  chart2.update();
+}
+
+initCharts();
+calc();
+</script>
